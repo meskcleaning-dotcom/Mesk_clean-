@@ -1,0 +1,6 @@
+{
+  "name": "شركة مسك كلين | Mesk Clean",
+  "description": "مسك كلين شركة تنظيف بجدة، مكة المكرمة، ورابغ لخدمات تنظيف المنازل والفلل والمكاتب وتركيب شبك وطارد الحمام وغسيل المكيفات وعزل الخزانات ومكافحة القوارض باحترافية.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
