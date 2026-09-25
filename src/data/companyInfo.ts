@@ -7,10 +7,10 @@ export const COMPANY_INFO = {
   workingHours: 'على مدار الساعة: 24/7 طوال أيام الأسبوع',
   workingHoursEn: 'Available 24/7 Round the Clock (All Days)',
   phone1: {
-    display: '0547161157',
-    tel: 'tel:+966547161157',
-    waNumber: '966547161157',
-    waUrl: 'https://wa.me/966547161157'
+    display: '0547161147',
+    tel: 'tel:+966547161147',
+    waNumber: '966547161147',
+    waUrl: 'https://wa.me/966547161147'
   },
   phone2: {
     display: '0510649490',
