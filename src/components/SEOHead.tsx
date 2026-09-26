@@ -21,18 +21,12 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   useEffect(() => {
     // 1. Dynamic Page Title tailored to the city or general
     const cityTitle = language === 'ar' ? currentCity.metaTitleAr : currentCity.metaTitleEn;
-    const defaultTitleAr = 'شركة تنظيف بجدة ومكة ورابغ | عزل خزانات ومكافحة قوارض مسك كلين';
-    const defaultTitleEn = 'Cleaning & Pest Control Services in Jeddah, Makkah & Rabigh | Mesk Clean';
-    
-    const baseTitle = customTitle || (isCityRoute ? cityTitle : (language === 'ar' ? defaultTitleAr : defaultTitleEn));
+    const baseTitle = customTitle || cityTitle;
     document.title = baseTitle;
 
     // 2. Dynamic Meta Description tailored to the city
     const cityDesc = language === 'ar' ? currentCity.metaDescAr : currentCity.metaDescEn;
-    const defaultDescAr = 'مسك كلين: أفضل شركة تنظيف منازل وفلل، عزل خزانات، غسيل مكيفات، مكافحة القوارض والزواحف، وتركيب شبك حمام في جدة، مكة المكرمة، ورابغ بأحدث المعدات وأفضل الأسعار.';
-    const defaultDescEn = 'Mesk Clean: Premier cleaning services, tank insulation, AC wash, rodent control, and bird spikes installation across Jeddah, Makkah, and Rabigh with certified warranty.';
-    
-    const baseDesc = customDescription || (isCityRoute ? cityDesc : (language === 'ar' ? defaultDescAr : defaultDescEn));
+    const baseDesc = customDescription || cityDesc;
 
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
