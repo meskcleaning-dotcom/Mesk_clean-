@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MessageCircle, MapPin, Instagram, Facebook, Share2, Lock } from 'lucide-react';
+import { Phone, MessageCircle, MapPin, Instagram, Facebook, Share2, Lock, Building2 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyInfo';
 import { SERVICES_DATA } from '../data/servicesData';
 import { useLanguage } from '../context/LanguageContext';
@@ -7,11 +7,12 @@ import { getStoredCompanySettings } from '../data/store';
 
 interface FooterProps {
   onSelectService: (serviceId: string) => void;
+  onOpenCityPage?: (cityId: 'jeddah' | 'rabigh' | 'makkah') => void;
   onOpenAdmin?: () => void;
   onOpenLegal?: (type: 'privacy' | 'terms') => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onSelectService, onOpenAdmin, onOpenLegal }) => {
+export const Footer: React.FC<FooterProps> = ({ onSelectService, onOpenCityPage, onOpenAdmin, onOpenLegal }) => {
   const { language, t } = useLanguage();
   const company = getStoredCompanySettings();
 
@@ -86,7 +87,7 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService, onOpenAdmin, on
             </div>
           </div>
 
-          {/* Quick Links (Cols 5-6) */}
+          {/* Quick Links & City Pages (Cols 5-6) */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="text-base font-bold text-slate-900 dark:text-white border-b border-cyan-500/30 pb-2">
               {t('footer.quickLinks')}
@@ -103,23 +104,57 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService, onOpenAdmin, on
                 </a>
               </li>
               <li>
-                <a href="#why-us" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
-                  {t('nav.whyUs')}
+                <a href="#cities" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+                  {language === 'ar' ? 'المدن والمناطق' : 'Cities'}
                 </a>
               </li>
-              <li>
-                <a href="#testimonials" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
-                  {t('nav.testimonials')}
+              {/* Dedicated City Links for SEO and Direct Access */}
+              <li className="pt-1 border-t border-slate-200 dark:border-slate-800 flex flex-col gap-1.5">
+                <a
+                  href="#jeddah"
+                  onClick={(e) => {
+                    if (onOpenCityPage) {
+                      e.preventDefault();
+                      onOpenCityPage('jeddah');
+                    }
+                  }}
+                  className="text-cyan-600 dark:text-cyan-400 font-bold hover:underline"
+                >
+                  {language === 'ar' ? '• خدماتنا في جدة' : '• Services in Jeddah'}
                 </a>
-              </li>
-              <li>
-                <a href="#faq" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
-                  {t('nav.faq')}
+                <a
+                  href="#makkah"
+                  onClick={(e) => {
+                    if (onOpenCityPage) {
+                      e.preventDefault();
+                      onOpenCityPage('makkah');
+                    }
+                  }}
+                  className="text-cyan-600 dark:text-cyan-400 font-bold hover:underline"
+                >
+                  {language === 'ar' ? '• خدماتنا في مكة المكرمة' : '• Services in Makkah'}
+                </a>
+                <a
+                  href="#rabigh"
+                  onClick={(e) => {
+                    if (onOpenCityPage) {
+                      e.preventDefault();
+                      onOpenCityPage('rabigh');
+                    }
+                  }}
+                  className="text-cyan-600 dark:text-cyan-400 font-bold hover:underline"
+                >
+                  {language === 'ar' ? '• خدماتنا في رابغ' : '• Services in Rabigh'}
                 </a>
               </li>
               <li>
                 <a href="#booking" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
                   {t('nav.bookNow')}
+                </a>
+              </li>
+              <li>
+                <a href="#faq" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+                  {t('nav.faq')}
                 </a>
               </li>
               <li>
@@ -234,7 +269,7 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService, onOpenAdmin, on
             )}
 
             <span className="text-slate-500 dark:text-slate-400">
-              {language === 'ar' ? 'جدة، المملكة العربية السعودية' : 'Jeddah, Saudi Arabia'}
+              {language === 'ar' ? 'جدة، مكة المكرمة، ورابغ - المملكة العربية السعودية' : 'Jeddah, Makkah & Rabigh, Saudi Arabia'}
             </span>
           </div>
         </div>

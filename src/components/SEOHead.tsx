@@ -67,7 +67,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       'logo': 'https://meskclean.com/assets/mesk-clean-official-logo-transparent.png',
       'image': 'https://meskclean.com/assets/mesk-hero.jpg',
       'description': baseDesc,
-      'telephone': '+966547161157',
+      'telephone': COMPANY_INFO.phone1.tel.replace('tel:', ''),
       'priceRange': '$$',
       'areaServed': [
         {
