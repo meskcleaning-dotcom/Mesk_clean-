@@ -20,6 +20,7 @@ import { getStoredServices } from '../data/store';
 import { ServiceItem } from '../types';
 import { ServiceDetailModal } from './ServiceDetailModal';
 import { useLanguage } from '../context/LanguageContext';
+import { useCityRoute } from '../context/CityRouteContext';
 
 const iconMap: Record<string, React.FC<{ className?: string }>> = {
   Home,
@@ -42,6 +43,7 @@ interface ServicesSectionProps {
 
 export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookService }) => {
   const { language, t } = useLanguage();
+  const { currentCity } = useCityRoute();
   const [services, setServices] = useState<ServiceItem[]>([]);
   const [activeModalService, setActiveModalService] = useState<ServiceItem | null>(null);
 
@@ -61,6 +63,18 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookService 
     return () => window.removeEventListener('mesk_store_updated', handleUpdate);
   }, []);
 
+  const adaptText = (text: string) => {
+    if (language !== 'ar') {
+      return text.replace(/\bJeddah\b/gi, currentCity.nameEn);
+    }
+    return text
+      .replace(/أحياء جدة/g, `أحياء ${currentCity.nameAr}`)
+      .replace(/بجدة/g, `بـ${currentCity.nameAr}`)
+      .replace(/في جدة/g, `في ${currentCity.nameAr}`)
+      .replace(/مدينة جدة/g, `مدينة ${currentCity.nameAr}`)
+      .replace(/أجواء جدة/g, `أجواء ${currentCity.nameAr}`);
+  };
+
   return (
     <section id="services" className="py-16 sm:py-24 relative overflow-hidden bg-slate-50/50 dark:bg-[#011427]/60">
       {/* Background accents */}
@@ -74,12 +88,15 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookService 
             <span>{t('services.badge')}</span>
           </div>
 
+          {/* Dynamic Title Tailored to Current City */}
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight mb-4">
-            {t('services.title')}
+            {language === 'ar' ? `خدماتنا في ${currentCity.nameAr}` : `Our Services in ${currentCity.nameEn}`}
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 dark:text-cyan-200/80 max-w-2xl mx-auto">
-            {t('services.subtitle')}
+            {language === 'ar'
+              ? `اختر الخدمة المناسبة لمنزلك أو منشأتك في ${currentCity.nameAr}، واطلع على التفاصيل واحجز موعدك بسهولة.`
+              : `Choose the ideal cleaning service for your property in ${currentCity.nameEn}, view details, and book easily.`}
           </p>
         </div>
 
@@ -88,8 +105,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookService 
           {services.map((service) => {
             const IconComponent = iconMap[service.iconName] || Sparkles;
             const name = language === 'ar' ? service.name : (service.nameEn || service.name);
-            const description = language === 'ar' ? service.description : (service.descriptionEn || service.description);
-            const details = language === 'ar' ? service.details : (service.detailsEn || service.details);
+            const rawDescription = language === 'ar' ? service.description : (service.descriptionEn || service.description);
+            const rawDetails = language === 'ar' ? service.details : (service.detailsEn || service.details);
+            
+            const description = adaptText(rawDescription);
+            const details = rawDetails.map(d => adaptText(d));
 
             return (
               <div
@@ -115,9 +135,9 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookService 
                       <IconComponent className="w-5 h-5" />
                     </div>
 
-                    {/* City Tag */}
-                    <span className="absolute bottom-3 start-3 px-2.5 py-1 rounded-md bg-cyan-500 text-slate-950 font-black text-xs">
-                      {language === 'ar' ? 'جدة' : 'Jeddah'}
+                    {/* Dynamic City Tag */}
+                    <span className="absolute bottom-3 start-3 px-2.5 py-1 rounded-md bg-cyan-500 text-slate-950 font-black text-xs shadow-sm">
+                      {language === 'ar' ? currentCity.nameAr : currentCity.nameEn}
                     </span>
                   </div>
 

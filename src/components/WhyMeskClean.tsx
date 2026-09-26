@@ -1,9 +1,11 @@
 import React from 'react';
 import { Users, Wrench, ShieldCheck, Clock, ThumbsUp, Award, Sparkles } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { useCityRoute } from '../context/CityRouteContext';
 
 export const WhyMeskClean: React.FC = () => {
   const { language, t } = useLanguage();
+  const { currentCity } = useCityRoute();
 
   const whyReasons = [
     {
@@ -67,7 +69,9 @@ export const WhyMeskClean: React.FC = () => {
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 dark:text-cyan-200/80 max-w-2xl mx-auto leading-relaxed">
-            {t('whyUs.subtitle')}
+            {language === 'ar'
+              ? `نلتزم بتقديم تجربة تنظيف استثنائية تجمع بين الكفاءة والاحترافية، لنكون شريكك الدائم لبيئة أنظف وأكثر راحة في ${currentCity.nameAr}.`
+              : `We are committed to delivering an exceptional cleaning experience combining efficiency and reliability across ${currentCity.nameEn}.`}
           </p>
         </div>
 
@@ -78,17 +82,15 @@ export const WhyMeskClean: React.FC = () => {
             return (
               <div
                 key={index}
-                className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#051c36] border border-slate-200 dark:border-cyan-900/40 shadow-sm hover:shadow-xl hover:shadow-cyan-500/10 transition-all duration-300 flex flex-col text-start group"
+                className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#051c36] border border-slate-200 dark:border-cyan-900/40 shadow-sm hover:shadow-md hover:border-cyan-500/40 transition-all text-start flex flex-col justify-start"
               >
-                <div className="w-12 h-12 rounded-xl bg-cyan-500/10 dark:bg-cyan-500/20 border border-cyan-500/30 text-cyan-600 dark:text-cyan-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 rounded-xl bg-cyan-500/10 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 flex items-center justify-center mb-5">
                   <IconComponent className="w-6 h-6" />
                 </div>
-
-                <h3 className="text-xl font-black text-slate-900 dark:text-white mb-3 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+                <h3 className="text-lg font-black text-slate-900 dark:text-white mb-2">
                   {item.title}
                 </h3>
-
-                <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                   {item.desc}
                 </p>
               </div>

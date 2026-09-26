@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Star, Quote, CheckCircle2, Building, User, Award } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { useCityRoute } from '../context/CityRouteContext';
 import { getStoredTestimonials } from '../data/store';
 import { TestimonialItem } from '../types';
 
 export const TestimonialsSection: React.FC = () => {
   const { language, t } = useLanguage();
+  const { currentCity } = useCityRoute();
   const [testimonials, setTestimonials] = useState<TestimonialItem[]>([]);
 
   const loadTestimonials = () => {
@@ -35,7 +37,7 @@ export const TestimonialsSection: React.FC = () => {
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight mb-3">
-            {t('testimonials.title')}
+            {language === 'ar' ? `ماذا يقول عملاؤنا في ${currentCity.nameAr}؟` : `What Our Clients in ${currentCity.nameEn} Say`}
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 dark:text-cyan-200/80">

@@ -32,7 +32,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
     { label: t('nav.testimonials'), href: '#testimonials' },
     { label: t('nav.faq'), href: '#faq' },
     { label: t('nav.blog'), href: '#blog' },
-    { label: t('nav.contact'), href: '#contact' },
+    { label: language === 'ar' ? 'فروعنا وتغطيتنا' : 'Coverage & Map', href: '#location' },
   ];
 
   const cityOptions: { id: CityId; path: string; nameAr: string; nameEn: string }[] = [

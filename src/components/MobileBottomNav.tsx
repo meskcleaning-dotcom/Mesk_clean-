@@ -1,13 +1,14 @@
 import React from 'react';
 import { Home, Sparkles, Calendar, Phone } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { COMPANY_INFO } from '../data/companyInfo';
 
 interface MobileBottomNavProps {
   onOpenBooking: () => void;
 }
 
 export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ onOpenBooking }) => {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
 
   return (
     <nav
@@ -45,13 +46,13 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ onOpenBooking 
           <span className="text-[11px] font-black mt-0.5">{t('nav.bookNow')}</span>
         </button>
 
-        {/* Contact */}
+        {/* Call Now direct action */}
         <a
-          href="#contact"
+          href={COMPANY_INFO.phone1.tel}
           className="flex flex-col items-center py-1 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 active:scale-95 transition-all"
         >
-          <Phone className="w-5 h-5" />
-          <span className="text-[11px] font-bold mt-1">{t('nav.contact')}</span>
+          <Phone className="w-5 h-5 text-cyan-500" />
+          <span className="text-[11px] font-bold mt-1">{language === 'ar' ? 'اتصال مباشر' : 'Call Now'}</span>
         </a>
       </div>
     </nav>

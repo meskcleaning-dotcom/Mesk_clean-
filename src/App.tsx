@@ -13,7 +13,6 @@ import { TestimonialsSection } from './components/TestimonialsSection';
 import { FAQSection } from './components/FAQSection';
 import { GoogleMapsSection } from './components/GoogleMapsSection';
 import { BlogSection } from './components/BlogSection';
-import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { MobileBottomNav } from './components/MobileBottomNav';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
@@ -76,7 +75,7 @@ function MainWebsite() {
         {/* Dynamic City Hero Section */}
         <Hero onOpenBooking={handleOpenBooking} />
 
-        {/* Services Section (11 Approved Services Only) */}
+        {/* Services Section (Dynamic Title per City) */}
         <ServicesSection onBookService={(serviceId) => handleOpenBooking(serviceId)} />
 
         {/* Why Mesk Clean Section (6 Approved Reasons) */}
@@ -102,9 +101,6 @@ function MainWebsite() {
 
         {/* Blog / Cleaning Guide Section */}
         <BlogSection onBookService={() => handleOpenBooking()} />
-
-        {/* Contact & Social Section */}
-        <ContactSection />
       </main>
 
       {/* Footer with quick links and Admin portal link */}

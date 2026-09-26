@@ -3,6 +3,7 @@ import { X, CheckCircle2, MessageCircle, Phone, Sparkles, ShieldCheck } from 'lu
 import { ServiceItem } from '../types';
 import { COMPANY_INFO } from '../data/companyInfo';
 import { useLanguage } from '../context/LanguageContext';
+import { useCityRoute } from '../context/CityRouteContext';
 
 interface ServiceDetailModalProps {
   service: ServiceItem | null;
@@ -16,17 +17,33 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
   onBook,
 }) => {
   const { language, t } = useLanguage();
+  const { currentCity } = useCityRoute();
 
   if (!service) return null;
 
   const serviceName = language === 'ar' ? service.name : (service.nameEn || service.name);
-  const serviceDesc = language === 'ar' ? service.description : (service.descriptionEn || service.description);
-  const serviceDetails = language === 'ar' ? service.details : (service.detailsEn || service.details);
+  
+  // Dynamically adapt descriptions that mention Jeddah if looking at Makkah or Rabigh
+  const adaptText = (text: string) => {
+    if (language !== 'ar') {
+      return text.replace(/\bJeddah\b/gi, currentCity.nameEn);
+    }
+    return text
+      .replace(/أحياء جدة/g, `أحياء ${currentCity.nameAr}`)
+      .replace(/بجدة/g, `بـ${currentCity.nameAr}`)
+      .replace(/في جدة/g, `في ${currentCity.nameAr}`)
+      .replace(/مدينة جدة/g, `مدينة ${currentCity.nameAr}`)
+      .replace(/أجواء جدة/g, `أجواء ${currentCity.nameAr}`);
+  };
+
+  const serviceDesc = adaptText(language === 'ar' ? service.description : (service.descriptionEn || service.description));
+  const rawDetails = language === 'ar' ? service.details : (service.detailsEn || service.details);
+  const serviceDetails = rawDetails.map(d => adaptText(d));
 
   const whatsappMessage = encodeURIComponent(
     language === 'ar'
-      ? `السلام عليكم ورحمة الله، أود الاستفسار وحجز خدمة (${service.name}) في جدة من شركة مسك كلين.`
-      : `Hello Mesk Clean team, I would like to inquire about and book the (${serviceName}) service in Jeddah.`
+      ? `السلام عليكم ورحمة الله، أود الاستفسار وحجز خدمة (${service.name}) في ${currentCity.nameAr} من شركة مسك كلين.`
+      : `Hello Mesk Clean team, I would like to inquire about and book the (${serviceName}) service in ${currentCity.nameEn}.`
   );
 
   return (
@@ -63,7 +80,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
           {/* Title on image */}
           <div className="absolute bottom-4 start-6 end-6 text-start">
             <span className="inline-block px-3 py-1 rounded-md bg-cyan-500 text-slate-950 text-xs font-black mb-2">
-              {language === 'ar' ? 'جدة • خدمة احترافية' : 'Jeddah • Certified Service'}
+              {language === 'ar' ? `${currentCity.nameAr} • خدمة احترافية` : `${currentCity.nameEn} • Certified Service`}
             </span>
             <h3 className="text-2xl sm:text-3xl font-black text-white">
               {serviceName}
@@ -102,39 +119,41 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
             </div>
           </div>
 
-          {/* Service features note */}
-          <div className="p-4 rounded-xl bg-cyan-50 dark:bg-cyan-950/40 border border-cyan-200 dark:border-cyan-500/30 text-xs sm:text-sm text-slate-700 dark:text-cyan-200 leading-relaxed">
-            {t('modal.proNote')}
+          {/* Guarantee banner */}
+          <div className="p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-800 dark:text-cyan-200 text-xs sm:text-sm font-bold flex items-center gap-3">
+            <ShieldCheck className="w-5 h-5 text-cyan-500 shrink-0" />
+            <span>
+              {language === 'ar'
+                ? `ضمان معتمد على جودة الخدمة لجميع عملائنا الكرام في ${currentCity.nameAr}.`
+                : `Certified quality guarantee for all our valued customers in ${currentCity.nameEn}.`}
+            </span>
           </div>
 
-          {/* Action buttons */}
-          <div className="pt-4 border-t border-slate-200 dark:border-cyan-900/40 flex flex-col sm:flex-row items-center gap-3">
+          {/* Action CTAs */}
+          <div className="pt-2 flex flex-col sm:flex-row gap-3">
             <button
-              onClick={() => {
-                onClose();
-                onBook(service.id);
-              }}
-              className="w-full sm:flex-1 py-3 px-5 rounded-xl font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 shadow-lg shadow-cyan-500/25 transition-all text-center cursor-pointer active:scale-98"
+              onClick={() => onBook(service.id)}
+              className="flex-1 py-3.5 px-5 rounded-xl font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 shadow-lg shadow-cyan-500/25 transition-all text-center cursor-pointer active:scale-95"
             >
-              {t('modal.bookNow')}
+              {t('modal.bookThisService')}
             </button>
 
             <a
-              href={`${COMPANY_INFO.phone1.waUrl}?text=${whatsappMessage}`}
+              href={`https://wa.me/966547161147?text=${whatsappMessage}`}
               target="_blank"
               rel="noreferrer"
-              className="w-full sm:w-auto py-3 px-5 rounded-xl font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 transition-all flex items-center justify-center gap-2"
+              className="inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-xl font-bold text-white bg-emerald-600 hover:bg-emerald-500 shadow-md transition-all active:scale-95 cursor-pointer"
             >
-              <MessageCircle className="w-4 h-4 text-emerald-500" />
-              <span>{t('modal.whatsappInquiry')}</span>
+              <MessageCircle className="w-5 h-5" />
+              <span>{t('modal.quickWhatsApp')}</span>
             </a>
 
             <a
               href={COMPANY_INFO.phone1.tel}
-              className="w-full sm:w-auto py-3 px-4 rounded-xl font-bold text-slate-700 dark:text-cyan-200 bg-slate-100 dark:bg-[#071e3b] border border-slate-300 dark:border-cyan-800/40 flex items-center justify-center gap-2"
+              className="inline-flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl font-bold text-slate-700 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors"
             >
               <Phone className="w-4 h-4 text-cyan-500" />
-              <span>{t('modal.call')}</span>
+              <span>{COMPANY_INFO.phone1.display}</span>
             </a>
           </div>
         </div>

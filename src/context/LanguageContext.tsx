@@ -119,19 +119,19 @@ const translations: Record<string, { ar: string; en: string }> = {
 
   // Testimonials
   'testimonials.badge': { ar: 'ثقة نعتز بها', en: 'Customer Trust' },
-  'testimonials.title': { ar: 'ماذا يقول عملاؤنا في جدة؟', en: 'What Our Clients in Jeddah Say' },
+  'testimonials.title': { ar: 'ماذا يقول عملاؤنا؟', en: 'What Our Clients Say' },
   'testimonials.subtitle': {
-    ar: 'تجارب حقيقية من عملائنا بعد الاستفادة من خدمات التنظيف وشبك الحمام.',
+    ar: 'تجارب حقيقية من عملائنا بعد الاستفادة من خدمات التنظيف وشبك وطارد الحمام وعزل الخزانات.',
     en: 'Genuine feedback from homeowners and businesses who chose Mesk Clean.'
   },
   'testimonials.verified': { ar: 'عميل موثق', en: 'Verified Client' },
 
   // Google Maps
   'maps.badge': { ar: 'موقعنا ونطاق التغطية', en: 'Location & Service Area' },
-  'maps.title': { ar: 'تغطية شاملة لجميع أحياء جدة', en: 'Comprehensive Coverage in Jeddah' },
+  'maps.title': { ar: 'تغطية شاملة للمنطقة الغربية', en: 'Comprehensive Coverage in Western Region' },
   'maps.subtitle': {
-    ar: 'فرقنا المتنقلة تصل إلى موقعك في أي حي من أحياء جدة بسيارات مجهزة بكامل الأدوات.',
-    en: 'Our mobile crews reach your location anywhere in Jeddah with fully equipped service vehicles.'
+    ar: 'فرقنا المتنقلة تصل إلى موقعك في أي حي من الأحياء بسيارات مجهزة بكامل الأدوات.',
+    en: 'Our mobile crews reach your location anywhere with fully equipped service vehicles.'
   },
   'maps.getDirections': { ar: 'الاتجاهات عبر خرائط جوجل', en: 'Open in Google Maps' },
 
@@ -156,7 +156,7 @@ const translations: Record<string, { ar: string; en: string }> = {
 
   // Footer
   'footer.quickLinks': { ar: 'روابط سريعة', en: 'Quick Links' },
-  'footer.servicesTitle': { ar: 'خدماتنا في جدة', en: 'Our Services in Jeddah' },
+  'footer.servicesTitle': { ar: 'خدماتنا المعتمدة', en: 'Our Services' },
   'footer.contactTitle': { ar: 'معلومات التواصل', en: 'Contact Info' },
   'footer.rights': { ar: 'جميع الحقوق محفوظة © شركة مسك كلين لخدمات التنظيف', en: 'All Rights Reserved © Mesk Clean Services' },
   'footer.adminLink': { ar: 'لوحة التحكم الإدارية', en: 'Admin Portal' },
@@ -174,7 +174,7 @@ const translations: Record<string, { ar: string; en: string }> = {
   'modal.bookNow': { ar: 'احجز الخدمة الآن', en: 'Book This Service' },
   'modal.whatsappInquiry': { ar: 'استفسار واتساب', en: 'WhatsApp Inquiry' },
   'modal.call': { ar: 'اتصال', en: 'Call' },
-  'modal.helpNeeded': { ar: 'هل تحتاج إلى مساعدة فريق مسك كلين في جدة؟', en: 'Need assistance from Mesk Clean in Jeddah?' },
+  'modal.helpNeeded': { ar: 'هل تحتاج إلى مساعدة فريق مسك كلين؟', en: 'Need assistance from Mesk Clean?' },
   'modal.helpDesc': { ar: 'فريقنا مجهز بأحدث المعدات لتقديم هذه الخدمة بأعلى جودة.', en: 'Our team is ready with specialized tools to deliver exceptional results.' },
 };
 

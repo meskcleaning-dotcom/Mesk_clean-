@@ -15,7 +15,7 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onSelectService, onOpenAdmin, onOpenLegal }) => {
   const { language, t } = useLanguage();
-  const { currentCityId, navigateToCity } = useCityRoute();
+  const { currentCity, currentCityId, navigateToCity } = useCityRoute();
   const company = getStoredCompanySettings();
 
   const handleCityClick = (e: React.MouseEvent, cityId: CityId) => {
@@ -155,7 +155,7 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService, onOpenAdmin, on
           {/* Services List (Cols 7-9) */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-base font-bold text-slate-900 dark:text-white border-b border-cyan-500/30 pb-2">
-              {t('footer.servicesTitle')}
+              {language === 'ar' ? `خدماتنا في ${currentCity.nameAr}` : `Our Services in ${currentCity.nameEn}`}
             </h4>
             <div className="grid grid-cols-1 gap-2 text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-medium">
               {SERVICES_DATA.map((srv) => {
@@ -176,7 +176,7 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService, onOpenAdmin, on
           {/* Contact and Headquarters (Cols 10-12) */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-base font-bold text-slate-900 dark:text-white border-b border-cyan-500/30 pb-2">
-              {t('footer.contactTitle')}
+              {language === 'ar' ? 'معلومات التواصل' : 'Contact Information'}
             </h4>
             <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
               <a
