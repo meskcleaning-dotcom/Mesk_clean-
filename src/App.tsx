@@ -5,8 +5,6 @@ import { SEOHead } from './components/SEOHead';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { ServicesSection } from './components/ServicesSection';
-import { CityPortalsSection } from './components/CityPortalsSection';
-import { CityLandingPage } from './components/CityLandingPage';
 import { WhyMeskClean } from './components/WhyMeskClean';
 import { HowItWorks } from './components/HowItWorks';
 import { BookingForm } from './components/BookingForm';
@@ -21,72 +19,33 @@ import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { AdminDashboard } from './components/AdminDashboard';
 import { LegalModal, LegalDocType } from './components/LegalModal';
 
-type CityPageType = 'jeddah' | 'rabigh' | 'makkah' | null;
-
 function MainWebsite() {
   const { language } = useLanguage();
   const [selectedServiceForBooking, setSelectedServiceForBooking] = useState<string>('homes');
   const [selectedDistrictForBooking, setSelectedDistrictForBooking] = useState<string>('حي الروضة');
-  const [selectedCityForBooking, setSelectedCityForBooking] = useState<string>('jeddah');
-  const [activeCityPage, setActiveCityPage] = useState<CityPageType>(null);
   const [showAdmin, setShowAdmin] = useState<boolean>(false);
   const [legalModalType, setLegalModalType] = useState<LegalDocType>(null);
 
-  // Check URL hash for direct navigation (e.g. #admin, #jeddah, #makkah, #rabigh)
+  // Check URL hash for direct admin navigation e.g. #admin
   useEffect(() => {
-    const handleHash = () => {
-      const hash = window.location.hash.toLowerCase();
-      if (hash === '#admin') {
+    const checkHash = () => {
+      if (window.location.hash === '#admin') {
         setShowAdmin(true);
-        setActiveCityPage(null);
-      } else if (hash === '#jeddah') {
-        setActiveCityPage('jeddah');
-        setShowAdmin(false);
-      } else if (hash === '#makkah') {
-        setActiveCityPage('makkah');
-        setShowAdmin(false);
-      } else if (hash === '#rabigh') {
-        setActiveCityPage('rabigh');
-        setShowAdmin(false);
-      } else {
-        setShowAdmin(false);
       }
     };
-
-    handleHash();
-    window.addEventListener('hashchange', handleHash);
-    return () => window.removeEventListener('hashchange', handleHash);
+    checkHash();
+    window.addEventListener('hashchange', checkHash);
+    return () => window.removeEventListener('hashchange', checkHash);
   }, []);
 
-  const handleOpenBooking = (serviceId?: string, district?: string, cityKey?: string) => {
+  const handleOpenBooking = (serviceId?: string, district?: string) => {
     if (serviceId) setSelectedServiceForBooking(serviceId);
     if (district) setSelectedDistrictForBooking(district);
-    if (cityKey) setSelectedCityForBooking(cityKey);
-
-    // If currently on a city page, close it or scroll to booking
-    if (activeCityPage) {
-      setActiveCityPage(null);
-      window.location.hash = 'booking';
+    
+    const bookingSection = document.getElementById('booking');
+    if (bookingSection) {
+      bookingSection.scrollIntoView({ behavior: 'smooth' });
     }
-
-    setTimeout(() => {
-      const bookingSection = document.getElementById('booking');
-      if (bookingSection) {
-        bookingSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
-  };
-
-  const handleOpenCityPage = (cityId: 'jeddah' | 'rabigh' | 'makkah') => {
-    setActiveCityPage(cityId);
-    window.location.hash = cityId;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleBackToHome = () => {
-    setActiveCityPage(null);
-    window.location.hash = '';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   if (showAdmin) {
@@ -104,74 +63,51 @@ function MainWebsite() {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#010e1f] text-slate-900 dark:text-slate-100 transition-colors duration-300 flex flex-col font-tajawal">
-      {/* Header with City Links and Booking CTA */}
-      <Header
-        onOpenBooking={handleOpenBooking}
-        onOpenCityPage={handleOpenCityPage}
-      />
+      {/* Dynamic SEO Meta and Schema.org JSON-LD */}
+      <SEOHead />
 
-      {/* Conditional View: Dedicated City Landing Page OR Full Homepage */}
-      {activeCityPage ? (
-        <CityLandingPage
-          cityId={activeCityPage}
-          onSelectCity={handleOpenCityPage}
-          onOpenBooking={handleOpenBooking}
-          onBackToHome={handleBackToHome}
+      {/* Navigation Header */}
+      <Header onOpenBooking={handleOpenBooking} />
+
+      {/* Main Page Content */}
+      <main className="flex-1">
+        {/* Hero Section */}
+        <Hero onOpenBooking={handleOpenBooking} />
+
+        {/* Services Section (11 Approved Services Only) */}
+        <ServicesSection onBookService={(serviceId) => handleOpenBooking(serviceId)} />
+
+        {/* Why Mesk Clean Section (6 Approved Reasons) */}
+        <WhyMeskClean />
+
+        {/* How It Works (3 Steps) */}
+        <HowItWorks onStartBooking={() => handleOpenBooking()} />
+
+        {/* Booking Form with Security & Spam Protection */}
+        <BookingForm
+          initialServiceId={selectedServiceForBooking}
+          initialDistrict={selectedDistrictForBooking}
         />
-      ) : (
-        <>
-          {/* Dynamic Global SEO Meta and Schema.org JSON-LD */}
-          <SEOHead />
 
-          {/* Main Homepage Sections */}
-          <main className="flex-1">
-            {/* Hero Section */}
-            <Hero onOpenBooking={handleOpenBooking} />
+        {/* Customer Reviews & Testimonials */}
+        <TestimonialsSection />
 
-            {/* Services Section */}
-            <ServicesSection onBookService={(serviceId) => handleOpenBooking(serviceId)} />
+        {/* Frequently Asked Questions (FAQ) with Schema */}
+        <FAQSection />
 
-            {/* Dedicated City Portals / Coverage Landing Links Section (SEO Powerhouse) */}
-            <CityPortalsSection
-              onOpenCityPage={handleOpenCityPage}
-              onOpenBooking={handleOpenBooking}
-            />
+        {/* Google Maps and Service Coverage Area */}
+        <GoogleMapsSection />
 
-            {/* Why Mesk Clean Section */}
-            <WhyMeskClean />
+        {/* Blog / Cleaning Guide Section */}
+        <BlogSection onBookService={() => handleOpenBooking()} />
 
-            {/* How It Works (3 Steps) */}
-            <HowItWorks onStartBooking={() => handleOpenBooking()} />
+        {/* Contact & Social Section */}
+        <ContactSection />
+      </main>
 
-            {/* Booking Form with City & District Selectors & Security Anti-Spam */}
-            <BookingForm
-              initialServiceId={selectedServiceForBooking}
-              initialDistrict={selectedDistrictForBooking}
-              initialCityKey={selectedCityForBooking}
-            />
-
-            {/* Customer Reviews & Testimonials */}
-            <TestimonialsSection />
-
-            {/* Frequently Asked Questions (FAQ) with Schema */}
-            <FAQSection />
-
-            {/* Google Maps and Service Coverage Area */}
-            <GoogleMapsSection />
-
-            {/* Blog / Cleaning Guide Section */}
-            <BlogSection onBookService={() => handleOpenBooking()} />
-
-            {/* Contact & Social Section */}
-            <ContactSection />
-          </main>
-        </>
-      )}
-
-      {/* Footer with quick links, city pages, and Admin portal */}
+      {/* Footer with quick links and Admin portal link */}
       <Footer
         onSelectService={(serviceId) => handleOpenBooking(serviceId)}
-        onOpenCityPage={handleOpenCityPage}
         onOpenAdmin={() => setShowAdmin(true)}
         onOpenLegal={(type) => setLegalModalType(type)}
       />

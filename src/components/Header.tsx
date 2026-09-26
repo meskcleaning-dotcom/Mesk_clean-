@@ -6,10 +6,9 @@ import { useLanguage } from '../context/LanguageContext';
 
 interface HeaderProps {
   onOpenBooking: (serviceId?: string) => void;
-  onOpenCityPage?: (cityId: 'jeddah' | 'rabigh' | 'makkah') => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onOpenCityPage }) => {
+export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
   const { theme, toggleTheme } = useTheme();
   const { language, toggleLanguage, t } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -26,7 +25,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onOpenCityPage })
   const navLinks = [
     { label: t('nav.home'), href: '#home' },
     { label: t('nav.services'), href: '#services' },
-    { label: language === 'ar' ? 'المدن والمناطق' : 'Cities Coverage', href: '#cities' },
     { label: t('nav.whyUs'), href: '#why-us' },
     { label: t('nav.testimonials'), href: '#testimonials' },
     { label: t('nav.faq'), href: '#faq' },

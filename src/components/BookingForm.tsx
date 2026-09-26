@@ -33,19 +33,17 @@ import {
 interface BookingFormProps {
   initialServiceId?: string;
   initialDistrict?: string;
-  initialCityKey?: string;
 }
 
 export const BookingForm: React.FC<BookingFormProps> = ({
   initialServiceId,
   initialDistrict,
-  initialCityKey,
 }) => {
   const { language, t } = useLanguage();
   const services = getStoredServices().filter(s => s.active !== false);
   const company = getStoredCompanySettings();
 
-  const [selectedCityKey, setSelectedCityKey] = useState<string>(initialCityKey || 'jeddah');
+  const [selectedCityKey, setSelectedCityKey] = useState<string>('jeddah');
 
   const currentCityData = CITIES_DATA[selectedCityKey] || CITIES_DATA.jeddah;
   const currentDistricts = language === 'ar' ? currentCityData.districtsAr : currentCityData.districtsEn;
@@ -88,12 +86,6 @@ export const BookingForm: React.FC<BookingFormProps> = ({
       district: language === 'ar' ? newCity.districtsAr[0] : newCity.districtsEn[0]
     }));
   };
-
-  useEffect(() => {
-    if (initialCityKey && (initialCityKey === 'jeddah' || initialCityKey === 'makkah' || initialCityKey === 'rabigh')) {
-      handleCityChange(initialCityKey);
-    }
-  }, [initialCityKey]);
 
   useEffect(() => {
     if (initialServiceId) {
