@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
+import { CityRouteProvider, useCityRoute } from './context/CityRouteContext';
 import { SEOHead } from './components/SEOHead';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
@@ -21,8 +22,9 @@ import { LegalModal, LegalDocType } from './components/LegalModal';
 
 function MainWebsite() {
   const { language } = useLanguage();
+  const { currentCity } = useCityRoute();
   const [selectedServiceForBooking, setSelectedServiceForBooking] = useState<string>('homes');
-  const [selectedDistrictForBooking, setSelectedDistrictForBooking] = useState<string>('حي الروضة');
+  const [selectedDistrictForBooking, setSelectedDistrictForBooking] = useState<string>(() => currentCity.districtsAr[0] || 'حي الروضة');
   const [showAdmin, setShowAdmin] = useState<boolean>(false);
   const [legalModalType, setLegalModalType] = useState<LegalDocType>(null);
 
@@ -63,7 +65,7 @@ function MainWebsite() {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#010e1f] text-slate-900 dark:text-slate-100 transition-colors duration-300 flex flex-col font-tajawal">
-      {/* Dynamic SEO Meta and Schema.org JSON-LD */}
+      {/* Dynamic SEO Meta and Schema.org JSON-LD tailored per City Route */}
       <SEOHead />
 
       {/* Navigation Header */}
@@ -71,7 +73,7 @@ function MainWebsite() {
 
       {/* Main Page Content */}
       <main className="flex-1">
-        {/* Hero Section */}
+        {/* Dynamic City Hero Section */}
         <Hero onOpenBooking={handleOpenBooking} />
 
         {/* Services Section (11 Approved Services Only) */}
@@ -83,7 +85,7 @@ function MainWebsite() {
         {/* How It Works (3 Steps) */}
         <HowItWorks onStartBooking={() => handleOpenBooking()} />
 
-        {/* Booking Form with Security & Spam Protection */}
+        {/* Booking Form with City Pre-selection & Security & Spam Protection */}
         <BookingForm
           initialServiceId={selectedServiceForBooking}
           initialDistrict={selectedDistrictForBooking}
@@ -95,7 +97,7 @@ function MainWebsite() {
         {/* Frequently Asked Questions (FAQ) with Schema */}
         <FAQSection />
 
-        {/* Google Maps and Service Coverage Area */}
+        {/* Google Maps and Service Coverage Area with City Routes */}
         <GoogleMapsSection />
 
         {/* Blog / Cleaning Guide Section */}
@@ -131,7 +133,9 @@ export function App() {
   return (
     <ThemeProvider>
       <LanguageProvider>
-        <MainWebsite />
+        <CityRouteProvider>
+          <MainWebsite />
+        </CityRouteProvider>
       </LanguageProvider>
     </ThemeProvider>
   );

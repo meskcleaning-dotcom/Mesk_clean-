@@ -3,7 +3,9 @@ import { Phone, MessageCircle, MapPin, Instagram, Facebook, Share2, Lock } from 
 import { COMPANY_INFO } from '../data/companyInfo';
 import { SERVICES_DATA } from '../data/servicesData';
 import { useLanguage } from '../context/LanguageContext';
+import { useCityRoute, CityId } from '../context/CityRouteContext';
 import { getStoredCompanySettings } from '../data/store';
+import { CITIES_DATA } from '../data/citiesDistricts';
 
 interface FooterProps {
   onSelectService: (serviceId: string) => void;
@@ -13,7 +15,13 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onSelectService, onOpenAdmin, onOpenLegal }) => {
   const { language, t } = useLanguage();
+  const { currentCityId, navigateToCity } = useCityRoute();
   const company = getStoredCompanySettings();
+
+  const handleCityClick = (e: React.MouseEvent, cityId: CityId) => {
+    e.preventDefault();
+    navigateToCity(cityId);
+  };
 
   return (
     <footer className="bg-slate-100 dark:bg-slate-950 text-slate-700 dark:text-slate-300 border-t border-slate-200 dark:border-cyan-900/40 relative overflow-hidden pt-16 pb-24 lg:pb-16 transition-colors">
@@ -86,48 +94,62 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService, onOpenAdmin, on
             </div>
           </div>
 
-          {/* Quick Links (Cols 5-6) */}
-          <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-base font-bold text-slate-900 dark:text-white border-b border-cyan-500/30 pb-2">
-              {t('footer.quickLinks')}
-            </h4>
-            <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400 font-medium">
-              <li>
-                <a href="#home" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
-                  {t('nav.home')}
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
-                  {t('nav.services')}
-                </a>
-              </li>
-              <li>
-                <a href="#why-us" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
-                  {t('nav.whyUs')}
-                </a>
-              </li>
-              <li>
-                <a href="#testimonials" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
-                  {t('nav.testimonials')}
-                </a>
-              </li>
-              <li>
-                <a href="#faq" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
-                  {t('nav.faq')}
-                </a>
-              </li>
-              <li>
-                <a href="#booking" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
-                  {t('nav.bookNow')}
-                </a>
-              </li>
-              <li>
-                <a href="#blog" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
-                  {t('nav.blog')}
-                </a>
-              </li>
-            </ul>
+          {/* Quick Links & City Routes (Cols 5-6) */}
+          <div className="lg:col-span-2 space-y-4">
+            <div>
+              <h4 className="text-base font-bold text-slate-900 dark:text-white border-b border-cyan-500/30 pb-2">
+                {language === 'ar' ? 'صفحات المدن' : 'City Routes'}
+              </h4>
+              <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400 font-medium mt-2">
+                {Object.values(CITIES_DATA).map((city) => (
+                  <li key={city.id}>
+                    <a
+                      href={`/${city.id}`}
+                      onClick={(e) => handleCityClick(e, city.id as CityId)}
+                      className={`hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors flex items-center gap-1.5 ${
+                        currentCityId === city.id ? 'text-cyan-600 dark:text-cyan-400 font-bold' : ''
+                      }`}
+                    >
+                      <MapPin className="w-3.5 h-3.5 text-cyan-500" />
+                      <span>{language === 'ar' ? `شركة تنظيف ب${city.nameAr}` : `Cleaning in ${city.nameEn}`}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-sm font-bold text-slate-900 dark:text-white border-b border-slate-300 dark:border-slate-800 pb-1.5">
+                {t('footer.quickLinks')}
+              </h4>
+              <ul className="space-y-1.5 text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-medium mt-2">
+                <li>
+                  <a href="#home" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+                    {t('nav.home')}
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+                    {t('nav.services')}
+                  </a>
+                </li>
+                <li>
+                  <a href="#why-us" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+                    {t('nav.whyUs')}
+                  </a>
+                </li>
+                <li>
+                  <a href="#testimonials" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+                    {t('nav.testimonials')}
+                  </a>
+                </li>
+                <li>
+                  <a href="#faq" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+                    {t('nav.faq')}
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Services List (Cols 7-9) */}
@@ -165,77 +187,71 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService, onOpenAdmin, on
                 <span dir="ltr">{company.phone1}</span>
               </a>
 
-              <a
-                href={`tel:+966${company.phone2.replace(/^0+/, '')}`}
-                className="flex items-center gap-2 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
-              >
-                <Phone className="w-4 h-4 text-cyan-600 dark:text-cyan-400 shrink-0" />
-                <span dir="ltr">{company.phone2}</span>
-              </a>
+              {company.phone2 && (
+                <a
+                  href={`tel:+966${company.phone2.replace(/^0+/, '')}`}
+                  className="flex items-center gap-2 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+                >
+                  <Phone className="w-4 h-4 text-cyan-600 dark:text-cyan-400 shrink-0" />
+                  <span dir="ltr">{company.phone2}</span>
+                </a>
+              )}
 
               <a
-                href={`https://wa.me/${company.whatsapp}`}
+                href={COMPANY_INFO.phone1.waUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 hover:underline"
+                className="flex items-center gap-2 hover:text-emerald-500 transition-colors text-emerald-600 dark:text-emerald-400 font-semibold"
               >
                 <MessageCircle className="w-4 h-4 shrink-0" />
-                <span>{language === 'ar' ? 'واتساب مباشر على مدار الساعة' : '24/7 Direct WhatsApp'}</span>
+                <span>{language === 'ar' ? 'محادثة فورية واتساب 24/7' : 'WhatsApp Chat 24/7'}</span>
               </a>
 
-              <div className="flex items-start gap-2 text-slate-600 dark:text-slate-400 text-xs leading-relaxed pt-1">
-                <MapPin className="w-4 h-4 text-cyan-600 dark:text-cyan-500 shrink-0 mt-0.5" />
-                <span>{language === 'ar' ? company.address : company.addressEn}</span>
+              <div className="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-400 pt-1">
+                <MapPin className="w-4 h-4 text-cyan-600 dark:text-cyan-400 shrink-0 mt-0.5" />
+                <span>{language === 'ar' ? company.city : company.cityEn}</span>
               </div>
             </div>
           </div>
+
         </div>
 
-        {/* Bottom copyright, Legal & Admin links */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400 text-center sm:text-start">
-          <div>
-            {t('footer.rights')}
-          </div>
+        {/* Bottom Copyright & Admin/Legal Links */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-500">
+          <p>
+            © {new Date().getFullYear()} {language === 'ar' ? company.arabicName : company.englishName}. {t('footer.allRightsReserved')}
+          </p>
 
-          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-3 sm:gap-4">
+          <div className="flex items-center gap-4">
             {onOpenLegal && (
               <>
                 <button
-                  type="button"
                   onClick={() => onOpenLegal('privacy')}
                   className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors cursor-pointer"
                 >
-                  {t('footer.privacy')}
+                  {t('footer.privacyPolicy')}
                 </button>
-                <span className="text-slate-300 dark:text-slate-700">•</span>
+                <span>•</span>
                 <button
-                  type="button"
                   onClick={() => onOpenLegal('terms')}
                   className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors cursor-pointer"
                 >
-                  {t('footer.terms')}
+                  {t('footer.termsOfService')}
                 </button>
-                <span className="text-slate-300 dark:text-slate-700">•</span>
+                <span>•</span>
               </>
             )}
 
             {onOpenAdmin && (
-              <>
-                <button
-                  type="button"
-                  onClick={onOpenAdmin}
-                  className="inline-flex items-center gap-1.5 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors cursor-pointer"
-                >
-                  <Lock className="w-3.5 h-3.5" />
-                  <span>{t('footer.adminLink')}</span>
-                </button>
-                <span className="text-slate-300 dark:text-slate-700">•</span>
-              </>
+              <button
+                onClick={onOpenAdmin}
+                className="inline-flex items-center gap-1 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors cursor-pointer"
+                title="لوحة تحكم المشرف"
+              >
+                <Lock className="w-3 h-3 text-slate-400" />
+                <span>{language === 'ar' ? 'إدارة الطلبات' : 'Admin'}</span>
+              </button>
             )}
-
-            <span className="text-slate-500 dark:text-slate-400">
-              {language === 'ar' ? 'جدة، المملكة العربية السعودية' : 'Jeddah, Saudi Arabia'}
-            </span>
           </div>
         </div>
       </div>

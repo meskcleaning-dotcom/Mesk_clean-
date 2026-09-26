@@ -19,6 +19,7 @@ import {
   Mail
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { useCityRoute } from '../context/CityRouteContext';
 import { getStoredServices, saveStoredOrder, getStoredCompanySettings } from '../data/store';
 import { CITIES_DATA } from '../data/citiesDistricts';
 import { BookingFormData, BookingRequestRecord, CustomerType } from '../types';
@@ -40,10 +41,23 @@ export const BookingForm: React.FC<BookingFormProps> = ({
   initialDistrict,
 }) => {
   const { language, t } = useLanguage();
+  const { currentCityId } = useCityRoute();
   const services = getStoredServices().filter(s => s.active !== false);
   const company = getStoredCompanySettings();
 
-  const [selectedCityKey, setSelectedCityKey] = useState<string>('jeddah');
+  const [selectedCityKey, setSelectedCityKey] = useState<string>(currentCityId || 'jeddah');
+
+  useEffect(() => {
+    if (currentCityId) {
+      setSelectedCityKey(currentCityId);
+      const newCity = CITIES_DATA[currentCityId] || CITIES_DATA.jeddah;
+      setFormData(prev => ({
+        ...prev,
+        city: language === 'ar' ? newCity.nameAr : newCity.nameEn,
+        district: newCity.districtsAr[0] || 'حي الروضة'
+      }));
+    }
+  }, [currentCityId, language]);
 
   const currentCityData = CITIES_DATA[selectedCityKey] || CITIES_DATA.jeddah;
   const currentDistricts = language === 'ar' ? currentCityData.districtsAr : currentCityData.districtsEn;

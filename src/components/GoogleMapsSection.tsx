@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { MapPin, Navigation, Clock, Phone, Building2 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { useCityRoute, CityId } from '../context/CityRouteContext';
 import { COMPANY_INFO } from '../data/companyInfo';
 import { CITIES_DATA } from '../data/citiesDistricts';
 
 export const GoogleMapsSection: React.FC = () => {
   const { language, t } = useLanguage();
-  const [activeCityId, setActiveCityId] = useState<string>('jeddah');
+  const { currentCityId, navigateToCity } = useCityRoute();
 
-  const activeCity = CITIES_DATA[activeCityId] || CITIES_DATA.jeddah;
+  const activeCity = CITIES_DATA[currentCityId] || CITIES_DATA.jeddah;
   const districts = language === 'ar' ? activeCity.districtsAr : activeCity.districtsEn;
+
+  const handleCitySelect = (cityId: CityId) => {
+    navigateToCity(cityId, 'location');
+  };
 
   return (
     <section id="location" className="py-16 sm:py-24 relative overflow-hidden bg-slate-50 dark:bg-[#021124]">
@@ -22,25 +27,28 @@ export const GoogleMapsSection: React.FC = () => {
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight mb-3">
-            {language === 'ar' ? 'تغطية شاملة لمدن: جدة، مكة المكرمة، ورابغ' : 'Full Coverage: Jeddah, Makkah & Rabigh'}
+            {language === 'ar' ? `تغطية شاملة في ${activeCity.nameAr} وكافة مناطق الغربية` : `Comprehensive Coverage in ${activeCity.nameEn}`}
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 dark:text-cyan-200/80 mb-6">
             {language === 'ar'
-              ? 'أسطول سيارات وفنيين مجهزين بأحدث أجهزة التنظيف وعزل الخزانات ومكافحة الآفات نصلكم أينما كنتم.'
-              : 'Dedicated mobile crews and high-grade equipment delivering fast on-site services across the Western Region.'}
+              ? `أسطول سيارات وفنيين مجهزين بأحدث أجهزة التنظيف وعزل الخزانات ومكافحة الآفات نصلكم في ${activeCity.nameAr} أينما كنتم فوراً.`
+              : `Dedicated mobile crews and high-grade equipment delivering fast on-site services across ${activeCity.nameEn}.`}
           </p>
 
-          {/* Interactive City Tabs */}
+          {/* Interactive City Tabs with Direct Route Navigation */}
           <div className="inline-flex p-1.5 rounded-2xl bg-white dark:bg-[#051c36] border border-slate-200 dark:border-cyan-900/40 shadow-sm gap-1.5">
             {Object.values(CITIES_DATA).map((city) => {
-              const isActive = activeCityId === city.id;
+              const isActive = currentCityId === city.id;
               return (
-                <button
+                <a
                   key={city.id}
-                  type="button"
-                  onClick={() => setActiveCityId(city.id)}
-                  className={`px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
+                  href={`/${city.id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleCitySelect(city.id as CityId);
+                  }}
+                  className={`px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 cursor-pointer ${
                     isActive
                       ? 'bg-cyan-600 text-white shadow-md shadow-cyan-600/30'
                       : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-[#082952]'
@@ -48,7 +56,7 @@ export const GoogleMapsSection: React.FC = () => {
                 >
                   <Building2 className="w-4 h-4" />
                   <span>{language === 'ar' ? city.nameAr : city.nameEn}</span>
-                </button>
+                </a>
               );
             })}
           </div>
@@ -94,7 +102,7 @@ export const GoogleMapsSection: React.FC = () => {
                   {language === 'ar' ? `أبرز الأحياء المشمولة في ${activeCity.nameAr}:` : `Key Serviced Districts in ${activeCity.nameEn}:`}
                 </h4>
                 <div className="flex flex-wrap gap-1.5 max-h-40 overflow-y-auto pr-1">
-                  {districts.slice(0, 12).map((district, idx) => (
+                  {districts.slice(0, 15).map((district, idx) => (
                     <span
                       key={idx}
                       className="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-100 dark:bg-[#072448] text-slate-700 dark:text-cyan-200 border border-slate-200 dark:border-cyan-800/40"
@@ -156,4 +164,3 @@ export const GoogleMapsSection: React.FC = () => {
     </section>
   );
 };
-

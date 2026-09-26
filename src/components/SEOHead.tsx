@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { useCityRoute } from '../context/CityRouteContext';
 import { COMPANY_INFO } from '../data/companyInfo';
 import { getStoredFAQs, getStoredServices } from '../data/store';
 
@@ -15,18 +16,23 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   customDescription,
 }) => {
   const { language } = useLanguage();
+  const { currentCity, currentCityId, isCityRoute } = useCityRoute();
 
   useEffect(() => {
-    // 1. Dynamic Page Title
+    // 1. Dynamic Page Title tailored to the city or general
+    const cityTitle = language === 'ar' ? currentCity.metaTitleAr : currentCity.metaTitleEn;
     const defaultTitleAr = 'شركة تنظيف بجدة ومكة ورابغ | عزل خزانات ومكافحة قوارض مسك كلين';
     const defaultTitleEn = 'Cleaning & Pest Control Services in Jeddah, Makkah & Rabigh | Mesk Clean';
-    const baseTitle = customTitle || (language === 'ar' ? defaultTitleAr : defaultTitleEn);
+    
+    const baseTitle = customTitle || (isCityRoute ? cityTitle : (language === 'ar' ? defaultTitleAr : defaultTitleEn));
     document.title = baseTitle;
 
-    // 2. Dynamic Meta Description
+    // 2. Dynamic Meta Description tailored to the city
+    const cityDesc = language === 'ar' ? currentCity.metaDescAr : currentCity.metaDescEn;
     const defaultDescAr = 'مسك كلين: أفضل شركة تنظيف منازل وفلل، عزل خزانات، غسيل مكيفات، مكافحة القوارض والزواحف، وتركيب شبك حمام في جدة، مكة المكرمة، ورابغ بأحدث المعدات وأفضل الأسعار.';
     const defaultDescEn = 'Mesk Clean: Premier cleaning services, tank insulation, AC wash, rodent control, and bird spikes installation across Jeddah, Makkah, and Rabigh with certified warranty.';
-    const baseDesc = customDescription || (language === 'ar' ? defaultDescAr : defaultDescEn);
+    
+    const baseDesc = customDescription || (isCityRoute ? cityDesc : (language === 'ar' ? defaultDescAr : defaultDescEn));
 
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
@@ -36,7 +42,20 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
     }
     metaDesc.setAttribute('content', baseDesc);
 
-    // 3. OpenGraph and Twitter tags
+    // 3. Dynamic Canonical Link
+    const canonicalUrl = isCityRoute 
+      ? `https://meskclean.com/${currentCity.slug}`
+      : 'https://meskclean.com/';
+
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalLink);
+    }
+    canonicalLink.setAttribute('href', canonicalUrl);
+
+    // 4. OpenGraph and Twitter tags
     const setMeta = (attr: string, key: string, content: string) => {
       let el = document.querySelector(`meta[${attr}="${key}"]`);
       if (!el) {
@@ -49,27 +68,33 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
 
     setMeta('property', 'og:title', baseTitle);
     setMeta('property', 'og:description', baseDesc);
+    setMeta('property', 'og:url', canonicalUrl);
     setMeta('property', 'og:locale', language === 'ar' ? 'ar_SA' : 'en_US');
     setMeta('name', 'twitter:title', baseTitle);
     setMeta('name', 'twitter:description', baseDesc);
 
-    // 4. Schema.org LocalBusiness + CleaningService JSON-LD
+    // 5. Schema.org LocalBusiness + CleaningService JSON-LD (Targeted to the active city)
     const services = getStoredServices();
     const faqs = getStoredFAQs();
 
     const localBusinessSchema = {
       '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
-      '@id': 'https://meskclean.com/#business',
+      '@type': 'HomeAndConstructionBusiness',
+      '@id': `https://meskclean.com/${currentCity.slug}#business`,
       'name': language === 'ar' ? COMPANY_INFO.arabicName : COMPANY_INFO.englishName,
-      'alternateName': 'Mesk Clean Jeddah',
-      'url': 'https://meskclean.com/',
+      'alternateName': `Mesk Clean ${currentCity.nameEn}`,
+      'url': canonicalUrl,
       'logo': 'https://meskclean.com/assets/mesk-clean-official-logo-transparent.png',
       'image': 'https://meskclean.com/assets/mesk-hero.jpg',
       'description': baseDesc,
-      'telephone': '+966547161157',
+      'telephone': '+966547161147',
       'priceRange': '$$',
       'areaServed': [
+        {
+          '@type': 'City',
+          'name': currentCity.nameEn,
+          'alternateName': currentCity.nameAr
+        },
         {
           '@type': 'City',
           'name': 'Jeddah',
@@ -88,15 +113,15 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       ],
       'address': {
         '@type': 'PostalAddress',
-        'streetAddress': 'Jeddah City Districts',
-        'addressLocality': 'Jeddah',
-        'addressRegion': 'Makkah Province',
+        'streetAddress': `${currentCity.nameAr} - كافة الأحياء والمناطق`,
+        'addressLocality': currentCity.addressLocalityAr,
+        'addressRegion': 'منطقة مكة المكرمة',
         'addressCountry': 'SA'
       },
       'geo': {
         '@type': 'GeoCoordinates',
-        'latitude': 21.5433,
-        'longitude': 39.1728
+        'latitude': currentCity.geo.latitude,
+        'longitude': currentCity.geo.longitude
       },
       'openingHoursSpecification': {
         '@type': 'OpeningHoursSpecification',
@@ -120,7 +145,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       ],
       'hasOfferCatalog': {
         '@type': 'OfferCatalog',
-        'name': language === 'ar' ? 'خدمات مسك كلين بجدة' : 'Mesk Clean Services in Jeddah',
+        'name': language === 'ar' ? `خدمات مسك كلين في ${currentCity.nameAr}` : `Mesk Clean Services in ${currentCity.nameEn}`,
         'itemListElement': services.map(s => ({
           '@type': 'Offer',
           'itemOffered': {
@@ -132,7 +157,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       }
     };
 
-    // 5. Schema.org FAQPage JSON-LD
+    // 6. Schema.org FAQPage JSON-LD
     const faqSchema = {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
@@ -164,7 +189,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       document.head.appendChild(faqScript);
     }
     faqScript.textContent = JSON.stringify(faqSchema);
-  }, [language, customTitle, customDescription]);
+  }, [language, customTitle, customDescription, currentCity, currentCityId, isCityRoute]);
 
   return null;
 };

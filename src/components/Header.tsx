@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon, Sparkles, Globe } from 'lucide-react';
+import { Menu, X, Sun, Moon, Sparkles, Globe, MapPin } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyInfo';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
+import { useCityRoute, CityId } from '../context/CityRouteContext';
+import { CITIES_DATA } from '../data/citiesDistricts';
 
 interface HeaderProps {
   onOpenBooking: (serviceId?: string) => void;
@@ -11,6 +13,7 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
   const { theme, toggleTheme } = useTheme();
   const { language, toggleLanguage, t } = useLanguage();
+  const { currentCityId, navigateToCity } = useCityRoute();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -32,6 +35,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
     { label: t('nav.contact'), href: '#contact' },
   ];
 
+  const cityOptions: { id: CityId; path: string; nameAr: string; nameEn: string }[] = [
+    { id: 'jeddah', path: '/jeddah', nameAr: 'جدة', nameEn: 'Jeddah' },
+    { id: 'makkah', path: '/makkah', nameAr: 'مكة المكرمة', nameEn: 'Makkah' },
+    { id: 'rabigh', path: '/rabigh', nameAr: 'رابغ', nameEn: 'Rabigh' },
+  ];
+
+  const handleCityClick = (e: React.MouseEvent, cityId: CityId) => {
+    e.preventDefault();
+    navigateToCity(cityId);
+  };
+
   return (
     <header
       id="site-header"
@@ -46,7 +60,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
         <div className="hidden lg:flex items-center justify-between h-20">
           {/* Logo on Right (in RTL) */}
           <a
-            href="#home"
+            href={`/${currentCityId}`}
+            onClick={(e) => handleCityClick(e, currentCityId)}
             id="brand-logo-link"
             className="flex items-center group focus:outline-none py-1"
             aria-label="مسك كلين - الصفحة الرئيسية"
@@ -60,7 +75,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="flex items-center gap-6 xl:gap-8" aria-label="القائمة الرئيسية">
+          <nav className="flex items-center gap-5 xl:gap-7" aria-label="القائمة الرئيسية">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -72,8 +87,31 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
             ))}
           </nav>
 
+          {/* City Routes Selector */}
+          <div className="hidden xl:flex items-center bg-slate-100 dark:bg-[#041a33] p-1 rounded-xl border border-slate-200 dark:border-cyan-900/50">
+            {cityOptions.map((c) => {
+              const isActive = currentCityId === c.id;
+              return (
+                <a
+                  key={c.id}
+                  href={c.path}
+                  onClick={(e) => handleCityClick(e, c.id)}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1 ${
+                    isActive
+                      ? 'bg-cyan-600 text-white shadow-sm'
+                      : 'text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-300 hover:bg-slate-200/60 dark:hover:bg-[#09294f]'
+                  }`}
+                  title={language === 'ar' ? `صفحة ${c.nameAr}` : `${c.nameEn} Page`}
+                >
+                  <MapPin className={`w-3 h-3 ${isActive ? 'text-white' : 'text-cyan-500'}`} />
+                  <span>{language === 'ar' ? c.nameAr : c.nameEn}</span>
+                </a>
+              );
+            })}
+          </div>
+
           {/* Desktop Controls: Language Toggle + Day/Night Theme Toggle + Book CTA */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5">
             {/* Language Toggle */}
             <button
               id="language-toggle-desktop"
@@ -105,7 +143,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
             <button
               id="header-book-cta-desktop"
               onClick={() => onOpenBooking()}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-md shadow-cyan-500/25 hover:shadow-lg hover:shadow-cyan-500/35 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-2 px-4 xl:px-5 py-2.5 rounded-xl text-xs xl:text-sm font-bold bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-md shadow-cyan-500/25 hover:shadow-lg hover:shadow-cyan-500/35 transition-all hover:scale-105 active:scale-95 cursor-pointer"
             >
               <Sparkles className="w-4 h-4" />
               <span>{t('nav.bookNow')}</span>
@@ -117,7 +155,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
         <div className="flex lg:hidden items-center justify-between h-20">
           {/* Logo on the Right (in RTL) */}
           <a
-            href="#home"
+            href={`/${currentCityId}`}
+            onClick={(e) => handleCityClick(e, currentCityId)}
             id="brand-logo-link-mobile"
             className="flex items-center py-1"
             aria-label="مسك كلين - الصفحة الرئيسية"
@@ -178,6 +217,35 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
           id="mobile-drawer"
           className="lg:hidden bg-white/98 dark:bg-[#010e1f]/98 backdrop-blur-xl border-b border-cyan-500/20 px-5 pt-3 pb-6 animate-in slide-in-from-top-4 duration-200 shadow-2xl"
         >
+          {/* City Routes Selector in Mobile */}
+          <div className="mb-4 pb-3 border-b border-slate-200 dark:border-cyan-900/40">
+            <span className="text-xs font-bold text-cyan-600 dark:text-cyan-400 mb-2 block">
+              {language === 'ar' ? 'اختر المدينة (صفحة مستقلة):' : 'Select City (Direct Page):'}
+            </span>
+            <div className="grid grid-cols-3 gap-1.5">
+              {cityOptions.map((c) => {
+                const isActive = currentCityId === c.id;
+                return (
+                  <a
+                    key={c.id}
+                    href={c.path}
+                    onClick={(e) => {
+                      handleCityClick(e, c.id);
+                      setMobileMenuOpen(false);
+                    }}
+                    className={`py-2 px-2 text-center rounded-xl text-xs font-bold transition-all border ${
+                      isActive
+                        ? 'bg-cyan-600 text-white border-cyan-500 shadow-sm'
+                        : 'bg-slate-100 dark:bg-[#072448] text-slate-700 dark:text-slate-200 border-slate-200 dark:border-cyan-900/40'
+                    }`}
+                  >
+                    {language === 'ar' ? c.nameAr : c.nameEn}
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+
           {/* Navigation Links inside Drawer */}
           <div className="flex flex-col gap-1.5">
             {navLinks.map((link) => (
