@@ -212,12 +212,11 @@ export const BookingForm: React.FC<BookingFormProps> = ({
     setSubmitted(true);
     setIsSubmitting(false);
 
-    // 7. Auto-open WhatsApp with the prefilled message so the lead reaches the
-    // team even if the customer never notices/clicks the confirmation button.
-    // (The customer still has to tap "Send" inside WhatsApp — that step cannot
-    // be automated for security/anti-spam reasons on WhatsApp's side.)
-    const waUrl = buildWhatsAppUrl(newRecord);
-    window.open(waUrl, '_blank');
+    // 7. Auto-open WhatsApp with the prefilled message
+    try {
+      const waUrl = buildWhatsAppUrl(newRecord);
+      window.open(waUrl, '_blank');
+    } catch {}
 
     // Smooth scroll into confirmation
     setTimeout(() => {

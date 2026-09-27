@@ -19,11 +19,11 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
   const contentAr = isPrivacy
     ? {
         title: 'سياسة الخصوصية',
-        subtitle: 'التزام شركة مسك كلين بحماية خصوصية وأمان بيانات عملائها في المملكة العربية السعودية.',
+        subtitle: 'التزام شركة مسك كلين بحماية خصوصية وأمان بيانات عملائها في المملكة العربية السعودية (جدة، مكة المكرمة، رابغ).',
         sections: [
           {
             title: '١. جمع واستخدام البيانات',
-            body: 'نقوم بجمع المعلومات الضرورية فقط مثل الاسم، رقم الهاتف، والموقع داخل مدينة جدة، وذلك بغرض تنسيق المواعيد وتنفيذ خدمات التنظيف وشبك الحمام بأعلى درجات الدقة والاحترافية.',
+            body: 'نقوم بجمع المعلومات الضرورية فقط مثل الاسم، رقم الهاتف، والموقع، وذلك بغرض تنسيق المواعيد وتنفيذ خدمات التنظيف وشبك وطارد الحمام وعزل الخزانات بأعلى درجات الدقة والاحترافية.',
           },
           {
             title: '٢. سرية المعلومات',
@@ -41,11 +41,11 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
       }
     : {
         title: 'الشروط والأحكام',
-        subtitle: 'شروط وأحكام طلب خدمات التنظيف ومكافحة الحمام من شركة مسك كلين في جدة.',
+        subtitle: 'شروط وأحكام طلب خدمات التنظيف ومكافحة الحمام من شركة مسك كلين في جدة، مكة المكرمة، ورابغ.',
         sections: [
           {
             title: '١. حجز وتأكيد المواعيد',
-            body: 'يتم تأكيد الموعد النهائي للخدمة بعد التنسيق المباشر بين منسق خدمة العملاء والعميل بناءً على التوقيت المفضل والموقع داخل جدة.',
+            body: 'يتم تأكيد الموعد النهائي للخدمة بعد التنسيق المباشر بين منسق خدمة العملاء والعميل بناءً على التوقيت المفضل والموقع المطلوب.',
           },
           {
             title: '٢. ضمان جودة الخدمة',
@@ -53,7 +53,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
           },
           {
             title: '٣. تركيب شبك وطوارد الحمام',
-            body: 'نقدم ضماناً معتمداً على جودة وثبات أشواك الستانلس ستيل والشبك المقاوم للعوامل الجوية وأشعة الشمس في جدة.',
+            body: 'نقدم ضماناً معتمداً على جودة وثبات أشواك الستانلس ستيل والشبك المقاوم للعوامل الجوية وأشعة الشمس والحرارة.',
           },
           {
             title: '٤. الإلغاء وإعادة الجدولة',
@@ -65,11 +65,11 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
   const contentEn = isPrivacy
     ? {
         title: 'Privacy Policy',
-        subtitle: 'Mesk Clean commitment to protecting client privacy and data security across Saudi Arabia.',
+        subtitle: 'Mesk Clean commitment to protecting client privacy and data security across Saudi Arabia (Jeddah, Makkah, Rabigh).',
         sections: [
           {
             title: '1. Information Collection & Use',
-            body: 'We collect only essential details such as name, contact phone number, and location in Jeddah to schedule, coordinate, and execute cleaning and bird netting services accurately.',
+            body: 'We collect only essential details such as name, contact phone number, and location to schedule, coordinate, and execute cleaning and bird netting services accurately.',
           },
           {
             title: '2. Confidentiality & Security',
@@ -87,11 +87,11 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
       }
     : {
         title: 'Terms & Conditions',
-        subtitle: 'Terms governing cleaning and bird deterrent services provided by Mesk Clean in Jeddah.',
+        subtitle: 'Terms governing cleaning and bird deterrent services provided by Mesk Clean in Jeddah, Makkah, and Rabigh.',
         sections: [
           {
             title: '1. Bookings & Confirmations',
-            body: 'Final service time is confirmed after direct coordination between our support representative and the customer based on chosen time and Jeddah neighborhood.',
+            body: 'Final service time is confirmed after direct coordination between our support representative and the customer based on chosen time and location.',
           },
           {
             title: '2. Quality Guarantee',

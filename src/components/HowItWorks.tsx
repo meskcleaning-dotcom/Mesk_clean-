@@ -1,6 +1,7 @@
 import React from 'react';
 import { Sparkles, MapPin, Send, CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { useCityRoute } from '../context/CityRouteContext';
 
 interface HowItWorksProps {
   onStartBooking: () => void;
@@ -8,6 +9,7 @@ interface HowItWorksProps {
 
 export const HowItWorks: React.FC<HowItWorksProps> = ({ onStartBooking }) => {
   const { language, t } = useLanguage();
+  const { currentCity } = useCityRoute();
 
   const steps = [
     {
@@ -22,8 +24,8 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onStartBooking }) => {
       number: '2',
       title: language === 'ar' ? 'أدخل حيّك وموعدك المناسب' : 'Pick District & Schedule',
       desc: language === 'ar'
-        ? 'حدد حيك في مدينة جدة واختر التاريخ والوقت المفضل لك لجدولة زيارة فريق العمل بكل مرونة.'
-        : 'Select your district in Jeddah and choose a convenient appointment date and time.',
+        ? `حدد حيك في ${currentCity.nameAr} واختر التاريخ والوقت المفضل لك لجدولة زيارة فريق العمل بكل مرونة.`
+        : `Select your district in ${currentCity.nameEn} and choose a convenient appointment date and time.`,
       icon: MapPin,
     },
     {

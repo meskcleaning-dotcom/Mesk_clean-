@@ -25,26 +25,26 @@ const translations: Record<string, { ar: string; en: string }> = {
   'nav.bookNow': { ar: 'احجز الآن', en: 'Book Now' },
 
   // Microbar & badges
-  'badge.fastService': { ar: 'خدمة سريعة في جميع أحياء جدة', en: 'Fast service across all Jeddah districts' },
+  'badge.fastService': { ar: 'خدمة سريعة في جميع الأحياء والمناطق', en: 'Fast service across all districts' },
   'badge.whatsapp247': { ar: 'واتساب متاح 24/7', en: 'WhatsApp Available 24/7' },
   'badge.callNow': { ar: 'اتصال مباشر', en: 'Call Now' },
 
   // Hero Section
-  'hero.line1': { ar: 'شركة تنظيف بجدة', en: 'Cleaning Company in Jeddah' },
+  'hero.line1': { ar: 'شركة تنظيف متخصصة', en: 'Professional Cleaning Company' },
   'hero.line2': { ar: 'خدمة احترافية...', en: 'Professional Service...' },
   'hero.highlight': { ar: 'لبيئة أنظف', en: 'For a Cleaner Environment' },
   'hero.description': {
-    ar: 'نقدم أفضل خدمات التنظيف المنزلي، تنظيف الخزانات، عزل الخزانات، غسيل المكيفات وغسيل الكنب بأحدث المعدات وأفضل المواد.',
-    en: 'We provide premier home cleaning services: water tank cleaning, tank insulation, AC wash, and sofa steam cleaning with the latest equipment and finest materials.'
+    ar: 'نقدم أفضل خدمات التنظيف المنزلي، تنظيف الخزانات، عزل الخزانات، غسيل المكيفات، مكافحة القوارض وتركيب شبك وطارد الحمام بأحدث المعدات وأفضل المواد.',
+    en: 'We provide premier home cleaning services: water tank cleaning, tank insulation, AC wash, rodent control, and bird spikes installation with the latest equipment and finest materials.'
   },
   'hero.orderNow': { ar: 'اطلب خدمة الآن', en: 'Order Service Now' },
   'hero.contactUs': { ar: 'تواصل معنا', en: 'Contact Us' },
   'hero.badge': { ar: 'خدمة احترافية لبيئة أنظف', en: 'Professional Service for a Cleaner Environment' },
-  'hero.title': { ar: 'شركة تنظيف بجدة', en: 'Cleaning Company in Jeddah' },
+  'hero.title': { ar: 'شركة مسك كلين للخدمات المتكاملة', en: 'Mesk Clean Comprehensive Services' },
   'hero.subtitle': { ar: 'خدمة احترافية... لبيئة أنظف', en: 'Professional Service... For a Cleaner Environment' },
   'hero.ctaPrimary': { ar: 'اطلب خدمة الآن', en: 'Order Service Now' },
   'hero.ctaSecondary': { ar: 'تواصل معنا', en: 'Contact Us' },
-  'hero.ctaWhatsapp': { ar: 'اطلب خدمة الآن', en: 'Order Service Now' },
+  'hero.ctaWhatsapp': { ar: 'اطلب خدمة الآن عبر واتساب', en: 'Order Service via WhatsApp' },
 
   // Services Section
   'services.badge': { ar: 'خدماتنا المعتمدة', en: 'Our Certified Services' },
@@ -60,8 +60,8 @@ const translations: Record<string, { ar: string; en: string }> = {
   'whyUs.badge': { ar: 'معايير التميز', en: 'Why Choose Us' },
   'whyUs.title': { ar: 'لماذا مسك كلين؟', en: 'Why Mesk Clean?' },
   'whyUs.subtitle': {
-    ar: 'نلتزم بتقديم تجربة تنظيف استثنائية تجمع بين الكفاءة والاحترافية، لنكون شريكك الدائم لبيئة أنظف وأكثر راحة في جدة.',
-    en: 'We are committed to delivering an exceptional cleaning experience combining efficiency and reliability across Jeddah.'
+    ar: 'نلتزم بتقديم تجربة تنظيف استثنائية تجمع بين الكفاءة والاحترافية، لنكون شريكك الدائم لبيئة أنظف وأكثر راحة.',
+    en: 'We are committed to delivering an exceptional cleaning experience combining efficiency and reliability.'
   },
 
   // How It Works
@@ -159,11 +159,14 @@ const translations: Record<string, { ar: string; en: string }> = {
   'footer.servicesTitle': { ar: 'خدماتنا المعتمدة', en: 'Our Services' },
   'footer.contactTitle': { ar: 'معلومات التواصل', en: 'Contact Info' },
   'footer.rights': { ar: 'جميع الحقوق محفوظة © شركة مسك كلين لخدمات التنظيف', en: 'All Rights Reserved © Mesk Clean Services' },
+  'footer.allRightsReserved': { ar: 'جميع الحقوق محفوظة.', en: 'All Rights Reserved.' },
   'footer.adminLink': { ar: 'لوحة التحكم الإدارية', en: 'Admin Portal' },
   'footer.privacy': { ar: 'سياسة الخصوصية', en: 'Privacy Policy' },
+  'footer.privacyPolicy': { ar: 'سياسة الخصوصية', en: 'Privacy Policy' },
   'footer.terms': { ar: 'الشروط والأحكام', en: 'Terms & Conditions' },
+  'footer.termsOfService': { ar: 'الشروط والأحكام', en: 'Terms of Service' },
 
-  // Modals
+  // Modals & Popups
   'modal.serviceOverview': { ar: 'نظرة عامة على الخدمة', en: 'Service Overview' },
   'modal.serviceIncludes': { ar: 'ما تشمله الخدمة:', en: 'What This Service Includes:' },
   'modal.proNote': {
@@ -172,8 +175,10 @@ const translations: Record<string, { ar: string; en: string }> = {
   },
   'modal.close': { ar: 'إغلاق', en: 'Close' },
   'modal.bookNow': { ar: 'احجز الخدمة الآن', en: 'Book This Service' },
+  'modal.bookThisService': { ar: 'احجز هذه الخدمة الآن', en: 'Book This Service' },
   'modal.whatsappInquiry': { ar: 'استفسار واتساب', en: 'WhatsApp Inquiry' },
-  'modal.call': { ar: 'اتصال', en: 'Call' },
+  'modal.quickWhatsApp': { ar: 'محادثة واتساب سريعة', en: 'Quick WhatsApp' },
+  'modal.call': { ar: 'اتصال مباشر', en: 'Call Now' },
   'modal.helpNeeded': { ar: 'هل تحتاج إلى مساعدة فريق مسك كلين؟', en: 'Need assistance from Mesk Clean?' },
   'modal.helpDesc': { ar: 'فريقنا مجهز بأحدث المعدات لتقديم هذه الخدمة بأعلى جودة.', en: 'Our team is ready with specialized tools to deliver exceptional results.' },
 };
