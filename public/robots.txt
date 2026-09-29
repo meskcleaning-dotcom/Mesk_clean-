@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://meskclean.com/sitemap.xml
+Sitemap: https://www.meskclean.com/sitemap.xml

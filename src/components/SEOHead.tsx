@@ -38,8 +38,8 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
 
     // 3. Dynamic Canonical Link
     const canonicalUrl = isCityRoute 
-      ? `https://meskclean.com/${currentCity.slug}`
-      : 'https://meskclean.com/';
+      ? `https://www.meskclean.com/${currentCity.slug}`
+      : 'https://www.meskclean.com/';
 
     let canonicalLink = document.querySelector('link[rel="canonical"]');
     if (!canonicalLink) {
@@ -74,12 +74,12 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
     const localBusinessSchema = {
       '@context': 'https://schema.org',
       '@type': 'HomeAndConstructionBusiness',
-      '@id': `https://meskclean.com/${currentCity.slug}#business`,
+      '@id': `https://www.meskclean.com/${currentCity.slug}#business`,
       'name': language === 'ar' ? COMPANY_INFO.arabicName : COMPANY_INFO.englishName,
       'alternateName': `Mesk Clean ${currentCity.nameEn}`,
       'url': canonicalUrl,
-      'logo': 'https://meskclean.com/assets/mesk-clean-official-logo-transparent.png',
-      'image': 'https://meskclean.com/assets/mesk-hero.jpg',
+      'logo': 'https://www.meskclean.com/assets/mesk-clean-official-logo-transparent.png',
+      'image': 'https://www.meskclean.com/assets/mesk-hero.jpg',
       'description': baseDesc,
       'telephone': '+966547161147',
       'priceRange': '$$',

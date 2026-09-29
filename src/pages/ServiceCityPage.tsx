@@ -90,7 +90,7 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
       canonical.setAttribute('rel', 'canonical');
       document.head.appendChild(canonical);
     }
-    const fullCanonical = `https://meskclean.com/${currentCityId}/services/${serviceId}`;
+    const fullCanonical = `https://www.meskclean.com/${currentCityId}/services/${serviceId}`;
     canonical.setAttribute('href', fullCanonical);
 
     // Schema.org Structured Data
@@ -109,7 +109,7 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
             '@type': 'LocalBusiness',
             name: language === 'ar' ? 'شركة مسك كلين' : 'Mesk Clean',
             telephone: COMPANY_INFO.phone1.display,
-            url: 'https://meskclean.com',
+            url: 'https://www.meskclean.com',
             priceRange: '$$',
             areaServed: {
               '@type': 'City',
@@ -128,13 +128,13 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
               '@type': 'ListItem',
               position: 1,
               name: language === 'ar' ? 'الرئيسية' : 'Home',
-              item: 'https://meskclean.com/'
+              item: 'https://www.meskclean.com/'
             },
             {
               '@type': 'ListItem',
               position: 2,
               name: cityName,
-              item: `https://meskclean.com/${currentCityId}`
+              item: `https://www.meskclean.com/${currentCityId}`
             },
             {
               '@type': 'ListItem',
