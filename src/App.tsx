@@ -18,10 +18,11 @@ import { MobileBottomNav } from './components/MobileBottomNav';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { AdminDashboard } from './components/AdminDashboard';
 import { LegalModal, LegalDocType } from './components/LegalModal';
+import { ServiceCityPage } from './pages/ServiceCityPage';
 
 function MainWebsite() {
   const { language } = useLanguage();
-  const { currentCity } = useCityRoute();
+  const { currentCity, currentCityId, currentServiceId, navigateToService } = useCityRoute();
   const [selectedServiceForBooking, setSelectedServiceForBooking] = useState<string>('homes');
   const [selectedDistrictForBooking, setSelectedDistrictForBooking] = useState<string>(() => currentCity.districtsAr[0] || 'حي الروضة');
   const [showAdmin, setShowAdmin] = useState<boolean>(false);
@@ -58,6 +59,16 @@ function MainWebsite() {
             window.location.hash = '';
           }
         }}
+      />
+    );
+  }
+
+  // Render Dedicated Service City Page if on a service route
+  if (currentServiceId) {
+    return (
+      <ServiceCityPage
+        serviceId={currentServiceId}
+        onOpenBooking={handleOpenBooking}
       />
     );
   }
@@ -105,7 +116,7 @@ function MainWebsite() {
 
       {/* Footer with quick links and Admin portal link */}
       <Footer
-        onSelectService={(serviceId) => handleOpenBooking(serviceId)}
+        onSelectService={(serviceId) => navigateToService(currentCityId, serviceId)}
         onOpenAdmin={() => setShowAdmin(true)}
         onOpenLegal={(type) => setLegalModalType(type)}
       />

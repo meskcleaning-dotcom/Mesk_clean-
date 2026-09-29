@@ -13,7 +13,7 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
   const { theme, toggleTheme } = useTheme();
   const { language, toggleLanguage, t } = useLanguage();
-  const { currentCityId, navigateToCity } = useCityRoute();
+  const { currentCityId, navigateToCity, currentServiceId } = useCityRoute();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -24,6 +24,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleNavClick = (e: React.MouseEvent, href: string) => {
+    if (currentServiceId && href.startsWith('#')) {
+      e.preventDefault();
+      navigateToCity(currentCityId, href);
+    }
+  };
 
   const navLinks = [
     { label: t('nav.home'), href: '#home' },
@@ -80,6 +87,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
               <a
                 key={link.href}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className="text-sm xl:text-base font-semibold text-slate-700 dark:text-slate-200 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-cyan-500 after:scale-x-0 hover:after:scale-x-100 after:transition-transform"
               >
                 {link.label}
@@ -252,7 +260,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
               <a
                 key={link.href}
                 href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => {
+                  setMobileMenuOpen(false);
+                  handleNavClick(e, link.href);
+                }}
                 className="px-4 py-2.5 rounded-xl text-base font-bold text-slate-800 dark:text-slate-100 hover:bg-cyan-50 dark:hover:bg-cyan-950/50 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors flex items-center justify-between"
               >
                 <span>{link.label}</span>
