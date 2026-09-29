@@ -262,23 +262,29 @@ export const INITIAL_COMPANY_SETTINGS: CompanySettings = {
 
 // Store helper methods
 export const getStoredServices = (): ServiceItem[] => {
+  let list = SERVICES_DATA;
   try {
     const raw = localStorage.getItem(STORAGE_KEYS.SERVICES);
-    if (raw) return JSON.parse(raw);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        list = parsed;
+      }
+    }
   } catch {}
-  // Merge English translations into initial services
-  return SERVICES_DATA.map(item => {
-    const en = SERVICES_EN_MAP[item.id] || {
-      nameEn: item.name,
-      descEn: item.description,
-      detailsEn: item.details
-    };
+
+  // Guarantee nameEn, descriptionEn, detailsEn are always present and complete
+  return list.map(item => {
+    const defaultItem = SERVICES_DATA.find(s => s.id === item.id);
+    const en = SERVICES_EN_MAP[item.id];
     return {
       ...item,
-      nameEn: en.nameEn,
-      descriptionEn: en.descEn,
-      detailsEn: en.detailsEn,
-      active: true,
+      nameEn: item.nameEn || defaultItem?.nameEn || en?.nameEn || item.name,
+      descriptionEn: item.descriptionEn || defaultItem?.descriptionEn || en?.descEn || item.description,
+      detailsEn: (item.detailsEn && item.detailsEn.length > 0)
+        ? item.detailsEn
+        : (defaultItem?.detailsEn || en?.detailsEn || item.details),
+      active: item.active !== false,
     };
   });
 };
