@@ -1,6 +1,7 @@
 import React from 'react';
 import { Home, Sparkles, Calendar, Phone } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { useCityRoute } from '../context/CityRouteContext';
 import { COMPANY_INFO } from '../data/companyInfo';
 
 interface MobileBottomNavProps {
@@ -9,6 +10,39 @@ interface MobileBottomNavProps {
 
 export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ onOpenBooking }) => {
   const { language, t } = useLanguage();
+  const { currentCityId, currentServiceId, navigateToCity } = useCityRoute();
+
+  const scrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const html = document.documentElement;
+    const prev = html.style.scrollBehavior;
+    html.style.scrollBehavior = 'auto';
+
+    if (currentServiceId) {
+      navigateToCity(currentCityId);
+    }
+    window.scrollTo(0, 0);
+    html.scrollTop = 0;
+    document.body.scrollTop = 0;
+    const homeSection = document.getElementById('home');
+    if (homeSection) {
+      homeSection.scrollIntoView({ behavior: 'instant', block: 'start' });
+    }
+    html.style.scrollBehavior = prev;
+  };
+
+  const scrollToServices = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const target = document.getElementById('services');
+    if (target) {
+      const html = document.documentElement;
+      const prev = html.style.scrollBehavior;
+      html.style.scrollBehavior = 'auto';
+      window.scrollTo(0, target.getBoundingClientRect().top + window.scrollY);
+      target.scrollIntoView({ behavior: 'instant', block: 'start' });
+      html.style.scrollBehavior = prev;
+    }
+  };
 
   return (
     <nav
@@ -18,22 +52,22 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ onOpenBooking 
     >
       <div className="grid grid-cols-4 items-center justify-around text-center">
         {/* Home */}
-        <a
-          href="#home"
-          className="flex flex-col items-center py-1 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 active:scale-95 transition-all"
+        <button
+          onClick={scrollToTop}
+          className="flex flex-col items-center py-1 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 active:scale-95 transition-all cursor-pointer"
         >
           <Home className="w-5 h-5" />
           <span className="text-[11px] font-bold mt-1">{t('nav.home')}</span>
-        </a>
+        </button>
 
         {/* Services */}
-        <a
-          href="#services"
-          className="flex flex-col items-center py-1 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 active:scale-95 transition-all"
+        <button
+          onClick={scrollToServices}
+          className="flex flex-col items-center py-1 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 active:scale-95 transition-all cursor-pointer"
         >
           <Sparkles className="w-5 h-5" />
           <span className="text-[11px] font-bold mt-1">{t('nav.services')}</span>
-        </a>
+        </button>
 
         {/* Booking */}
         <button

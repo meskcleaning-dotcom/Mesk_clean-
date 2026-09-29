@@ -622,7 +622,7 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
         </section>
 
         {/* Section 8: Cross-Links (Same Service in other cities + other services in this city) */}
-        <section className="py-14 sm:py-20 bg-slate-100 dark:bg-[#010e1f] border-t border-slate-200 dark:border-cyan-900/40">
+        <section id="services" className="py-14 sm:py-20 bg-slate-100 dark:bg-[#010e1f] border-t border-slate-200 dark:border-cyan-900/40">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-12">
             
             {/* Same service in other cities */}
