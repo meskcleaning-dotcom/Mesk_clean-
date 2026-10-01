@@ -63,9 +63,11 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
     setMeta('property', 'og:title', baseTitle);
     setMeta('property', 'og:description', baseDesc);
     setMeta('property', 'og:url', canonicalUrl);
+    setMeta('property', 'og:image', 'https://www.meskclean.com/assets/mesk-hero.jpg');
     setMeta('property', 'og:locale', language === 'ar' ? 'ar_SA' : 'en_US');
     setMeta('name', 'twitter:title', baseTitle);
     setMeta('name', 'twitter:description', baseDesc);
+    setMeta('name', 'twitter:image', 'https://www.meskclean.com/assets/mesk-hero.jpg');
 
     // 5. Schema.org LocalBusiness + CleaningService JSON-LD (Targeted to the active city)
     const services = getStoredServices();
