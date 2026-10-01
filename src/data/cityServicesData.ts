@@ -44,7 +44,7 @@ export const getCityServiceData = (serviceId: string, cityId: CityId): CityServi
   if (serviceId === 'tanks' && TANKS_SERVICES_MAP[cityId]) {
     return TANKS_SERVICES_MAP[cityId];
   }
-  if (serviceId === 'pest-control' && PEST_CONTROL_SERVICES_MAP[cityId]) {
+  if ((serviceId === 'pest' || serviceId === 'pest-control') && PEST_CONTROL_SERVICES_MAP[cityId]) {
     return PEST_CONTROL_SERVICES_MAP[cityId];
   }
 

@@ -22,7 +22,7 @@ import { ServiceCityPage } from './pages/ServiceCityPage';
 
 function MainWebsite() {
   const { language } = useLanguage();
-  const { currentCity, currentCityId, currentServiceId, navigateToService } = useCityRoute();
+  const { currentCity, currentCityId, currentServiceId, isCityRoute, navigateToService } = useCityRoute();
   const [selectedServiceForBooking, setSelectedServiceForBooking] = useState<string>('homes');
   const [selectedDistrictForBooking, setSelectedDistrictForBooking] = useState<string>(() => currentCity.districtsAr[0] || 'حي الروضة');
   const [showAdmin, setShowAdmin] = useState<boolean>(false);

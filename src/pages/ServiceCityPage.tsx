@@ -36,6 +36,7 @@ import { Footer } from '../components/Footer';
 import { FloatingWhatsApp } from '../components/FloatingWhatsApp';
 import { MobileBottomNav } from '../components/MobileBottomNav';
 import { LegalModal, LegalDocType } from '../components/LegalModal';
+import { PEST_CITIES_CONTENT } from '../data/pestControlCitiesContent';
 
 const iconMap: Record<string, React.FC<{ className?: string }>> = {
   Home,
@@ -63,6 +64,9 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
   const [legalModalType, setLegalModalType] = useState<LegalDocType>(null);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
+  const isPestControl = serviceId === 'pest' || serviceId === 'pest-control';
+  const pestData = isPestControl ? PEST_CITIES_CONTENT[currentCityId] : null;
+
   const data = getCityServiceData(serviceId, currentCityId);
   const allServices = getStoredServices();
   const baseService = allServices.find((s) => s.id === serviceId);
@@ -71,8 +75,13 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
 
   // Sync Document Title, Meta, and JSON-LD Structured Data
   useEffect(() => {
-    const pageTitle = language === 'ar' ? data.metaTitle : data.metaTitleEn;
-    const pageDesc = language === 'ar' ? data.metaDescription : data.metaDescriptionEn;
+    const pageTitle = (language === 'ar' && pestData)
+      ? pestData.metaTitle
+      : (language === 'ar' ? data.metaTitle : data.metaTitleEn);
+
+    const pageDesc = (language === 'ar' && pestData)
+      ? pestData.metaDescription
+      : (language === 'ar' ? data.metaDescription : data.metaDescriptionEn);
 
     document.title = pageTitle;
 
@@ -94,8 +103,28 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
     canonical.setAttribute('href', fullCanonical);
 
     // Schema.org Structured Data
-    const serviceName = language === 'ar' ? (baseService?.name || data.heroHeading) : (baseService?.nameEn || data.heroHeadingEn);
+    const serviceName = (language === 'ar' && pestData)
+      ? pestData.h1Title
+      : (language === 'ar' ? (baseService?.name || data.heroHeading) : (baseService?.nameEn || data.heroHeadingEn));
     const cityName = language === 'ar' ? currentCity.nameAr : currentCity.nameEn;
+
+    const faqEntities = (language === 'ar' && pestData)
+      ? pestData.faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.q,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.a
+          }
+        }))
+      : data.faqs.map((faq) => ({
+          '@type': 'Question',
+          name: language === 'ar' ? faq.question : faq.questionEn,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: language === 'ar' ? faq.answer : faq.answerEn
+          }
+        }));
 
     const schemaData = {
       '@context': 'https://schema.org',
@@ -146,14 +175,7 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
         },
         {
           '@type': 'FAQPage',
-          mainEntity: data.faqs.map((faq) => ({
-            '@type': 'Question',
-            name: language === 'ar' ? faq.question : faq.questionEn,
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: language === 'ar' ? faq.answer : faq.answerEn
-            }
-          }))
+          mainEntity: faqEntities
         }
       ]
     };
@@ -171,7 +193,7 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
       const el = document.getElementById('service-schema-jsonld');
       if (el) el.remove();
     };
-  }, [data, language, currentCityId, serviceId, baseService, currentCity]);
+  }, [data, language, currentCityId, serviceId, baseService, currentCity, pestData]);
 
   const scrollToBooking = () => {
     const bookingEl = document.getElementById('booking');
@@ -180,9 +202,9 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
     }
   };
 
-  const serviceName = language === 'ar' 
-    ? (baseService?.name || data.heroHeading) 
-    : (baseService?.nameEn || data.heroHeadingEn);
+  const serviceName = (language === 'ar' && pestData)
+    ? pestData.h1Title
+    : (language === 'ar' ? (baseService?.name || data.heroHeading) : (baseService?.nameEn || data.heroHeadingEn));
 
   const cityName = language === 'ar' ? currentCity.nameAr : currentCity.nameEn;
 
@@ -247,22 +269,30 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
               <div className="lg:col-span-7 space-y-6 text-start">
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-700 dark:text-cyan-300 text-xs sm:text-sm font-bold">
                   <IconComponent className="w-4 h-4 text-cyan-500" />
-                  <span>{language === 'ar' ? data.heroBadge : data.heroBadgeEn}</span>
+                  <span>
+                    {language === 'ar' && pestData
+                      ? `خدمة معتمدة لمكافحة الآفات بـ${cityName}`
+                      : (language === 'ar' ? data.heroBadge : data.heroBadgeEn)}
+                  </span>
                 </div>
 
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
-                  {language === 'ar' ? data.heroHeading : data.heroHeadingEn}
+                  {language === 'ar' && pestData
+                    ? pestData.h1Title
+                    : (language === 'ar' ? data.heroHeading : data.heroHeadingEn)}
                 </h1>
 
                 <p className="text-base sm:text-lg text-slate-700 dark:text-slate-200 leading-relaxed font-medium">
-                  {language === 'ar' ? data.heroSubtitle : data.heroSubtitleEn}
+                  {language === 'ar' && pestData
+                    ? pestData.introParagraph
+                    : (language === 'ar' ? data.heroSubtitle : data.heroSubtitleEn)}
                 </p>
 
                 {/* Key Guarantees Pills */}
                 <div className="flex flex-wrap gap-2.5 pt-2">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-[#072448] border border-slate-200 dark:border-cyan-800/40 text-xs font-bold text-slate-700 dark:text-cyan-200 shadow-sm">
                     <ShieldCheck className="w-4 h-4 text-cyan-500" />
-                    <span>{language === 'ar' ? 'ضمان معتمد على الخدمة' : 'Certified Service Warranty'}</span>
+                    <span>{language === 'ar' ? 'ضمان معتمد 6 شهور' : 'Certified 6-Month Warranty'}</span>
                   </span>
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-[#072448] border border-slate-200 dark:border-cyan-800/40 text-xs font-bold text-slate-700 dark:text-cyan-200 shadow-sm">
                     <Clock className="w-4 h-4 text-cyan-500" />
@@ -270,7 +300,7 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                   </span>
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-[#072448] border border-slate-200 dark:border-cyan-800/40 text-xs font-bold text-slate-700 dark:text-cyan-200 shadow-sm">
                     <Award className="w-4 h-4 text-cyan-500" />
-                    <span>{language === 'ar' ? 'مواد آمنة ومطابقة لـ SASO' : 'SASO-Certified Detergents'}</span>
+                    <span>{language === 'ar' ? 'مبيدات آمنة ومصرحة من الغذاء والدواء' : 'SFDA-Certified Safe Formulas'}</span>
                   </span>
                 </div>
 
@@ -317,7 +347,7 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
 
                   <div className="absolute bottom-5 start-5 end-5 text-start">
                     <span className="inline-block px-3 py-1 rounded-lg bg-cyan-500 text-slate-950 text-xs font-black mb-2 shadow-md">
-                      {cityName} • {language === 'ar' ? 'خدمة متميزة' : 'Top Tier Service'}
+                      {cityName} • {language === 'ar' ? 'خدمة متميزة بضمان 6 شهور' : 'Top Tier Service'}
                     </span>
                     <h3 className="text-xl sm:text-2xl font-black text-white drop-shadow-md">
                       {serviceName}
@@ -329,276 +359,459 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
           </div>
         </section>
 
-        {/* Section 1: In-depth Overview & Local Environment */}
-        <section className="py-14 sm:py-20 bg-white dark:bg-[#03152a] border-y border-slate-200 dark:border-cyan-900/40">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-8">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>{language === 'ar' ? 'نظرة شاملة وتحديات البيئة المحلية' : 'In-Depth Overview & Climate Context'}</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
-                {language === 'ar' 
-                  ? `أبعاد وأهمية ${serviceName} في ${cityName}` 
-                  : `Scope and Significance of ${serviceName} in ${cityName}`}
-              </h2>
-            </div>
+        {/* Specialized Content for Pest Control in 3 Cities */}
+        {language === 'ar' && pestData ? (
+          <>
+            {/* 3. H2: خدمات مكافحة الحشرات في المدينة + 8 فقرات H3 */}
+            <section className="py-14 sm:py-20 bg-white dark:bg-[#03152a] border-y border-slate-200 dark:border-cyan-900/40">
+              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-10">
+                <div className="text-center max-w-2xl mx-auto">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <ShieldAlert className="w-3.5 h-3.5 text-cyan-500" />
+                    <span>إبادة شاملة ومتخصصة</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white">
+                    {pestData.servicesHeading}
+                  </h2>
+                </div>
 
-            <div className="space-y-5 text-base sm:text-lg text-slate-700 dark:text-slate-200 leading-relaxed font-normal">
-              {(language === 'ar' ? data.introParagraphs : data.introParagraphsEn).map((paragraph, idx) => (
-                <p key={idx}>{paragraph}</p>
-              ))}
-            </div>
-
-            {/* Importance Key Highlights */}
-            <div className="pt-4">
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-                <ShieldCheck className="w-5 h-5 text-cyan-500" />
-                <span>{language === 'ar' ? data.importanceTitle : data.importanceTitleEn}</span>
-              </h3>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {(language === 'ar' ? data.importanceContent : data.importanceContentEn).map((point, idx) => (
-                  <div
-                    key={idx}
-                    className="p-5 rounded-2xl bg-slate-50 dark:bg-[#072448] border border-slate-200 dark:border-cyan-900/40 shadow-sm space-y-2"
-                  >
-                    <div className="w-7 h-7 rounded-lg bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-black text-sm">
-                      {idx + 1}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {pestData.services.map((srv, idx) => (
+                    <div
+                      key={idx}
+                      className="p-6 rounded-2xl bg-slate-50 dark:bg-[#061e38] border border-slate-200 dark:border-cyan-900/40 shadow-sm space-y-3 transition-all hover:border-cyan-500/50"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0 font-black">
+                          {idx + 1}
+                        </div>
+                        <h3 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white">
+                          {srv.title}
+                        </h3>
+                      </div>
+                      <p className="text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed font-normal">
+                        {srv.desc}
+                      </p>
                     </div>
-                    <p className="text-sm font-semibold text-slate-800 dark:text-slate-100 leading-relaxed">
-                      {point}
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* 4. H2: طريقة عملنا في مكافحة الحشرات */}
+            <section className="py-14 sm:py-20 bg-slate-50 dark:bg-[#010e1f]">
+              <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-6">
+                <div className="text-center max-w-2xl mx-auto mb-4">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    <span>خطوات العمل الميداني</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white">
+                    {pestData.methodHeading}
+                  </h2>
+                </div>
+
+                <div className="p-8 rounded-3xl bg-white dark:bg-[#051c36] border border-slate-200 dark:border-cyan-900/40 shadow-sm flex flex-col md:flex-row items-start gap-6">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 text-white flex items-center justify-center shrink-0 shadow-lg shadow-cyan-500/20">
+                    <ShieldCheck className="w-7 h-7" />
+                  </div>
+                  <div className="space-y-3 flex-1 text-start">
+                    <p className="text-base sm:text-lg text-slate-700 dark:text-slate-200 leading-relaxed font-normal">
+                      {pestData.methodParagraph}
                     </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Section 1.5: Local Neighborhood Analysis */}
-        {data.neighborhoodsAnalysisParagraphs && data.neighborhoodsAnalysisParagraphs.length > 0 && (
-          <section className="py-14 sm:py-20 bg-slate-100/70 dark:bg-[#021124] border-b border-slate-200 dark:border-cyan-900/40">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-6">
-              <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
-                  <MapPin className="w-3.5 h-3.5" />
-                  <span>{language === 'ar' ? 'التحليل الميداني للأحياء' : 'Local Neighborhood Analysis'}</span>
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
-                  {language === 'ar' ? data.neighborhoodsAnalysisTitle : data.neighborhoodsAnalysisTitleEn}
-                </h2>
-              </div>
-              <div className="space-y-4 text-base sm:text-lg text-slate-700 dark:text-slate-200 leading-relaxed font-normal">
-                {(language === 'ar' ? data.neighborhoodsAnalysisParagraphs : data.neighborhoodsAnalysisParagraphsEn)?.map((p, idx) => (
-                  <p key={idx}>{p}</p>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* Section 2: Systematic Workflow Steps */}
-        <section className="py-14 sm:py-20 bg-slate-50 dark:bg-[#010e1f]">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-10">
-            <div className="text-center max-w-2xl mx-auto">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
-                <CheckCircle2 className="w-3.5 h-3.5" />
-                <span>{language === 'ar' ? 'منهجية العمل' : 'Our Systematic Workflow'}</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white">
-                {language === 'ar' ? data.workflowTitle : data.workflowTitleEn}
-              </h2>
-            </div>
-
-            <div className="space-y-4">
-              {data.workflowSteps.map((step) => (
-                <div
-                  key={step.number}
-                  className="p-6 rounded-2xl bg-white dark:bg-[#051c36] border border-slate-200 dark:border-cyan-900/40 shadow-sm flex flex-col sm:flex-row items-start sm:items-center gap-5 transition-all hover:border-cyan-500/50"
-                >
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 text-white font-black text-lg flex items-center justify-center shrink-0 shadow-md">
-                    {step.number}
-                  </div>
-                  <div className="space-y-1 flex-1">
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                      {language === 'ar' ? step.title : step.titleEn}
-                    </h3>
-                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
-                      {language === 'ar' ? step.description : step.descriptionEn}
-                    </p>
+                    <div className="pt-2 flex flex-wrap gap-2 text-xs font-semibold text-cyan-600 dark:text-cyan-400">
+                      <span className="px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20">معاينة فنية شاملة</span>
+                      <span className="px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20">مبيدات ألمانية بدون رائحة</span>
+                      <span className="px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20">حقن ورش موضعي بدون مغادرة</span>
+                      <span className="px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20">كرت ضمان معتمد 6 شهور</span>
+                    </div>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Section 3: Features & Advantages */}
-        <section className="py-14 sm:py-20 bg-white dark:bg-[#03152a] border-y border-slate-200 dark:border-cyan-900/40">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-10">
-            <div className="text-center max-w-2xl mx-auto">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
-                <Award className="w-3.5 h-3.5" />
-                <span>{language === 'ar' ? 'الجودة والضمان' : 'Quality & Guarantees'}</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white">
-                {language === 'ar' ? data.featuresTitle : data.featuresTitleEn}
-              </h2>
-            </div>
+            </section>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {data.features.map((feat, idx) => (
-                <div
-                  key={idx}
-                  className="p-6 rounded-2xl bg-slate-50 dark:bg-[#061e38] border border-slate-200 dark:border-cyan-900/40 shadow-sm flex items-start gap-4"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0 mt-0.5">
-                    <CheckCircle className="w-5 h-5" />
+            {/* 5. H2: نخدم أحياء المدينة */}
+            <section className="py-14 sm:py-20 bg-white dark:bg-[#03152a] border-y border-slate-200 dark:border-cyan-900/40">
+              <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-8">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <MapPin className="w-3.5 h-3.5" />
+                    <span>التغطية الميدانية الشاملة</span>
                   </div>
-                  <div className="space-y-1.5">
-                    <h3 className="text-base font-bold text-slate-900 dark:text-white">
-                      {language === 'ar' ? feat.title : feat.titleEn}
-                    </h3>
-                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
-                      {language === 'ar' ? feat.description : feat.descriptionEn}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Section 3.5: Industrial Equipment & SASO Standards */}
-        {data.equipmentParagraphs && data.equipmentParagraphs.length > 0 && (
-          <section className="py-14 sm:py-20 bg-slate-100/70 dark:bg-[#021124] border-b border-slate-200 dark:border-cyan-900/40">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-6">
-              <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
-                  <ShieldCheck className="w-3.5 h-3.5 text-cyan-500" />
-                  <span>{language === 'ar' ? 'التقنيات والمواصفات القياسية' : 'Industrial Equipment & SASO Standards'}</span>
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
-                  {language === 'ar' ? data.equipmentTitle : data.equipmentTitleEn}
-                </h2>
-              </div>
-              <div className="space-y-4 text-base sm:text-lg text-slate-700 dark:text-slate-200 leading-relaxed font-normal">
-                {(language === 'ar' ? data.equipmentParagraphs : data.equipmentParagraphsEn)?.map((p, idx) => (
-                  <p key={idx}>{p}</p>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* Section 4: Districts Coverage in this City */}
-        <section className="py-14 sm:py-20 bg-slate-50 dark:bg-[#010e1f]">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-6">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
-                <MapPin className="w-3.5 h-3.5" />
-                <span>{language === 'ar' ? 'التغطية الميدانية' : 'Field Coverage'}</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
-                {language === 'ar' ? data.districtsTitle : data.districtsTitleEn}
-              </h2>
-              <p className="text-base text-slate-600 dark:text-slate-300 mt-2 font-medium">
-                {language === 'ar' ? data.districtsIntro : data.districtsIntroEn}
-              </p>
-            </div>
-
-            <div className="space-y-3">
-              {(language === 'ar' ? data.districtsList : data.districtsListEn).map((dist, idx) => (
-                <div
-                  key={idx}
-                  className="p-4 rounded-xl bg-white dark:bg-[#051c36] border border-slate-200 dark:border-cyan-900/40 text-sm font-semibold text-slate-800 dark:text-slate-200 flex items-start gap-3 shadow-sm"
-                >
-                  <MapPin className="w-4 h-4 text-cyan-500 shrink-0 mt-0.5" />
-                  <span>{dist}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Section 5: Expert Proactive Tips */}
-        <section className="py-14 sm:py-20 bg-white dark:bg-[#03152a] border-y border-slate-200 dark:border-cyan-900/40">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-8">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
-                <Lightbulb className="w-3.5 h-3.5 text-amber-500" />
-                <span>{language === 'ar' ? 'نصائح وإرشادات وقائية' : 'Expert Preventative Advice'}</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
-                {language === 'ar' ? data.tipsTitle : data.tipsTitleEn}
-              </h2>
-              <p className="text-base text-slate-600 dark:text-slate-300 mt-2 font-medium">
-                {language === 'ar' ? data.tipsIntro : data.tipsIntroEn}
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {data.tipsList.map((tip, idx) => (
-                <div
-                  key={idx}
-                  className="p-6 rounded-2xl bg-slate-50 dark:bg-[#072448] border border-slate-200 dark:border-cyan-900/40 space-y-2 shadow-sm"
-                >
-                  <div className="w-8 h-8 rounded-lg bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center">
-                    <Lightbulb className="w-4 h-4" />
-                  </div>
-                  <h3 className="text-base font-bold text-slate-900 dark:text-white">
-                    {language === 'ar' ? tip.title : tip.titleEn}
-                  </h3>
-                  <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
-                    {language === 'ar' ? (tip.text || tip.description) : (tip.textEn || tip.descriptionEn)}
+                  <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mb-3">
+                    {pestData.districtsHeading}
+                  </h2>
+                  <p className="text-base sm:text-lg text-slate-700 dark:text-slate-200 leading-relaxed font-normal">
+                    {pestData.districtsParagraph}
                   </p>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
-        {/* Section 6: FAQs for this Service & City */}
-        <section className="py-14 sm:py-20 bg-slate-50 dark:bg-[#010e1f]">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-8">
-            <div className="text-center">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
-                <HelpCircle className="w-3.5 h-3.5" />
-                <span>{language === 'ar' ? 'إجابات واضحة' : 'Common Questions'}</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
-                {language === 'ar' ? data.faqsTitle : data.faqsTitleEn}
-              </h2>
-            </div>
-
-            <div className="space-y-4">
-              {data.faqs.map((faq, idx) => {
-                const isOpen = activeFaq === idx;
-                return (
-                  <div
-                    key={idx}
-                    className="rounded-2xl bg-white dark:bg-[#051c36] border border-slate-200 dark:border-cyan-900/40 overflow-hidden shadow-sm transition-all"
-                  >
-                    <button
-                      onClick={() => setActiveFaq(isOpen ? null : idx)}
-                      className="w-full p-5 text-start font-bold text-base sm:text-lg text-slate-900 dark:text-white flex items-center justify-between gap-4 cursor-pointer"
-                    >
-                      <span>{language === 'ar' ? faq.question : faq.questionEn}</span>
-                      <span className="text-cyan-500 text-xl font-bold shrink-0">{isOpen ? '−' : '+'}</span>
-                    </button>
-                    {isOpen && (
-                      <div className="px-5 pb-5 pt-0 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-cyan-950/60 pt-3">
-                        {language === 'ar' ? faq.answer : faq.answerEn}
-                      </div>
-                    )}
+                <div>
+                  <h3 className="text-sm font-bold text-slate-500 dark:text-cyan-300 uppercase tracking-wider mb-3">
+                    أبرز الأحياء والمناطق المخدومة في {cityName}:
+                  </h3>
+                  <div className="flex flex-wrap gap-2.5">
+                    {pestData.districtsList.map((dist, idx) => (
+                      <span
+                        key={idx}
+                        className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-[#072448] border border-slate-200 dark:border-cyan-900/40 text-sm font-semibold text-slate-800 dark:text-slate-100 shadow-sm"
+                      >
+                        <MapPin className="w-3.5 h-3.5 text-cyan-500" />
+                        <span>حي {dist}</span>
+                      </span>
+                    ))}
                   </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+                </div>
+              </div>
+            </section>
 
+            {/* 6. H2: لماذا تختار مسك كلين */}
+            <section className="py-14 sm:py-20 bg-slate-50 dark:bg-[#010e1f]">
+              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-10">
+                <div className="text-center max-w-2xl mx-auto">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <Award className="w-3.5 h-3.5" />
+                    <span>المعايير الاحترافية</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white">
+                    {pestData.whyHeading}
+                  </h2>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {pestData.whyPoints.map((point, idx) => (
+                    <div
+                      key={idx}
+                      className="p-6 rounded-2xl bg-white dark:bg-[#051c36] border border-slate-200 dark:border-cyan-900/40 shadow-sm space-y-2.5 transition-all hover:border-cyan-500/50"
+                    >
+                      <div className="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-black">
+                        <CheckCircle className="w-5 h-5 text-cyan-500" />
+                      </div>
+                      <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                        {point.title}
+                      </h3>
+                      <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+                        {point.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* 7. H2: أسئلة شائعة */}
+            <section className="py-14 sm:py-20 bg-white dark:bg-[#03152a] border-y border-slate-200 dark:border-cyan-900/40">
+              <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-8">
+                <div className="text-center">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <HelpCircle className="w-3.5 h-3.5" />
+                    <span>إجابات وافية وموثوقة</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
+                    {pestData.faqHeading}
+                  </h2>
+                </div>
+
+                <div className="space-y-4">
+                  {pestData.faqs.map((faq, idx) => {
+                    const isOpen = activeFaq === idx;
+                    return (
+                      <div
+                        key={idx}
+                        className="rounded-2xl bg-slate-50 dark:bg-[#051c36] border border-slate-200 dark:border-cyan-900/40 overflow-hidden shadow-sm transition-all"
+                      >
+                        <button
+                          onClick={() => setActiveFaq(isOpen ? null : idx)}
+                          className="w-full p-5 text-start font-bold text-base sm:text-lg text-slate-900 dark:text-white flex items-center justify-between gap-4 cursor-pointer"
+                        >
+                          <span>{faq.q}</span>
+                          <span className="text-cyan-500 text-xl font-bold shrink-0">{isOpen ? '−' : '+'}</span>
+                        </button>
+                        {isOpen && (
+                          <div className="px-5 pb-5 pt-0 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-200/60 dark:border-cyan-950/60 pt-3">
+                            {faq.a}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </section>
+          </>
+        ) : (
+          <>
+            {/* Standard Section 1: In-depth Overview & Local Environment */}
+            <section className="py-14 sm:py-20 bg-white dark:bg-[#03152a] border-y border-slate-200 dark:border-cyan-900/40">
+              <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-8">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>{language === 'ar' ? 'نظرة شاملة وتحديات البيئة المحلية' : 'In-Depth Overview & Climate Context'}</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
+                    {language === 'ar' 
+                      ? `أبعاد وأهمية ${serviceName} في ${cityName}` 
+                      : `Scope and Significance of ${serviceName} in ${cityName}`}
+                  </h2>
+                </div>
+
+                <div className="space-y-5 text-base sm:text-lg text-slate-700 dark:text-slate-200 leading-relaxed font-normal">
+                  {(language === 'ar' ? data.introParagraphs : data.introParagraphsEn).map((paragraph, idx) => (
+                    <p key={idx}>{paragraph}</p>
+                  ))}
+                </div>
+
+                {/* Importance Key Highlights */}
+                <div className="pt-4">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                    <ShieldCheck className="w-5 h-5 text-cyan-500" />
+                    <span>{language === 'ar' ? data.importanceTitle : data.importanceTitleEn}</span>
+                  </h3>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {(language === 'ar' ? data.importanceContent : data.importanceContentEn).map((point, idx) => (
+                      <div
+                        key={idx}
+                        className="p-5 rounded-2xl bg-slate-50 dark:bg-[#072448] border border-slate-200 dark:border-cyan-900/40 shadow-sm space-y-2"
+                      >
+                        <div className="w-7 h-7 rounded-lg bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-black text-sm">
+                          {idx + 1}
+                        </div>
+                        <p className="text-sm font-semibold text-slate-800 dark:text-slate-100 leading-relaxed">
+                          {point}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Standard Section 1.5: Local Neighborhood Analysis */}
+            {data.neighborhoodsAnalysisParagraphs && data.neighborhoodsAnalysisParagraphs.length > 0 && (
+              <section className="py-14 sm:py-20 bg-slate-100/70 dark:bg-[#021124] border-b border-slate-200 dark:border-cyan-900/40">
+                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-6">
+                  <div>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                      <MapPin className="w-3.5 h-3.5" />
+                      <span>{language === 'ar' ? 'التحليل الميداني للأحياء' : 'Local Neighborhood Analysis'}</span>
+                    </div>
+                    <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
+                      {language === 'ar' ? data.neighborhoodsAnalysisTitle : data.neighborhoodsAnalysisTitleEn}
+                    </h2>
+                  </div>
+                  <div className="space-y-4 text-base sm:text-lg text-slate-700 dark:text-slate-200 leading-relaxed font-normal">
+                    {(language === 'ar' ? data.neighborhoodsAnalysisParagraphs : data.neighborhoodsAnalysisParagraphsEn)?.map((p, idx) => (
+                      <p key={idx}>{p}</p>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {/* Standard Section 2: Systematic Workflow Steps */}
+            <section className="py-14 sm:py-20 bg-slate-50 dark:bg-[#010e1f]">
+              <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-10">
+                <div className="text-center max-w-2xl mx-auto">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    <span>{language === 'ar' ? 'منهجية العمل' : 'Our Systematic Workflow'}</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white">
+                    {language === 'ar' ? data.workflowTitle : data.workflowTitleEn}
+                  </h2>
+                </div>
+
+                <div className="space-y-4">
+                  {data.workflowSteps.map((step) => (
+                    <div
+                      key={step.number}
+                      className="p-6 rounded-2xl bg-white dark:bg-[#051c36] border border-slate-200 dark:border-cyan-900/40 shadow-sm flex flex-col sm:flex-row items-start sm:items-center gap-5 transition-all hover:border-cyan-500/50"
+                    >
+                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 text-white font-black text-lg flex items-center justify-center shrink-0 shadow-md">
+                        {step.number}
+                      </div>
+                      <div className="space-y-1 flex-1">
+                        <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                          {language === 'ar' ? step.title : step.titleEn}
+                        </h3>
+                        <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+                          {language === 'ar' ? step.description : step.descriptionEn}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* Standard Section 3: Features & Advantages */}
+            <section className="py-14 sm:py-20 bg-white dark:bg-[#03152a] border-y border-slate-200 dark:border-cyan-900/40">
+              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-10">
+                <div className="text-center max-w-2xl mx-auto">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <Award className="w-3.5 h-3.5" />
+                    <span>{language === 'ar' ? 'الجودة والضمان' : 'Quality & Guarantees'}</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white">
+                    {language === 'ar' ? data.featuresTitle : data.featuresTitleEn}
+                  </h2>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {data.features.map((feat, idx) => (
+                    <div
+                      key={idx}
+                      className="p-6 rounded-2xl bg-slate-50 dark:bg-[#061e38] border border-slate-200 dark:border-cyan-900/40 shadow-sm flex items-start gap-4"
+                    >
+                      <div className="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0 mt-0.5">
+                        <CheckCircle className="w-5 h-5" />
+                      </div>
+                      <div className="space-y-1.5">
+                        <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                          {language === 'ar' ? feat.title : feat.titleEn}
+                        </h3>
+                        <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+                          {language === 'ar' ? feat.description : feat.descriptionEn}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* Standard Section 3.5: Industrial Equipment & SASO Standards */}
+            {data.equipmentParagraphs && data.equipmentParagraphs.length > 0 && (
+              <section className="py-14 sm:py-20 bg-slate-100/70 dark:bg-[#021124] border-b border-slate-200 dark:border-cyan-900/40">
+                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-6">
+                  <div>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                      <ShieldCheck className="w-3.5 h-3.5 text-cyan-500" />
+                      <span>{language === 'ar' ? 'التقنيات والمواصفات القياسية' : 'Industrial Equipment & SASO Standards'}</span>
+                    </div>
+                    <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
+                      {language === 'ar' ? data.equipmentTitle : data.equipmentTitleEn}
+                    </h2>
+                  </div>
+                  <div className="space-y-4 text-base sm:text-lg text-slate-700 dark:text-slate-200 leading-relaxed font-normal">
+                    {(language === 'ar' ? data.equipmentParagraphs : data.equipmentParagraphsEn)?.map((p, idx) => (
+                      <p key={idx}>{p}</p>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {/* Standard Section 4: Districts Coverage in this City */}
+            <section className="py-14 sm:py-20 bg-slate-50 dark:bg-[#010e1f]">
+              <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-6">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <MapPin className="w-3.5 h-3.5" />
+                    <span>{language === 'ar' ? 'التغطية الميدانية' : 'Field Coverage'}</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
+                    {language === 'ar' ? data.districtsTitle : data.districtsTitleEn}
+                  </h2>
+                  <p className="text-base text-slate-600 dark:text-slate-300 mt-2 font-medium">
+                    {language === 'ar' ? data.districtsIntro : data.districtsIntroEn}
+                  </p>
+                </div>
+
+                <div className="space-y-3">
+                  {(language === 'ar' ? data.districtsList : data.districtsListEn).map((dist, idx) => (
+                    <div
+                      key={idx}
+                      className="p-4 rounded-xl bg-white dark:bg-[#051c36] border border-slate-200 dark:border-cyan-900/40 text-sm font-semibold text-slate-800 dark:text-slate-200 flex items-start gap-3 shadow-sm"
+                    >
+                      <MapPin className="w-4 h-4 text-cyan-500 shrink-0 mt-0.5" />
+                      <span>{dist}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* Standard Section 5: Expert Proactive Tips */}
+            <section className="py-14 sm:py-20 bg-white dark:bg-[#03152a] border-y border-slate-200 dark:border-cyan-900/40">
+              <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-8">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <Lightbulb className="w-3.5 h-3.5 text-amber-500" />
+                    <span>{language === 'ar' ? 'نصائح وإرشادات وقائية' : 'Expert Preventative Advice'}</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
+                    {language === 'ar' ? data.tipsTitle : data.tipsTitleEn}
+                  </h2>
+                  <p className="text-base text-slate-600 dark:text-slate-300 mt-2 font-medium">
+                    {language === 'ar' ? data.tipsIntro : data.tipsIntroEn}
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {data.tipsList.map((tip, idx) => (
+                    <div
+                      key={idx}
+                      className="p-6 rounded-2xl bg-slate-50 dark:bg-[#072448] border border-slate-200 dark:border-cyan-900/40 space-y-2 shadow-sm"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+                        <Lightbulb className="w-4 h-4" />
+                      </div>
+                      <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                        {language === 'ar' ? tip.title : tip.titleEn}
+                      </h3>
+                      <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+                        {language === 'ar' ? (tip.text || tip.description) : (tip.textEn || tip.descriptionEn)}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* Standard Section 6: FAQs for this Service & City */}
+            <section className="py-14 sm:py-20 bg-slate-50 dark:bg-[#010e1f]">
+              <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-8">
+                <div className="text-center">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <HelpCircle className="w-3.5 h-3.5" />
+                    <span>{language === 'ar' ? 'إجابات واضحة' : 'Common Questions'}</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
+                    {language === 'ar' ? data.faqsTitle : data.faqsTitleEn}
+                  </h2>
+                </div>
+
+                <div className="space-y-4">
+                  {data.faqs.map((faq, idx) => {
+                    const isOpen = activeFaq === idx;
+                    return (
+                      <div
+                        key={idx}
+                        className="rounded-2xl bg-white dark:bg-[#051c36] border border-slate-200 dark:border-cyan-900/40 overflow-hidden shadow-sm transition-all"
+                      >
+                        <button
+                          onClick={() => setActiveFaq(isOpen ? null : idx)}
+                          className="w-full p-5 text-start font-bold text-base sm:text-lg text-slate-900 dark:text-white flex items-center justify-between gap-4 cursor-pointer"
+                        >
+                          <span>{language === 'ar' ? faq.question : faq.questionEn}</span>
+                          <span className="text-cyan-500 text-xl font-bold shrink-0">{isOpen ? '−' : '+'}</span>
+                        </button>
+                        {isOpen && (
+                          <div className="px-5 pb-5 pt-0 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-cyan-950/60 pt-3">
+                            {language === 'ar' ? faq.answer : faq.answerEn}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </section>
+          </>
+        )}
         {/* Section 7: Embedded Booking Form on the Page */}
         <section id="booking" className="py-14 sm:py-20 bg-white dark:bg-[#03152a] border-t border-slate-200 dark:border-cyan-900/40">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

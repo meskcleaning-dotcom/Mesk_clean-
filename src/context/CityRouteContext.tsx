@@ -40,6 +40,7 @@ export const SERVICE_SLUG_MAP: Record<string, string> = {
   'تنظيف-وعزل-الخزانات': 'tanks',
   'عزل-الخزانات': 'tanks',
   'pest': 'pest',
+  'pest-control': 'pest',
   'مكافحة-الحشرات': 'pest',
   'رش-مبيدات': 'pest',
 };
