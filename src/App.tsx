@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { CityRouteProvider, useCityRoute } from './context/CityRouteContext';
@@ -16,9 +16,17 @@ import { BlogSection } from './components/BlogSection';
 import { Footer } from './components/Footer';
 import { MobileBottomNav } from './components/MobileBottomNav';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
-import { AdminDashboard } from './components/AdminDashboard';
-import { LegalModal, LegalDocType } from './components/LegalModal';
-import { ServiceCityPage } from './pages/ServiceCityPage';
+import { LegalDocType } from './components/LegalModal';
+
+const AdminDashboard = lazy(() =>
+  import('./components/AdminDashboard').then(m => ({ default: m.AdminDashboard }))
+);
+const LegalModal = lazy(() =>
+  import('./components/LegalModal').then(m => ({ default: m.LegalModal }))
+);
+const ServiceCityPage = lazy(() =>
+  import('./pages/ServiceCityPage').then(m => ({ default: m.ServiceCityPage }))
+);
 
 function MainWebsite() {
   const { language } = useLanguage();
@@ -52,24 +60,28 @@ function MainWebsite() {
 
   if (showAdmin) {
     return (
-      <AdminDashboard
-        onBackToSite={() => {
-          setShowAdmin(false);
-          if (window.location.hash === '#admin') {
-            window.location.hash = '';
-          }
-        }}
-      />
+      <Suspense fallback={<div className="min-h-screen bg-slate-900 flex items-center justify-center text-cyan-400">Loading...</div>}>
+        <AdminDashboard
+          onBackToSite={() => {
+            setShowAdmin(false);
+            if (window.location.hash === '#admin') {
+              window.location.hash = '';
+            }
+          }}
+        />
+      </Suspense>
     );
   }
 
   // Render Dedicated Service City Page if on a service route
   if (currentServiceId) {
     return (
-      <ServiceCityPage
-        serviceId={currentServiceId}
-        onOpenBooking={handleOpenBooking}
-      />
+      <Suspense fallback={<div className="min-h-screen bg-slate-900 flex items-center justify-center text-cyan-400">Loading...</div>}>
+        <ServiceCityPage
+          serviceId={currentServiceId}
+          onOpenBooking={handleOpenBooking}
+        />
+      </Suspense>
     );
   }
 
@@ -128,10 +140,12 @@ function MainWebsite() {
       <FloatingWhatsApp />
 
       {/* Legal Modal (Privacy Policy & Terms) */}
-      <LegalModal
-        type={legalModalType}
-        onClose={() => setLegalModalType(null)}
-      />
+      <Suspense fallback={null}>
+        <LegalModal
+          type={legalModalType}
+          onClose={() => setLegalModalType(null)}
+        />
+      </Suspense>
     </div>
   );
 }

@@ -5,10 +5,20 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    touch-action: manipulation;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
     font-family: 'Tajawal', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
+  }
+
+  button, a, input, select, textarea {
+    touch-action: manipulation;
   }
 }
 

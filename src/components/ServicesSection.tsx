@@ -135,6 +135,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookService 
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       referrerPolicy="no-referrer"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
 
@@ -175,17 +176,18 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookService 
 
                 {/* Card Actions */}
                 <div className="p-5 sm:p-6 pt-0 mt-auto grid grid-cols-2 gap-2 border-t border-slate-100 dark:border-cyan-950/60 pt-4">
-                  <button
-                    type="button"
+                  <a
+                    href={`/${currentCityId}/services/${service.id}`}
                     onClick={(e) => {
                       e.stopPropagation();
+                      e.preventDefault();
                       navigateToService(currentCityId, service.id);
                     }}
                     className="py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer active:scale-95 text-slate-700 dark:text-cyan-200 bg-slate-100 hover:bg-slate-200 dark:bg-[#072448] dark:hover:bg-[#092d59] border border-slate-200 dark:border-cyan-800/40"
                   >
                     <Eye className="w-3.5 h-3.5 text-cyan-500" />
                     <span>{t('services.viewDetails')}</span>
-                  </button>
+                  </a>
 
                   <button
                     type="button"

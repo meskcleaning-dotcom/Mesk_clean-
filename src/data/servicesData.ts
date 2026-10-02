@@ -19,7 +19,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       'Professional dust and allergen removal with HEPA filtration',
       'Customized scheduling to fit your home routine and priorities'
     ],
-    image: '/assets/srv-homes.jpg',
+    image: '/assets/srv-homes.webp',
     imagePosition: 'center',
     iconName: 'Home',
     active: true
@@ -42,7 +42,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       'Heavy-duty floor scrubbing and surface polishing technology',
       'Dedicated multi-member crew delivering meticulous and swift results'
     ],
-    image: '/assets/srv-villas.jpg',
+    image: '/assets/srv-villas.webp',
     imagePosition: 'center',
     iconName: 'Building2',
     active: true
@@ -65,7 +65,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       'Full protection for facades, light shafts, and balconies from droppings and nesting',
       'Humane, aesthetic, and permanent bird deterrence with multi-year warranty'
     ],
-    image: '/assets/srv-bird-netting.jpg',
+    image: '/assets/srv-bird-netting.webp',
     imagePosition: 'center',
     iconName: 'Bird',
     active: true
@@ -88,7 +88,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       'Discreet and efficient scheduling minimizing any disruption to business hours',
       'Flexible recurring corporate contracts with official VAT tax invoicing'
     ],
-    image: '/assets/srv-offices.jpg',
+    image: '/assets/srv-offices.webp',
     imagePosition: 'center',
     iconName: 'Briefcase',
     active: true
@@ -111,7 +111,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       'Detailed sanitization of cushions, seams, decorative folds, and borders',
       'Restores authentic vibrant color, fabric softness, and a fresh lasting fragrance'
     ],
-    image: '/assets/srv-sofas.jpg',
+    image: '/assets/srv-sofas.webp',
     imagePosition: 'center',
     iconName: 'Armchair',
     active: true
@@ -134,7 +134,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       'Certified non-toxic eco-detergents safeguarding carpet softness and dyes',
       'Safe for handmade Persian rugs, commercial wall-to-wall carpets, and hallway runners'
     ],
-    image: '/assets/srv-carpets.jpg',
+    image: '/assets/srv-carpets.webp',
     imagePosition: 'center',
     iconName: 'Layers',
     active: true
@@ -157,7 +157,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       'Physical exclusion sealing structural gaps, weep holes, and conduit penetrations',
       'Scheduled follow-up inspections with an official warranty certificate'
     ],
-    image: '/assets/srv-pest.jpg',
+    image: '/assets/srv-pest.webp',
     imagePosition: 'center',
     iconName: 'ShieldAlert',
     active: true
@@ -180,7 +180,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       'Thorough exterior sanitization of kitchen cabinets, shelves, and appliance faces',
       'Hospital-grade antibacterial sanitization ensuring 100% hygienic food preparation'
     ],
-    image: '/assets/srv-kitchens.jpg',
+    image: '/assets/srv-kitchens.webp',
     imagePosition: 'center',
     iconName: 'UtensilsCrossed',
     active: true
@@ -203,7 +203,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       'Complete waterproof shielding bags fully protecting surrounding walls and furnishings',
       'Restores cold airflow velocity, eliminates musty odors, and lowers electrical power draw'
     ],
-    image: '/assets/srv-ac.jpg',
+    image: '/assets/srv-ac.webp',
     imagePosition: 'center',
     iconName: 'Wind',
     active: true
@@ -226,7 +226,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       'Detection and repair of hairline fissures using municipality-certified waterproof epoxy insulation',
       'Final chlorine/ozone shock disinfection delivering crystalline, 100% pure drinking water'
     ],
-    image: '/assets/srv-tanks.jpg',
+    image: '/assets/srv-tanks.webp',
     imagePosition: 'center',
     iconName: 'Droplets',
     active: true
@@ -249,7 +249,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       'Targeted gel baiting for German cockroaches and perimeter micro-barrier spraying',
       'Certified long-term prevention guarantee with free booster visits if pests reappear'
     ],
-    image: '/assets/srv-pest.jpg',
+    image: '/assets/srv-pest.webp',
     imagePosition: 'center',
     iconName: 'ShieldAlert',
     active: true

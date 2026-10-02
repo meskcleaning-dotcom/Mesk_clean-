@@ -25,7 +25,7 @@ export const COMPANY_INFO = {
     pinterest: 'https://pin.it/qtRpgvlCS'
   },
   logo: {
-    dark: '/assets/mesk-clean-official-logo.png',
-    transparent: '/assets/mesk-clean-official-logo-transparent.png'
+    dark: '/assets/mesk-clean-official-logo.webp',
+    transparent: '/assets/mesk-clean-official-logo-transparent.webp'
   }
 };

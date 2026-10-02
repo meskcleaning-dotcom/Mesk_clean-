@@ -76,8 +76,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
             <img
               src={COMPANY_INFO.logo.transparent}
               alt={language === 'ar' ? 'شعار شركة مسك كلين لخدمات التنظيف بجدة، مكة، ورابغ' : 'Mesk Clean logo - Cleaning services in Jeddah, Makkah & Rabigh'}
+              width="160"
+              height="64"
               className="h-14 sm:h-16 w-auto object-contain transition-transform duration-200 group-hover:scale-105 drop-shadow-[0_2px_8px_rgba(6,182,212,0.25)]"
               referrerPolicy="no-referrer"
+              decoding="async"
             />
           </a>
 
@@ -172,8 +175,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
             <img
               src={COMPANY_INFO.logo.transparent}
               alt="MeskClean"
+              width="140"
+              height="56"
               className="h-12 sm:h-14 w-auto object-contain drop-shadow-[0_2px_8px_rgba(6,182,212,0.25)]"
               referrerPolicy="no-referrer"
+              decoding="async"
             />
           </a>
 

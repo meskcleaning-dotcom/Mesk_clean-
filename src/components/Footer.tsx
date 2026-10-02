@@ -39,6 +39,8 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService, onOpenAdmin, on
                 alt={COMPANY_INFO.arabicName}
                 className="h-16 w-auto object-contain drop-shadow-[0_2px_10px_rgba(6,182,212,0.3)]"
                 referrerPolicy="no-referrer"
+                loading="lazy"
+                decoding="async"
               />
               <div>
                 <h3 className="text-xl font-black text-slate-900 dark:text-white">
@@ -161,13 +163,17 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService, onOpenAdmin, on
               {SERVICES_DATA.map((srv) => {
                 const srvTitle = language === 'ar' ? srv.name : (srv.nameEn || srv.name);
                 return (
-                  <button
+                  <a
                     key={srv.id}
-                    onClick={() => onSelectService(srv.id)}
-                    className="text-start hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors truncate cursor-pointer"
+                    href={`/${currentCityId}/services/${srv.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onSelectService(srv.id);
+                    }}
+                    className="text-start hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors truncate cursor-pointer block"
                   >
                     • {srvTitle}
-                  </button>
+                  </a>
                 );
               })}
             </div>

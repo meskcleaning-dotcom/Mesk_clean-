@@ -102,6 +102,26 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
     const fullCanonical = `https://www.meskclean.com/${currentCityId}/services/${serviceId}`;
     canonical.setAttribute('href', fullCanonical);
 
+    // OpenGraph & Twitter Social Metadata
+    const setMeta = (attr: string, key: string, content: string) => {
+      let el = document.querySelector(`meta[${attr}="${key}"]`);
+      if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute(attr, key);
+        document.head.appendChild(el);
+      }
+      el.setAttribute('content', content);
+    };
+
+    setMeta('property', 'og:title', pageTitle);
+    setMeta('property', 'og:description', pageDesc);
+    setMeta('property', 'og:url', fullCanonical);
+    setMeta('property', 'og:image', 'https://www.meskclean.com/assets/mesk-hero.jpg');
+    setMeta('property', 'og:locale', language === 'ar' ? 'ar_SA' : 'en_US');
+    setMeta('name', 'twitter:title', pageTitle);
+    setMeta('name', 'twitter:description', pageDesc);
+    setMeta('name', 'twitter:image', 'https://www.meskclean.com/assets/mesk-hero.jpg');
+
     // Schema.org Structured Data
     const serviceName = (language === 'ar' && pestData)
       ? pestData.h1Title
@@ -338,10 +358,12 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
               <div className="lg:col-span-5">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-slate-200 dark:border-cyan-800/60 bg-slate-900 group">
                   <img
-                    src={baseService?.image || '/assets/mesk-hero.jpg'}
+                    src={baseService?.image || '/assets/mesk-hero.webp'}
                     alt={serviceName}
                     style={{ objectPosition: baseService?.imagePosition || 'center' }}
                     className="w-full h-72 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
 

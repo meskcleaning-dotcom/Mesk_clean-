@@ -2,10 +2,19 @@
 <html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="theme-color" content="#010e1f" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="format-detection" content="telephone=no" />
     
     <!-- Google Search Console Verification -->
-    
     <meta name="google-site-verification" content="XPWZO6I_QLNWM9PNjy-vxajPCfPPwkWajenbIykETZk" />
     <meta name="google-site-verification" content="H3TCGIvi2WaLLnoJHAIkDSPYFzmhAbfS3YfxZiuobdg" />
     <!-- Instant Theme & Language Initialization -->
@@ -32,7 +41,8 @@
     <meta name="description" content="مسك كلين شركة تنظيف بجدة ومكة المكرمة ورابغ تقدم خدمات تنظيف المنازل والفلل والمكاتب وتركيب شبك وطارد الحمام وغسيل المكيفات وعزل الخزانات ومكافحة القوارض باحترافية." />
     <meta name="keywords" content="شركة تنظيف بجدة, شركة تنظيف بمكة, شركة تنظيف برابغ, شركة تنظيف منازل بجدة, شركة تنظيف فلل بمكة, تركيب شبك حمام بجدة, طارد حمام بمكة, شركة تنظيف مكاتب, شركة تنظيف كنب بالبخار, شركة تنظيف سجاد, تنظيف خزانات بمكة, عزل خزانات بجدة, غسيل مكيفات برابغ, مكافحة قوارض وحشرات" />
     <link rel="canonical" href="https://www.meskclean.com/" />
-    <link rel="icon" type="image/png" href="/assets/favicon.png" />
+    <link rel="icon" type="image/webp" href="/assets/favicon.webp" />
+    <link rel="alternate icon" type="image/png" href="/assets/favicon.png" />
     
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website" />
@@ -49,53 +59,71 @@
     <meta name="twitter:description" content="مسك كلين شركة تنظيف بجدة ومكة المكرمة ورابغ تقدم خدمات تنظيف المنازل والفلل والمكاتب وتركيب شبك وطارد الحمام وغسيل المكيفات وعزل الخزانات ومكافحة القوارض باحترافية." />
     <meta name="twitter:image" content="https://www.meskclean.com/assets/mesk-hero.jpg" />
 
-    <!-- Google Fonts: Tajawal -->
+    <!-- Preconnect & Preload for Core Web Vitals -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="preload" as="image" href="/assets/mesk-hero-light.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet" /></noscript>
 
-    <!-- Schema.org Structured Data -->
+    <!-- Schema.org Structured Data (WebSite + LocalBusiness) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "HomeAndConstructionBusiness",
-      "name": "شركة مسك كلين",
-      "alternateName": "Mesk Clean Services",
-      "image": "https://www.meskclean.com/assets/mesk-clean-official-logo.png",
-      "telephone": "+966547161147",
-      "url": "https://www.meskclean.com/",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "جدة",
-        "addressRegion": "منطقة مكة المكرمة",
-        "addressCountry": "SA"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 21.543333,
-        "longitude": 39.172778
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
-        ],
-        "opens": "00:00",
-        "closes": "23:59"
-      },
-      "areaServed": [
-        { "@type": "City", "name": "جدة", "alternateName": "Jeddah" },
-        { "@type": "City", "name": "مكة المكرمة", "alternateName": "Makkah" },
-        { "@type": "City", "name": "رابغ", "alternateName": "Rabigh" }
-      ],
-      "priceRange": "$$",
-      "description": "شركة مسك كلين المتخصصة في خدمات التنظيف المنزلي والتجاري في جدة، مكة المكرمة، ورابغ: تنظيف منازل، فلل، شقق، مكاتب، كنب وسجاد بالبخار، غسيل مكيفات، عزل خزانات، مكافحة قوارض، وتركيب شبك حمام."
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://www.meskclean.com/#website",
+          "url": "https://www.meskclean.com/",
+          "name": "مسك كلين - Mesk Clean",
+          "description": "مسك كلين شركة تنظيف بجدة ومكة المكرمة ورابغ تقدم خدمات تنظيف المنازل والفلل والمكاتب وتركيب شبك وطارد الحمام وغسيل المكيفات وعزل الخزانات ومكافحة القوارض باحترافية.",
+          "inLanguage": "ar-SA"
+        },
+        {
+          "@type": "HomeAndConstructionBusiness",
+          "@id": "https://www.meskclean.com/#business",
+          "name": "شركة مسك كلين",
+          "alternateName": "Mesk Clean Services",
+          "image": "https://www.meskclean.com/assets/mesk-clean-official-logo.png",
+          "telephone": "+966547161147",
+          "url": "https://www.meskclean.com/",
+          "priceRange": "$$",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "جدة",
+            "addressRegion": "منطقة مكة المكرمة",
+            "addressCountry": "SA"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 21.543333,
+            "longitude": 39.172778
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "00:00",
+            "closes": "23:59"
+          },
+          "areaServed": [
+            { "@type": "City", "name": "جدة", "alternateName": "Jeddah" },
+            { "@type": "City", "name": "مكة المكرمة", "alternateName": "Makkah" },
+            { "@type": "City", "name": "رابغ", "alternateName": "Rabigh" }
+          ],
+          "description": "شركة مسك كلين المتخصصة في خدمات التنظيف المنزلي والتجاري في جدة، مكة المكرمة، ورابغ: تنظيف منازل، فلل، شقق، مكاتب، كنب وسجاد بالبخار، غسيل مكيفات، عزل خزانات، مكافحة قوارض، وتركيب شبك حمام."
+        }
+      ]
     }
     </script>
   </head>

@@ -32,13 +32,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
     >
       {/* Background Image - Exact same worker image centered for both Light & Dark modes */}
       <img
-        src="/assets/mesk-hero-light.jpg"
+        src="/assets/mesk-hero-light.webp"
         alt={language === 'ar' ? `شركة تنظيف في ${currentCity.nameAr} - مسك كلين` : `Mesk Clean - Cleaning Company in ${currentCity.nameEn}`}
         className={`absolute inset-0 w-full h-full object-cover object-center pointer-events-none transition-all duration-500 ${
           isDark ? 'brightness-[0.45] contrast-[1.1] saturate-[0.85]' : 'brightness-100'
         }`}
         referrerPolicy="no-referrer"
         fetchPriority="high"
+        decoding="async"
       />
 
       {/* Balanced Overlays for optimal contrast and readability */}
