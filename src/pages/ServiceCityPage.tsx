@@ -38,6 +38,7 @@ import { MobileBottomNav } from '../components/MobileBottomNav';
 import { LegalModal, LegalDocType } from '../components/LegalModal';
 import { PEST_CITIES_CONTENT } from '../data/pestControlCitiesContent';
 import { TANKS_CITIES_CONTENT } from '../data/tanksCleaningCitiesContent';
+import { HOME_CLEANING_CITIES_CONTENT } from '../data/homeCleaningCitiesContent';
 
 const iconMap: Record<string, React.FC<{ className?: string }>> = {
   Home,
@@ -71,6 +72,9 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
   const isTanks = serviceId === 'tanks' || serviceId === 'tank-cleaning' || serviceId === 'tank-insulation';
   const tankData = isTanks ? TANKS_CITIES_CONTENT[currentCityId] : null;
 
+  const isHomeCleaning = serviceId === 'homes' || serviceId === 'home-cleaning';
+  const homeData = isHomeCleaning ? HOME_CLEANING_CITIES_CONTENT[currentCityId] : null;
+
   const data = getCityServiceData(serviceId, currentCityId);
   const allServices = getStoredServices();
   const baseService = allServices.find((s) => s.id === serviceId);
@@ -83,12 +87,16 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
       ? pestData.metaTitle
       : (language === 'ar' && tankData)
       ? tankData.metaTitle
+      : (language === 'ar' && homeData)
+      ? homeData.metaTitle
       : (language === 'ar' ? data.metaTitle : data.metaTitleEn);
 
     const pageDesc = (language === 'ar' && pestData)
       ? pestData.metaDescription
       : (language === 'ar' && tankData)
       ? tankData.metaDescription
+      : (language === 'ar' && homeData)
+      ? homeData.metaDescription
       : (language === 'ar' ? data.metaDescription : data.metaDescriptionEn);
 
     document.title = pageTitle;
@@ -135,6 +143,8 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
       ? pestData.h1Title
       : (language === 'ar' && tankData)
       ? tankData.h1Title
+      : (language === 'ar' && homeData)
+      ? homeData.h1Title
       : (language === 'ar' ? (baseService?.name || data.heroHeading) : (baseService?.nameEn || data.heroHeadingEn));
     const cityName = language === 'ar' ? currentCity.nameAr : currentCity.nameEn;
 
@@ -149,6 +159,15 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
         }))
       : (language === 'ar' && tankData)
       ? tankData.faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.q,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.a
+          }
+        }))
+      : (language === 'ar' && homeData)
+      ? homeData.faqs.map((faq) => ({
           '@type': 'Question',
           name: faq.q,
           acceptedAnswer: {
@@ -313,6 +332,8 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                       ? `خدمة معتمدة لمكافحة الآفات بـ${cityName}`
                       : language === 'ar' && tankData
                       ? `خدمة متخصصة لتنظيف وعزل الخزانات بـ${cityName}`
+                      : language === 'ar' && homeData
+                      ? `خدمة احترافية لتنظيف المنازل بـ${cityName}`
                       : (language === 'ar' ? data.heroBadge : data.heroBadgeEn)}
                   </span>
                 </div>
@@ -322,6 +343,8 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                     ? pestData.h1Title
                     : language === 'ar' && tankData
                     ? tankData.h1Title
+                    : language === 'ar' && homeData
+                    ? homeData.h1Title
                     : (language === 'ar' ? data.heroHeading : data.heroHeadingEn)}
                 </h1>
 
@@ -330,6 +353,8 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                     ? pestData.introParagraph
                     : language === 'ar' && tankData
                     ? tankData.introParagraph
+                    : language === 'ar' && homeData
+                    ? homeData.introParagraph
                     : (language === 'ar' ? data.heroSubtitle : data.heroSubtitleEn)}
                 </p>
 
@@ -340,6 +365,8 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                     <span>
                       {language === 'ar' && tankData
                         ? 'ضمان 10 سنوات على أعمال العزل'
+                        : language === 'ar' && homeData
+                        ? 'عناية شاملة بالشقق والفلل'
                         : (language === 'ar' ? 'ضمان معتمد 6 شهور' : 'Certified Warranty')}
                     </span>
                   </span>
@@ -352,6 +379,8 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                     <span>
                       {language === 'ar' && tankData
                         ? 'مواد عزل معتمدة لمياه الشرب'
+                        : language === 'ar' && homeData
+                        ? 'منظفات آمنة وصديقة للأسرة'
                         : (language === 'ar' ? 'مبيدات آمنة ومصرحة من الغذاء والدواء' : 'Certified Safe Formulas')}
                     </span>
                   </span>
