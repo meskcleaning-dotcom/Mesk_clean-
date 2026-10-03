@@ -141,7 +141,7 @@ export const SERVICES_DATA: ServiceItem[] = [
   },
   {
     id: 'rodents-reptiles',
-    name: 'مكافحة القوارض والزواحف',
+    name: 'مكافحة الزواحف والقوارض',
     nameEn: 'Rodents & Reptiles Control',
     description: 'إبادة ومكافحة شاملة للفئران والجرذان والزواحف بأحدث الطعوم والمصائد مع الضمان بجدة.',
     descriptionEn: 'Comprehensive extermination for mice, rats, and reptiles using modern safety bait stations and certified guarantees.',
@@ -187,21 +187,21 @@ export const SERVICES_DATA: ServiceItem[] = [
   },
   {
     id: 'ac',
-    name: 'غسيل المكيفات',
+    name: 'غسيل وتنظيف المكيفات',
     nameEn: 'Air Conditioner Cleaning & Washing',
-    description: 'غسيل منظم لأجزاء المكيف القابلة للخدمة لزيادة كفاءة التبريد وتحسين نقاء الهواء.',
-    descriptionEn: 'Systematic washing of split and window AC units using specialized water catch bags and high-pressure washing pumps.',
+    description: 'غسيل وتنظيف المكيفات للوحدة الداخلية والخارجية وإزالة الأتربة والأوساخ المتراكمة وتنظيف الفلاتر والملفات لتحسين تدفق الهواء والمساعدة في تحسين كفاءة التبريد للمنازل والمكاتب.',
+    descriptionEn: 'Professional air conditioner cleaning and washing for indoor and outdoor units, removing dust, washing filters and coils, improving airflow and cooling efficiency for homes and offices.',
     details: [
-      'فحص أولي لكفاءة عمل المكيف قبل بدء التنظيف',
-      'غسيل الفلاتر وحوض التصريف والأجزاء الداخلية بمضخات متخصصة',
-      'استخدام أكياس حماية مخصصة لمنع تناثر المياه على الجدران والأثاث',
-      'تنظيف يحافظ على تدفق هواء نقي وبارد في أجواء جدة'
+      'تنظيف شامل للوحدة الداخلية والخارجية وإزالة الأتربة والأوساخ المتراكمة',
+      'غسيل الفلاتر والملفات وحوض ومجرى التصريف بأحدث مضخات التنظيف المخصصة',
+      'تحسين تدفق الهواء والمساعدة في تحسين كفاءة التبريد ونقاء الأجواء',
+      'خدمة متخصصة تلبي احتياجات المنازل والفلل والشقق والمكاتب'
     ],
     detailsEn: [
-      'Diagnostic pre-cleaning inspection testing cooling performance and thermostat accuracy',
-      'High-pressure pump washing of evaporator coils, blower fan wheels, and condensate drain trays',
-      'Complete waterproof shielding bags fully protecting surrounding walls and furnishings',
-      'Restores cold airflow velocity, eliminates musty odors, and lowers electrical power draw'
+      'Comprehensive cleaning of indoor and outdoor units, removing accumulated dirt and dust',
+      'Washing filters, coils, and condensate drain lines with specialized cleaning equipment',
+      'Enhancing airflow and assisting in improving cooling efficiency and indoor air freshness',
+      'Dedicated service tailored for homes, apartments, villas, and commercial offices'
     ],
     image: '/assets/srv-ac.webp',
     imagePosition: 'center',
