@@ -37,6 +37,7 @@ import { FloatingWhatsApp } from '../components/FloatingWhatsApp';
 import { MobileBottomNav } from '../components/MobileBottomNav';
 import { LegalModal, LegalDocType } from '../components/LegalModal';
 import { PEST_CITIES_CONTENT } from '../data/pestControlCitiesContent';
+import { TANKS_CITIES_CONTENT } from '../data/tanksCleaningCitiesContent';
 
 const iconMap: Record<string, React.FC<{ className?: string }>> = {
   Home,
@@ -67,6 +68,9 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
   const isPestControl = serviceId === 'pest' || serviceId === 'pest-control';
   const pestData = isPestControl ? PEST_CITIES_CONTENT[currentCityId] : null;
 
+  const isTanks = serviceId === 'tanks' || serviceId === 'tank-cleaning' || serviceId === 'tank-insulation';
+  const tankData = isTanks ? TANKS_CITIES_CONTENT[currentCityId] : null;
+
   const data = getCityServiceData(serviceId, currentCityId);
   const allServices = getStoredServices();
   const baseService = allServices.find((s) => s.id === serviceId);
@@ -77,10 +81,14 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
   useEffect(() => {
     const pageTitle = (language === 'ar' && pestData)
       ? pestData.metaTitle
+      : (language === 'ar' && tankData)
+      ? tankData.metaTitle
       : (language === 'ar' ? data.metaTitle : data.metaTitleEn);
 
     const pageDesc = (language === 'ar' && pestData)
       ? pestData.metaDescription
+      : (language === 'ar' && tankData)
+      ? tankData.metaDescription
       : (language === 'ar' ? data.metaDescription : data.metaDescriptionEn);
 
     document.title = pageTitle;
@@ -125,11 +133,22 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
     // Schema.org Structured Data
     const serviceName = (language === 'ar' && pestData)
       ? pestData.h1Title
+      : (language === 'ar' && tankData)
+      ? tankData.h1Title
       : (language === 'ar' ? (baseService?.name || data.heroHeading) : (baseService?.nameEn || data.heroHeadingEn));
     const cityName = language === 'ar' ? currentCity.nameAr : currentCity.nameEn;
 
     const faqEntities = (language === 'ar' && pestData)
       ? pestData.faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.q,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.a
+          }
+        }))
+      : (language === 'ar' && tankData)
+      ? tankData.faqs.map((faq) => ({
           '@type': 'Question',
           name: faq.q,
           acceptedAnswer: {
@@ -292,6 +311,8 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                   <span>
                     {language === 'ar' && pestData
                       ? `خدمة معتمدة لمكافحة الآفات بـ${cityName}`
+                      : language === 'ar' && tankData
+                      ? `خدمة متخصصة لتنظيف وعزل الخزانات بـ${cityName}`
                       : (language === 'ar' ? data.heroBadge : data.heroBadgeEn)}
                   </span>
                 </div>
@@ -299,12 +320,16 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
                   {language === 'ar' && pestData
                     ? pestData.h1Title
+                    : language === 'ar' && tankData
+                    ? tankData.h1Title
                     : (language === 'ar' ? data.heroHeading : data.heroHeadingEn)}
                 </h1>
 
                 <p className="text-base sm:text-lg text-slate-700 dark:text-slate-200 leading-relaxed font-medium">
                   {language === 'ar' && pestData
                     ? pestData.introParagraph
+                    : language === 'ar' && tankData
+                    ? tankData.introParagraph
                     : (language === 'ar' ? data.heroSubtitle : data.heroSubtitleEn)}
                 </p>
 
@@ -312,7 +337,11 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                 <div className="flex flex-wrap gap-2.5 pt-2">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-[#072448] border border-slate-200 dark:border-cyan-800/40 text-xs font-bold text-slate-700 dark:text-cyan-200 shadow-sm">
                     <ShieldCheck className="w-4 h-4 text-cyan-500" />
-                    <span>{language === 'ar' ? 'ضمان معتمد 6 شهور' : 'Certified 6-Month Warranty'}</span>
+                    <span>
+                      {language === 'ar' && tankData
+                        ? 'ضمان 10 سنوات على أعمال العزل'
+                        : (language === 'ar' ? 'ضمان معتمد 6 شهور' : 'Certified Warranty')}
+                    </span>
                   </span>
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-[#072448] border border-slate-200 dark:border-cyan-800/40 text-xs font-bold text-slate-700 dark:text-cyan-200 shadow-sm">
                     <Clock className="w-4 h-4 text-cyan-500" />
@@ -320,7 +349,11 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                   </span>
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-[#072448] border border-slate-200 dark:border-cyan-800/40 text-xs font-bold text-slate-700 dark:text-cyan-200 shadow-sm">
                     <Award className="w-4 h-4 text-cyan-500" />
-                    <span>{language === 'ar' ? 'مبيدات آمنة ومصرحة من الغذاء والدواء' : 'SFDA-Certified Safe Formulas'}</span>
+                    <span>
+                      {language === 'ar' && tankData
+                        ? 'مواد عزل معتمدة لمياه الشرب'
+                        : (language === 'ar' ? 'مبيدات آمنة ومصرحة من الغذاء والدواء' : 'Certified Safe Formulas')}
+                    </span>
                   </span>
                 </div>
 
@@ -369,7 +402,7 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
 
                   <div className="absolute bottom-5 start-5 end-5 text-start">
                     <span className="inline-block px-3 py-1 rounded-lg bg-cyan-500 text-slate-950 text-xs font-black mb-2 shadow-md">
-                      {cityName} • {language === 'ar' ? 'خدمة متميزة بضمان 6 شهور' : 'Top Tier Service'}
+                      {cityName} • {language === 'ar' && tankData ? 'ضمان 10 سنوات على أعمال العزل' : (language === 'ar' && pestData ? 'خدمة متميزة بضمان 6 شهور' : (language === 'ar' ? 'خدمة متميزة ومعتمدة' : 'Top Tier Service'))}
                     </span>
                     <h3 className="text-xl sm:text-2xl font-black text-white drop-shadow-md">
                       {serviceName}
@@ -541,6 +574,212 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                       <div
                         key={idx}
                         className="rounded-2xl bg-slate-50 dark:bg-[#051c36] border border-slate-200 dark:border-cyan-900/40 overflow-hidden shadow-sm transition-all"
+                      >
+                        <button
+                          onClick={() => setActiveFaq(isOpen ? null : idx)}
+                          className="w-full p-5 text-start font-bold text-base sm:text-lg text-slate-900 dark:text-white flex items-center justify-between gap-4 cursor-pointer"
+                        >
+                          <span>{faq.q}</span>
+                          <span className="text-cyan-500 text-xl font-bold shrink-0">{isOpen ? '−' : '+'}</span>
+                        </button>
+                        {isOpen && (
+                          <div className="px-5 pb-5 pt-0 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-200/60 dark:border-cyan-950/60 pt-3">
+                            {faq.a}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </section>
+          </>
+        ) : language === 'ar' && tankData ? (
+          <>
+            {/* 1. H2: خدمات تنظيف وعزل الخزانات في المدينة + 8 فقرات H3 */}
+            <section className="py-14 sm:py-20 bg-white dark:bg-[#03152a] border-y border-slate-200 dark:border-cyan-900/40">
+              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-10">
+                <div className="text-center max-w-2xl mx-auto">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <Droplets className="w-3.5 h-3.5 text-cyan-500" />
+                    <span>نظافة وعزل معتمد</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white">
+                    {tankData.servicesHeading}
+                  </h2>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {tankData.services.map((srv, idx) => (
+                    <div
+                      key={idx}
+                      className="p-6 rounded-2xl bg-slate-50 dark:bg-[#061e38] border border-slate-200 dark:border-cyan-900/40 shadow-sm space-y-3 transition-all hover:border-cyan-500/50"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0 font-black">
+                          {idx + 1}
+                        </div>
+                        <h3 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white">
+                          {srv.title}
+                        </h3>
+                      </div>
+                      <p className="text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed font-normal">
+                        {srv.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* 2. Dedicated Insulation Warranty Clarification Banner */}
+            <section className="py-10 bg-slate-100 dark:bg-[#021022]">
+              <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="p-8 rounded-3xl bg-gradient-to-r from-cyan-950/40 via-blue-950/30 to-slate-900/50 border-2 border-cyan-500/40 shadow-xl flex flex-col md:flex-row items-start gap-6">
+                  <div className="w-14 h-14 rounded-2xl bg-cyan-500 text-slate-950 flex items-center justify-center shrink-0 shadow-lg shadow-cyan-500/30 font-black">
+                    <ShieldCheck className="w-8 h-8" />
+                  </div>
+                  <div className="space-y-2 flex-1 text-start">
+                    <h3 className="text-xl font-black text-cyan-400 dark:text-cyan-300">
+                      {tankData.warrantyNoticeHeading}
+                    </h3>
+                    <p className="text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed font-medium">
+                      {tankData.warrantyNoticeDesc}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* 3. H2: طريقة عملنا في تنظيف وعزل الخزانات */}
+            <section className="py-14 sm:py-20 bg-white dark:bg-[#03152a] border-y border-slate-200 dark:border-cyan-900/40">
+              <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-8">
+                <div className="text-center max-w-2xl mx-auto mb-4">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    <span>مراحل العمل الميداني</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white">
+                    {tankData.methodHeading}
+                  </h2>
+                </div>
+
+                <div className="p-8 rounded-3xl bg-slate-50 dark:bg-[#051c36] border border-slate-200 dark:border-cyan-900/40 shadow-sm space-y-6">
+                  <p className="text-base sm:text-lg text-slate-700 dark:text-slate-200 leading-relaxed font-normal">
+                    {tankData.methodParagraph}
+                  </p>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
+                    {tankData.methodSteps.map((st, idx) => (
+                      <div
+                        key={idx}
+                        className="p-5 rounded-2xl bg-white dark:bg-[#072448] border border-slate-200 dark:border-cyan-800/40 shadow-sm space-y-2"
+                      >
+                        <div className="w-8 h-8 rounded-lg bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-black text-sm">
+                          {st.step}
+                        </div>
+                        <h4 className="text-base font-bold text-slate-900 dark:text-white">
+                          {st.title}
+                        </h4>
+                        <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                          {st.desc}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* 4. H2: نخدم أحياء المدينة */}
+            <section className="py-14 sm:py-20 bg-slate-50 dark:bg-[#010e1f]">
+              <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-8">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <MapPin className="w-3.5 h-3.5" />
+                    <span>تغطية الأحياء والمخططات</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mb-3">
+                    {tankData.districtsHeading}
+                  </h2>
+                  <p className="text-base sm:text-lg text-slate-700 dark:text-slate-200 leading-relaxed font-normal">
+                    {tankData.districtsParagraph}
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-sm font-bold text-slate-500 dark:text-cyan-300 uppercase tracking-wider mb-3">
+                    أبرز الأحياء والمناطق المخدومة في {cityName}:
+                  </h3>
+                  <div className="flex flex-wrap gap-2.5">
+                    {tankData.districtsList.map((dist, idx) => (
+                      <span
+                        key={idx}
+                        className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white dark:bg-[#072448] border border-slate-200 dark:border-cyan-900/40 text-sm font-semibold text-slate-800 dark:text-slate-100 shadow-sm"
+                      >
+                        <MapPin className="w-3.5 h-3.5 text-cyan-500" />
+                        <span>{dist}</span>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* 5. H2: لماذا تختار مسك كلين */}
+            <section className="py-14 sm:py-20 bg-white dark:bg-[#03152a] border-y border-slate-200 dark:border-cyan-900/40">
+              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-10">
+                <div className="text-center max-w-2xl mx-auto">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                    <span>معايير الثقة والجودة</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
+                    {tankData.whyHeading}
+                  </h2>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {tankData.whyPoints.map((point, idx) => (
+                    <div
+                      key={idx}
+                      className="p-6 rounded-2xl bg-slate-50 dark:bg-[#051c36] border border-slate-200 dark:border-cyan-900/40 shadow-sm space-y-2.5 transition-all hover:border-cyan-500/50"
+                    >
+                      <div className="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-black">
+                        <CheckCircle className="w-5 h-5 text-cyan-500" />
+                      </div>
+                      <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                        {point.title}
+                      </h3>
+                      <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+                        {point.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* 6. H2: أسئلة شائعة */}
+            <section className="py-14 sm:py-20 bg-slate-50 dark:bg-[#010e1f]">
+              <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-8">
+                <div className="text-center">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <HelpCircle className="w-3.5 h-3.5" />
+                    <span>إجابات وافية وموثوقة</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
+                    {tankData.faqHeading}
+                  </h2>
+                </div>
+
+                <div className="space-y-4">
+                  {tankData.faqs.map((faq, idx) => {
+                    const isOpen = activeFaq === idx;
+                    return (
+                      <div
+                        key={idx}
+                        className="rounded-2xl bg-white dark:bg-[#051c36] border border-slate-200 dark:border-cyan-900/40 overflow-hidden shadow-sm transition-all"
                       >
                         <button
                           onClick={() => setActiveFaq(isOpen ? null : idx)}
