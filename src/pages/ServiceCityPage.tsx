@@ -48,6 +48,7 @@ import { OFFICES_CITIES_CONTENT } from '../data/officesCleaningCitiesContent';
 import { BIRD_NETTING_CITIES_CONTENT } from '../data/birdNettingCitiesContent';
 import { SOFAS_CITIES_CONTENT } from '../data/sofasCleaningCitiesContent';
 import { CARPETS_CITIES_CONTENT } from '../data/carpetsCleaningCitiesContent';
+import { RODENTS_REPTILES_CITIES_CONTENT } from '../data/rodentsReptilesCitiesContent';
 
 const iconMap: Record<string, React.FC<{ className?: string }>> = {
   Home,
@@ -99,6 +100,9 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
   const isCarpets = serviceId === 'carpets' || serviceId === 'carpet-cleaning' || serviceId === 'تنظيف-السجاد' || serviceId === 'تنظيف-السجاد-والموكيت';
   const carpetData = isCarpets ? CARPETS_CITIES_CONTENT[currentCityId] : null;
 
+  const isRodents = serviceId === 'rodents-reptiles' || serviceId === 'rodents' || serviceId === 'مكافحة-القوارض' || serviceId === 'مكافحة-الزواحف' || serviceId === 'مكافحة-القوارض-والزواحف' || serviceId === 'مكافحة-الزواحف-والقوارض';
+  const rodentsData = isRodents ? RODENTS_REPTILES_CITIES_CONTENT[currentCityId] : null;
+
   const data = getCityServiceData(serviceId, currentCityId);
   const allServices = getStoredServices();
   const baseService = allServices.find((s) => s.id === serviceId);
@@ -123,6 +127,8 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
       ? sofasData.metaTitle
       : (language === 'ar' && carpetData)
       ? carpetData.metaTitle
+      : (language === 'ar' && rodentsData)
+      ? rodentsData.metaTitle
       : (language === 'ar' ? data.metaTitle : data.metaTitleEn);
 
     const pageDesc = (language === 'ar' && pestData)
@@ -141,6 +147,8 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
       ? sofasData.metaDescription
       : (language === 'ar' && carpetData)
       ? carpetData.metaDescription
+      : (language === 'ar' && rodentsData)
+      ? rodentsData.metaDescription
       : (language === 'ar' ? data.metaDescription : data.metaDescriptionEn);
 
     document.title = pageTitle;
@@ -199,6 +207,8 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
       ? sofasData.h1Title
       : (language === 'ar' && carpetData)
       ? carpetData.h1Title
+      : (language === 'ar' && rodentsData)
+      ? rodentsData.h1Title
       : (language === 'ar' ? (baseService?.name || data.heroHeading) : (baseService?.nameEn || data.heroHeadingEn));
     const cityName = language === 'ar' ? currentCity.nameAr : currentCity.nameEn;
 
@@ -267,6 +277,15 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
         }))
       : (language === 'ar' && carpetData)
       ? carpetData.faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.q,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.a
+          }
+        }))
+      : (language === 'ar' && rodentsData)
+      ? rodentsData.faqs.map((faq) => ({
           '@type': 'Question',
           name: faq.q,
           acceptedAnswer: {
@@ -443,6 +462,8 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                       ? `خدمة متخصصة لتنظيف الكنب بالبخار بـ${cityName}`
                       : language === 'ar' && carpetData
                       ? `خدمة متخصصة لتنظيف السجاد والموكيت بـ${cityName}`
+                      : language === 'ar' && rodentsData
+                      ? `خدمة متخصصة لمكافحة الزواحف والقوارض بـ${cityName}`
                       : (language === 'ar' ? data.heroBadge : data.heroBadgeEn)}
                   </span>
                 </div>
@@ -464,6 +485,8 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                     ? sofasData.h1Title
                     : language === 'ar' && carpetData
                     ? carpetData.h1Title
+                    : language === 'ar' && rodentsData
+                    ? rodentsData.h1Title
                     : (language === 'ar' ? data.heroHeading : data.heroHeadingEn)}
                 </h1>
 
@@ -484,6 +507,8 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                     ? sofasData.introParagraph
                     : language === 'ar' && carpetData
                     ? carpetData.introParagraph
+                    : language === 'ar' && rodentsData
+                    ? rodentsData.introParagraph
                     : (language === 'ar' ? data.heroSubtitle : data.heroSubtitleEn)}
                 </p>
 
@@ -506,6 +531,8 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                         ? 'عناية فائقة بأقمشة الكنب الفاخرة'
                         : language === 'ar' && carpetData
                         ? 'عناية لطيفة بأنسجة وخيوط السجاد'
+                        : language === 'ar' && rodentsData
+                        ? 'تدابير وقائية لسد منافذ التسلل'
                         : (language === 'ar' ? 'ضمان معتمد 6 شهور' : 'Certified Warranty')}
                     </span>
                   </span>
@@ -530,6 +557,8 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                         ? 'أجهزة بخار وتقنيات استخلاص إيطالية'
                         : language === 'ar' && carpetData
                         ? 'ماكينات غسيل واستخلاص عميق متطورة'
+                        : language === 'ar' && rodentsData
+                        ? 'محطات طعوم ومصائد آمنة ومقفلة'
                         : (language === 'ar' ? 'مبيدات آمنة ومصرحة من الغذاء والدواء' : 'Certified Safe Formulas')}
                     </span>
                   </span>
@@ -580,7 +609,7 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
 
                   <div className="absolute bottom-5 start-5 end-5 text-start">
                     <span className="inline-block px-3 py-1 rounded-lg bg-cyan-500 text-slate-950 text-xs font-black mb-2 shadow-md">
-                      {cityName} • {language === 'ar' && tankData ? 'ضمان 10 سنوات على أعمال العزل' : (language === 'ar' && pestData ? 'خدمة متميزة بضمان 6 شهور' : (language === 'ar' && homeData ? 'عناية متكاملة بالمنازل والشقق' : (language === 'ar' && villaData ? 'عناية متكاملة بالفلل والدوبلكس' : (language === 'ar' && officeData ? 'عناية فائقة بالمكاتب وبيئات العمل' : (language === 'ar' && birdData ? 'حلول وقائية لتركيب شبك وطارد الحمام' : (language === 'ar' && sofasData ? 'تنظيف عميق وتعقيم شامل للكنب بالبخار' : (language === 'ar' && carpetData ? 'غسيل سجاد وموكيت بمعدات متطورة' : (language === 'ar' ? 'خدمة متميزة ومعتمدة' : 'Top Tier Service'))))))))}
+                      {cityName} • {language === 'ar' && tankData ? 'ضمان 10 سنوات على أعمال العزل' : (language === 'ar' && pestData ? 'خدمة متميزة بضمان 6 شهور' : (language === 'ar' && homeData ? 'عناية متكاملة بالمنازل والشقق' : (language === 'ar' && villaData ? 'عناية متكاملة بالفلل والدوبلكس' : (language === 'ar' && officeData ? 'عناية فائقة بالمكاتب وبيئات العمل' : (language === 'ar' && birdData ? 'حلول وقائية لتركيب شبك وطارد الحمام' : (language === 'ar' && sofasData ? 'تنظيف عميق وتعقيم شامل للكنب بالبخار' : (language === 'ar' && carpetData ? 'غسيل سجاد وموكيت بمعدات متطورة' : (language === 'ar' && rodentsData ? 'مكافحة ورصد آمن للزواحف والقوارض' : (language === 'ar' ? 'خدمة متميزة ومعتمدة' : 'Top Tier Service')))))))))}
                     </span>
                     <h3 className="text-xl sm:text-2xl font-black text-white drop-shadow-md">
                       {serviceName}
@@ -2067,6 +2096,191 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
 
                 <div className="space-y-4">
                   {carpetData.faqs.map((faq, idx) => {
+                    const isOpen = activeFaq === idx;
+                    return (
+                      <div
+                        key={idx}
+                        className="rounded-2xl bg-slate-50 dark:bg-[#051c36] border border-slate-200 dark:border-cyan-900/40 overflow-hidden shadow-sm transition-all"
+                      >
+                        <button
+                          onClick={() => setActiveFaq(isOpen ? null : idx)}
+                          className="w-full p-5 text-start font-bold text-base sm:text-lg text-slate-900 dark:text-white flex items-center justify-between gap-4 cursor-pointer"
+                        >
+                          <span>{faq.q}</span>
+                          <span className="text-cyan-500 text-xl font-bold shrink-0">{isOpen ? '−' : '+'}</span>
+                        </button>
+                        {isOpen && (
+                          <div className="px-5 pb-5 pt-0 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-200/60 dark:border-cyan-950/60 pt-3">
+                            {faq.a}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </section>
+          </>
+        ) : language === 'ar' && rodentsData ? (
+          <>
+            {/* 1. H2: خدمات مكافحة الزواحف والقوارض في المدينة */}
+            <section className="py-14 sm:py-20 bg-white dark:bg-[#03152a] border-y border-slate-200 dark:border-cyan-900/40">
+              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-10">
+                <div className="text-center max-w-2xl mx-auto">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <ShieldAlert className="w-3.5 h-3.5 text-cyan-500" />
+                    <span>حماية متكاملة ورصد وقائي للمنشآت</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white">
+                    {rodentsData.servicesHeading}
+                  </h2>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {rodentsData.services.map((item, idx) => {
+                    const iconList = [ShieldAlert, ShieldCheck, CheckCircle2, Award, Sparkles];
+                    const ItemIcon = iconList[idx % iconList.length] || ShieldAlert;
+                    return (
+                      <div
+                        key={idx}
+                        className="p-6 rounded-2xl bg-slate-50 dark:bg-[#061e38] border border-slate-200 dark:border-cyan-900/40 shadow-sm flex flex-col justify-between space-y-4 hover:border-cyan-500/50 transition-all group"
+                      >
+                        <div className="space-y-3">
+                          <div className="w-12 h-12 rounded-xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <ItemIcon className="w-6 h-6" />
+                          </div>
+                          <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                            {item.title}
+                          </h3>
+                          <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+                            {item.desc}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </section>
+
+            {/* 2. H2: طريقة العمل والمنهجية */}
+            <section className="py-14 sm:py-20 bg-slate-50 dark:bg-[#010e1f]">
+              <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-10">
+                <div className="text-center max-w-2xl mx-auto">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    <span>مراحل فحص وتدخل وقائي مدروس</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white">
+                    {rodentsData.methodHeading}
+                  </h2>
+                  <p className="text-base text-slate-600 dark:text-slate-300 mt-3 font-medium">
+                    {rodentsData.methodParagraph}
+                  </p>
+                </div>
+
+                <div className="space-y-4">
+                  {rodentsData.methodSteps.map((st) => (
+                    <div
+                      key={st.step}
+                      className="p-6 rounded-2xl bg-white dark:bg-[#051c36] border border-slate-200 dark:border-cyan-900/40 shadow-sm flex flex-col sm:flex-row items-start sm:items-center gap-5 transition-all hover:border-cyan-500/50"
+                    >
+                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 text-white font-black text-lg flex items-center justify-center shrink-0 shadow-md">
+                        {st.step}
+                      </div>
+                      <div className="space-y-1 flex-1">
+                        <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                          {st.title}
+                        </h3>
+                        <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+                          {st.desc}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* 3. H2: تغطية الأحياء */}
+            <section className="py-14 sm:py-20 bg-white dark:bg-[#03152a] border-y border-slate-200 dark:border-cyan-900/40">
+              <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-6">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <MapPin className="w-3.5 h-3.5" />
+                    <span>تغطية ميدانية سريعة لكافة الأحياء</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
+                    {rodentsData.districtsHeading}
+                  </h2>
+                  <p className="text-base text-slate-600 dark:text-slate-300 mt-2 font-medium leading-relaxed">
+                    {rodentsData.districtsParagraph}
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap gap-2.5 pt-2">
+                  {rodentsData.districtsList.map((dist, idx) => (
+                    <div
+                      key={idx}
+                      className="px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-[#051c36] border border-slate-200 dark:border-cyan-900/40 text-sm font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2 shadow-sm"
+                    >
+                      <MapPin className="w-4 h-4 text-cyan-500 shrink-0" />
+                      <span>{dist}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* 4. H2: لماذا تختار مسك كلين */}
+            <section className="py-14 sm:py-20 bg-slate-50 dark:bg-[#010e1f]">
+              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-10">
+                <div className="text-center max-w-2xl mx-auto">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <Award className="w-3.5 h-3.5" />
+                    <span>الأمان والاحترافية والنتائج الملموسة</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white">
+                    {rodentsData.whyHeading}
+                  </h2>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {rodentsData.whyPoints.map((point, idx) => (
+                    <div
+                      key={idx}
+                      className="p-6 rounded-2xl bg-white dark:bg-[#061e38] border border-slate-200 dark:border-cyan-900/40 shadow-sm space-y-3"
+                    >
+                      <div className="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center">
+                        <CheckCircle className="w-5 h-5 text-cyan-500" />
+                      </div>
+                      <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                        {point.title}
+                      </h3>
+                      <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+                        {point.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* 5. H2: أسئلة شائعة */}
+            <section className="py-14 sm:py-20 bg-white dark:bg-[#03152a] border-y border-slate-200 dark:border-cyan-900/40">
+              <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-8">
+                <div className="text-center">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <HelpCircle className="w-3.5 h-3.5" />
+                    <span>إجابات واضحة وموثوقة</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
+                    {rodentsData.faqHeading}
+                  </h2>
+                </div>
+
+                <div className="space-y-4">
+                  {rodentsData.faqs.map((faq, idx) => {
                     const isOpen = activeFaq === idx;
                     return (
                       <div
