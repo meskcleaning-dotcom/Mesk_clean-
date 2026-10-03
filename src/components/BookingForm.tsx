@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Send,
   CheckCircle2,
@@ -91,6 +91,22 @@ export const BookingForm: React.FC<BookingFormProps> = ({
   const [errorMessage, setErrorMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [copiedCode, setCopiedCode] = useState(false);
+
+  const dateInputRef = useRef<HTMLInputElement>(null);
+
+  const openDatePicker = () => {
+    if (dateInputRef.current) {
+      if ('showPicker' in dateInputRef.current && typeof (dateInputRef.current as any).showPicker === 'function') {
+        try {
+          (dateInputRef.current as any).showPicker();
+        } catch {
+          dateInputRef.current.focus();
+        }
+      } else {
+        dateInputRef.current.focus();
+      }
+    }
+  };
 
   const handleCityChange = (cityKey: string) => {
     setSelectedCityKey(cityKey);
@@ -615,13 +631,28 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                 <label className="block text-xs font-bold text-slate-700 dark:text-cyan-200/90 mb-1.5">
                   {t('booking.date')}
                 </label>
-                <div className="relative">
-                  <Calendar className="w-4 h-4 text-slate-400 absolute start-3.5 top-3.5" />
+                <div className="relative cursor-pointer" onClick={openDatePicker}>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      openDatePicker();
+                    }}
+                    aria-label="فتح التقويم"
+                    className="absolute start-3.5 top-3.5 text-slate-400 hover:text-cyan-500 transition-colors z-10"
+                  >
+                    <Calendar className="w-4 h-4" />
+                  </button>
                   <input
+                    ref={dateInputRef}
                     type="date"
+                    lang="en"
+                    dir="ltr"
+                    min={new Date().toISOString().split('T')[0]}
                     value={formData.date}
                     onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                    className="w-full ps-10 pe-4 py-3 rounded-2xl bg-slate-50 dark:bg-[#072448] border border-slate-200 dark:border-cyan-900/40 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+                    onClick={openDatePicker}
+                    className="w-full pr-12 pl-4 py-3 rounded-2xl bg-slate-50 dark:bg-[#072448] border border-slate-200 dark:border-cyan-900/40 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-right [direction:ltr] [font-family:system-ui,-apple-system,sans-serif] cursor-pointer"
                   />
                 </div>
               </div>
