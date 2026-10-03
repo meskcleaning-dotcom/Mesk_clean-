@@ -69,10 +69,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToSite }) 
   // Auth state
   const [currentUser, setCurrentUser] = useState<User | null>(auth.currentUser);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(
-    isAdminAuthenticated() || (auth.currentUser?.email?.toLowerCase() === 'meskcleaning@gmail.com')
+    auth.currentUser?.email?.toLowerCase() === 'meskcleaning@gmail.com'
   );
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
   const [isLoggingIn, setIsLoggingIn] = useState(false);
 
@@ -116,18 +114,14 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToSite }) 
       if (user) {
         if (user.email?.toLowerCase() === 'meskcleaning@gmail.com') {
           setIsAuthenticated(true);
-          setAdminAuthenticated(true);
           setLoginError('');
         } else {
           setIsAuthenticated(false);
-          setAdminAuthenticated(false);
-          setLoginError(`عفواً، حساب جوجل (${user.email}) غير مصرح له بالدخول. البريد الإلكتروني المصرح له فقط هو: meskcleaning@gmail.com`);
+          setLoginError(`عفواً، حساب جوجل (${user.email}) غير مصرح له بالدخول إلى لوحة التحكم.`);
           signOut(auth);
         }
       } else {
-        if (!isAdminAuthenticated()) {
-          setIsAuthenticated(false);
-        }
+        setIsAuthenticated(false);
       }
     });
     return () => unsubscribe();
@@ -170,13 +164,11 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToSite }) 
       provider.setCustomParameters({ prompt: 'select_account' });
       const result = await signInWithPopup(auth, provider);
       if (result.user.email?.toLowerCase() !== 'meskcleaning@gmail.com') {
-        setLoginError(`عفواً، حساب جوجل (${result.user.email}) غير مصرح له بالدخول. البريد الإلكتروني المصرح له فقط هو: meskcleaning@gmail.com`);
+        setLoginError(`عفواً، حساب جوجل (${result.user.email}) غير مصرح له بالدخول إلى لوحة التحكم.`);
         await signOut(auth);
         setIsAuthenticated(false);
-        setAdminAuthenticated(false);
       } else {
         setIsAuthenticated(true);
-        setAdminAuthenticated(true);
         loadAll();
       }
     } catch (err: any) {
@@ -189,22 +181,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToSite }) 
     }
   };
 
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoginError('');
-
-    if (username.trim() === 'admin' && password.trim() === 'meskclean2026') {
-      setIsAuthenticated(true);
-      setAdminAuthenticated(true);
-      loadAll();
-    } else {
-      setLoginError('اسم المستخدم أو كلمة المرور غير صحيحة. يرجى المحاولة مجدداً.');
-    }
-  };
-
   const handleLogout = async () => {
     setIsAuthenticated(false);
-    setAdminAuthenticated(false);
     try {
       await signOut(auth);
     } catch {}
@@ -394,55 +372,6 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToSite }) 
               </svg>
               <span>{isLoggingIn ? 'جاري تسجيل الدخول...' : 'تسجيل الدخول باستخدام جوجل (Google)'}</span>
             </button>
-
-            <div className="p-3.5 rounded-xl bg-cyan-950/40 border border-cyan-900/50 text-xs text-cyan-300 space-y-1.5 leading-relaxed text-center">
-              <p className="font-bold text-cyan-200">البريد الإلكتروني المصرح له بالوصول:</p>
-              <p className="font-mono dir-ltr text-white text-xs bg-cyan-900/60 py-1 px-2.5 rounded border border-cyan-500/30 inline-block font-semibold">
-                meskcleaning@gmail.com
-              </p>
-            </div>
-
-            <div className="relative my-4 flex items-center justify-center">
-              <div className="border-t border-slate-700 w-full"></div>
-              <span className="bg-slate-800 px-3 text-[11px] text-slate-400 absolute font-medium">أو عبر الحساب المحلي</span>
-            </div>
-
-            <form onSubmit={handleLogin} className="space-y-3 pt-1">
-              <div>
-                <label className="block text-xs font-bold text-slate-300 mb-1">
-                  اسم المستخدم
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  placeholder="admin"
-                  className="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-xs focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-slate-300 mb-1">
-                  كلمة المرور
-                </label>
-                <input
-                  type="password"
-                  required
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="••••••••"
-                  className="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-xs focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full py-2.5 px-4 rounded-xl font-bold text-xs text-white bg-slate-700 hover:bg-slate-600 transition-colors shadow"
-              >
-                دخول بالحساب المحلي
-              </button>
-            </form>
 
             <button
               type="button"

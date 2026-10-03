@@ -410,19 +410,11 @@ export const deleteStoredOrder = (orderId: string): void => {
 
 // Admin Auth Session
 export const isAdminAuthenticated = (): boolean => {
-  try {
-    return sessionStorage.getItem(STORAGE_KEYS.ADMIN_SESSION) === 'true';
-  } catch {
-    return false;
-  }
+  return false;
 };
 
-export const setAdminAuthenticated = (auth: boolean): void => {
+export const setAdminAuthenticated = (_auth: boolean): void => {
   try {
-    if (auth) {
-      sessionStorage.setItem(STORAGE_KEYS.ADMIN_SESSION, 'true');
-    } else {
-      sessionStorage.removeItem(STORAGE_KEYS.ADMIN_SESSION);
-    }
+    sessionStorage.removeItem(STORAGE_KEYS.ADMIN_SESSION);
   } catch {}
 };
