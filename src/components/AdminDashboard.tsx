@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import {
+  signInWithPopup,
+  GoogleAuthProvider,
+  signOut,
+  onAuthStateChanged
+} from 'firebase/auth';
+import type { User } from 'firebase/auth';
+import { collection, onSnapshot } from 'firebase/firestore';
+import { auth, db } from '../lib/firebase';
+import {
   Lock,
   LogOut,
   ArrowRight,
@@ -19,7 +28,7 @@ import {
   Phone,
   MessageCircle,
   Building,
-  User,
+  User as UserIcon,
   ShieldAlert,
   Save,
   Download
@@ -58,10 +67,14 @@ type TabType = 'orders' | 'services' | 'blog' | 'faqs' | 'testimonials' | 'setti
 
 export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToSite }) => {
   // Auth state
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(isAdminAuthenticated());
+  const [currentUser, setCurrentUser] = useState<User | null>(auth.currentUser);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(
+    isAdminAuthenticated() || (auth.currentUser?.email?.toLowerCase() === 'meskcleaning@gmail.com')
+  );
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
 
   // Active Tab
   const [activeTab, setActiveTab] = useState<TabType>('orders');
@@ -96,17 +109,90 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToSite }) 
     setCompanySettings(getStoredCompanySettings());
   };
 
+  // Monitor Firebase auth state
   useEffect(() => {
-    if (isAuthenticated) {
-      loadAll();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
+      if (user) {
+        if (user.email?.toLowerCase() === 'meskcleaning@gmail.com') {
+          setIsAuthenticated(true);
+          setAdminAuthenticated(true);
+          setLoginError('');
+        } else {
+          setIsAuthenticated(false);
+          setAdminAuthenticated(false);
+          setLoginError(`عفواً، حساب جوجل (${user.email}) غير مصرح له بالدخول. البريد الإلكتروني المصرح له فقط هو: meskcleaning@gmail.com`);
+          signOut(auth);
+        }
+      } else {
+        if (!isAdminAuthenticated()) {
+          setIsAuthenticated(false);
+        }
+      }
+    });
+    return () => unsubscribe();
+  }, []);
+
+  // Sync orders from Firestore in real-time when authenticated
+  useEffect(() => {
+    if (!isAuthenticated) return;
+    loadAll();
+
+    try {
+      const ordersRef = collection(db, 'orders');
+      const unsubscribeOrders = onSnapshot(
+        ordersRef,
+        (snapshot) => {
+          const fetchedOrders: BookingRequestRecord[] = [];
+          snapshot.forEach((doc) => {
+            fetchedOrders.push({ id: doc.id, ...doc.data() } as BookingRequestRecord);
+          });
+          if (fetchedOrders.length > 0) {
+            fetchedOrders.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+            setOrders(fetchedOrders);
+          }
+        },
+        (err) => {
+          console.warn('Firestore orders sync notice:', err);
+        }
+      );
+      return () => unsubscribeOrders();
+    } catch (e) {
+      console.warn('Firestore listener setup warning:', e);
     }
   }, [isAuthenticated]);
+
+  const handleGoogleLogin = async () => {
+    setLoginError('');
+    setIsLoggingIn(true);
+    try {
+      const provider = new GoogleAuthProvider();
+      provider.setCustomParameters({ prompt: 'select_account' });
+      const result = await signInWithPopup(auth, provider);
+      if (result.user.email?.toLowerCase() !== 'meskcleaning@gmail.com') {
+        setLoginError(`عفواً، حساب جوجل (${result.user.email}) غير مصرح له بالدخول. البريد الإلكتروني المصرح له فقط هو: meskcleaning@gmail.com`);
+        await signOut(auth);
+        setIsAuthenticated(false);
+        setAdminAuthenticated(false);
+      } else {
+        setIsAuthenticated(true);
+        setAdminAuthenticated(true);
+        loadAll();
+      }
+    } catch (err: any) {
+      console.error('Google Sign-In Error:', err);
+      if (err.code !== 'auth/popup-closed-by-user') {
+        setLoginError('حدث خطأ أثناء تسجيل الدخول باستخدام جوجل. يرجى التأكد من الاتصال بالإنترنت والمحاولة مجدداً.');
+      }
+    } finally {
+      setIsLoggingIn(false);
+    }
+  };
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     setLoginError('');
 
-    // Secure local authentication check
     if (username.trim() === 'admin' && password.trim() === 'meskclean2026') {
       setIsAuthenticated(true);
       setAdminAuthenticated(true);
@@ -116,9 +202,12 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToSite }) 
     }
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     setIsAuthenticated(false);
     setAdminAuthenticated(false);
+    try {
+      await signOut(auth);
+    } catch {}
   };
 
   const triggerNotification = (msg: string) => {
@@ -266,58 +355,94 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToSite }) 
               لوحة تحكم مسك كلين الإدارية
             </h1>
             <p className="text-xs text-slate-400">
-              تسجيل الدخول للمشرفين المصرح لهم فقط
+              تسجيل الدخول الآمن عبر Google Authentication
             </p>
           </div>
 
           {loginError && (
-            <div className="p-3 rounded-xl bg-rose-500/20 border border-rose-500/40 text-rose-300 text-xs flex items-center gap-2">
-              <ShieldAlert className="w-4 h-4 shrink-0" />
+            <div className="p-3.5 rounded-xl bg-rose-500/20 border border-rose-500/40 text-rose-300 text-xs flex items-start gap-2.5 leading-relaxed">
+              <ShieldAlert className="w-4 h-4 shrink-0 mt-0.5 text-rose-400" />
               <span>{loginError}</span>
             </div>
           )}
 
-          <form onSubmit={handleLogin} className="space-y-4">
-            <div>
-              <label className="block text-xs font-bold text-slate-300 mb-1">
-                اسم المستخدم
-              </label>
-              <input
-                type="text"
-                required
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                placeholder="admin"
-                className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500"
-              />
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold text-slate-300 mb-1">
-                كلمة المرور
-              </label>
-              <input
-                type="password"
-                required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="••••••••"
-                className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500"
-              />
-            </div>
-
-            <div className="p-3 rounded-xl bg-cyan-950/40 border border-cyan-900/50 text-[11px] text-cyan-300 space-y-1">
-              <p className="font-bold">بيانات الدخول الافتراضية للتجربة:</p>
-              <p>اسم المستخدم: <code className="bg-cyan-900/50 px-1 py-0.5 rounded text-white">admin</code></p>
-              <p>كلمة المرور: <code className="bg-cyan-900/50 px-1 py-0.5 rounded text-white">meskclean2026</code></p>
-            </div>
-
+          <div className="space-y-4">
+            {/* Google Sign-In Button */}
             <button
-              type="submit"
-              className="w-full py-3.5 px-4 rounded-xl font-black text-sm text-white bg-cyan-600 hover:bg-cyan-500 transition-colors shadow-lg shadow-cyan-900/20"
+              type="button"
+              onClick={handleGoogleLogin}
+              disabled={isLoggingIn}
+              className="w-full py-3.5 px-4 rounded-xl font-bold text-sm text-slate-900 bg-white hover:bg-slate-100 transition-all shadow-lg flex items-center justify-center gap-3 border border-slate-200 disabled:opacity-60 cursor-pointer active:scale-[0.99]"
             >
-              تسجيل الدخول
+              <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24">
+                <path
+                  fill="#4285F4"
+                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                />
+                <path
+                  fill="#34A853"
+                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                />
+                <path
+                  fill="#FBBC05"
+                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"
+                />
+                <path
+                  fill="#EA4335"
+                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
+                />
+              </svg>
+              <span>{isLoggingIn ? 'جاري تسجيل الدخول...' : 'تسجيل الدخول باستخدام جوجل (Google)'}</span>
             </button>
+
+            <div className="p-3.5 rounded-xl bg-cyan-950/40 border border-cyan-900/50 text-xs text-cyan-300 space-y-1.5 leading-relaxed text-center">
+              <p className="font-bold text-cyan-200">البريد الإلكتروني المصرح له بالوصول:</p>
+              <p className="font-mono dir-ltr text-white text-xs bg-cyan-900/60 py-1 px-2.5 rounded border border-cyan-500/30 inline-block font-semibold">
+                meskcleaning@gmail.com
+              </p>
+            </div>
+
+            <div className="relative my-4 flex items-center justify-center">
+              <div className="border-t border-slate-700 w-full"></div>
+              <span className="bg-slate-800 px-3 text-[11px] text-slate-400 absolute font-medium">أو عبر الحساب المحلي</span>
+            </div>
+
+            <form onSubmit={handleLogin} className="space-y-3 pt-1">
+              <div>
+                <label className="block text-xs font-bold text-slate-300 mb-1">
+                  اسم المستخدم
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  placeholder="admin"
+                  className="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-xs focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-300 mb-1">
+                  كلمة المرور
+                </label>
+                <input
+                  type="password"
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="••••••••"
+                  className="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-xs focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full py-2.5 px-4 rounded-xl font-bold text-xs text-white bg-slate-700 hover:bg-slate-600 transition-colors shadow"
+              >
+                دخول بالحساب المحلي
+              </button>
+            </form>
 
             <button
               type="button"
@@ -326,7 +451,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToSite }) 
             >
               العودة إلى الموقع الرئيسي
             </button>
-          </form>
+          </div>
         </div>
       </div>
     );
@@ -356,6 +481,13 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToSite }) 
         )}
 
         <div className="flex items-center gap-2">
+          {currentUser?.email && (
+            <span className="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium text-cyan-200 bg-slate-700/60 border border-slate-600/50 dir-ltr">
+              <UserIcon className="w-3.5 h-3.5 text-cyan-400" />
+              <span>{currentUser.email}</span>
+            </span>
+          )}
+
           <button
             type="button"
             onClick={onBackToSite}
@@ -549,7 +681,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToSite }) 
                               {o.customerType === 'corporate' ? (
                                 <Building className="w-3.5 h-3.5 text-blue-400" />
                               ) : (
-                                <User className="w-3.5 h-3.5 text-slate-400" />
+                                <UserIcon className="w-3.5 h-3.5 text-slate-400" />
                               )}
                               <span>{o.fullName}</span>
                             </div>

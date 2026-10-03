@@ -1,48 +1,48 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Helper function to check if user is signed in
-    function isSignedIn() {
-      return request.auth != null;
+    // Helper function to check if user is the authorized admin email
+    function isAuthorizedAdmin() {
+      return request.auth != null && request.auth.token.email == "meskcleaning@gmail.com";
     }
 
-    // Orders: Anyone can create a new booking order, authenticated admins can read/update/delete
+    // Orders: Anyone can create a new booking order, authorized admin (meskcleaning@gmail.com) can read/update/delete
     match /orders/{orderId} {
       allow create: if request.resource.data.fullName is string
                     && request.resource.data.fullName.size() > 0
                     && request.resource.data.phone is string
                     && request.resource.data.phone.size() > 0;
-      allow read, update, delete: if isSignedIn();
+      allow read, update, delete: if isAuthorizedAdmin();
     }
 
-    // Blog posts: Public read access, authenticated write access
+    // Blog posts: Public read access, authorized admin write access
     match /blog/{postId} {
       allow read: if true;
-      allow write: if isSignedIn();
+      allow write: if isAuthorizedAdmin();
     }
 
-    // FAQs: Public read access, authenticated write access
+    // FAQs: Public read access, authorized admin write access
     match /faqs/{faqId} {
       allow read: if true;
-      allow write: if isSignedIn();
+      allow write: if isAuthorizedAdmin();
     }
 
-    // Testimonials: Public read access, authenticated write access
+    // Testimonials: Public read access, authorized admin write access
     match /testimonials/{testimonialId} {
       allow read: if true;
-      allow write: if isSignedIn();
+      allow write: if isAuthorizedAdmin();
     }
 
-    // Company Settings: Public read access, authenticated write access
+    // Company Settings: Public read access, authorized admin write access
     match /settings/{settingId} {
       allow read: if true;
-      allow write: if isSignedIn();
+      allow write: if isAuthorizedAdmin();
     }
 
-    // Services: Public read access, authenticated write access
+    // Services: Public read access, authorized admin write access
     match /services/{serviceId} {
       allow read: if true;
-      allow write: if isSignedIn();
+      allow write: if isAuthorizedAdmin();
     }
   }
 }
