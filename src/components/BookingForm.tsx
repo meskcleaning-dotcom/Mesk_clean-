@@ -94,16 +94,39 @@ export const BookingForm: React.FC<BookingFormProps> = ({
 
   const dateInputRef = useRef<HTMLInputElement>(null);
 
+  const formatDisplayDate = (isoDateStr: string, lang: string): string => {
+    if (!isoDateStr) return '';
+    try {
+      const [year, month, day] = isoDateStr.split('-').map(Number);
+      if (!year || !month || !day) return isoDateStr;
+      if (lang === 'ar') {
+        const monthsAr = [
+          'يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو',
+          'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'
+        ];
+        return `${day} ${monthsAr[month - 1]} ${year}`;
+      } else {
+        const monthsEn = [
+          'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+          'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+        ];
+        return `${monthsEn[month - 1]} ${day}, ${year}`;
+      }
+    } catch {
+      return isoDateStr;
+    }
+  };
+
   const openDatePicker = () => {
     if (dateInputRef.current) {
       if ('showPicker' in dateInputRef.current && typeof (dateInputRef.current as any).showPicker === 'function') {
         try {
           (dateInputRef.current as any).showPicker();
         } catch {
-          dateInputRef.current.focus();
+          dateInputRef.current.click();
         }
       } else {
-        dateInputRef.current.focus();
+        dateInputRef.current.click();
       }
     }
   };
@@ -632,27 +655,23 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                   {t('booking.date')}
                 </label>
                 <div className="relative cursor-pointer" onClick={openDatePicker}>
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      openDatePicker();
-                    }}
-                    aria-label="فتح التقويم"
-                    className="absolute start-3.5 top-3.5 text-slate-400 hover:text-cyan-500 transition-colors z-10"
-                  >
-                    <Calendar className="w-4 h-4" />
-                  </button>
+                  <Calendar className="w-4 h-4 text-slate-400 absolute start-3.5 top-3.5 pointer-events-none z-10" />
+                  <input
+                    type="text"
+                    readOnly
+                    value={formatDisplayDate(formData.date, language)}
+                    placeholder={language === 'ar' ? 'اختر التاريخ' : 'Select Date'}
+                    onClick={openDatePicker}
+                    className="w-full ps-10 pe-4 py-3 rounded-2xl bg-slate-50 dark:bg-[#072448] border border-slate-200 dark:border-cyan-900/40 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50 cursor-pointer placeholder:text-slate-400 dark:placeholder:text-slate-500"
+                  />
                   <input
                     ref={dateInputRef}
                     type="date"
-                    lang="en"
-                    dir="ltr"
                     min={new Date().toISOString().split('T')[0]}
                     value={formData.date}
                     onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                    onClick={openDatePicker}
-                    className="w-full pr-12 pl-4 py-3 rounded-2xl bg-slate-50 dark:bg-[#072448] border border-slate-200 dark:border-cyan-900/40 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-right [direction:ltr] [font-family:system-ui,-apple-system,sans-serif] cursor-pointer"
+                    className="sr-only opacity-0 absolute inset-0 w-full h-full pointer-events-none"
+                    tabIndex={-1}
                   />
                 </div>
               </div>
