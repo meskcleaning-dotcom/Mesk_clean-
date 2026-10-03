@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react';
 import fs from 'fs';
 import path from 'path';
 import { defineConfig, Plugin } from 'vite';
+import { VitePWA } from 'vite-plugin-pwa';
 import { 
   getAllServicePagesMetadata, 
   injectServiceMetaIntoHtml, 
@@ -59,7 +60,46 @@ function servicePagesPrerenderPlugin(): Plugin {
 
 export default defineConfig(() => {
   return {
-    plugins: [react(), tailwindcss(), servicePagesPrerenderPlugin()],
+    plugins: [
+      react(), 
+      tailwindcss(), 
+      servicePagesPrerenderPlugin(),
+      VitePWA({
+        registerType: 'autoUpdate',
+        includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'icon.svg'],
+        manifest: {
+          id: '/',
+          name: 'شركة مسك للنظافة بالجموم وجدة ومكة ورابغ',
+          short_name: 'مسك للنظافة',
+          description: 'شركة مسك للنظافة المتخصصة في خدمات التنظيف الشاملة ومكافحة الحشرات وغسيل المكيفات بجدة ومكة ورابغ',
+          theme_color: '#0284c7',
+          background_color: '#ffffff',
+          display: 'standalone',
+          start_url: '/',
+          scope: '/',
+          icons: [
+            {
+              src: '/pwa-192x192.png',
+              sizes: '192x192',
+              type: 'image/png',
+              purpose: 'any'
+            },
+            {
+              src: '/pwa-512x512.png',
+              sizes: '512x512',
+              type: 'image/png',
+              purpose: 'any'
+            }
+          ]
+        },
+        workbox: {
+          globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}']
+        },
+        devOptions: {
+          enabled: true
+        }
+      })
+    ],
     resolve: {
       alias: {
         '@': path.resolve('.'),

@@ -1,6 +1,7 @@
 import React from 'react';
 import { MessageCircle } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyInfo';
+import { trackWhatsAppClick } from '../utils/analytics';
 
 export const FloatingWhatsApp: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ export const FloatingWhatsApp: React.FC = () => {
         href={COMPANY_INFO.phone1.waUrl}
         target="_blank"
         rel="noreferrer"
+        onClick={() => trackWhatsAppClick('FloatingWhatsApp')}
         className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-emerald-500 text-white shadow-xl shadow-emerald-600/40 hover:bg-emerald-400 hover:scale-110 active:scale-95 transition-all duration-300"
         aria-label="تواصل معنا عبر واتساب"
       >

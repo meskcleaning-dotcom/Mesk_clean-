@@ -21,6 +21,7 @@ import {
 import { useLanguage } from '../context/LanguageContext';
 import { useCityRoute } from '../context/CityRouteContext';
 import { getStoredServices, saveStoredOrder, getStoredCompanySettings } from '../data/store';
+import { trackBookingSubmit, trackWhatsAppClick } from '../utils/analytics';
 import { CITIES_DATA } from '../data/citiesDistricts';
 import { BookingFormData, BookingRequestRecord, CustomerType } from '../types';
 import {
@@ -208,6 +209,8 @@ export const BookingForm: React.FC<BookingFormProps> = ({
 
     // 6. Save in persistent store for Admin Dashboard
     saveStoredOrder(newRecord);
+    trackBookingSubmit(serviceName, formData.city);
+    trackWhatsAppClick('BookingForm', serviceName);
     setConfirmedRecord(newRecord);
     setSubmitted(true);
     setIsSubmitting(false);

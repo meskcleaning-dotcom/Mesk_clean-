@@ -2,6 +2,8 @@ import { ServiceItem, BlogPost, BookingRequestRecord, FAQItem, TestimonialItem, 
 import { SERVICES_DATA } from './servicesData';
 import { BLOG_DATA } from './blogData';
 import { COMPANY_INFO } from './companyInfo';
+import { db } from '../lib/firebase';
+import { doc, setDoc, updateDoc, deleteDoc } from 'firebase/firestore';
 
 // Storage keys
 const STORAGE_KEYS = {
@@ -370,6 +372,11 @@ export const saveStoredOrder = (order: BookingRequestRecord): void => {
     const updated = [order, ...existing];
     localStorage.setItem(STORAGE_KEYS.ORDERS, JSON.stringify(updated));
     window.dispatchEvent(new CustomEvent('mesk_store_updated', { detail: { type: 'orders' } }));
+    
+    // Sync to Firestore cloud database
+    setDoc(doc(db, 'orders', order.id), order).catch(err => {
+      console.warn('Firestore sync order error:', err);
+    });
   } catch {}
 };
 
@@ -379,6 +386,11 @@ export const updateStoredOrderStatus = (orderId: string, status: BookingRequestR
     const updated = existing.map(o => o.id === orderId ? { ...o, status } : o);
     localStorage.setItem(STORAGE_KEYS.ORDERS, JSON.stringify(updated));
     window.dispatchEvent(new CustomEvent('mesk_store_updated', { detail: { type: 'orders' } }));
+    
+    // Sync to Firestore
+    updateDoc(doc(db, 'orders', orderId), { status }).catch(err => {
+      console.warn('Firestore update order status error:', err);
+    });
   } catch {}
 };
 
@@ -388,6 +400,11 @@ export const deleteStoredOrder = (orderId: string): void => {
     const updated = existing.filter(o => o.id !== orderId);
     localStorage.setItem(STORAGE_KEYS.ORDERS, JSON.stringify(updated));
     window.dispatchEvent(new CustomEvent('mesk_store_updated', { detail: { type: 'orders' } }));
+    
+    // Sync to Firestore
+    deleteDoc(doc(db, 'orders', orderId)).catch(err => {
+      console.warn('Firestore delete order error:', err);
+    });
   } catch {}
 };
 

@@ -1,0 +1,117 @@
+{
+  "entities": {
+    "BookingRequest": {
+      "title": "Booking Request",
+      "description": "Customer booking or service inquiry record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "fullName": { "type": "string", "maxLength": 100 },
+        "phone": { "type": "string", "maxLength": 30 },
+        "serviceId": { "type": "string", "maxLength": 50 },
+        "serviceName": { "type": "string", "maxLength": 100 },
+        "customerType": { "type": "string", "enum": ["individual", "corporate"] },
+        "propertyType": { "type": "string", "maxLength": 100 },
+        "city": { "type": "string", "maxLength": 50 },
+        "district": { "type": "string", "maxLength": 100 },
+        "address": { "type": "string", "maxLength": 300 },
+        "date": { "type": "string", "maxLength": 50 },
+        "preferredTime": { "type": "string", "maxLength": 50 },
+        "targetWhatsApp": { "type": "string", "maxLength": 30 },
+        "notes": { "type": "string", "maxLength": 1000 },
+        "status": { "type": "string", "enum": ["new", "contacted", "in_progress", "completed", "cancelled"] },
+        "createdAt": { "type": "string", "maxLength": 50 }
+      },
+      "required": ["fullName", "phone", "serviceId", "city"]
+    },
+    "BlogPost": {
+      "title": "Blog Post",
+      "description": "Articles and news posts for SEO and blog section",
+      "type": "object",
+      "properties": {
+        "slug": { "type": "string", "maxLength": 100 },
+        "title": { "type": "string", "maxLength": 200 },
+        "titleEn": { "type": "string", "maxLength": 200 },
+        "excerpt": { "type": "string", "maxLength": 500 },
+        "excerptEn": { "type": "string", "maxLength": 500 },
+        "intro": { "type": "string", "maxLength": 1000 },
+        "introEn": { "type": "string", "maxLength": 1000 },
+        "image": { "type": "string", "maxLength": 500 },
+        "imagePosition": { "type": "string", "maxLength": 50 },
+        "date": { "type": "string", "maxLength": 50 },
+        "dateEn": { "type": "string", "maxLength": 50 },
+        "readTime": { "type": "string", "maxLength": 50 },
+        "readTimeEn": { "type": "string", "maxLength": 50 }
+      },
+      "required": ["slug", "title", "excerpt"]
+    },
+    "FAQ": {
+      "title": "FAQ Item",
+      "description": "Frequently Asked Questions item",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "question": { "type": "string", "maxLength": 300 },
+        "questionEn": { "type": "string", "maxLength": 300 },
+        "answer": { "type": "string", "maxLength": 1000 },
+        "answerEn": { "type": "string", "maxLength": 1000 },
+        "category": { "type": "string", "maxLength": 50 }
+      },
+      "required": ["question", "answer"]
+    },
+    "Testimonial": {
+      "title": "Testimonial",
+      "description": "Customer feedback and review",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string", "maxLength": 100 },
+        "nameEn": { "type": "string", "maxLength": 100 },
+        "customerType": { "type": "string", "enum": ["individual", "corporate"] },
+        "rating": { "type": "number" },
+        "service": { "type": "string", "maxLength": 100 },
+        "serviceEn": { "type": "string", "maxLength": 100 },
+        "comment": { "type": "string", "maxLength": 1000 },
+        "commentEn": { "type": "string", "maxLength": 1000 },
+        "date": { "type": "string", "maxLength": 50 },
+        "district": { "type": "string", "maxLength": 100 }
+      },
+      "required": ["name", "rating", "comment"]
+    },
+    "CompanySettings": {
+      "title": "Company Settings",
+      "description": "Global company info and contact numbers",
+      "type": "object",
+      "properties": {
+        "arabicName": { "type": "string", "maxLength": 100 },
+        "englishName": { "type": "string", "maxLength": 100 },
+        "phone1": { "type": "string", "maxLength": 30 },
+        "phone2": { "type": "string", "maxLength": 30 },
+        "whatsapp": { "type": "string", "maxLength": 30 },
+        "email": { "type": "string", "maxLength": 100 }
+      }
+    }
+  },
+  "firestore": {
+    "/orders/{orderId}": {
+      "schema": "BookingRequest",
+      "description": "Customer booking orders"
+    },
+    "/blog/{postId}": {
+      "schema": "BlogPost",
+      "description": "Blog articles"
+    },
+    "/faqs/{faqId}": {
+      "schema": "FAQ",
+      "description": "Frequently asked questions"
+    },
+    "/testimonials/{testimonialId}": {
+      "schema": "Testimonial",
+      "description": "Customer reviews"
+    },
+    "/settings/company": {
+      "schema": "CompanySettings",
+      "description": "Main company configuration document"
+    }
+  }
+}
