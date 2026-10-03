@@ -366,7 +366,7 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                       {language === 'ar' && tankData
                         ? 'ضمان 10 سنوات على أعمال العزل'
                         : language === 'ar' && homeData
-                        ? 'عناية شاملة بالشقق والفلل'
+                        ? 'عناية شاملة بالمنازل والشقق'
                         : (language === 'ar' ? 'ضمان معتمد 6 شهور' : 'Certified Warranty')}
                     </span>
                   </span>
@@ -431,7 +431,7 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
 
                   <div className="absolute bottom-5 start-5 end-5 text-start">
                     <span className="inline-block px-3 py-1 rounded-lg bg-cyan-500 text-slate-950 text-xs font-black mb-2 shadow-md">
-                      {cityName} • {language === 'ar' && tankData ? 'ضمان 10 سنوات على أعمال العزل' : (language === 'ar' && pestData ? 'خدمة متميزة بضمان 6 شهور' : (language === 'ar' ? 'خدمة متميزة ومعتمدة' : 'Top Tier Service'))}
+                      {cityName} • {language === 'ar' && tankData ? 'ضمان 10 سنوات على أعمال العزل' : (language === 'ar' && pestData ? 'خدمة متميزة بضمان 6 شهور' : (language === 'ar' && homeData ? 'عناية متكاملة بالمنازل والشقق' : (language === 'ar' ? 'خدمة متميزة ومعتمدة' : 'Top Tier Service')))}
                     </span>
                     <h3 className="text-xl sm:text-2xl font-black text-white drop-shadow-md">
                       {serviceName}
@@ -809,6 +809,193 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                       <div
                         key={idx}
                         className="rounded-2xl bg-white dark:bg-[#051c36] border border-slate-200 dark:border-cyan-900/40 overflow-hidden shadow-sm transition-all"
+                      >
+                        <button
+                          onClick={() => setActiveFaq(isOpen ? null : idx)}
+                          className="w-full p-5 text-start font-bold text-base sm:text-lg text-slate-900 dark:text-white flex items-center justify-between gap-4 cursor-pointer"
+                        >
+                          <span>{faq.q}</span>
+                          <span className="text-cyan-500 text-xl font-bold shrink-0">{isOpen ? '−' : '+'}</span>
+                        </button>
+                        {isOpen && (
+                          <div className="px-5 pb-5 pt-0 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-200/60 dark:border-cyan-950/60 pt-3">
+                            {faq.a}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </section>
+          </>
+        ) : language === 'ar' && homeData ? (
+          <>
+            {/* 1. H2: خدمات تنظيف المنازل في المدينة + 7 فقرات H3 */}
+            <section className="py-14 sm:py-20 bg-white dark:bg-[#03152a] border-y border-slate-200 dark:border-cyan-900/40">
+              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-10">
+                <div className="text-center max-w-2xl mx-auto">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <Sparkles className="w-3.5 h-3.5 text-cyan-500" />
+                    <span>عناية منزلية متكاملة</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white">
+                    {homeData.servicesHeading}
+                  </h2>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {homeData.services.map((srv, idx) => (
+                    <div
+                      key={idx}
+                      className="p-6 rounded-2xl bg-slate-50 dark:bg-[#061e38] border border-slate-200 dark:border-cyan-900/40 shadow-sm space-y-3 transition-all hover:border-cyan-500/50"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0 font-black">
+                          {idx + 1}
+                        </div>
+                        <h3 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white">
+                          {srv.title}
+                        </h3>
+                      </div>
+                      <p className="text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed font-normal">
+                        {srv.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* 2. H2: طريقة عملنا في تنظيف المنازل */}
+            <section className="py-14 sm:py-20 bg-slate-50 dark:bg-[#010e1f]">
+              <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-8">
+                <div className="text-center max-w-2xl mx-auto mb-4">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    <span>مراحل العمل الميداني</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white">
+                    {homeData.methodHeading}
+                  </h2>
+                </div>
+
+                <div className="p-8 rounded-3xl bg-white dark:bg-[#051c36] border border-slate-200 dark:border-cyan-900/40 shadow-sm space-y-6">
+                  <p className="text-base sm:text-lg text-slate-700 dark:text-slate-200 leading-relaxed font-normal">
+                    {homeData.methodParagraph}
+                  </p>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
+                    {homeData.methodSteps.map((st, idx) => (
+                      <div
+                        key={idx}
+                        className="p-5 rounded-2xl bg-slate-50 dark:bg-[#072448] border border-slate-200 dark:border-cyan-800/40 shadow-sm space-y-2"
+                      >
+                        <div className="w-8 h-8 rounded-lg bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-black text-sm">
+                          {st.step}
+                        </div>
+                        <h4 className="text-base font-bold text-slate-900 dark:text-white">
+                          {st.title}
+                        </h4>
+                        <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                          {st.desc}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* 3. H2: نخدم أحياء المدينة */}
+            <section className="py-14 sm:py-20 bg-white dark:bg-[#03152a] border-y border-slate-200 dark:border-cyan-900/40">
+              <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-8">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <MapPin className="w-3.5 h-3.5" />
+                    <span>تغطية الأحياء والمخططات السكنية</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mb-3">
+                    {homeData.districtsHeading}
+                  </h2>
+                  <p className="text-base sm:text-lg text-slate-700 dark:text-slate-200 leading-relaxed font-normal">
+                    {homeData.districtsParagraph}
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-sm font-bold text-slate-500 dark:text-cyan-300 uppercase tracking-wider mb-3">
+                    أبرز الأحياء والمناطق المخدومة في {cityName}:
+                  </h3>
+                  <div className="flex flex-wrap gap-2.5">
+                    {homeData.districtsList.map((dist, idx) => (
+                      <span
+                        key={idx}
+                        className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-[#072448] border border-slate-200 dark:border-cyan-900/40 text-sm font-semibold text-slate-800 dark:text-slate-100 shadow-sm"
+                      >
+                        <MapPin className="w-3.5 h-3.5 text-cyan-500" />
+                        <span>حي {dist}</span>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* 4. H2: لماذا تختار مسك كلين */}
+            <section className="py-14 sm:py-20 bg-slate-50 dark:bg-[#010e1f]">
+              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-10">
+                <div className="text-center max-w-2xl mx-auto">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <Award className="w-3.5 h-3.5" />
+                    <span>معايير الثقة والجودة</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
+                    {homeData.whyHeading}
+                  </h2>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {homeData.whyPoints.map((point, idx) => (
+                    <div
+                      key={idx}
+                      className="p-6 rounded-2xl bg-white dark:bg-[#051c36] border border-slate-200 dark:border-cyan-900/40 shadow-sm space-y-2.5 transition-all hover:border-cyan-500/50"
+                    >
+                      <div className="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-black">
+                        <CheckCircle className="w-5 h-5 text-cyan-500" />
+                      </div>
+                      <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                        {point.title}
+                      </h3>
+                      <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+                        {point.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* 5. H2: أسئلة شائعة */}
+            <section className="py-14 sm:py-20 bg-white dark:bg-[#03152a] border-y border-slate-200 dark:border-cyan-900/40">
+              <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-start space-y-8">
+                <div className="text-center">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
+                    <HelpCircle className="w-3.5 h-3.5" />
+                    <span>إجابات وافية وموثوقة</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
+                    {homeData.faqHeading}
+                  </h2>
+                </div>
+
+                <div className="space-y-4">
+                  {homeData.faqs.map((faq, idx) => {
+                    const isOpen = activeFaq === idx;
+                    return (
+                      <div
+                        key={idx}
+                        className="rounded-2xl bg-slate-50 dark:bg-[#051c36] border border-slate-200 dark:border-cyan-900/40 overflow-hidden shadow-sm transition-all"
                       >
                         <button
                           onClick={() => setActiveFaq(isOpen ? null : idx)}
