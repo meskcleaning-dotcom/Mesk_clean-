@@ -21,6 +21,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
     { id: 'jeddah', path: '/jeddah', nameAr: 'جدة', nameEn: 'Jeddah' },
     { id: 'makkah', path: '/makkah', nameAr: 'مكة المكرمة', nameEn: 'Makkah' },
     { id: 'rabigh', path: '/rabigh', nameAr: 'رابغ', nameEn: 'Rabigh' },
+    { id: 'khulais', path: '/khulais', nameAr: 'خليص', nameEn: 'Khulais' },
   ];
 
   return (

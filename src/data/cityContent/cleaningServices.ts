@@ -1,7 +1,7 @@
 import { CityId } from '../../context/CityRouteContext';
 import { CityServicePageData } from '../cityServicesContent';
 
-export const CLEANING_SERVICES_MAP: Record<string, Record<CityId, CityServicePageData>> = {
+export const CLEANING_SERVICES_MAP: Record<string, Partial<Record<CityId, CityServicePageData>>> = {
   // 1. تنظيف المنازل (Home Cleaning)
   'homes': {
     jeddah: {

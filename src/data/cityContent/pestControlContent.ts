@@ -1,7 +1,7 @@
 import { CityId } from '../../context/CityRouteContext';
 import { CityServicePageData } from '../cityServicesContent';
 
-export const PEST_CONTROL_SERVICES_MAP: Record<CityId, CityServicePageData> = {
+export const PEST_CONTROL_SERVICES_MAP: Partial<Record<CityId, CityServicePageData>> = {
   jeddah: {
     serviceId: 'pest-control',
     cityId: 'jeddah',

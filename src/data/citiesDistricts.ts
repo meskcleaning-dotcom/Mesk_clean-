@@ -1,5 +1,5 @@
 export interface CityData {
-  id: 'jeddah' | 'makkah' | 'rabigh';
+  id: 'jeddah' | 'makkah' | 'rabigh' | 'khulais';
   slug: string;
   nameAr: string;
   nameEn: string;
@@ -257,15 +257,76 @@ export const CITIES_DATA: Record<string, CityData> = {
       'Kulayyah',
       'Other Rabigh District'
     ]
+  },
+  khulais: {
+    id: 'khulais',
+    slug: 'khulais',
+    nameAr: 'خليص',
+    nameEn: 'Khulais',
+    metaTitleAr: 'شركة تنظيف بخليص | مسك كلين - تنظيف منازل وفلل وعزل خزانات ومكافحة حشرات',
+    metaTitleEn: 'Cleaning Services in Khulais | Mesk Clean - Villa, Home & Tank Cleaning',
+    metaDescAr: 'مسك كلين: أفضل شركة تنظيف بخليص لخدمات تنظيف وتعقيم المنازل والفلل والاستراحات، عزل وتنظيف الخزانات، غسيل المكيفات، مكافحة الحشرات والقوارض، وتركيب شبك وطارد الحمام بخليص والمراكز المجاورة 24/7.',
+    metaDescEn: 'Mesk Clean: Premier cleaning company in Khulais for homes, villas, farmsteads, water tank cleaning & insulation, AC wash, pest & rodent control, and bird netting 24/7.',
+    heroHeadlineAr: 'شركة تنظيف بخليص',
+    heroHeadlineEn: 'Cleaning Company in Khulais',
+    heroSubheadlineAr: 'خدمة احترافية متميزة... لبيئة نقية في محافظة خليص والمراكز المجاورة',
+    heroSubheadlineEn: 'Professional Service... For a Cleaner Environment in Khulais',
+    heroDescAr: 'نقدم أرقى خدمات تنظيف المنازل والفلل والاستراحات، غسيل وتعقيم الخزانات، عزل الخزانات، غسيل المكيفات، تنظيف الكنب والسجاد بالبخار، ومكافحة الحشرات والقوارض في كافة أحياء خليص ومراكزها بأحدث المعدات.',
+    heroDescEn: 'Premier home, villa, and rest-house cleaning, water tank sanitization & insulation, AC deep cleaning, steam upholstery cleaning, and pest control across Khulais.',
+    taglineAr: 'تغطية سريعة وشاملة لكافة أحياء ومخططات خليص وغران والبرزة والمراكز التابعة.',
+    taglineEn: 'Comprehensive coverage across Khulais neighborhoods, Ghran, Al-Barzah, and surrounding areas.',
+    addressLocalityAr: 'خليص',
+    addressLocalityEn: 'Khulais',
+    geo: {
+      latitude: 22.0006,
+      longitude: 39.3197
+    },
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118400.00000000000!2d39.3197!3d22.0006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c10502758169ff%3A0xb35a77f95026df16!2sKhulais%20Saudi%20Arabia!5e0!3m2!1sen!2ssa!4v1716000000003!5m2!1sen!2ssa',
+    directMapsUrl: 'https://www.google.com/maps/search/?api=1&query=Mesk+Clean+Khulais+Saudi+Arabia',
+    districtsAr: [
+      'حي الدف',
+      'حي المغاربة',
+      'حي الصاعدية',
+      'حي الطلعة',
+      'حي العزيزية',
+      'حي النزهة',
+      'خليص القديمة',
+      'غران',
+      'وادي خليص',
+      'البرزة',
+      'أم الجرم',
+      'ستارة',
+      'الخوار',
+      'الظبية والجمعة',
+      'أحياء ومزارع أخرى بخليص'
+    ],
+    districtsEn: [
+      'Al Duff',
+      'Al Magharibah',
+      'Al Saadiyah',
+      'Al Talaah',
+      'Al Aziziyah',
+      'Al Nuzha',
+      'Old Khulais',
+      'Ghran',
+      'Wadi Khulais',
+      'Al Barzah',
+      'Umm Al Jurm',
+      'Sittarah',
+      'Al Khuwar',
+      'Al Dhabiyah & Al Jumaah',
+      'Other Khulais District'
+    ]
   }
 };
 
-export const VALID_CITY_IDS: ('jeddah' | 'makkah' | 'rabigh')[] = ['jeddah', 'makkah', 'rabigh'];
+export const VALID_CITY_IDS: ('jeddah' | 'makkah' | 'rabigh' | 'khulais')[] = ['jeddah', 'makkah', 'rabigh', 'khulais'];
 
 export const getCityById = (cityId?: string | null): CityData => {
   if (!cityId) return CITIES_DATA.jeddah;
   const normalized = cityId.toLowerCase().replace(/^\/+|\/+$/g, '');
   if (normalized === 'makkah' || normalized === 'mecca') return CITIES_DATA.makkah;
   if (normalized === 'rabigh') return CITIES_DATA.rabigh;
+  if (normalized === 'khulais' || normalized === 'khalis' || normalized === 'خليص') return CITIES_DATA.khulais;
   return CITIES_DATA.jeddah;
 };

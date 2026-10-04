@@ -34,7 +34,7 @@ function servicePagesPrerenderPlugin(): Plugin {
       server.middlewares.use(async (req, res, next) => {
         if (!req.url) return next();
         const urlObj = new URL(req.url, 'http://localhost');
-        const match = urlObj.pathname.match(/^\/(jeddah|makkah|rabigh)\/services\/([^/?#]+)\/?$/);
+        const match = urlObj.pathname.match(/^\/(jeddah|makkah|rabigh|khulais)\/services\/([^/?#]+)\/?$/);
         if (match) {
           const [, city, service] = match;
           if (CITIES_LIST.includes(city as any) && SERVICES_LIST.includes(service)) {
@@ -114,6 +114,7 @@ export default defineConfig(() => {
           jeddah: path.resolve('jeddah/index.html'),
           makkah: path.resolve('makkah/index.html'),
           rabigh: path.resolve('rabigh/index.html'),
+          khulais: path.resolve('khulais/index.html'),
         },
         output: {
           manualChunks(id) {

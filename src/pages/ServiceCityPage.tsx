@@ -414,6 +414,7 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
       { id: 'jeddah' as CityId, nameAr: 'جدة', nameEn: 'Jeddah' },
       { id: 'makkah' as CityId, nameAr: 'مكة المكرمة', nameEn: 'Makkah' },
       { id: 'rabigh' as CityId, nameAr: 'رابغ', nameEn: 'Rabigh' },
+      { id: 'khulais' as CityId, nameAr: 'خليص', nameEn: 'Khulais' },
     ]
   ).filter((c) => c.id !== currentCityId);
 

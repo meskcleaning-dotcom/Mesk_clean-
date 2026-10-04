@@ -23,7 +23,7 @@ export interface ServicePageMetadata {
   ogUrl: string;
 }
 
-export const CITIES_LIST: CityId[] = ['jeddah', 'makkah', 'rabigh'];
+export const CITIES_LIST: CityId[] = ['jeddah', 'makkah', 'rabigh', 'khulais'];
 
 export const SERVICES_LIST: string[] = [
   'homes',

@@ -1,7 +1,7 @@
 import { CityId } from '../../context/CityRouteContext';
 import { CityServicePageData } from '../cityServicesContent';
 
-export const OFFICES_SERVICES_MAP: Record<CityId, CityServicePageData> = {
+export const OFFICES_SERVICES_MAP: Partial<Record<CityId, CityServicePageData>> = {
   jeddah: {
     serviceId: 'offices',
     cityId: 'jeddah',

@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
 import { CityData, CITIES_DATA } from '../data/citiesDistricts';
 
-export type CityId = 'jeddah' | 'makkah' | 'rabigh';
+export type CityId = 'jeddah' | 'makkah' | 'rabigh' | 'khulais';
 
 export const SERVICE_SLUG_MAP: Record<string, string> = {
   'homes': 'homes',
@@ -80,8 +80,8 @@ export const extractCityFromLocation = (): { cityId: CityId; isCityRoute: boolea
 
   const combined = `${decodedPath} ${decodedHash} ${decodeURIComponent(rawSearch).toLowerCase()} ${decodeURIComponent(rawHref).toLowerCase()}`;
 
-  // 1. Check for service subpage route e.g. /(jeddah|makkah|rabigh)/services/(slug)
-  const serviceRegex = /(jeddah|makkah|rabigh)\/services\/([a-z0-9\u0600-\u06FF\-_]+)/i;
+  // 1. Check for service subpage route e.g. /(jeddah|makkah|rabigh|khulais)/services/(slug)
+  const serviceRegex = /(jeddah|makkah|rabigh|khulais)\/services\/([a-z0-9\u0600-\u06FF\-_]+)/i;
   const match = combined.match(serviceRegex);
 
   if (match) {
@@ -100,7 +100,15 @@ export const extractCityFromLocation = (): { cityId: CityId; isCityRoute: boolea
     };
   }
 
-  // 2. Check for Rabigh root
+  // 2. Check for Khulais root
+  if (combined.includes('khulais') || combined.includes('khalis') || combined.includes('خليص')) {
+    try {
+      localStorage.setItem('mesk_selected_city', 'khulais');
+    } catch {}
+    return { cityId: 'khulais', isCityRoute: true, serviceId: null };
+  }
+
+  // 3. Check for Rabigh root
   if (combined.includes('rabigh') || combined.includes('رابغ')) {
     try {
       localStorage.setItem('mesk_selected_city', 'rabigh');
@@ -108,7 +116,7 @@ export const extractCityFromLocation = (): { cityId: CityId; isCityRoute: boolea
     return { cityId: 'rabigh', isCityRoute: true, serviceId: null };
   }
 
-  // 3. Check for Makkah / Mecca root
+  // 4. Check for Makkah / Mecca root
   if (combined.includes('makkah') || combined.includes('mecca') || combined.includes('مكة')) {
     try {
       localStorage.setItem('mesk_selected_city', 'makkah');
@@ -116,7 +124,7 @@ export const extractCityFromLocation = (): { cityId: CityId; isCityRoute: boolea
     return { cityId: 'makkah', isCityRoute: true, serviceId: null };
   }
 
-  // 4. Check for Jeddah root
+  // 5. Check for Jeddah root
   if (combined.includes('jeddah') || combined.includes('جدة')) {
     try {
       localStorage.setItem('mesk_selected_city', 'jeddah');
@@ -124,10 +132,10 @@ export const extractCityFromLocation = (): { cityId: CityId; isCityRoute: boolea
     return { cityId: 'jeddah', isCityRoute: true, serviceId: null };
   }
 
-  // 5. Check if saved previously in localStorage
+  // 6. Check if saved previously in localStorage
   try {
     const saved = localStorage.getItem('mesk_selected_city') as CityId;
-    if (saved && ['jeddah', 'makkah', 'rabigh'].includes(saved)) {
+    if (saved && ['jeddah', 'makkah', 'rabigh', 'khulais'].includes(saved)) {
       return { cityId: saved, isCityRoute: false, serviceId: null };
     }
   } catch {}

@@ -46,6 +46,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
     { id: 'jeddah', path: '/jeddah', nameAr: 'جدة', nameEn: 'Jeddah' },
     { id: 'makkah', path: '/makkah', nameAr: 'مكة المكرمة', nameEn: 'Makkah' },
     { id: 'rabigh', path: '/rabigh', nameAr: 'رابغ', nameEn: 'Rabigh' },
+    { id: 'khulais', path: '/khulais', nameAr: 'خليص', nameEn: 'Khulais' },
   ];
 
   const handleCityClick = (e: React.MouseEvent, cityId: CityId) => {

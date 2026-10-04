@@ -628,5 +628,231 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
         answerEn: 'A standard kitchen clean takes 3 to 5 hours with an expert crew equipped with steam generators, handed over ready for immediate cooking.'
       }
     ]
+  },
+  khulais: {
+    serviceId: 'kitchens',
+    cityId: 'khulais',
+    slug: 'kitchens',
+    canonicalPath: '/khulais/services/kitchens',
+    metaTitle: 'شركة تنظيف مطابخ بخليص | مسك كلين - إزالة دهون الشفاطات وتلميع الدواليب',
+    metaTitleEn: 'Kitchen Deep Cleaning & Degreasing Company in Khulais | Mesk Clean',
+    metaDescription: 'أفضل شركة تنظيف مطابخ بخليص لإذابة الدهون المتراكمة والزيوت، تنظيف الشفاطات والأفران وتلميع دواليب الخشب والألمنيوم بحي الدف والمغاربة والصاعدية 24/7.',
+    metaDescriptionEn: 'Premier residential and commercial kitchen deep cleaning in Khulais by Mesk Clean. Intensive degreasing of range hoods, ovens, and cabinetry across all Khulais districts.',
+    keywords: [
+      'شركة تنظيف مطابخ بخليص',
+      'تنظيف مطابخ بخليص',
+      'غسيل مطابخ بخليص',
+      'إزالة دهون المطابخ خليص',
+      'تنظيف دواليب المطابخ بخليص',
+      'شركة تنظيف أفران بخليص',
+      'تنظيف شفاطات المطابخ خليص',
+      'شركة تنظيف بخليص'
+    ],
+    heroBadge: 'خدمة معتمدة للمطابخ بخليص',
+    heroBadgeEn: 'Certified Kitchen Hygiene in Khulais',
+    heroHeading: 'شركة تنظيف مطابخ بخليص - إذابة أصعب الدهون والزيوت وتطهير المطبخ بالبخار',
+    heroHeadingEn: 'Kitchen Deep Cleaning & Thermal Degreasing in Khulais',
+    heroSubtitle: 'نقدم لأهالي خليص خدمات تنظيف وتعقيم مطابخ احترافية تشمل فك وتنظيف فلاتر ومداخن الشفاطات، جلي ترويبة وبلاط المطبخ، وتلميع دواليب الكلادينج والخشب بمواد آمنة غذائياً 100%.',
+    heroSubtitleEn: 'Mesk Clean delivers intensive kitchen sanitization in Khulais, eliminating burnt cooking oils and fine agricultural dust from ovens, range hoods, and cabinetry.',
+    introParagraphs: [
+      'يعد المطبخ ركيزة البيت اليومية ومصدر إعداد الوجبات لجميع أفراد الأسرة في محافظة خليص، إلا أن مطابخ البيوت والفلل والاستراحات في خليص تواجه معادلة نظافة معقدة؛ حيث تتصاعد أبخرة الزيوت ودهون الطهي اليومية لتلتقي مع ذرات الغبار والرمال الناعمة المتطايرة من أودية ومزارع خليص. يؤدي هذا التمازج بين الزيوت الحارة والأتربة الدقيقة إلى تشكل طبقة لزجة متصلبة تُعرف بـ "الدهون الرملية المتكلسة"، والتي تغلف أسطح مداخن الشفاطات، ومراوح التهوية، ودواليب المطبخ سواء كانت من الألمنيوم، أو الخشب المعالج، أو الكلادينج، وتستقر بقوة داخل فواصل السيراميك والرخام.',
+      'إن محاولات تنظيف هذه الترسبات الدهنية بالطرق المنزلية العادية أو بالمساحيق الكيميائية القاسية غالباً ما تنتهي بخدش أسطح الرخام الطبيعي وتجيير الألمنيوم أو تلف طبقات دهان الدواليب، فضلاً عن بقاء مخابئ الدهون خلف الأفران والثلاجات والتي تصبح بيئة جاذبة لصراصير المطبخ وحشرات الأفران الدقيقة. تقدم شركة مسك كلين بخليص أسلوباً هندسياً وتقنياً متقدماً للتنظيف والتعقيم العميق للمطابخ السكنية ومطابخ الولائم والاستراحات؛ حيث نعتمد على ماكينات البخار الحار الجاف المتدفق بقوة ضغط عالية (8 بار ودرجة حرارة 140 مئوية) لتسييل الشحوم المحترقة وتفكيكها فورياً دون إتلاف الأسطح أو إغراق المطبخ بالماء الزائد.',
+      'تغطي خدماتنا كافة أحياء محافظة خليص ومراكزها؛ حيث تصل فرقنا المجهزة بالكامل إلى فلل ومنازل حي الدف، وحي المغاربة، والصاعدية، والطلعة، والعزيزية، والنزهة، وغران، والبرزة، محملة بأحدث مذيبات الشحوم الإيطالية العضوية الآمنة غذائياً، وأجهزة جلي وتلميع الرخام والسيراميك، لنعيد لمطبخك بهاءه ونظافته الفندقية الكاملة ونوفر بيئة طهي نقية وصحية تسر كل ربة منزل.',
+      'كما نولي اهتماماً خاصاً بمطابخ الاستراحات والمزارع في وادي خليص التي تُستخدم في المناسبات وتتعرض للإغلاق لفترات؛ حيث نقوم بتفكيك الشفاطات وتنظيف مجاري تصريف الدهون، وغسيل وتعقيم الدواليب من الداخل والخارج، ورش مبيدات وقائية ضد الحشرات الزاحفة، ليكون المطبخ جاهزاً تماماً للولائم والطبخ العائلي بأعلى معايير النظافة.'
+    ],
+    introParagraphsEn: [
+      'The kitchen stands as the bustling culinary centerpiece in every Khulais household. However, residences across the governorate encounter persistent sanitization challenges where aerosolized cooking oils merge with fine agricultural sand particulates blown from Wadi Khulais. This synergy forms a resilient, sticky amber film that bonds tenaciously to range hood impellers, kitchen cabinetry, and ceramic tile grout.',
+      'Mesk Clean in Khulais implements an advanced industrial thermal degreasing methodology utilizing dry steam boilers operating at 140°C alongside certified food-safe bio-enzymatic degreasers. This technology breaks down carbonized grease deposits on stoves, exhaust baffles, and backsplashes without scratching luxury acrylic, wood, or aluminum finishes.',
+      'Our mobile teams service all Khulais districts including Al-Duff, Al-Magharibah, Al-Saadiyah, Al-Talaah, Ghran, and surrounding agricultural areas, providing hospital-standard hygiene for family residences, private villas, and estate kitchens.',
+      'We also specialize in seasonal deep cleaning for rest-house and farm kitchens throughout Wadi Khulais, clearing greasy residues, disassembling exhaust fans, and sanitizing storage cabinets to provide an immaculate culinary setting.'
+    ],
+    neighborhoodsAnalysisTitle: 'التحليل الميداني لتنظيف المطابخ وأنواع الدواليب في خليص',
+    neighborhoodsAnalysisTitleEn: 'District Kitchen Architecture & Cabinetry Care in Khulais',
+    neighborhoodsAnalysisParagraphs: [
+      'تتميز الفلل الحديثة في أحياء خليص الراقية كحي الدف ومخطط الطلعة وحي العزيزية بتصاميم المطابخ المفتوحة (American Concept) ودواليب الكلادينج والرخام الصناعي والجرانيت، مما يتطلب استخدام محاليل تنظيف ميكروية غير كاشطة تحمي أسطح الكوارتز ولمعان الدواليب الأكريليك العاكسة. أما في بيوت ومجالس أحياء المغاربة والصاعدية وخليص القديمة والمزارع، فتكثر المطابخ المغلقة ومطابخ الطهي الثقيل (Heavy Cooking) التي تتطلب إذابة الشحوم المحترقة حول عيون الأفران ومداخن الشفاطات وتسليك مجاري الدهون المتجمدة بالبخار.',
+      'تصل فرق مسك كلين إلى موقعك في خليص مزودة بأغطية واقية لعزل الأجهزة الكهربائية وتغطية الرخام لضمان إنجاز كافة مراحل إذابة الدهون وتلميع الدواليب بأمان تام ودقة متناهية.'
+    ],
+    neighborhoodsAnalysisParagraphsEn: [
+      'Modern villas in Khulais districts like Al-Duff, Al-Talaah, and Al-Aziziyah frequently feature open-concept kitchens with reflective acrylic cabinets and quartz countertops. Our technicians utilize non-abrasive, pH-balanced polishers that preserve reflective coatings while dissolving dust-bonded grease films. In older residential areas and farm estates, focus shifts to heavy-duty range hoods, deep oven cleaning, and steam-clearing drain pipes.',
+      'Mesk Clean crews arrive equipped with specialized protective masking barriers to safeguard electrical appliances and fine countertops throughout the degreasing workflow.'
+    ],
+    importanceTitle: 'أهمية التنظيف والتعقيم العميق لمطابخ خليص',
+    importanceTitleEn: 'Why Professional Kitchen Cleaning is Vital in Khulais',
+    importanceContent: [
+      'إذابة الدهون الرملية المتصلبة: التخلص من الطبقات الصمغية اللزجة التي تتلف دهانات الدواليب وتجذب أتربة وادي خليص.',
+      'رفع كفاءة شفاطات الهواء ومداخن الطهي: فك الفلاتر وتنظيف محركات الشفط يمنع تراكم الدخان والحرارة داخل المنزل.',
+      'مكافحة صراصير المطابخ والنمل: إزالة بقايا الزيوت خلف الأفران والثلاجات يقضي على بيئة الغذاء المفضلة لصراصير المطبخ.',
+      'تطهير فواصل السيراميك والترويبة: جلي الفواصل بالبخار يزيل السواد والتكلسات ويعيد للأرضيات لونها الأصلي.',
+      'حماية الأجهزة والستانلس ستيل: تلميع الموقد وحوض الغسيل بمواد عازلة تحميه من التبقع والأكسدة والصدأ.',
+      'توفير بيئة طهي صحية خالية من البكتيريا: التعقيم بالبخار الحراري يقضي على 99.9% من مسببات التسمم الغذائي والسالمونيلا.'
+    ],
+    importanceContentEn: [
+      'Eliminating Dust-Bonded Grease Crusts: Dissolving stubborn sticky deposits that erode cabinet laminates and trap airborne valley dust.',
+      'Restoring Range Hood Airflow Velocity: Clearing grease from impellers and filters prevents indoor heat and smoke accumulation.',
+      'Eradicating Cockroaches & Pests: Removing concealed food grease behind stoves eliminates vital nourishment for kitchen roaches.',
+      'Restoring Grout & Ceramic Brightness: High-pressure steam clears dark grease residues from floor tile grout lines.',
+      'Protecting Stainless Steel Appliances: Conditioning stainless cooktops shields metal surfaces from tarnishing and grease oxidation.',
+      'Ensuring a Pathogen-Free Cooking Haven: Thermal steam sanitization eradicates 99.9% of bacteria, Salmonella, and mold.'
+    ],
+    equipmentTitle: 'ماكينات البخار ومذيبات الدهون الإيطالية المعتمدة بخليص',
+    equipmentTitleEn: 'Industrial Steam Boilers & Bio-Degreasers in Khulais',
+    equipmentParagraphs: [
+      'نعتمد في مسك كلين بخليص على مولدات البخار الجاف الإيطالية المصممة للاستخدام المنزلي والغذائي الفاخر، بقوة ضغط تصل إلى 8 بار ودرجة حرارة تفوق 140 درجة مئوية، مما يتيح تسييل الدهون المتصلبة على فلاتر الشفاط وعيون الأفران وجدران السيراميك فورياً دون الحاجة لكشط ميكانيكي عنيف قد يخدش الأسطح.',
+      'نستخدم محاليل إذابة دهون عضوية معتمدة من هيئة المواصفات والمقاييس (SASO)، تتميز بأنها خالية من الروائح الكيماوية النفاذة ومصرحة للاستخدام في أماكن إعداد وتخزين الأغذية، وتترك طبقة حماية ميكروية تمنع إعادة التصاق الغبار بالدواليب لأسابيع طويلة.'
+    ],
+    equipmentParagraphsEn: [
+      'We deploy Italian dry steam generators engineered for food-contact hygiene, operating at 8-bar pressure and 140°C, liquefying baked grease on range hood baffles and cooktops instantaneously without abrasive scraping.',
+      'Our bio-enzymatic degreasers are SASO-certified and eco-friendly, completely free of volatile toxins, leaving a micro-protective barrier that repels airborne dust settlement on cabinetry for weeks.'
+    ],
+    workflowTitle: 'خطوات بروتوكول تنظيف المطابخ الميداني بخليص',
+    workflowTitleEn: 'Step-by-Step Kitchen Deep Cleaning Workflow in Khulais',
+    workflowSteps: [
+      {
+        number: 1,
+        title: 'المعاينة وفصل وتأمين الأجهزة الحساسة',
+        titleEn: 'Inspection & Electrical Safeguarding',
+        description: 'فحص خامة الدواليب ونوعية الرخام، وفصل التيار الكهربائي عن الشفاط والأفران وتغطية الدوائر الحساسة بأغلفة عازلة للماء.',
+        descriptionEn: 'Assessing cabinetry finishes and countertop stones, disconnecting power to exhaust fans and ovens, and masking electrical points.'
+      },
+      {
+        number: 2,
+        title: 'تفكيك ونقع فلاتر الشفاط ومراوح التهوية',
+        titleEn: 'Exhaust Filter Disassembly & Thermal Soaking',
+        description: 'فك فلاتر الشفاط الشبكية ومراوح السحب ونقعها في أحواض إذابة الشحوم الحرارية لإزالة الزيوت المتكلسة بالكامل.',
+        descriptionEn: 'Dismantling range hood baffles and blower impellers, submerging them into thermal degreasing baths to dissolve polymerized fats.'
+      },
+      {
+        number: 3,
+        title: 'الضخ بالبخار الساخن وإذابة دهون الجدران',
+        titleEn: 'Thermal Steam Jetting on Walls & Cooktops',
+        description: 'تسليط فوهات البخار بدرجة 140 مئوية على جدران السيراميك ومحيط الموقد والشفاط لتسييل الدهون المتراكمة ومسحها بفوط مايكروفايبر.',
+        descriptionEn: 'Jetting 140°C steam across ceramic backsplashes and cooktops to liquefy hardened grease, wiping it away with microfiber extractors.'
+      },
+      {
+        number: 4,
+        title: 'تنظيف وتلميع دواليب المطبخ من الداخل والخارج',
+        titleEn: 'Cabinetry Interior & Exterior Restoration',
+        description: 'مسح الأرفف الداخلية للدواليب بمطهرات تقضي على البكتيريا، وتلميع الواجهات الخارجية (ألمنيوم، خشب، كلادينج) بمستحضرات واقية.',
+        descriptionEn: 'Sanitizing interior pantry shelves with food-grade biocides and polishing exterior facades (acrylic, cladding, wood) with conditioning agents.'
+      },
+      {
+        number: 5,
+        title: 'جلي ترويبة الأرضيات وتطهير الأحواض والصفايات',
+        titleEn: 'Floor Grout Scrubbing & Drain Sanitization',
+        description: 'فرك أرضيات السيراميك وتفتيح خطوط الترويبة بماكينات الجلي، وتسليك صفاية المطبخ بالبخار لإذابة الدهون المتجمدة في المواسير.',
+        descriptionEn: 'Mechanically scrubbing floor tiles, whitening grout joints, and steam-clearing sink traps to dissolve congealed drain grease.'
+      },
+      {
+        number: 6,
+        title: 'التعقيم بالأوزون وتلميع الستانلس ستيل',
+        titleEn: 'Ozone Sanitization & Stainless Steel Conditioning',
+        description: 'تلميع الأجهزة وأحواض الستانلس ستيل بمواد عازلة، وإجراء تعقيم شامل يقضي على الروائح الكريهة ويسلم المطبخ في أبهى حلة.',
+        descriptionEn: 'Conditioning stainless steel sinks and appliances with protective films, followed by total deodorization for a pristine finish.'
+      }
+    ],
+    featuresTitle: 'مميزات خدمة تنظيف المطابخ بخليص من مسك كلين',
+    featuresTitleEn: 'Why Mesk Clean is Khulais Premier Kitchen Cleaner',
+    features: [
+      {
+        title: 'إزالة كاملة للدهون دون خدوش',
+        titleEn: 'Zero-Scratch Thermal Degreasing',
+        description: 'نعتمد على قوة البخار الحار والمذيبات العضوية لتفتيت الشحوم دون استخدام أسلاك خشنة قد تخدش الرخام والدواليب.',
+        descriptionEn: 'Relying on pressurized steam and enzymatic agents to liquefy fats without abrasive scourers that scratch delicate stone.'
+      },
+      {
+        title: 'مواد تنظيف آمنة غذائياً 100%',
+        titleEn: '100% Food-Contact Safe Formulations',
+        description: 'جميع المحاليل المستخدمة مطابقة لمعايير الصحة والغذاء السعودية، ولا تترك أي بقايا كيميائية سامة في أماكن الطهي.',
+        descriptionEn: 'All detergents comply with Saudi food sanitation regulations, leaving zero toxic chemical residues in meal preparation areas.'
+      },
+      {
+        title: 'تغطية شاملة لكافة أحياء ومزارع خليص',
+        titleEn: 'Complete Coverage Across Khulais & Farms',
+        description: 'نصل بسياراتنا المجهزة إلى حي الدف، المغاربة، الصاعدية، الطلعة، غران، والبرزة بسرعة استجابة عالية.',
+        descriptionEn: 'Equipped vans reach Al-Duff, Al-Magharibah, Al-Saadiyah, Ghran, and Al-Barzah with rapid dispatch.'
+      },
+      {
+        title: 'عمالة متخصصة ومحترفة بأجهزة المطابخ',
+        titleEn: 'Trained Kitchen Appliance Specialists',
+        description: 'فنيون مدربون على التعامل الحذر مع الأفران الحديثة، والشفاطات الإيطالية، ودواليب الأكريليك الفاخرة.',
+        descriptionEn: 'Technicians specifically certified in the safe handling of modern ranges, European exhaust fans, and acrylic cabinetry.'
+      }
+    ],
+    districtsTitle: 'نطاق تغطية تنظيف المطابخ عبر أحياء ومراكز خليص',
+    districtsTitleEn: 'Kitchen Cleaning Coverage Across Khulais & Surrounding Districts',
+    districtsIntro: 'تصل فرق مسك كلين المتخصصة في تنظيف المطابخ إلى كافة أحياء ومخططات محافظة خليص والمراكز التابعة:',
+    districtsIntroEn: 'Our specialized residential kitchen restoration crews service all Khulais sectors and rural centers:',
+    districtsList: [
+      'الأحياء السكنية الحيوية بخليص: حي الدف، حي الصاعدية، حي العزيزية، حي البلاد القديم، حي المغاربة، حي الطلعة، المخطط الشمالي، المخطط الجنوبي.',
+      'المراكز والقرى والاستراحات الزراعية: مركز غران، مركز الخوار، مزارع وادي خليص، مركز البرزة، مركز أم الجرم، مركز ستارة، واستراحات طريق الهجرة.'
+    ],
+    districtsListEn: [
+      'Core Khulais Residential Districts: Al-Duff, Al-Saadiyah, Al-Aziziyah, Al-Balad, Al-Magharibah, Al-Talaah, North Scheme, South Scheme.',
+      'Centers, Valleys & Agricultural Estates: Ghran center, Al-Khowar, Wadi Khulais farmsteads, Al-Barzah, Umm Al-Jirm, Sitara, and Al-Hijrah road chalets.'
+    ],
+    tipsTitle: 'نصائح مسك كلين للحفاظ على نظافة مطبخك بخليص',
+    tipsTitleEn: 'Expert Advice for Kitchen Maintenance in Khulais',
+    tipsIntro: 'يقدم خبراء مسك كلين أهم الإرشادات لمنع تراكم الدهون في مطابخ خليص:',
+    tipsIntroEn: 'Essential maintenance advice from Mesk Clean experts for kitchens in Khulais:',
+    tipsList: [
+      {
+        title: 'تشغيل الشفاط أثناء الطهي وقبل البدء بدقائق',
+        titleEn: 'Activate Range Hood Prior to Cooking',
+        text: 'تشغيل الشفاط قبل تصاعد الأبخرة بدقائق يولد تيار سحب هوائي يمنع انتشار رذاذ الزيوت واستقراره على الدواليب.',
+        textEn: 'Starting the hood minutes before cooking builds air draw velocity that prevents grease mist from settling on cabinets.'
+      },
+      {
+        title: 'المسح الفوري لرذاذ الزيوت قبل جفافه وتفاعله مع الغبار',
+        titleEn: 'Immediate Wipe-Down of Cooking Splatters',
+        text: 'مسح محيط الموقد يومياً بفوطة مايكروفايبر يمنع تحول الزيوت إلى طبقة صمغية متكلسة يصعب إزالتها لاحقاً.',
+        textEn: 'Daily wipe-downs with microfiber cloths prevent oil splatters from hardening into intractable gummy films.'
+      },
+      {
+        title: 'تنظيف فلاتر الشفاط شهرياً بالماء الساخن والخل',
+        titleEn: 'Monthly Filter Thermal Soaking',
+        text: 'نقع الفلاتر المعدنية في ماء ساخن مع سائل غسيل الأطباق يمنع انسداد فتحات التهوية ويحافظ على قوة محرك الشفط.',
+        textEn: 'Soaking aluminum mesh filters in hot soapy water monthly prevents airflow blockage and motor strain.'
+      }
+    ],
+    faqsTitle: 'الأسئلة الشائعة حول تنظيف المطابخ بخليص',
+    faqsTitleEn: 'Frequently Asked Questions - Khulais Kitchen Cleaning',
+    faqs: [
+      {
+        question: 'كيف تزيلون خلطة الرمال والدهون المتصلبة من دواليب وشباك المطبخ بخليص؟',
+        questionEn: 'How do you remove petrified sand-grease crusts from cabinets and windows in Khulais?',
+        answer: 'نبدأ بشفط ذرات الرمال الجافة أولاً بمكانس HEPA لمنع تشكل الطين، ثم نضخ البخار الجاف بدرجة 140 مئوية مع مذيبات دهون عضوية تذيب الزيوت العميقة دون خدش الدواليب أو تجيير الألمنيوم.',
+        answerEn: 'We first dry-vacuum sand with HEPA extractors to prevent mud formation, followed by 140°C dry steam and bio-degreasers that dissolve grease without scratching finishes.'
+      },
+      {
+        question: 'هل تقدمون خدمات تنظيف المطابخ في استراحات ومزارع وادي خليص وغران؟',
+        questionEn: 'Do you provide kitchen deep cleaning in Wadi Khulais and Ghran farm estates?',
+        answer: 'نعم، نخدم كافة الفلل، والشقق، والاستراحات، والمزارع في وادي خليص، وغران، والبرزة، والطلعة بمواعيد مرنة وتجهيزات ميدانية متكاملة تصل لموقعك فوراً.',
+        answerEn: 'Yes, we service residential villas, farmhouses, and rest-houses across Wadi Khulais, Ghran, and Al-Barzah with fully equipped mobile units.'
+      },
+      {
+        question: 'هل يؤثر تنظيف الشفاط بالبخار على سلامة المروحة الكهربائية؟',
+        questionEn: 'Does steam cleaning damage the range hood electrical blower motor?',
+        answer: 'لا إطلاقاً، يقوم فنيونا بفصل التيار الكهربائي وتغطية المحرك بعوازل محكمة، وننقع فقط الفلاتر والأجزاء الميكانيكية لضمان أمان تام للأجهزة.',
+        answerEn: 'Not at all. Our technicians disconnect power and seal motors with protective barriers, exclusively soaking filters and mechanical parts for 100% safety.'
+      },
+      {
+        question: 'كم يستغرق تنظيف المطبخ بالكامل في خليص؟',
+        questionEn: 'How long does a complete kitchen deep clean take in Khulais?',
+        answer: 'يستغرق تنظيف المطبخ المتوسط من 3 إلى 5 ساعات بفريق متخصص مجهز بماكينات البخار والشفط، ويتم تسليمه جاهزاً للطهي والاستخدام فوراً.',
+        answerEn: 'A standard kitchen clean takes 3 to 5 hours with an expert crew equipped with steam generators, handed over ready for immediate cooking.'
+      },
+      {
+        question: 'هل المواد المستخدمة في إذابة الدهون آمنة على أسطح الرخام الطبيعي؟',
+        questionEn: 'Are your degreasing agents safe on natural marble and granite?',
+        answer: 'نعم، نستخدم محاليل عضوية متعادلة الحموضة (pH Neutral) مصممة خصيصاً للرخام والجرانيت، تزيل الدهون بفاعلية دون أن تتسبب في أي حفر أو بهتان لبريق الرخام.',
+        answerEn: 'Yes, we apply pH-neutral bio-solvents formulated specifically for natural marble and granite, dissolving grease without etching or dulling stone luster.'
+      },
+      {
+        question: 'كيف يمكنني حجز موعد لتنظيف مطبخي في خليص؟',
+        questionEn: 'How can I schedule a kitchen cleaning appointment in Khulais?',
+        answer: 'يمكنك التواصل معنا عبر الهاتف أو الواتساب أو من خلال نموذج الحجز الإلكتروني في الموقع، وفريقنا جاهز لخدمتك على مدار الساعة طوال أيام الأسبوع.',
+        answerEn: 'You can contact us via phone, WhatsApp, or through the online booking form. Our teams are available 24/7 across Khulais.'
+      }
+    ]
   }
 };

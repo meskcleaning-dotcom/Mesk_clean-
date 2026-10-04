@@ -1,7 +1,7 @@
 import { CityId } from '../../context/CityRouteContext';
 import { CityServicePageData } from '../cityServicesContent';
 
-export const FABRIC_SERVICES_MAP: Record<'sofas' | 'carpets', Record<CityId, CityServicePageData>> = {
+export const FABRIC_SERVICES_MAP: Record<'sofas' | 'carpets', Partial<Record<CityId, CityServicePageData>>> = {
   // 5. تنظيف الكنب بالبخار (Steam Sofa Cleaning)
   'sofas': {
     jeddah: {

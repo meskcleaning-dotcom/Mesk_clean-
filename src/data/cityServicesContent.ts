@@ -83,7 +83,7 @@ export interface CityServicePageData {
   faqs: ServiceFAQItem[];
 }
 
-export const CITY_SERVICES_MAP: Record<string, Record<CityId, CityServicePageData>> = {
+export const CITY_SERVICES_MAP: Record<string, Partial<Record<CityId, CityServicePageData>>> = {
   // 1. تنظيف المنازل (Home Cleaning)
   'homes': {
     jeddah: {

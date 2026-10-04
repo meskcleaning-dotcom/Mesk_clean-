@@ -109,6 +109,26 @@ export const getCityServiceData = (serviceId: string, cityId: CityId): CityServi
       ],
       localChallengesAr: 'تسلل ذرات الرمال الناعمة إلى مجاري النوافذ والتكييف بفعل التيارات الهوائية البحرية، والحاجة إلى معدات شفط توربينية قادرة على إخلاء الرواسب الرملية',
       localChallengesEn: 'persistent windblown sand penetrating window slides and air conditioners, requiring specialized turbine extraction to protect mechanical and interior fittings'
+    },
+    khulais: {
+      nameAr: 'خليص',
+      nameEn: 'Khulais',
+      titleSuffixAr: 'بخليص',
+      titleSuffixEn: 'in Khulais',
+      climateContextAr: 'المناخ الصحراوي والزراعي الدافئ، وجفاف وادي خليص، وتطاير الأتربة والرمال الناعمة في مواسم الرياح، وانتشار المزارع والاستراحات',
+      climateContextEn: 'the warm valley climate, inland dust breezes, agricultural surroundings of Wadi Khulais, and sprawling family estates',
+      districts: [
+        'الأحياء المركزية والسكنية: حي الدف، حي المغاربة، حي الصاعدية، حي الطلعة، حي العزيزية، حي النزهة، خليص القديمة (البلاد).',
+        'المراكز والقرى التابعة: مركز غران، وادي خليص، مركز البرزة، أم الجرم، ستارة، الخوار، الظبية والجمعة.',
+        'مزارع واستراحات خليص: المزارع المحيطة بالسد، الاستراحات العائلية على طريق الهجرة، ومخططات الفلل السكنية الحديثة.'
+      ],
+      districtsEn: [
+        'Central & Residential Districts: Al-Duff, Al-Magharibah, Al-Saadiyah, Al-Talaah, Al-Aziziyah, Al-Nuzha, Old Khulais.',
+        'Surrounding Towns & Centers: Ghran, Wadi Khulais, Al-Barzah, Umm Al-Jurm, Sittarah, Al-Khuwar, Al-Dhabiyah & Al-Jumaah.',
+        'Estates & Farms: Agricultural estates near Khulais Dam, private family rest houses along Hijrah Road, and modern villa communities.'
+      ],
+      localChallengesAr: 'تراكم الغبار الصحراوي والزراعي الناعم على الأسطح وداخل مجاري التكييف، وارتفاع درجات الحرارة الجافة صيفاً، وحاجة الخزانات الأرضية والعلوية لعزل مائي وحراري دوري لحمايتها من تسربات المياه وحرارة الشمس، وجذب المزارع المحيطة للحشرات والزواحف',
+      localChallengesEn: 'fine inland dust penetrating AC coils and window tracks, intense summer heat requiring water tank thermal insulation, and agricultural surroundings attracting seasonal pests'
     }
   };
 
