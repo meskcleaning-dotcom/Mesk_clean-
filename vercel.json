@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/m",
+      "destination": "https://www.meskclean.com/jeddah",
+      "permanent": true
+    },
+    {
+      "source": "/m/(.*)",
+      "destination": "https://www.meskclean.com/jeddah",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

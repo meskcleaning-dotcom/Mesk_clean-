@@ -44,6 +44,15 @@ function servicePagesPrerenderPlugin(): Plugin {
         if (!req.url) return next();
         const urlObj = new URL(req.url, 'http://localhost');
 
+        if (urlObj.pathname === '/m' || urlObj.pathname === '/m/' || urlObj.pathname.startsWith('/m/')) {
+          res.writeHead(301, {
+            Location: 'https://www.meskclean.com/jeddah',
+            'Content-Type': 'text/plain; charset=utf-8'
+          });
+          res.end('301 Moved Permanently to https://www.meskclean.com/jeddah');
+          return;
+        }
+
         if (urlObj.pathname === '/sitemap.xml') {
           const sitemapXml = generateSitemapXml();
           res.setHeader('Content-Type', 'application/xml; charset=utf-8');

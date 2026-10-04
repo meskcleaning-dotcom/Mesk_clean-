@@ -80,6 +80,14 @@ export const extractCityFromLocation = (): { cityId: CityId; isCityRoute: boolea
 
   const combined = `${decodedPath} ${decodedHash} ${decodeURIComponent(rawSearch).toLowerCase()} ${decodeURIComponent(rawHref).toLowerCase()}`;
 
+  // 0. If route is /m or /m/*, immediately redirect to /jeddah
+  if (decodedPath === '/m' || decodedPath === '/m/' || decodedPath.startsWith('/m/')) {
+    try {
+      window.location.replace('/jeddah');
+    } catch {}
+    return { cityId: 'jeddah', isCityRoute: true, serviceId: null };
+  }
+
   // 1. Check for service subpage route e.g. /(jeddah|makkah|rabigh|khulais)/services/(slug)
   const serviceRegex = /(jeddah|makkah|rabigh|khulais)\/services\/([a-z0-9\u0600-\u06FF\-_]+)/i;
   const match = combined.match(serviceRegex);

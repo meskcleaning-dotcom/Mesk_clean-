@@ -1,0 +1,28 @@
+{
+  "hosting": {
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "redirects": [
+      {
+        "source": "/m",
+        "destination": "https://www.meskclean.com/jeddah",
+        "type": 301
+      },
+      {
+        "source": "/m/**",
+        "destination": "https://www.meskclean.com/jeddah",
+        "type": 301
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
