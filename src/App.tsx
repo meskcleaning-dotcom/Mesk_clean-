@@ -17,6 +17,7 @@ import { Footer } from './components/Footer';
 import { MobileBottomNav } from './components/MobileBottomNav';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { LegalDocType } from './components/LegalModal';
+import { JeddahGuideSection } from './components/JeddahGuideSection';
 
 const AdminDashboard = lazy(() =>
   import('./components/AdminDashboard').then(m => ({ default: m.AdminDashboard }))
@@ -124,6 +125,9 @@ function MainWebsite() {
 
         {/* Blog / Cleaning Guide Section */}
         <BlogSection onBookService={() => handleOpenBooking()} />
+
+        {/* Jeddah Comprehensive Cleaning Guide Section */}
+        {currentCityId === 'jeddah' && <JeddahGuideSection />}
       </main>
 
       {/* Footer with quick links and Admin portal link */}
