@@ -10,6 +10,7 @@ import {
   getAllServicePagesMetadata, 
   injectServiceMetaIntoHtml, 
   getServicePageMetadata, 
+  generateSitemapXml,
   CITIES_LIST, 
   SERVICES_LIST 
 } from './src/utils/servicePagesMeta';
@@ -29,11 +30,28 @@ function servicePagesPrerenderPlugin(): Plugin {
         fs.mkdirSync(targetDir, { recursive: true });
         fs.writeFileSync(path.join(targetDir, 'index.html'), pageHtml, 'utf-8');
       }
+
+      // Automatically generate and update sitemap.xml during build
+      const sitemapXml = generateSitemapXml();
+      fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemapXml, 'utf-8');
+      const publicSitemap = path.resolve('public', 'sitemap.xml');
+      if (fs.existsSync(path.dirname(publicSitemap))) {
+        fs.writeFileSync(publicSitemap, sitemapXml, 'utf-8');
+      }
     },
     configureServer(server) {
       server.middlewares.use(async (req, res, next) => {
         if (!req.url) return next();
         const urlObj = new URL(req.url, 'http://localhost');
+
+        if (urlObj.pathname === '/sitemap.xml') {
+          const sitemapXml = generateSitemapXml();
+          res.setHeader('Content-Type', 'application/xml; charset=utf-8');
+          res.statusCode = 200;
+          res.end(sitemapXml);
+          return;
+        }
+
         const match = urlObj.pathname.match(/^\/(jeddah|makkah|rabigh|khulais)\/services\/([^/?#]+)\/?$/);
         if (match) {
           const [, city, service] = match;

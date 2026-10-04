@@ -154,3 +154,54 @@ export function injectServiceMetaIntoHtml(html: string, meta: ServicePageMetadat
 
   return out;
 }
+
+export function generateSitemapXml(): string {
+  const baseUrl = 'https://www.meskclean.com';
+  const today = new Date().toISOString().split('T')[0];
+
+  const cityNamesMap: Record<CityId, string> = {
+    jeddah: 'جدة',
+    makkah: 'مكة المكرمة',
+    rabigh: 'رابغ',
+    khulais: 'خليص'
+  };
+
+  const lines: string[] = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    '',
+    '  <url>',
+    `    <loc>${baseUrl}/</loc>`,
+    `    <lastmod>${today}</lastmod>`,
+    '    <changefreq>weekly</changefreq>',
+    '    <priority>1.0</priority>',
+    '  </url>',
+    ''
+  ];
+
+  // City main pages
+  for (const cityId of CITIES_LIST) {
+    lines.push('  <url>');
+    lines.push(`    <loc>${baseUrl}/${cityId}</loc>`);
+    lines.push(`    <lastmod>${today}</lastmod>`);
+    lines.push('    <changefreq>weekly</changefreq>');
+    lines.push('    <priority>0.9</priority>');
+    lines.push('  </url>');
+  }
+  lines.push('');
+
+  // Service pages grouped by city
+  for (const cityId of CITIES_LIST) {
+    const cityName = cityNamesMap[cityId] || cityId;
+    lines.push(`  <!-- خدمات ${cityName} -->`);
+    for (const serviceId of SERVICES_LIST) {
+      lines.push(`  <url><loc>${baseUrl}/${cityId}/services/${serviceId}</loc><lastmod>${today}</lastmod><priority>0.8</priority></url>`);
+    }
+    lines.push('');
+  }
+
+  lines.push('</urlset>');
+  lines.push('');
+  return lines.join('\n');
+}
+
