@@ -38,6 +38,15 @@ function servicePagesPrerenderPlugin(): Plugin {
       if (fs.existsSync(path.dirname(publicSitemap))) {
         fs.writeFileSync(publicSitemap, sitemapXml, 'utf-8');
       }
+
+      // Ensure city files are also accessible as [city].html for hosting cleanUrls compatibility
+      const cities = ['jeddah', 'makkah', 'rabigh', 'khulais'];
+      for (const city of cities) {
+        const cityIndex = path.join(distDir, city, 'index.html');
+        if (fs.existsSync(cityIndex)) {
+          fs.copyFileSync(cityIndex, path.join(distDir, `${city}.html`));
+        }
+      }
     },
     configureServer(server) {
       server.middlewares.use(async (req, res, next) => {
