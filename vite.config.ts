@@ -61,6 +61,24 @@ function servicePagesPrerenderPlugin(): Plugin {
           return;
         }
 
+        const cityMatch = urlObj.pathname.match(/^\/(jeddah|makkah|rabigh|khulais)\/?$/);
+        if (cityMatch) {
+          const city = cityMatch[1];
+          const cityHtmlPath = path.resolve(city, 'index.html');
+          if (fs.existsSync(cityHtmlPath)) {
+            try {
+              const template = fs.readFileSync(cityHtmlPath, 'utf-8');
+              const transformed = await server.transformIndexHtml(req.url, template);
+              res.setHeader('Content-Type', 'text/html; charset=utf-8');
+              res.statusCode = 200;
+              res.end(transformed);
+              return;
+            } catch (err) {
+              console.error('Error serving city dev HTML:', err);
+            }
+          }
+        }
+
         const match = urlObj.pathname.match(/^\/([^/?#]+)\/services\/([^/?#]+)\/?$/);
         if (match) {
           const [, city, service] = match;
