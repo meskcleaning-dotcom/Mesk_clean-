@@ -1,15 +1,18 @@
 import { CityId } from '../context/CityRouteContext';
-import { PEST_CITIES_CONTENT } from '../data/pestControlCitiesContent';
-import { TANKS_CITIES_CONTENT } from '../data/tanksCleaningCitiesContent';
-import { HOME_CLEANING_CITIES_CONTENT } from '../data/homeCleaningCitiesContent';
-import { VILLAS_CITIES_CONTENT } from '../data/villasCleaningCitiesContent';
-import { OFFICES_CITIES_CONTENT } from '../data/officesCleaningCitiesContent';
-import { BIRD_NETTING_CITIES_CONTENT } from '../data/birdNettingCitiesContent';
-import { SOFAS_CITIES_CONTENT } from '../data/sofasCleaningCitiesContent';
-import { CARPETS_CITIES_CONTENT } from '../data/carpetsCleaningCitiesContent';
-import { RODENTS_REPTILES_CITIES_CONTENT } from '../data/rodentsReptilesCitiesContent';
-import { AC_CLEANING_CITIES_CONTENT } from '../data/acCleaningCitiesContent';
-import { getCityServiceData } from '../data/cityServicesData';
+import {
+  CENTRAL_CITIES,
+  CENTRAL_SERVICES,
+  CITIES_ID_LIST,
+  SERVICES_ID_LIST,
+  getCentralCity,
+  generateServiceCityTitle,
+  generateServiceCityDescription,
+  generateSitemapXml as centralGenerateSitemapXml,
+  MAIN_PHONE,
+  INTL_PHONE,
+  BRAND_NAME_AR,
+  BASE_URL
+} from '../data/centralDirectory';
 
 export interface ServicePageMetadata {
   cityId: CityId;
@@ -23,63 +26,14 @@ export interface ServicePageMetadata {
   ogUrl: string;
 }
 
-export const CITIES_LIST: CityId[] = ['jeddah', 'makkah', 'rabigh', 'khulais'];
-
-export const SERVICES_LIST: string[] = [
-  'homes',
-  'villas',
-  'bird-netting',
-  'offices',
-  'sofas',
-  'carpets',
-  'rodents-reptiles',
-  'kitchens',
-  'ac',
-  'tanks',
-  'pest'
-];
+export const CITIES_LIST: CityId[] = CITIES_ID_LIST as CityId[];
+export const SERVICES_LIST: string[] = SERVICES_ID_LIST;
 
 export function getServicePageMetadata(cityId: CityId, serviceId: string): ServicePageMetadata {
-  let title = '';
-  let description = '';
-
-  if (serviceId === 'pest') {
-    title = PEST_CITIES_CONTENT[cityId].metaTitle;
-    description = PEST_CITIES_CONTENT[cityId].metaDescription;
-  } else if (serviceId === 'tanks') {
-    title = TANKS_CITIES_CONTENT[cityId].metaTitle;
-    description = TANKS_CITIES_CONTENT[cityId].metaDescription;
-  } else if (serviceId === 'homes') {
-    title = HOME_CLEANING_CITIES_CONTENT[cityId].metaTitle;
-    description = HOME_CLEANING_CITIES_CONTENT[cityId].metaDescription;
-  } else if (serviceId === 'villas') {
-    title = VILLAS_CITIES_CONTENT[cityId].metaTitle;
-    description = VILLAS_CITIES_CONTENT[cityId].metaDescription;
-  } else if (serviceId === 'offices') {
-    title = OFFICES_CITIES_CONTENT[cityId].metaTitle;
-    description = OFFICES_CITIES_CONTENT[cityId].metaDescription;
-  } else if (serviceId === 'bird-netting') {
-    title = BIRD_NETTING_CITIES_CONTENT[cityId].metaTitle;
-    description = BIRD_NETTING_CITIES_CONTENT[cityId].metaDescription;
-  } else if (serviceId === 'sofas') {
-    title = SOFAS_CITIES_CONTENT[cityId].metaTitle;
-    description = SOFAS_CITIES_CONTENT[cityId].metaDescription;
-  } else if (serviceId === 'carpets') {
-    title = CARPETS_CITIES_CONTENT[cityId].metaTitle;
-    description = CARPETS_CITIES_CONTENT[cityId].metaDescription;
-  } else if (serviceId === 'rodents-reptiles') {
-    title = RODENTS_REPTILES_CITIES_CONTENT[cityId].metaTitle;
-    description = RODENTS_REPTILES_CITIES_CONTENT[cityId].metaDescription;
-  } else if (serviceId === 'ac') {
-    title = AC_CLEANING_CITIES_CONTENT[cityId].metaTitle;
-    description = AC_CLEANING_CITIES_CONTENT[cityId].metaDescription;
-  } else {
-    const d = getCityServiceData(serviceId, cityId);
-    title = d.metaTitle;
-    description = d.metaDescription;
-  }
-
-  const canonical = `https://www.meskclean.com/${cityId}/services/${serviceId}`;
+  // Use centralized automatic generation
+  const title = generateServiceCityTitle(serviceId, cityId, 'ar');
+  const description = generateServiceCityDescription(serviceId, cityId, 'ar');
+  const canonical = `${BASE_URL}/${cityId}/services/${serviceId}`;
 
   return {
     cityId,
@@ -106,6 +60,7 @@ export function getAllServicePagesMetadata(): ServicePageMetadata[] {
 
 export function injectServiceMetaIntoHtml(html: string, meta: ServicePageMetadata): string {
   let out = html;
+  const centralCity = getCentralCity(meta.cityId);
 
   // 1. Title
   out = out.replace(/<title>[\s\S]*?<\/title>/i, `<title>${meta.title}</title>`);
@@ -122,86 +77,116 @@ export function injectServiceMetaIntoHtml(html: string, meta: ServicePageMetadat
     `<link rel="canonical" href="${meta.canonical}" />`
   );
 
-  // 4. OpenGraph title
+  // 4. OpenGraph site_name
+  out = out.replace(
+    /<meta\s+property=["']og:site_name["']\s+content=["'][\s\S]*?["']\s*\/?>/i,
+    `<meta property="og:site_name" content="${BRAND_NAME_AR}" />`
+  );
+
+  // 5. OpenGraph title
   out = out.replace(
     /<meta\s+property=["']og:title["']\s+content=["'][\s\S]*?["']\s*\/?>/i,
     `<meta property="og:title" content="${meta.ogTitle}" />`
   );
 
-  // 5. OpenGraph description
+  // 6. OpenGraph description
   out = out.replace(
     /<meta\s+property=["']og:description["']\s+content=["'][\s\S]*?["']\s*\/?>/i,
     `<meta property="og:description" content="${meta.ogDescription}" />`
   );
 
-  // 6. OpenGraph url
+  // 7. OpenGraph url
   out = out.replace(
     /<meta\s+property=["']og:url["']\s+content=["'][\s\S]*?["']\s*\/?>/i,
     `<meta property="og:url" content="${meta.ogUrl}" />`
   );
 
-  // 7. Twitter title
+  // 8. Twitter title
   out = out.replace(
     /<meta\s+name=["']twitter:title["']\s+content=["'][\s\S]*?["']\s*\/?>/i,
     `<meta name="twitter:title" content="${meta.ogTitle}" />`
   );
 
-  // 8. Twitter description
+  // 9. Twitter description
   out = out.replace(
     /<meta\s+name=["']twitter:description["']\s+content=["'][\s\S]*?["']\s*\/?>/i,
     `<meta name="twitter:description" content="${meta.ogDescription}" />`
   );
 
+  // 10. Service & Breadcrumb JSON-LD Structured Data
+  const serviceJsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': `${BASE_URL}/#website`,
+        'url': `${BASE_URL}/`,
+        'name': BRAND_NAME_AR,
+        'alternateName': 'شركة مسك كلين'
+      },
+      {
+        '@type': 'Service',
+        '@id': `${meta.canonical}#service`,
+        'name': meta.title,
+        'description': meta.description,
+        'url': meta.canonical,
+        'provider': {
+          '@type': 'LocalBusiness',
+          'name': BRAND_NAME_AR,
+          'telephone': INTL_PHONE,
+          'url': `${BASE_URL}/`,
+          'image': `${BASE_URL}/assets/mesk-clean-official-logo.png`,
+          'priceRange': '$$',
+          'areaServed': CENTRAL_CITIES.map((c) => ({
+            '@type': 'City',
+            'name': c.nameAr,
+            'alternateName': c.nameEn
+          }))
+        },
+        'areaServed': {
+          '@type': 'City',
+          'name': centralCity.nameAr,
+          'alternateName': centralCity.nameEn
+        }
+      },
+      {
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+          {
+            '@type': 'ListItem',
+            'position': 1,
+            'name': 'الرئيسية',
+            'item': `${BASE_URL}/`
+          },
+          {
+            '@type': 'ListItem',
+            'position': 2,
+            'name': centralCity.nameAr,
+            'item': `${BASE_URL}/${meta.cityId}`
+          },
+          {
+            '@type': 'ListItem',
+            'position': 3,
+            'name': meta.title,
+            'item': meta.canonical
+          }
+        ]
+      }
+    ]
+  };
+
+  const schemaScriptTag = `<script type="application/ld+json">\n${JSON.stringify(serviceJsonLd, null, 2)}\n    </script>`;
+
+  // Replace existing ld+json script in head or append it
+  if (/<script\s+type=["']application\/ld\+json["']>[\s\S]*?<\/script>/i.test(out)) {
+    out = out.replace(/<script\s+type=["']application\/ld\+json["']>[\s\S]*?<\/script>/i, schemaScriptTag);
+  } else {
+    out = out.replace('</head>', `    ${schemaScriptTag}\n  </head>`);
+  }
+
   return out;
 }
 
 export function generateSitemapXml(): string {
-  const baseUrl = 'https://www.meskclean.com';
-  const today = new Date().toISOString().split('T')[0];
-
-  const cityNamesMap: Record<CityId, string> = {
-    jeddah: 'جدة',
-    makkah: 'مكة المكرمة',
-    rabigh: 'رابغ',
-    khulais: 'خليص'
-  };
-
-  const lines: string[] = [
-    '<?xml version="1.0" encoding="UTF-8"?>',
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-    '',
-    '  <url>',
-    `    <loc>${baseUrl}/</loc>`,
-    `    <lastmod>${today}</lastmod>`,
-    '    <changefreq>weekly</changefreq>',
-    '    <priority>1.0</priority>',
-    '  </url>',
-    ''
-  ];
-
-  // City main pages
-  for (const cityId of CITIES_LIST) {
-    lines.push('  <url>');
-    lines.push(`    <loc>${baseUrl}/${cityId}</loc>`);
-    lines.push(`    <lastmod>${today}</lastmod>`);
-    lines.push('    <changefreq>weekly</changefreq>');
-    lines.push('    <priority>0.9</priority>');
-    lines.push('  </url>');
-  }
-  lines.push('');
-
-  // Service pages grouped by city
-  for (const cityId of CITIES_LIST) {
-    const cityName = cityNamesMap[cityId] || cityId;
-    lines.push(`  <!-- خدمات ${cityName} -->`);
-    for (const serviceId of SERVICES_LIST) {
-      lines.push(`  <url><loc>${baseUrl}/${cityId}/services/${serviceId}</loc><lastmod>${today}</lastmod><priority>0.8</priority></url>`);
-    }
-    lines.push('');
-  }
-
-  lines.push('</urlset>');
-  lines.push('');
-  return lines.join('\n');
+  return centralGenerateSitemapXml();
 }
-

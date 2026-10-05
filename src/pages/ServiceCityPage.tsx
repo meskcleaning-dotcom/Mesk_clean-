@@ -31,6 +31,13 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { useCityRoute, CityId } from '../context/CityRouteContext';
+import {
+  generateServiceCityTitle,
+  generateServiceCityDescription,
+  CENTRAL_CITIES,
+  BRAND_NAME_AR,
+  INTL_PHONE
+} from '../data/centralDirectory';
 import { getCityServiceData } from '../data/cityServicesData';
 import { getStoredServices } from '../data/store';
 import { COMPANY_INFO } from '../data/companyInfo';
@@ -115,49 +122,8 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
 
   // Sync Document Title, Meta, and JSON-LD Structured Data
   useEffect(() => {
-    const pageTitle = (language === 'ar' && pestData)
-      ? pestData.metaTitle
-      : (language === 'ar' && tankData)
-      ? tankData.metaTitle
-      : (language === 'ar' && homeData)
-      ? homeData.metaTitle
-      : (language === 'ar' && villaData)
-      ? villaData.metaTitle
-      : (language === 'ar' && officeData)
-      ? officeData.metaTitle
-      : (language === 'ar' && birdData)
-      ? birdData.metaTitle
-      : (language === 'ar' && sofasData)
-      ? sofasData.metaTitle
-      : (language === 'ar' && carpetData)
-      ? carpetData.metaTitle
-      : (language === 'ar' && rodentsData)
-      ? rodentsData.metaTitle
-      : (language === 'ar' && acData)
-      ? acData.metaTitle
-      : (language === 'ar' ? data.metaTitle : data.metaTitleEn);
-
-    const pageDesc = (language === 'ar' && pestData)
-      ? pestData.metaDescription
-      : (language === 'ar' && tankData)
-      ? tankData.metaDescription
-      : (language === 'ar' && homeData)
-      ? homeData.metaDescription
-      : (language === 'ar' && villaData)
-      ? villaData.metaDescription
-      : (language === 'ar' && officeData)
-      ? officeData.metaDescription
-      : (language === 'ar' && birdData)
-      ? birdData.metaDescription
-      : (language === 'ar' && sofasData)
-      ? sofasData.metaDescription
-      : (language === 'ar' && carpetData)
-      ? carpetData.metaDescription
-      : (language === 'ar' && rodentsData)
-      ? rodentsData.metaDescription
-      : (language === 'ar' && acData)
-      ? acData.metaDescription
-      : (language === 'ar' ? data.metaDescription : data.metaDescriptionEn);
+    const pageTitle = generateServiceCityTitle(serviceId, currentCityId, language === 'ar' ? 'ar' : 'en');
+    const pageDesc = generateServiceCityDescription(serviceId, currentCityId, language === 'ar' ? 'ar' : 'en');
 
     document.title = pageTitle;
 
@@ -189,6 +155,7 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
       el.setAttribute('content', content);
     };
 
+    setMeta('property', 'og:site_name', BRAND_NAME_AR);
     setMeta('property', 'og:title', pageTitle);
     setMeta('property', 'og:description', pageDesc);
     setMeta('property', 'og:url', fullCanonical);
@@ -331,14 +298,16 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
           description: pageDesc,
           provider: {
             '@type': 'LocalBusiness',
-            name: language === 'ar' ? 'شركة مسك كلين' : 'Mesk Clean',
-            telephone: COMPANY_INFO.phone1.display,
-            url: 'https://www.meskclean.com',
+            name: BRAND_NAME_AR,
+            telephone: INTL_PHONE,
+            url: 'https://www.meskclean.com/',
+            image: 'https://www.meskclean.com/assets/mesk-clean-official-logo.png',
             priceRange: '$$',
-            areaServed: {
+            areaServed: CENTRAL_CITIES.map((c) => ({
               '@type': 'City',
-              name: cityName
-            }
+              name: c.nameAr,
+              alternateName: c.nameEn
+            }))
           },
           areaServed: {
             '@type': 'City',

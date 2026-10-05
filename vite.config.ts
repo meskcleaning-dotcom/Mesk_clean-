@@ -61,7 +61,7 @@ function servicePagesPrerenderPlugin(): Plugin {
           return;
         }
 
-        const match = urlObj.pathname.match(/^\/(jeddah|makkah|rabigh|khulais)\/services\/([^/?#]+)\/?$/);
+        const match = urlObj.pathname.match(/^\/([^/?#]+)\/services\/([^/?#]+)\/?$/);
         if (match) {
           const [, city, service] = match;
           if (CITIES_LIST.includes(city as any) && SERVICES_LIST.includes(service)) {

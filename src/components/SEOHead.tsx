@@ -3,6 +3,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { useCityRoute } from '../context/CityRouteContext';
 import { COMPANY_INFO } from '../data/companyInfo';
 import { getStoredFAQs, getStoredServices } from '../data/store';
+import { BRAND_NAME_AR, BRAND_ALT_NAME_AR, INTL_PHONE, CENTRAL_CITIES } from '../data/centralDirectory';
 
 interface SEOHeadProps {
   customTitle?: string;
@@ -60,6 +61,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       el.setAttribute('content', content);
     };
 
+    setMeta('property', 'og:site_name', BRAND_NAME_AR);
     setMeta('property', 'og:title', baseTitle);
     setMeta('property', 'og:description', baseDesc);
     setMeta('property', 'og:url', canonicalUrl);
@@ -69,44 +71,35 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
     setMeta('name', 'twitter:description', baseDesc);
     setMeta('name', 'twitter:image', 'https://www.meskclean.com/assets/mesk-hero.jpg');
 
-    // 5. Schema.org LocalBusiness + CleaningService JSON-LD (Targeted to the active city)
+    // 5. Schema.org WebSite & LocalBusiness JSON-LD (Targeted to the active city)
     const services = getStoredServices();
     const faqs = getStoredFAQs();
 
+    const websiteSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      'name': BRAND_NAME_AR,
+      'alternateName': BRAND_ALT_NAME_AR,
+      'url': 'https://www.meskclean.com/'
+    };
+
     const localBusinessSchema = {
       '@context': 'https://schema.org',
-      '@type': 'HomeAndConstructionBusiness',
-      '@id': `https://www.meskclean.com/${currentCity.slug}#business`,
-      'name': language === 'ar' ? COMPANY_INFO.arabicName : COMPANY_INFO.englishName,
+      '@type': 'LocalBusiness',
+      '@id': `${canonicalUrl}#business`,
+      'name': BRAND_NAME_AR,
       'alternateName': `Mesk Clean ${currentCity.nameEn}`,
-      'url': canonicalUrl,
+      'url': 'https://www.meskclean.com/',
       'logo': 'https://www.meskclean.com/assets/mesk-clean-official-logo-transparent.png',
       'image': 'https://www.meskclean.com/assets/mesk-hero.jpg',
       'description': baseDesc,
-      'telephone': '+966547161147',
+      'telephone': INTL_PHONE,
       'priceRange': '$$',
-      'areaServed': [
-        {
-          '@type': 'City',
-          'name': currentCity.nameEn,
-          'alternateName': currentCity.nameAr
-        },
-        {
-          '@type': 'City',
-          'name': 'Jeddah',
-          'alternateName': 'جدة'
-        },
-        {
-          '@type': 'City',
-          'name': 'Makkah',
-          'alternateName': 'مكة المكرمة'
-        },
-        {
-          '@type': 'City',
-          'name': 'Rabigh',
-          'alternateName': 'رابغ'
-        }
-      ],
+      'areaServed': CENTRAL_CITIES.map((c) => ({
+        '@type': 'City',
+        'name': c.nameAr,
+        'alternateName': c.nameEn
+      })),
       'address': {
         '@type': 'PostalAddress',
         'streetAddress': `${currentCity.nameAr} - كافة الأحياء والمناطق`,
@@ -168,6 +161,15 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
     };
 
     // Inject JSON-LD scripts
+    let websiteScript = document.getElementById('schema-website');
+    if (!websiteScript) {
+      websiteScript = document.createElement('script');
+      websiteScript.id = 'schema-website';
+      websiteScript.setAttribute('type', 'application/ld+json');
+      document.head.appendChild(websiteScript);
+    }
+    websiteScript.textContent = JSON.stringify(websiteSchema);
+
     let businessScript = document.getElementById('schema-local-business');
     if (!businessScript) {
       businessScript = document.createElement('script');
