@@ -54,7 +54,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
 
-    <!-- Schema.org Structured Data -->
+    <!-- Schema.org Structured Data: LocalBusiness -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -82,9 +82,250 @@
       "description": "شركة تنظيف متخصصة في مكة المكرمة تشمل تنظيف الشقق والفلل، عزل الخزانات، غسيل الكنب، مكافحة القوارض وتركيب طارد وشبك الحمام."
     }
     </script>
+
+    <!-- Schema.org Structured Data: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "الرئيسية",
+          "item": "https://www.meskclean.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "شركة تنظيف بمكة المكرمة",
+          "item": "https://www.meskclean.com/makkah"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Schema.org Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "هل تخدمون أحياء مكة المكرمة والمناطق المحيطة بها بالكامل؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعم، نخدم العزيزية، الشوقية، العوالي، الشرائع، وكافة أحياء مكة وضواحيها بتغطية ميدانية سريعة على مدار الساعة."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل توفر مسك كلين غسيل سجاد ومجالس في الموقع بمكة؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعم، نستخدم ماكينات غسيل واستخلاص بالبخار تعمل في موقع العميل دون الحاجة لنقل الأثاث وبسرعة تجفيف فائقة."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ما هي الضمانات المقدمة في خدمات مكافحة الحشرات والقوارض بمكة؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نستخدم مبيدات آمنة ومصرحة ونوفر متابعة دورية وضمانات معتمدة لضمان عدم عودة الآفات والحشرات نهائياً."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل تعملون في مواسم العمرة وشهر رمضان المبارك والحج بمكة المكرمة؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعم، فرقنا الميدانية تعمل بكامل طاقتها على مدار الساعة طوال أيام العام وفي المواسم الدينية لخدمة الأهالي والزوار."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "كيف يمكنني التواصل مع مسك كلين بمكة المكرمة؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "يمكنك الاتصال المباشر على الهاتف 0547161147 أو المراسلة الفورية عبر تطبيق الواتساب لحجز موعدكم."
+          }
+        }
+      ]
+    }
+    </script>
   </head>
-  <body class="font-tajawal antialiased selection:bg-cyan-500 selection:text-white">
-    <div id="root"></div>
+  <body class="font-tajawal antialiased selection:bg-cyan-500 selection:text-white bg-slate-900 text-slate-100">
+    <div id="root">
+      <header class="py-6 px-4 bg-slate-950/80 border-b border-slate-800 text-center">
+        <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-4">
+          <a href="/" class="text-2xl font-black text-cyan-400">مسك كلين</a>
+          <nav class="flex flex-wrap gap-4 text-sm font-medium text-slate-300">
+            <a href="/" class="hover:text-cyan-400">الرئيسية</a>
+            <a href="/jeddah" class="hover:text-cyan-400">جدة</a>
+            <a href="/makkah" class="text-cyan-400 font-bold">مكة المكرمة</a>
+            <a href="/rabigh" class="hover:text-cyan-400">رابغ</a>
+            <a href="/khulais" class="hover:text-cyan-400">خليص</a>
+          </nav>
+          <a href="tel:0547161147" class="px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-sm">اتصل الآن: 0547161147</a>
+        </div>
+      </header>
+
+      <main class="max-w-5xl mx-auto px-4 py-12 space-y-12">
+        <!-- Hero Section -->
+        <section class="text-center space-y-6">
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">شركة تنظيف بمكة المكرمة</h1>
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-4xl mx-auto text-justify">
+            تحظى العاصمة المقدسة مكة المكرمة بمكانة إيمانية جليلة وحركة مستمرة لاستقبال ضيوف الرحمن من الحجاج والمعتمرين على مدار العام، وسط طبيعة جبلية جافة ومناخ يتسم بارتفاع درجات الحرارة والرياح الصخرية المحملة بالأتربة الدقيقة. تقدم شركة مسك كلين خدمات التنظيف الاحترافية في مكة المكرمة لتلبية متطلبات المنازل والفلل والعمائر السكنية والفنادق والشقق المفروشة بأعلى مقاييس الطهارة والنقاء. تشمل خدماتنا تنظيف المجالس والكنب والسجاد بالبخار، وتعقيم وعزل خزانات مياه الشرب، وغسيل المكيفات لرفع كفاءة التبريد في صيف مكة القاسي، بالإضافة إلى مكافحة القوارض والآفات وتركيب طوارد الحمام لحماية النوافذ والواجهات. نحرص على تقديم خدمات سريعة ومتقنة على مدار 24 ساعة، تواصل معنا الآن عبر الرقم 0547161147.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 pt-4">
+            <a href="tel:0547161147" class="px-6 py-3 rounded-2xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-base shadow-lg shadow-cyan-900/40">اتصال مباشر: 0547161147</a>
+            <a href="https://wa.me/966547161147" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-base shadow-lg shadow-emerald-900/40">تواصل عبر الواتساب</a>
+          </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="space-y-6">
+          <h2 class="text-2xl sm:text-3xl font-black text-white text-center">خدماتنا في مكة المكرمة</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/makkah/services/homes" class="hover:underline">تنظيف المنازل بمكة</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">تنظيف شامل للمنازل والشقق السكنية وإزالة الغبار الجبلي وتعقيم المطابخ والحمامات لإعادة الإشراق لمنزلك.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/makkah/services/villas" class="hover:underline">تنظيف الفلل بمكة</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">عناية فائقة بالفلل الكبيرة والقصور تشمل المجالس وصالات الاستقبال والدرج والساحات الخارجية بأحدث التقنيات.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/makkah/services/bird-netting" class="hover:underline">تركيب شبك وطارد الحمام بمكة</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">حماية أسطح المنازل والنوافذ من انتشار الحمام والطيور وتركيب أشواك مانعة مجلفنة تدوم طويلاً ضد حرارة مكة.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/makkah/services/offices" class="hover:underline">تنظيف المكاتب والشركات بمكة</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">تنظيف المقرات التجارية ومكاتب خدمات المعتمرين والشركات بأعلى درجات الالتزام والدقة لتحقيق بيئة عمل مثالية.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/makkah/services/sofas" class="hover:underline">تنظيف الكنب بالبخار بمكة</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">غسيل مجالس الضيافة والكنب بأجهزة البخار الحار لإزالة البقع المستعصية وتعطير الأنسجة بعبير المسك الفاخر.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/makkah/services/carpets" class="hover:underline">تنظيف السجاد والموكيت بمكة</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">تنظيف عميق لسجاد المساجد والمنازل وصالات الاستقبال بمعدات شفط وتجفيف سريعة تحافظ على متانة الخيوط ورونقها.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/makkah/services/rodents-reptiles" class="hover:underline">مكافحة الزواحف والقوارض بمكة</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">القضاء على الفئران والزواحف في العمائر والمنازل الجبلية وتأمين المداخل بالكامل بأساليب وقائية معتمدة وصحية.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/makkah/services/kitchens" class="hover:underline">تنظيف المطابخ بمكة</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">إزالة الشحوم المستعصية والزيوت عن الجدران والأفران ومداخن الشفط وتعقيم أسطح التحضير لضمان أعلى مستويات النظافة.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/makkah/services/ac" class="hover:underline">غسيل وتنظيف المكيفات بمكة</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">صيانة وغسيل مكيفات السبليت والمكيفات المركزية لمواجهة حرارة الصيف المرتفعة في مكة وتوفير هواء بارد ومنعش.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/makkah/services/tanks" class="hover:underline">تنظيف وعزل الخزانات بمكة</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">تعقيم الخزانات الأرضية والعلوية وعزلها بمواد معتمدة لمنع التسربات وضمان مياه شرب نقية وصحية للعائلة والضيوف.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2 md:col-span-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/makkah/services/pest" class="hover:underline">مكافحة الحشرات بمكة</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">رش مبيدات حشرية لمكافحة الصراصير والنمل وبق الفراش مع ضمان السلامة التامة للمقيمين وتوفير متابعة دورية.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Districts Section -->
+        <section class="p-6 sm:p-8 rounded-3xl bg-slate-800/60 border border-slate-700 space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-black text-white">الأحياء التي نخدمها في مكة المكرمة</h2>
+          <p class="text-base text-slate-300 leading-relaxed">
+            نصل إليكم في كافة أحياء العاصمة المقدسة وضواحيها بفرق عمل سريعة ومجهزة:
+          </p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي العزيزية</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي الشوقية</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي العوالي</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي الزاهر</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي النسيم</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي الشرائع</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي الرصيفة</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي العتيبية</span>
+          </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="space-y-6">
+          <h2 class="text-2xl sm:text-3xl font-black text-white text-center">كيف تتم الخدمة معنا بمكة</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <span class="text-2xl font-black text-cyan-400">01</span>
+              <h3 class="text-lg font-bold text-white">حجز الطلب والتنسيق السريع</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">استقبال مكالمتكم الكريمة على مدار الساعة والاتفاق على الموعد المناسب لراحتكم وجدولكم.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <span class="text-2xl font-black text-cyan-400">02</span>
+              <h3 class="text-lg font-bold text-white">المعاينة الميدانية الدقيقة</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">فحص الموقع بدقة وتحديد خطة العمل المناسبة لنوعية الأثاث والأسطح والأجهزة المطلوبة.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <span class="text-2xl font-black text-cyan-400">03</span>
+              <h3 class="text-lg font-bold text-white">تنفيذ التنظيف والتعقيم</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">أداء المهام بواسطة فريق محترف وبأحدث ماكينات ومواد التنظيف المصرحة لضمان النقاء التام.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <span class="text-2xl font-black text-cyan-400">04</span>
+              <h3 class="text-lg font-bold text-white">التسليم والاعتماد النهائي</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">التأكد من نظافة كل ركن وتحقيق أعلى مستويات الرضا والراحة للعائلة الكريمة قبل المغادرة.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="space-y-6">
+          <h2 class="text-2xl sm:text-3xl font-black text-white text-center">أسئلة شائعة حول التنظيف بمكة</h2>
+          <div class="space-y-4">
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400">هل تخدمون أحياء مكة المكرمة والمناطق المحيطة بها بالكامل؟</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">نعم، نخدم العزيزية، الشوقية، العوالي، الشرائع، وكافة أحياء مكة وضواحيها بتغطية ميدانية سريعة على مدار الساعة.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400">هل توفر مسك كلين غسيل سجاد ومجالس في الموقع بمكة؟</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">نعم، نستخدم ماكينات غسيل واستخلاص بالبخار تعمل في موقع العميل دون الحاجة لنقل الأثاث وبسرعة تجفيف فائقة.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400">ما هي الضمانات المقدمة في خدمات مكافحة الحشرات والقوارض بمكة؟</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">نستخدم مبيدات آمنة ومصرحة ونوفر متابعة دورية وضمانات معتمدة لضمان عدم عودة الآفات والحشرات نهائياً.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400">هل تعملون في مواسم العمرة وشهر رمضان المبارك والحج بمكة المكرمة؟</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">نعم، فرقنا الميدانية تعمل بكامل طاقتها على مدار الساعة طوال أيام العام وفي المواسم الدينية لخدمة الأهالي والزوار.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400">كيف يمكنني التواصل مع مسك كلين بمكة المكرمة؟</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">يمكنك الاتصال المباشر على الهاتف 0547161147 أو المراسلة الفورية عبر تطبيق الواتساب لحجز موعدكم.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Other Cities Links -->
+        <section class="p-6 rounded-2xl bg-slate-950/60 border border-slate-800 text-center space-y-4">
+          <h2 class="text-xl font-bold text-white">خدمات مسك كلين في المدن المجاورة</h2>
+          <div class="flex flex-wrap justify-center gap-4 text-sm font-semibold">
+            <a href="/jeddah" class="text-cyan-400 hover:underline">شركة تنظيف بجدة</a>
+            <span class="text-slate-600">•</span>
+            <a href="/rabigh" class="text-cyan-400 hover:underline">شركة تنظيف برابغ</a>
+            <span class="text-slate-600">•</span>
+            <a href="/khulais" class="text-cyan-400 hover:underline">شركة تنظيف بخليص</a>
+            <span class="text-slate-600">•</span>
+            <a href="/" class="text-cyan-400 hover:underline">الصفحة الرئيسية لمسك كلين</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="py-8 px-4 bg-slate-950 border-t border-slate-800 text-center text-sm text-slate-400 space-y-2">
+        <p>© مسك كلين - كافة الحقوق محفوظة. رقم الهاتف: <a href="tel:0547161147" class="text-cyan-400 font-bold">0547161147</a></p>
+      </footer>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

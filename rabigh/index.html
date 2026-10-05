@@ -54,7 +54,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
 
-    <!-- Schema.org Structured Data -->
+    <!-- Schema.org Structured Data: LocalBusiness -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -82,9 +82,250 @@
       "description": "شركة تنظيف متخصصة في محافظة رابغ لخدمات تنظيف المنازل، الفلل، غسيل المكيفات، عزل الخزانات ومكافحة الحمام والقوارض."
     }
     </script>
+
+    <!-- Schema.org Structured Data: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "الرئيسية",
+          "item": "https://www.meskclean.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "شركة تنظيف برابغ",
+          "item": "https://www.meskclean.com/rabigh"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Schema.org Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "هل تقدم مسك كلين خدماتها لكافة أحياء محافظة رابغ؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعم، نخدم حي الصفا، المرجانية، الصمد، النزهة، الجود، ومستورة وكافة مناطق رابغ بفرق مجهزة وسريعة الاستجابة."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "كيف تتم حماية الخزانات من الرواسب الملحية في رابغ؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نقوم بتفريغ الخزان وفرك الجدران وإزالة الترسبات وتعقيم المياه ثم عزل الخزان بمواد إيبوكسية معتمدة تدوم طويلاً."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل يمكن حجز خدمة غسيل مكيفات سبليت متعددة في زيارة واحدة برابغ؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعم، يمكن لفريقنا غسيل وصيانة عدة مكيفات في نفس الزيارة وبسرعة وإتقان لرفع كفاءة التبريد في الصيف."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ما هي مواعيد العمل المتاحة في محافظة رابغ؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "خدماتنا متاحة على مدار 24 ساعة يومياً طوال أيام الأسبوع لتلبية كافة طلبات التنظيف العاجلة والروتينية."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "كيف يمكنني طلب خدمة التنظيف في رابغ؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "يمكنك الاتصال المباشر على الرقم 0547161147 أو مراسلتنا فوراً عبر الواتساب لتحديد موعد زيارة فريقنا."
+          }
+        }
+      ]
+    }
+    </script>
   </head>
-  <body class="font-tajawal antialiased selection:bg-cyan-500 selection:text-white">
-    <div id="root"></div>
+  <body class="font-tajawal antialiased selection:bg-cyan-500 selection:text-white bg-slate-900 text-slate-100">
+    <div id="root">
+      <header class="py-6 px-4 bg-slate-950/80 border-b border-slate-800 text-center">
+        <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-4">
+          <a href="/" class="text-2xl font-black text-cyan-400">مسك كلين</a>
+          <nav class="flex flex-wrap gap-4 text-sm font-medium text-slate-300">
+            <a href="/" class="hover:text-cyan-400">الرئيسية</a>
+            <a href="/jeddah" class="hover:text-cyan-400">جدة</a>
+            <a href="/makkah" class="hover:text-cyan-400">مكة المكرمة</a>
+            <a href="/rabigh" class="text-cyan-400 font-bold">رابغ</a>
+            <a href="/khulais" class="hover:text-cyan-400">خليص</a>
+          </nav>
+          <a href="tel:0547161147" class="px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-sm">اتصل الآن: 0547161147</a>
+        </div>
+      </header>
+
+      <main class="max-w-5xl mx-auto px-4 py-12 space-y-12">
+        <!-- Hero Section -->
+        <section class="text-center space-y-6">
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">شركة تنظيف برابغ</h1>
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-4xl mx-auto text-justify">
+            تعد محافظة رابغ مركزاً ساحلياً وصناعياً حيوياً على شاطئ البحر الأحمر، وتجمع بين المجمعات السكنية الحديثة والمنشآت الحيوية في ظل بيئة مناخية ساحلية تتأثر بالرطوبة والرياح المحملة بالغبار والرمال الناعمة، مما يجعل المباني والفلل السكنية بحاجة إلى صيانة ونظافة دورية مستمرة. توفر شركة مسك كلين خدمات تنظيف احترافية متكاملة لأهالي وسكان محافظة رابغ، تشمل تنظيف الشقق والفلل والبيوت، غسيل المكيفات لضمان تدفق هواء نقي، عزل وغسيل خزانات المياه من الترسبات الملحية، بالإضافة إلى تنظيف الكنب والسجاد بالبخار، ومكافحة الحشرات والقوارض وتركيب شباك حماية النوافذ من الحمام. نحرص على توفير أعلى درجات الجودة وبأيدي فنيين متخصصين على مدار 24/7. اتصل بنا الآن على 0547161147.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 pt-4">
+            <a href="tel:0547161147" class="px-6 py-3 rounded-2xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-base shadow-lg shadow-cyan-900/40">اتصال مباشر: 0547161147</a>
+            <a href="https://wa.me/966547161147" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-base shadow-lg shadow-emerald-900/40">تواصل عبر الواتساب</a>
+          </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="space-y-6">
+          <h2 class="text-2xl sm:text-3xl font-black text-white text-center">خدماتنا في محافظة رابغ</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/rabigh/services/homes" class="hover:underline">تنظيف المنازل برابغ</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">تنظيف متكامل للمنازل والشقق السكنية وإزالة الأتربة والرمال الساحلية وتطهير الأرضيات بكفاءة عالية.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/rabigh/services/villas" class="hover:underline">تنظيف الفلل برابغ</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">غسيل عميق للفلل والبيوت السكنية والباحات والواجهات بأحدث معدات التنظيف لإبراز جمال مسكنك.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/rabigh/services/bird-netting" class="hover:underline">تركيب شبك وطارد الحمام برابغ</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">تركيب أشواك وشباك حماية ضد الطيور والحمام لمنع الأوساخ وتراكم الفضلات على النوافذ والأسطح الخارجية.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/rabigh/services/offices" class="hover:underline">تنظيف المكاتب والشركات برابغ</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">تنظيف المكاتب الإدارية والشركات والمنشآت التجارية برابغ بجداول مرنة واحترافية تلائم أوقات العمل.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/rabigh/services/sofas" class="hover:underline">تنظيف الكنب بالبخار برابغ</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">تنظيف عميق للمجالس والكنب وإزالة البقع العنيدة والروائح بأحدث أجهزة استخلاص البخار الحار.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/rabigh/services/carpets" class="hover:underline">تنظيف السجاد والموكيت برابغ</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">غسيل وتعقيم السجاد والموكيت في الموقع مع إزالة الرمال العميقة وتجفيف سريع يعيد رونق النسيج.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/rabigh/services/rodents-reptiles" class="hover:underline">مكافحة الزواحف والقوارض برابغ</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">القضاء على الفئران والزواحف وتأمين محيط المباني والمنشآت الساحلية بطرق وقائية آمنة ومدروسة.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/rabigh/services/kitchens" class="hover:underline">تنظيف المطابخ برابغ</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">إزالة الشحوم والدهون المتراكمة عن جدران المطابخ والشفاطات والأفران بمواد فعالة وآمنة تماماً.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/rabigh/services/ac" class="hover:underline">غسيل وتنظيف المكيفات برابغ</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">غسيل فلاتر ومبخرات مكيفات السبليت لرفع كفاءة التبريد ومقاومة رطوبة وحرارة رابغ العالية في الصيف.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/rabigh/services/tanks" class="hover:underline">تنظيف وعزل الخزانات برابغ</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">تنظيف خزانات المياه الأرضية والعلوية وعزلها لمنع تكون الطحالب والترسبات الملحية وضمان مياه نقية.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2 md:col-span-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/rabigh/services/pest" class="hover:underline">مكافحة الحشرات برابغ</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">رش مبيدات متخصصة لمكافحة النمل الأبيض والصراصير والبعوض مع ضمان الفاعلية التامة وأمان العائلة.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Districts Section -->
+        <section class="p-6 sm:p-8 rounded-3xl bg-slate-800/60 border border-slate-700 space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-black text-white">الأحياء التي نخدمها في رابغ</h2>
+          <p class="text-base text-slate-300 leading-relaxed">
+            نغطي كافة أحياء ومراكز محافظة رابغ بفرق عمل جاهزة لخدمتكم على الدوام:
+          </p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي الصفا</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي المرجانية</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي الصمد</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي النزهة</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي الميثب</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي الجود</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">مركز مستورة</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">المراكز المجاورة برابغ</span>
+          </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="space-y-6">
+          <h2 class="text-2xl sm:text-3xl font-black text-white text-center">كيف تتم الخدمة معنا برابغ</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <span class="text-2xl font-black text-cyan-400">01</span>
+              <h3 class="text-lg font-bold text-white">الاتصال وتحديد الطلب</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">التواصل عبر الهاتف أو الواتساب لحجز الموعد وتوضيح نوع الخدمة المطلوبة وموقع السكن في رابغ.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <span class="text-2xl font-black text-cyan-400">02</span>
+              <h3 class="text-lg font-bold text-white">التنسيق وتجهيز المعدات</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">تجهيز فريق العمل بكافة المواد والمكائن اللازمة لطبيعة المكان والأسطح المراد معالجتها.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <span class="text-2xl font-black text-cyan-400">03</span>
+              <h3 class="text-lg font-bold text-white">التنفيذ الميداني بدقة</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">إنجاز أعمال التنظيف أو العزل أو الرش بأعلى درجات الكفاءة والاحترافية والاهتمام بالتفاصيل.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <span class="text-2xl font-black text-cyan-400">04</span>
+              <h3 class="text-lg font-bold text-white">الفحص وضمان الجودة</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">مراجعة العميل لكافة التفاصيل لضمان الرضا الكامل وتحقيق أعلى مستويات النظافة والراحة.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="space-y-6">
+          <h2 class="text-2xl sm:text-3xl font-black text-white text-center">أسئلة شائعة حول التنظيف برابغ</h2>
+          <div class="space-y-4">
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400">هل تقدم مسك كلين خدماتها لكافة أحياء محافظة رابغ؟</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">نعم، نخدم حي الصفا، المرجانية، الصمد، النزهة، الجود، ومستورة وكافة مناطق رابغ بفرق مجهزة وسريعة الاستجابة.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400">كيف تتم حماية الخزانات من الرواسب الملحية في رابغ؟</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">نقوم بتفريغ الخزان وفرك الجدران وإزالة الترسبات وتعقيم المياه ثم عزل الخزان بمواد إيبوكسية معتمدة تدوم طويلاً.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400">هل يمكن حجز خدمة غسيل مكيفات سبليت متعددة في زيارة واحدة برابغ؟</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">نعم، يمكن لفريقنا غسيل وصيانة عدة مكيفات في نفس الزيارة وبسرعة وإتقان لرفع كفاءة التبريد في الصيف.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400">ما هي مواعيد العمل المتاحة في محافظة رابغ؟</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">خدماتنا متاحة على مدار 24 ساعة يومياً طوال أيام الأسبوع لتلبية كافة طلبات التنظيف العاجلة والروتينية.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400">كيف يمكنني طلب خدمة التنظيف في رابغ؟</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">يمكنك الاتصال المباشر على الرقم 0547161147 أو مراسلتنا فوراً عبر الواتساب لتحديد موعد زيارة فريقنا.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Other Cities Links -->
+        <section class="p-6 rounded-2xl bg-slate-950/60 border border-slate-800 text-center space-y-4">
+          <h2 class="text-xl font-bold text-white">خدمات مسك كلين في المدن القريبة</h2>
+          <div class="flex flex-wrap justify-center gap-4 text-sm font-semibold">
+            <a href="/jeddah" class="text-cyan-400 hover:underline">شركة تنظيف بجدة</a>
+            <span class="text-slate-600">•</span>
+            <a href="/makkah" class="text-cyan-400 hover:underline">شركة تنظيف بمكة المكرمة</a>
+            <span class="text-slate-600">•</span>
+            <a href="/khulais" class="text-cyan-400 hover:underline">شركة تنظيف بخليص</a>
+            <span class="text-slate-600">•</span>
+            <a href="/" class="text-cyan-400 hover:underline">الصفحة الرئيسية لمسك كلين</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="py-8 px-4 bg-slate-950 border-t border-slate-800 text-center text-sm text-slate-400 space-y-2">
+        <p>© مسك كلين - كافة الحقوق محفوظة. رقم الهاتف: <a href="tel:0547161147" class="text-cyan-400 font-bold">0547161147</a></p>
+      </footer>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

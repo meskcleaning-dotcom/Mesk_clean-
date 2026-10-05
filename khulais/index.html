@@ -54,7 +54,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
 
-    <!-- Schema.org Structured Data -->
+    <!-- Schema.org Structured Data: LocalBusiness -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -72,21 +72,259 @@
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 22.0006,
-        "longitude": 39.3197
+        "latitude": 22.0167,
+        "longitude": 39.3167
       },
       "areaServed": [
-        { "@type": "City", "name": "خليص", "alternateName": "Khulais" },
-        { "@type": "AdministrativeArea", "name": "غران", "alternateName": "Ghran" },
-        { "@type": "AdministrativeArea", "name": "البرزة", "alternateName": "Al Barzah" }
+        { "@type": "City", "name": "خليص", "alternateName": "Khulais" }
       ],
       "priceRange": "$$",
-      "description": "شركة تنظيف متخصصة في محافظة خليص لخدمات تنظيف المنازل، الفلل، الاستراحات، غسيل المكيفات، عزل الخزانات ومكافحة الحشرات والقوارض وتركيب طارد الحمام."
+      "description": "شركة تنظيف متخصصة في محافظة خليص تشمل تنظيف المنازل، الاستراحات، غسيل المكيفات، عزل الخزانات، مكافحة القوارض والزواحف وتركيب شبك وطارد الحمام."
+    }
+    </script>
+
+    <!-- Schema.org Structured Data: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "الرئيسية",
+          "item": "https://www.meskclean.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "شركة تنظيف بخليص",
+          "item": "https://www.meskclean.com/khulais"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Schema.org Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "هل تخدم مسك كلين المزارع والاستراحات في خليص؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعم، نقدم خدمات متكاملة لتنظيف الاستراحات والفلل والمنازل والمزارع في خليص والمراكز التابعة لها بأحدث الأجهزة."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "كيف يتم تنظيف خزانات المياه ذات الرواسب الطينية في خليص؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نستخدم مضخات سحب قوية ومكانس تفريغ لإزالة الطين ثم فرك الجدران والتعقيم بمواد صحية معتمدة وعزلها إيبوكسياً."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل تتوفر لديكم حلول متخصصة لمكافحة النمل الأبيض والزواحف بخليص؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعم، نستخدم مبيدات متخصصة ذات تأثير ممتد لحماية المباني والاستراحات والمزارع من النمل والزواحف والقوارض."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ما هي أوقات العمل في محافظة خليص؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعمل على مدار 24 ساعة يومياً طوال الأسبوع، مع إمكانية جدولة المواعيد مسبقاً بما يناسب راحتكم التامة."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ما هو رقم التواصل مع مسك كلين في خليص؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "يمكنكم التواصل مباشرة عبر الهاتف أو الواتساب على الرقم الموحد 0547161147 لخدمتكم الفورية."
+          }
+        }
+      ]
     }
     </script>
   </head>
-  <body class="font-tajawal antialiased selection:bg-cyan-500 selection:text-white">
-    <div id="root"></div>
+  <body class="font-tajawal antialiased selection:bg-cyan-500 selection:text-white bg-slate-900 text-slate-100">
+    <div id="root">
+      <header class="py-6 px-4 bg-slate-950/80 border-b border-slate-800 text-center">
+        <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-4">
+          <a href="/" class="text-2xl font-black text-cyan-400">مسك كلين</a>
+          <nav class="flex flex-wrap gap-4 text-sm font-medium text-slate-300">
+            <a href="/" class="hover:text-cyan-400">الرئيسية</a>
+            <a href="/jeddah" class="hover:text-cyan-400">جدة</a>
+            <a href="/makkah" class="hover:text-cyan-400">مكة المكرمة</a>
+            <a href="/rabigh" class="hover:text-cyan-400">رابغ</a>
+            <a href="/khulais" class="text-cyan-400 font-bold">خليص</a>
+          </nav>
+          <a href="tel:0547161147" class="px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-sm">اتصل الآن: 0547161147</a>
+        </div>
+      </header>
+
+      <main class="max-w-5xl mx-auto px-4 py-12 space-y-12">
+        <!-- Hero Section -->
+        <section class="text-center space-y-6">
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">شركة تنظيف بخليص</h1>
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-4xl mx-auto text-justify">
+            تتميز محافظة خليص بطبيعتها الزراعية الخصبة وواديها العريق ومناخها الصحراوي الدافئ الذي تحيط به الجبال والمزارع، مما يؤدي إلى هبوب الرياح الموسمية المحملة بالأتربة والرمال الناعمة التي تتسلل إلى داخل المنازل والفلل والاستراحات وتترسب على الأثاث وخزانات المياه والمكيفات. تقدم شركة مسك كلين حلول التنظيف والتعقيم المتكاملة لكافة أهالي محافظة خليص والمراكز والقرى المجاورة، من خلال خدمات غسيل وتعقيم المنازل والفلل، تنظيف المجالس والكنب والسجاد بالبخار، عزل وتعقيم الخزانات الأرضية لضمان سلامة مياه الشرب، وغسيل المكيفات لإزالة الغبار المتراكم، بالإضافة إلى مكافحة حشرات المزارع والقوارض وتركيب طوارد الحمام. نضمن لكم خدمة راقية بأحدث المعدات وعلى مدار الساعة، تواصلوا معنا الآن عبر الرقم 0547161147.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 pt-4">
+            <a href="tel:0547161147" class="px-6 py-3 rounded-2xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-base shadow-lg shadow-cyan-900/40">اتصال مباشر: 0547161147</a>
+            <a href="https://wa.me/966547161147" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-base shadow-lg shadow-emerald-900/40">تواصل عبر الواتساب</a>
+          </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="space-y-6">
+          <h2 class="text-2xl sm:text-3xl font-black text-white text-center">خدماتنا في محافظة خليص</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/khulais/services/homes" class="hover:underline">تنظيف المنازل بخليص</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">نظافة شاملة لجميع مرافق المنزل من غرف وصالات وممرات مع إزالة الأتربة والرمال الصحراوية وتطهير الأرضيات.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/khulais/services/villas" class="hover:underline">تنظيف الفلل والاستراحات بخليص</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">غسيل عميق للفلل والاستراحات العائلية يشمل المجالس والساحات الخارجية والواجهات بأجهزة ضغط متطورة.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/khulais/services/bird-netting" class="hover:underline">تركيب شبك وطارد الحمام بخليص</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">تثبيت شباك وأشواك طرد الطيور لمنع تجمع الحمام وبناء الأعشاش وتلويث النوافذ والأسطح الخارجية.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/khulais/services/offices" class="hover:underline">تنظيف المكاتب والمنشآت بخليص</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">تعقيم وتنظيف المقرات التجارية والدوائر والمحلات بمرونة ودقة عالية للحفاظ على بيئة عمل مرتبة ومريحة.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/khulais/services/sofas" class="hover:underline">تنظيف الكنب بالبخار بخليص</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">غسيل كنب ومجالس الاستراحات والمنازل بأجهزة استخلاص البخار لإزالة البقع الصعبة وتعقيم الفرش بعمق.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/khulais/services/carpets" class="hover:underline">تنظيف السجاد والموكيت بخليص</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">إزالة الأتربة العميقة وغسيل السجاد والمفارش بأجهزة دوارة وتجفيف سريع في الموقع يعيد نضارة الألوان.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/khulais/services/rodents-reptiles" class="hover:underline">مكافحة الزواحف والقوارض بخليص</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">القضاء على القوارض والزواحف والثعابين والعقارب وتأمين الاستراحات والمنازل المحاذية للمزارع والوديان.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/khulais/services/kitchens" class="hover:underline">تنظيف المطابخ بخليص</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">تذويب الزيوت والدهون العالقة بجدران وأفران المطابخ وتعقيم أحواض الغسيل والأسطح بمواد صحية متقدمة.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/khulais/services/ac" class="hover:underline">غسيل وتنظيف المكيفات بخليص</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">غسيل مكيفات السبليت والشباك وضخ الفلاتر المسدودة بالأتربة لرفع برودة المكيف وتوفير استهلاك الكهرباء.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/khulais/services/tanks" class="hover:underline">تنظيف وعزل الخزانات بخليص</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">تنظيف خزانات مياه الآبار والمياه البلدية وإزالة الطمي والرواسب مع العزل التام لمنع التسرب ونمو الطحالب.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2 md:col-span-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/khulais/services/pest" class="hover:underline">مكافحة الحشرات بخليص</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">رش ومكافحة الآفات الزراعية والمنزلية كالنمل الأبيض والصراصير والبعوض بمبيدات آمنة وفعالة ذات ضمان موثوق.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Districts Section -->
+        <section class="p-6 sm:p-8 rounded-3xl bg-slate-800/60 border border-slate-700 space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-black text-white">الأحياء والمراكز التي نخدمها في خليص</h2>
+          <p class="text-base text-slate-300 leading-relaxed">
+            نخدم كافة أحياء ومراكز محافظة خليص والمناطق المجاورة لها بسرعة وكفاءة:
+          </p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي الصاعدية</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي الدف</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي المروة</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي العزيزية</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">مركز غران</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">مركز وادي قديد</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">المراكز والقرى المجاورة</span>
+          </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="space-y-6">
+          <h2 class="text-2xl sm:text-3xl font-black text-white text-center">كيف تتم الخدمة معنا بخليص</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <span class="text-2xl font-black text-cyan-400">01</span>
+              <h3 class="text-lg font-bold text-white">طلب الخدمة والتواصل</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">الاتصال بنا هاتفياً أو عبر الواتساب لتحديد احتياجاتك ونوع المنشأة وتوقيت الزيارة المناسب.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <span class="text-2xl font-black text-cyan-400">02</span>
+              <h3 class="text-lg font-bold text-white">التجهيز والوصول للموقع</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">انطلاق الفريق المتخصص بأدواته المتطورة للوصول إلى منزلك أو استراحتك في خليص في الموعد المحدد.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <span class="text-2xl font-black text-cyan-400">03</span>
+              <h3 class="text-lg font-bold text-white">تنفيذ أعمال النظافة والتعقيم</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">أداء الخدمة بعناية فائقة وتغطية كافة التفاصيل المتفق عليها بدقة واستخدام مواد تعقيم معتمدة.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <span class="text-2xl font-black text-cyan-400">04</span>
+              <h3 class="text-lg font-bold text-white">مراجعة الجودة والاستلام</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">فحص النتيجة مع العميل والتأكد من إنجاز العمل بأعلى مستوى من النقاء والرضا التام.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="space-y-6">
+          <h2 class="text-2xl sm:text-3xl font-black text-white text-center">أسئلة شائعة حول التنظيف بخليص</h2>
+          <div class="space-y-4">
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400">هل تخدم مسك كلين المزارع والاستراحات في خليص؟</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">نعم، نقدم خدمات متكاملة لتنظيف الاستراحات والفلل والمنازل والمزارع في خليص والمراكز التابعة لها بأحدث الأجهزة.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400">كيف يتم تنظيف خزانات المياه ذات الرواسب الطينية في خليص؟</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">نستخدم مضخات سحب قوية ومكانس تفريغ لإزالة الطين ثم فرك الجدران والتعقيم بمواد صحية معتمدة وعزلها إيبوكسياً.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400">هل تتوفر لديكم حلول متخصصة لمكافحة النمل الأبيض والزواحف بخليص؟</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">نعم، نستخدم مبيدات متخصصة ذات تأثير ممتد لحماية المباني والاستراحات والمزارع من النمل والزواحف والقوارض.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400">ما هي أوقات العمل في محافظة خليص؟</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">نعمل على مدار 24 ساعة يومياً طوال الأسبوع، مع إمكانية جدولة المواعيد مسبقاً بما يناسب راحتكم التامة.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400">ما هو رقم التواصل مع مسك كلين في خليص؟</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">يمكنكم التواصل مباشرة عبر الهاتف أو الواتساب على الرقم الموحد 0547161147 لخدمتكم الفورية.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Other Cities Links -->
+        <section class="p-6 rounded-2xl bg-slate-950/60 border border-slate-800 text-center space-y-4">
+          <h2 class="text-xl font-bold text-white">خدمات مسك كلين في المدن القريبة</h2>
+          <div class="flex flex-wrap justify-center gap-4 text-sm font-semibold">
+            <a href="/jeddah" class="text-cyan-400 hover:underline">شركة تنظيف بجدة</a>
+            <span class="text-slate-600">•</span>
+            <a href="/makkah" class="text-cyan-400 hover:underline">شركة تنظيف بمكة المكرمة</a>
+            <span class="text-slate-600">•</span>
+            <a href="/rabigh" class="text-cyan-400 hover:underline">شركة تنظيف برابغ</a>
+            <span class="text-slate-600">•</span>
+            <a href="/" class="text-cyan-400 hover:underline">الصفحة الرئيسية لمسك كلين</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="py-8 px-4 bg-slate-950 border-t border-slate-800 text-center text-sm text-slate-400 space-y-2">
+        <p>© مسك كلين - كافة الحقوق محفوظة. رقم الهاتف: <a href="tel:0547161147" class="text-cyan-400 font-bold">0547161147</a></p>
+      </footer>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

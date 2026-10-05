@@ -54,7 +54,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
 
-    <!-- Schema.org Structured Data -->
+    <!-- Schema.org Structured Data: LocalBusiness -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -82,9 +82,252 @@
       "description": "شركة تنظيف متخصصة في مدينة جدة لخدمات تنظيف المنازل، الفلل، غسيل المكيفات، عزل الخزانات ومكافحة الحمام والقوارض."
     }
     </script>
+
+    <!-- Schema.org Structured Data: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "الرئيسية",
+          "item": "https://www.meskclean.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "شركة تنظيف بجدة",
+          "item": "https://www.meskclean.com/jeddah"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Schema.org Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "هل تقدم مسك كلين خدمات التنظيف في كافة أحياء جدة؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعم، نخدم جميع أحياء شمال ووسط وجنوب جدة عبر فرق عمل ميدانية سريعة الاستجابة مجهزة بأحدث المعدات."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ما هي المواد المستخدمة في تنظيف الفلل والمنازل بجدة؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نستخدم منظفات ومعقمات معتمدة ومطابقة للمواصفات وآمنة تماماً على الأطفال والأقمشة والأسطح المختلفة."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل يتوفر لديكم حجز مواعيد مرن وعلى مدار الساعة؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعم، نستقبل الحجوزات ونوفر خدماتنا على مدار 24 ساعة وطوال أيام الأسبوع بما في ذلك العطلات الأسبوعية والمواسم."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "كيف يتم تحديد مواعيد غسيل المكيفات وعزل الخزانات بجدة؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "يتم تحديد الموعد فور اتصالك، ونوفر أجهزة ضخ وعزل متطورة تنهي العمل في وقت قياسي وبأعلى معايير الكفاءة."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "كيف يمكنني طلب خدمة التنظيف بجدة أو الاستفسار؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "يمكنك الاتصال بنا مباشرة أو مراسلتنا عبر الواتساب على الرقم الموحد 0547161147 لخدمتكم فوراً."
+          }
+        }
+      ]
+    }
+    </script>
   </head>
-  <body class="font-tajawal antialiased selection:bg-cyan-500 selection:text-white">
-    <div id="root"></div>
+  <body class="font-tajawal antialiased selection:bg-cyan-500 selection:text-white bg-slate-900 text-slate-100">
+    <div id="root">
+      <header class="py-6 px-4 bg-slate-950/80 border-b border-slate-800 text-center">
+        <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-4">
+          <a href="/" class="text-2xl font-black text-cyan-400">مسك كلين</a>
+          <nav class="flex flex-wrap gap-4 text-sm font-medium text-slate-300">
+            <a href="/" class="hover:text-cyan-400">الرئيسية</a>
+            <a href="/jeddah" class="text-cyan-400 font-bold">جدة</a>
+            <a href="/makkah" class="hover:text-cyan-400">مكة المكرمة</a>
+            <a href="/rabigh" class="hover:text-cyan-400">رابغ</a>
+            <a href="/khulais" class="hover:text-cyan-400">خليص</a>
+          </nav>
+          <a href="tel:0547161147" class="px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-sm">اتصل الآن: 0547161147</a>
+        </div>
+      </header>
+
+      <main class="max-w-5xl mx-auto px-4 py-12 space-y-12">
+        <!-- Hero Section -->
+        <section class="text-center space-y-6">
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">شركة تنظيف بجدة</h1>
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-4xl mx-auto text-justify">
+            تعد مدينة جدة عروس البحر الأحمر ذات طابع ساحلي فريد ومناخ يتسم بالرطوبة العالية ورياح الغبار الموسمية، مما يجعل المنازل والفلل والمقرات التجارية عرضة لتراكم الأتربة الدقيقة وترسبات الأملاح وتكون العفن في الأماكن المغلقة. تقدم شركة مسك كلين منظومة تنظيف متكاملة واحترافية تلبي احتياجات سكان كافة أحياء شمال ووسط وجنوب جدة، بدءاً من تنظيف المنازل والفلل وغسيل الكنب والسجاد بالبخار، وصولاً إلى صيانة وعزل الخزانات الأرضية والعلوية وغسيل المكيفات ومكافحة الحشرات وتركيب طوارد الحمام. نعتمد على كوادر فنية مدربة وأحدث أجهزة الشفط والتعقيم لضمان بيئة صحية ونقية تدوم طويلاً، مع الالتزام التام بالمواعيد والدقة العالية على مدار الساعة. اتصل بنا الآن للحجز الفوري على الرقم 0547161147.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 pt-4">
+            <a href="tel:0547161147" class="px-6 py-3 rounded-2xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-base shadow-lg shadow-cyan-900/40">اتصال مباشر: 0547161147</a>
+            <a href="https://wa.me/966547161147" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-base shadow-lg shadow-emerald-900/40">تواصل عبر الواتساب</a>
+          </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="space-y-6">
+          <h2 class="text-2xl sm:text-3xl font-black text-white text-center">خدماتنا في جدة</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/jeddah/services/homes" class="hover:underline">تنظيف المنازل بجدة</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">عناية شاملة بجميع الغرف والصالات وتطهير الأرضيات والأسطح وإزالة الغبار المتراكم نتيجة طقس جدة الساحلي.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/jeddah/services/villas" class="hover:underline">تنظيف الفلل بجدة</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">خدمات تنظيف عميق للفلل والقصور تشمل المداخل والسلالم والواجهات الزجاجية والأفنية الخارجية بأجهزة ضغط متقدمة.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/jeddah/services/bird-netting" class="hover:underline">تركيب شبك وطارد الحمام بجدة</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">تركيب أحدث أشواك وشباك الحمام المجلفنة على النوافذ والأسطح لمنع أعشاش الطيور والروائح الكريهة نهائياً.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/jeddah/services/offices" class="hover:underline">تنظيف المكاتب بجدة</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">تنظيف الشركات والمقرات الإدارية والمعارض التجارية بجدول دوري يحافظ على بيئة عمل نظيفة واحترافية تسهم في الإنتاجية.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/jeddah/services/sofas" class="hover:underline">تنظيف الكنب بالبخار بجدة</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">استخلاص البقع والأوساخ من أطقم الكنب والمجالس بتقنية البخار الحار والتجفيف السريع دون التأثير على الأقمشة والألوان.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/jeddah/services/carpets" class="hover:underline">تنظيف السجاد والموكيت بجدة</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">غسيل عميق وتعقيم للسجاد والموكيت المنزلي والمكتبي باستخدام منظفات تزيل الأوساخ وتعيد للوبرة نضارتها ورائحتها الزكية.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/jeddah/services/rodents-reptiles" class="hover:underline">مكافحة الزواحف والقوارض بجدة</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">مكافحة الفئران والجرذان والزواحف وتأمين فتحات الصرف والمداخل بطعوم آمنة ومعتمدة تضمن عدم عودتها نهائياً.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/jeddah/services/kitchens" class="hover:underline">تنظيف المطابخ بجدة</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">إذابة الدهون الصعبة وتطهير الجدران والشفاطات والأفران بمواد كيميائية آمنة تزيل الزيوت المتراكمة وتطرد الروائح.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/jeddah/services/ac" class="hover:underline">غسيل وتنظيف المكيفات بجدة</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">تنظيف مكيفات السبليت والشباك وضخ الفلاتر والمكثفات لتحسين كفاءة التبريد وخفض استهلاك الطاقة في رطوبة جدة العالية.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/jeddah/services/tanks" class="hover:underline">تنظيف وعزل الخزانات بجدة</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">تطهير الخزانات الخرسانية والبلاستيكية وإزالة الرواسب الطينية وتطبيق عوازل الإيبوكسي المعتمدة لمنع التسربات وحماية المياه.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2 md:col-span-2">
+              <h3 class="text-lg font-bold text-cyan-400"><a href="/jeddah/services/pest" class="hover:underline">مكافحة الحشرات بجدة</a></h3>
+              <p class="text-sm text-slate-300 leading-relaxed">رش مبيدات موثوقة لمكافحة الصراصير والنمل الأبيض وبق الفراش مع توفير ضمانات متابعة موثوقة لراحة العائلة.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Districts Section -->
+        <section class="p-6 sm:p-8 rounded-3xl bg-slate-800/60 border border-slate-700 space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-black text-white">الأحياء التي نخدمها في جدة</h2>
+          <p class="text-base text-slate-300 leading-relaxed">
+            نغطي كافة قطاعات وأحياء جدة بفرق ميدانية مجهزة وسريعة الاستجابة تصلكم أينما كنتم:
+          </p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي الروضة</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي الحمراء</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي السلامة</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي الشرفية</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">أبحر الشمالية والجنوبية</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي النعيم</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي الصفا</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي الربوة</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي المروة</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-slate-700/80 text-cyan-300 text-sm font-semibold">حي البساتين</span>
+          </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="space-y-6">
+          <h2 class="text-2xl sm:text-3xl font-black text-white text-center">كيف تتم الخدمة معنا</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <span class="text-2xl font-black text-cyan-400">01</span>
+              <h3 class="text-lg font-bold text-white">التواصل وحجز الموعد</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">استقبال طلبكم عبر الاتصال أو الواتساب على مدار 24 ساعة وتحديد موعد مناسب بدقة.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <span class="text-2xl font-black text-cyan-400">02</span>
+              <h3 class="text-lg font-bold text-white">المعاينة وتحديد المتطلبات</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">تقييم مساحة المكان وتحديد الأدوات والمواد المناسبة لطبيعة الاتساخ ونوع الأسطح.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <span class="text-2xl font-black text-cyan-400">03</span>
+              <h3 class="text-lg font-bold text-white">التنفيذ الميداني الاحترافي</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">حضور فريق العمل المجهز بالمعدات الحديثة وإنجاز العمل وفق معايير الجودة الصارمة.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <span class="text-2xl font-black text-cyan-400">04</span>
+              <h3 class="text-lg font-bold text-white">الفحص النهائي ورضا العميل</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">تسليم المكان نظيفاً ومعقماً والتأكد التام من رضاك عن النتيجة قبل مغادرة الموقع.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="space-y-6">
+          <h2 class="text-2xl sm:text-3xl font-black text-white text-center">أسئلة شائعة حول التنظيف بجدة</h2>
+          <div class="space-y-4">
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400">هل تقدم مسك كلين خدمات التنظيف في كافة أحياء جدة؟</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">نعم، نخدم جميع أحياء شمال ووسط وجنوب جدة عبر فرق عمل ميدانية سريعة الاستجابة مجهزة بأحدث المعدات.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400">ما هي المواد المستخدمة في تنظيف الفلل والمنازل بجدة؟</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">نستخدم منظفات ومعقمات معتمدة ومطابقة للمواصفات وآمنة تماماً على الأطفال والأقمشة والأسطح المختلفة.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400">هل يتوفر لديكم حجز مواعيد مرن وعلى مدار الساعة؟</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">نعم، نستقبل الحجوزات ونوفر خدماتنا على مدار 24 ساعة وطوال أيام الأسبوع بما في ذلك العطلات الأسبوعية والمواسم.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400">كيف يتم تحديد مواعيد غسيل المكيفات وعزل الخزانات بجدة؟</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">يتم تحديد الموعد فور اتصالك، ونوفر أجهزة ضخ وعزل متطورة تنهي العمل في وقت قياسي وبأعلى معايير الكفاءة.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <h3 class="text-lg font-bold text-cyan-400">كيف يمكنني طلب خدمة التنظيف بجدة أو الاستفسار؟</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">يمكنك الاتصال بنا مباشرة أو مراسلتنا عبر الواتساب على الرقم الموحد 0547161147 لخدمتكم فوراً.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Other Cities Links -->
+        <section class="p-6 rounded-2xl bg-slate-950/60 border border-slate-800 text-center space-y-4">
+          <h2 class="text-xl font-bold text-white">خدمات مسك كلين في المدن الأخرى</h2>
+          <div class="flex flex-wrap justify-center gap-4 text-sm font-semibold">
+            <a href="/makkah" class="text-cyan-400 hover:underline">شركة تنظيف بمكة المكرمة</a>
+            <span class="text-slate-600">•</span>
+            <a href="/rabigh" class="text-cyan-400 hover:underline">شركة تنظيف برابغ</a>
+            <span class="text-slate-600">•</span>
+            <a href="/khulais" class="text-cyan-400 hover:underline">شركة تنظيف بخليص</a>
+            <span class="text-slate-600">•</span>
+            <a href="/" class="text-cyan-400 hover:underline">الصفحة الرئيسية لمسك كلين</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="py-8 px-4 bg-slate-950 border-t border-slate-800 text-center text-sm text-slate-400 space-y-2">
+        <p>© مسك كلين - كافة الحقوق محفوظة. رقم الهاتف: <a href="tel:0547161147" class="text-cyan-400 font-bold">0547161147</a></p>
+      </footer>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
