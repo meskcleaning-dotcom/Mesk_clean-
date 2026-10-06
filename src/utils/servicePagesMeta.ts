@@ -1,4 +1,5 @@
 import { CityId } from '../context/CityRouteContext';
+import { TANKS_CITIES_CONTENT } from '../data/tanksCleaningCitiesContent';
 import {
   CENTRAL_CITIES,
   CENTRAL_SERVICES,
@@ -30,6 +31,21 @@ export const CITIES_LIST: CityId[] = CITIES_ID_LIST as CityId[];
 export const SERVICES_LIST: string[] = SERVICES_ID_LIST;
 
 export function getServicePageMetadata(cityId: CityId, serviceId: string): ServicePageMetadata {
+  if (serviceId === 'tanks' && TANKS_CITIES_CONTENT[cityId]) {
+    const tank = TANKS_CITIES_CONTENT[cityId];
+    return {
+      cityId,
+      serviceId,
+      urlPath: `/${cityId}/services/${serviceId}`,
+      canonical: tank.canonicalPath,
+      title: tank.metaTitle,
+      description: tank.metaDescription,
+      ogTitle: tank.metaTitle,
+      ogDescription: tank.metaDescription,
+      ogUrl: tank.canonicalPath
+    };
+  }
+
   // Use centralized automatic generation
   const title = generateServiceCityTitle(serviceId, cityId, 'ar');
   const description = generateServiceCityDescription(serviceId, cityId, 'ar');
@@ -114,66 +130,161 @@ export function injectServiceMetaIntoHtml(html: string, meta: ServicePageMetadat
   );
 
   // 10. Service & Breadcrumb JSON-LD Structured Data
-  const serviceJsonLd = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'WebSite',
-        '@id': `${BASE_URL}/#website`,
-        'url': `${BASE_URL}/`,
-        'name': BRAND_NAME_AR,
-        'alternateName': 'شركة مسك كلين'
-      },
-      {
-        '@type': 'Service',
-        '@id': `${meta.canonical}#service`,
-        'name': meta.title,
-        'description': meta.description,
-        'url': meta.canonical,
-        'provider': {
-          '@type': 'LocalBusiness',
-          'name': BRAND_NAME_AR,
-          'telephone': INTL_PHONE,
+  const isTanks = meta.serviceId === 'tanks' && Boolean(TANKS_CITIES_CONTENT[meta.cityId]);
+  const tankData = isTanks ? TANKS_CITIES_CONTENT[meta.cityId] : null;
+
+  let serviceJsonLd: any;
+
+  if (isTanks && tankData) {
+    const cityName = centralCity.nameAr;
+    const citySchema = {
+      '@type': 'City',
+      name: centralCity.nameAr,
+      alternateName: centralCity.nameEn
+    };
+
+    serviceJsonLd = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'WebSite',
+          '@id': `${BASE_URL}/#website`,
           'url': `${BASE_URL}/`,
-          'image': `${BASE_URL}/assets/mesk-clean-official-logo.png`,
-          'priceRange': '$$',
-          'areaServed': CENTRAL_CITIES.map((c) => ({
-            '@type': 'City',
-            'name': c.nameAr,
-            'alternateName': c.nameEn
-          }))
+          'name': BRAND_NAME_AR,
+          'alternateName': 'شركة مسك كلين'
         },
-        'areaServed': {
-          '@type': 'City',
-          'name': centralCity.nameAr,
-          'alternateName': centralCity.nameEn
+        {
+          '@type': 'Service',
+          '@id': `${meta.canonical}#service-cleaning`,
+          'name': `تنظيف خزانات المياه في ${cityName}`,
+          'serviceType': 'تنظيف خزانات',
+          'description': `خدمات تنظيف وغسيل خزانات المياه الأرضية والعلوية في ${cityName} من مسك كلين`,
+          'url': meta.canonical,
+          'provider': {
+            '@type': 'LocalBusiness',
+            'name': BRAND_NAME_AR,
+            'telephone': '0547161157',
+            'url': `${BASE_URL}/`,
+            'image': `${BASE_URL}/assets/mesk-clean-official-logo.png`,
+            'areaServed': citySchema
+          },
+          'areaServed': citySchema
+        },
+        {
+          '@type': 'Service',
+          '@id': `${meta.canonical}#service-insulation`,
+          'name': `عزل خزانات المياه في ${cityName}`,
+          'serviceType': 'عزل خزانات',
+          'description': `أعمال عزل خزانات المياه الأرضية والعلوية ومعالجة التسربات في ${cityName} بضمان 10 سنوات على أعمال العزل من مسك كلين`,
+          'url': meta.canonical,
+          'provider': {
+            '@type': 'LocalBusiness',
+            'name': BRAND_NAME_AR,
+            'telephone': '0547161157',
+            'url': `${BASE_URL}/`,
+            'image': `${BASE_URL}/assets/mesk-clean-official-logo.png`,
+            'areaServed': citySchema
+          },
+          'areaServed': citySchema
+        },
+        {
+          '@type': 'BreadcrumbList',
+          'itemListElement': [
+            {
+              '@type': 'ListItem',
+              'position': 1,
+              'name': 'الرئيسية',
+              'item': `${BASE_URL}/`
+            },
+            {
+              '@type': 'ListItem',
+              'position': 2,
+              'name': centralCity.nameAr,
+              'item': `${BASE_URL}/${meta.cityId}`
+            },
+            {
+              '@type': 'ListItem',
+              'position': 3,
+              'name': meta.title,
+              'item': meta.canonical
+            }
+          ]
+        },
+        {
+          '@type': 'FAQPage',
+          'mainEntity': tankData.faqs.map((faq) => ({
+            '@type': 'Question',
+            'name': faq.q,
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': faq.a
+            }
+          }))
         }
-      },
-      {
-        '@type': 'BreadcrumbList',
-        'itemListElement': [
-          {
-            '@type': 'ListItem',
-            'position': 1,
-            'name': 'الرئيسية',
-            'item': `${BASE_URL}/`
+      ]
+    };
+  } else {
+    serviceJsonLd = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'WebSite',
+          '@id': `${BASE_URL}/#website`,
+          'url': `${BASE_URL}/`,
+          'name': BRAND_NAME_AR,
+          'alternateName': 'شركة مسك كلين'
+        },
+        {
+          '@type': 'Service',
+          '@id': `${meta.canonical}#service`,
+          'name': meta.title,
+          'description': meta.description,
+          'url': meta.canonical,
+          'provider': {
+            '@type': 'LocalBusiness',
+            'name': BRAND_NAME_AR,
+            'telephone': INTL_PHONE,
+            'url': `${BASE_URL}/`,
+            'image': `${BASE_URL}/assets/mesk-clean-official-logo.png`,
+            'priceRange': '$$',
+            'areaServed': CENTRAL_CITIES.map((c) => ({
+              '@type': 'City',
+              'name': c.nameAr,
+              'alternateName': c.nameEn
+            }))
           },
-          {
-            '@type': 'ListItem',
-            'position': 2,
+          'areaServed': {
+            '@type': 'City',
             'name': centralCity.nameAr,
-            'item': `${BASE_URL}/${meta.cityId}`
-          },
-          {
-            '@type': 'ListItem',
-            'position': 3,
-            'name': meta.title,
-            'item': meta.canonical
+            'alternateName': centralCity.nameEn
           }
-        ]
-      }
-    ]
-  };
+        },
+        {
+          '@type': 'BreadcrumbList',
+          'itemListElement': [
+            {
+              '@type': 'ListItem',
+              'position': 1,
+              'name': 'الرئيسية',
+              'item': `${BASE_URL}/`
+            },
+            {
+              '@type': 'ListItem',
+              'position': 2,
+              'name': centralCity.nameAr,
+              'item': `${BASE_URL}/${meta.cityId}`
+            },
+            {
+              '@type': 'ListItem',
+              'position': 3,
+              'name': meta.title,
+              'item': meta.canonical
+            }
+          ]
+        }
+      ]
+    };
+  }
 
   const schemaScriptTag = `<script type="application/ld+json">\n${JSON.stringify(serviceJsonLd, null, 2)}\n    </script>`;
 

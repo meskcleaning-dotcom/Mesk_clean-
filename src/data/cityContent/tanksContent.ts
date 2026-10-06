@@ -7,15 +7,15 @@ export const TANKS_SERVICES_MAP: Partial<Record<CityId, CityServicePageData>> = 
     cityId: 'jeddah',
     slug: 'tanks',
     canonicalPath: '/jeddah/services/tanks',
-    metaTitle: 'شركة تنظيف وعزل خزانات بجدة | مسك كلين - حماية من المياه الجوفية والملوحة',
+    metaTitle: 'تنظيف خزانات وعزل خزانات في جدة | Mesk Clean',
     metaTitleEn: 'Water Tank Cleaning & Insulation Company in Jeddah | Mesk Clean',
-    metaDescription: 'أفضل شركة تنظيف وعزل خزانات بجدة متخصصة في تنظيف الخزانات الأرضية والعلوية وعزل الإيبوكسي المقاوم للمياه الجوفية والملوحة بأحياء الروضة، الشاطئ، أبحر، والصفا بضمان 10 سنوات.',
+    metaDescription: 'خدمات تنظيف خزانات وعزل خزانات في جدة من مسك كلين. غسيل الخزانات الأرضية والعلوية وإزالة الرواسب وعزل مائي معتمد بضمان 10 سنوات على أعمال العزل في كافة أحياء جدة.',
     metaDescriptionEn: 'Premier water tank cleaning and epoxy waterproofing in Jeddah by Mesk Clean. Protecting underground and rooftop cisterns from coastal groundwater seepage and salinity across all districts.',
-    keywords: ['شركة تنظيف خزانات بجدة', 'عزل خزانات بجدة', 'تنظيف خزانات المياه بجدة', 'شركة عزل مائي بجدة', 'غسيل خزانات شمال جدة'],
+    keywords: ['تنظيف خزانات في جدة', 'شركة تنظيف خزانات بجدة', 'تنظيف خزانات المياه بجدة', 'عزل خزانات بجدة', 'تنظيف خزانات'],
     heroBadge: 'خدمة معتمدة للخزانات بجدة',
     heroBadgeEn: 'Certified Water Tank Service in Jeddah',
-    heroHeading: 'شركة تنظيف وعزل خزانات بجدة - حماية مياهك من تسربات المياه الجوفية والملوحة',
-    heroHeadingEn: 'Water Tank Cleaning & Insulation in Jeddah - Shielding Against Groundwater & Salt',
+    heroHeading: 'تنظيف خزانات وعزل خزانات في جدة',
+    heroHeadingEn: 'Water Tank Cleaning & Insulation in Jeddah',
     heroSubtitle: 'نقدم لسكان جدة خدمات تنظيف وتعقيم متطورة للخزانات الأرضية والعلوية، مع تطبيق أقوى أنظمة العزل المائي بالإيبوكسي المعتمد لعزل الخزان تماماً عن المياه الجوفية الساحلية عالية الملوحة.',
     heroSubtitleEn: 'Mesk Clean delivers rigorous water cistern sanitization and certified food-grade epoxy waterproofing engineered for Jeddah high water table and coastal saline environment.',
     introParagraphs: [
@@ -214,15 +214,15 @@ export const TANKS_SERVICES_MAP: Partial<Record<CityId, CityServicePageData>> = 
     cityId: 'makkah',
     slug: 'tanks',
     canonicalPath: '/makkah/services/tanks',
-    metaTitle: 'شركة تنظيف وعزل خزانات بمكة المكرمة | مسك كلين - طهارة مياه مواسم الحج والعمرة',
+    metaTitle: 'تنظيف خزانات وعزل خزانات في مكة | Mesk Clean',
     metaTitleEn: 'Water Tank Cleaning & Insulation Company in Makkah | Mesk Clean',
-    metaDescription: 'شركة تنظيف وعزل خزانات بمكة المكرمة متخصصة في تنظيف الخزانات الخرسانية الجبلية وتعقيمها لمواسم الحج والعمرة، عزل إيبوكسي للخزانات بالعوالي والشوقية والزايدي والشرائع.',
+    metaDescription: 'خدمات تنظيف خزانات وعزل خزانات في مكة من مسك كلين. غسيل متقن للخزانات الأرضية والعلوية وإزالة الرواسب وعزل مائي معتمد بضمان 10 سنوات على أعمال العزل في كافة أحياء مكة.',
     metaDescriptionEn: 'Premier water tank cleaning and epoxy waterproofing in Holy Makkah by Mesk Clean. Mountain rock cistern cleaning, seasonal pilgrim water safety, and certified insulation across all districts.',
-    keywords: ['شركة تنظيف خزانات بمكة المكرمة', 'عزل خزانات بمكة', 'تنظيف خزانات مكة', 'شركة عزل مائي بمكة', 'غسيل خزانات العوالي مكة'],
+    keywords: ['تنظيف خزانات في مكة', 'شركة تنظيف خزانات بمكة', 'تنظيف خزانات المياه بمكة', 'عزل خزانات بمكة', 'تنظيف خزانات'],
     heroBadge: 'خدمة معتمدة للخزانات بمكة المكرمة',
     heroBadgeEn: 'Certified Water Tank Service in Holy Makkah',
-    heroHeading: 'شركة تنظيف وعزل خزانات بمكة المكرمة - طهارة ونقاء يليق بضيوف الرحمن',
-    heroHeadingEn: 'Water Tank Cleaning & Insulation in Holy Makkah - Pure Spiritual Water Safety',
+    heroHeading: 'تنظيف خزانات وعزل خزانات في مكة',
+    heroHeadingEn: 'Water Tank Cleaning & Insulation in Makkah',
     heroSubtitle: 'نقدم لأهالي مكة المكرمة وقطاع الفندقة والضيافة تنظيفاً وتطهيراً فائق الدقة للخزانات الخرسانية والعلوية، مع عزل مائي وحراري يحمي المياه من حرارة الصيف الشديدة وترسبات الصخور الجبلية.',
     heroSubtitleEn: 'Mesk Clean provides advanced tank decontamination and high-performance epoxy waterproofing engineered for Makkah mountainous terrain, high storage cycles, and intense pilgrim demand.',
     introParagraphs: [
@@ -421,15 +421,15 @@ export const TANKS_SERVICES_MAP: Partial<Record<CityId, CityServicePageData>> = 
     cityId: 'rabigh',
     slug: 'tanks',
     canonicalPath: '/rabigh/services/tanks',
-    metaTitle: 'شركة تنظيف وعزل خزانات برابغ | مسك كلين - إزالة الرمال الساحلية وعزل مائي معتمد',
+    metaTitle: 'تنظيف خزانات وعزل خزانات في رابغ | Mesk Clean',
     metaTitleEn: 'Water Tank Cleaning & Insulation Company in Rabigh | Mesk Clean',
-    metaDescription: 'أفضل شركة تنظيف وعزل خزانات برابغ لتنظيف الخزانات من الرمال الساحلية وعزل الإيبوكسي بالمرجانية والنزيلة وسكن بترورابغ ومحيط مدينة الملك عبدالله الاقتصادية (KAEC).',
+    metaDescription: 'خدمات تنظيف خزانات وعزل خزانات في رابغ من مسك كلين. غسيل شامل للخزانات الأرضية والعلوية وشفط الأتربة والرمال وعزل مائي معتمد بضمان 10 سنوات على أعمال العزل برابغ.',
     metaDescriptionEn: 'Premier water tank cleaning and epoxy insulation in Rabigh by Mesk Clean. Coastal sand extraction, industrial sediment filtering, and certified waterproofing in Al-Merghaniya and KAEC.',
-    keywords: ['شركة تنظيف خزانات برابغ', 'عزل خزانات برابغ', 'تنظيف خزانات المياه برابغ', 'غسيل خزانات رابغ', 'عزل خزانات بترورابغ'],
+    keywords: ['تنظيف خزانات في رابغ', 'شركة تنظيف خزانات برابغ', 'تنظيف خزانات المياه برابغ', 'عزل خزانات برابغ', 'تنظيف خزانات'],
     heroBadge: 'خدمة معتمدة للخزانات برابغ',
     heroBadgeEn: 'Certified Water Tank Service in Rabigh',
-    heroHeading: 'شركة تنظيف وعزل خزانات برابغ - إخلاء الرمال وحماية المياه من الغبار الساحلي',
-    heroHeadingEn: 'Water Tank Cleaning & Insulation in Rabigh - Coastal Sand Extraction & Sealing',
+    heroHeading: 'تنظيف خزانات وعزل خزانات في رابغ',
+    heroHeadingEn: 'Water Tank Cleaning & Insulation in Rabigh',
     heroSubtitle: 'نقدم لسكان رابغ ومجمعات الشركات الصناعية ومدينة الملك عبدالله الاقتصادية خدمات تنظيف متقدمة للخزانات تزيل حبيبات الرمل الساحلي، مع عزل إيبوكسي متطور يحمي نقاء مياهك.',
     heroSubtitleEn: 'Mesk Clean provides high-efficiency tank sediment evacuation and certified epoxy waterproofing engineered for Rabigh open coastal sand drift, wind corridors, and industrial residential facilities.',
     introParagraphs: [
@@ -532,7 +532,7 @@ export const TANKS_SERVICES_MAP: Partial<Record<CityId, CityServicePageData>> = 
         descriptionEn: 'Industrial vortex pumps engineered to extract heavy coastal sand quickly without pump blockages.'
       },
       {
-        title: 'تركيب فلاتر مانعة لدخول الرمال مجاناً',
+        title: 'تركيب فلاتر دقيقة مانعة لدخول الرمال',
         titleEn: 'Complimentary Sand-Proof Vent Filter Screens',
         description: 'نقوم بتركيب شبك سلكي دقيق ومرشحات على مواسير التهوية لحماية الخزان من تطاير الرمال.',
         descriptionEn: 'We fit fine stainless micro-screens on tank vent pipes to stop windblown sand grains from entering.'
@@ -620,6 +620,173 @@ export const TANKS_SERVICES_MAP: Partial<Record<CityId, CityServicePageData>> = 
         questionEn: 'How much time is required to clean and waterproof a tank in Rabigh?',
         answer: 'يستغرق التنظيف والتعقيم العادي من ساعتين إلى 3 ساعات، بينما يستغرق العزل الإيبوكسي المتكامل من 24 إلى 48 ساعة متضمنة مرحلة الجفاف التام.',
         answerEn: 'Standard cleaning takes 2 to 3 hours, whereas full epoxy waterproofing requires 24 to 48 hours to ensure complete curing before refilling.'
+      }
+    ]
+  },
+  khulais: {
+    serviceId: 'tanks',
+    cityId: 'khulais',
+    slug: 'tanks',
+    canonicalPath: '/khulais/services/tanks',
+    metaTitle: 'تنظيف خزانات وعزل خزانات في خليص | Mesk Clean',
+    metaTitleEn: 'Water Tank Cleaning & Insulation Company in Khulais | Mesk Clean',
+    metaDescription: 'خدمات تنظيف خزانات وعزل خزانات في خليص من مسك كلين. غسيل الخزانات الأرضية والعلوية وإزالة الرواسب ومعالجة التسربات وعزل مائي معتمد بضمان 10 سنوات على أعمال العزل بخليص.',
+    metaDescriptionEn: 'Premier water tank cleaning and waterproofing in Khulais by Mesk Clean. Deep cleaning, sediment removal, and certified 10-year warranty insulation across all Khulais districts.',
+    keywords: ['تنظيف خزانات في خليص', 'شركة تنظيف خزانات بخليص', 'تنظيف خزانات المياه بخليص', 'عزل خزانات بخليص', 'تنظيف خزانات'],
+    heroBadge: 'خدمة معتمدة للخزانات بخليص',
+    heroBadgeEn: 'Certified Water Tank Service in Khulais',
+    heroHeading: 'تنظيف خزانات وعزل خزانات في خليص',
+    heroHeadingEn: 'Water Tank Cleaning & Insulation in Khulais',
+    heroSubtitle: 'نقدم لأهالي محافظة خليص واستراحاتها ومزارعها خدمات تنظيف متطورة للخزانات الأرضية والعلوية، مع عزل مائي وإيبوكسي معتمد بضمان 10 سنوات لحماية منشأتك ونقاء مياهك.',
+    heroSubtitleEn: 'Mesk Clean provides advanced tank cleaning and certified epoxy waterproofing engineered for Khulais valley environment, backed by a 10-year warranty.',
+    introParagraphs: [
+      'تعتمد الفلل والمنازل والاستراحات في محافظة خليص ومراكزها اعتماداً رئيسياً على الخزانات الأرضية والعلوية في حفظ وتوزيع المياه الصالحة للاستخدام. وتفرض الطبيعة التضاريسية لحوض وادي خليص وما يصاحبها من مناخ دافئ وهبوب للأتربة والغبار الزراعي ترسب ذرات الطمي والأملاح في قاع الخزانات مع الوقت، مما يتطلب تنظيفاً دورياً لإزالة الرواسب والحفاظ على صفاء المياه.',
+      'تقدم شركة مسك كلين خدمات تنظيف خزانات في خليص بمعدات سحب وجلي متطورة، مع توفير عزل خزانات بخليص بمواد مائية وإيبوكسية معتمدة لمياه الشرب تحمي الخزان وتمنع التسرب مع تقديم ضمان 10 سنوات على أعمال العزل للحفاظ على بنية منزلك ونقاء مياهك.',
+      'تغطي خدماتنا التخصصية كافة أحياء ومراكز محافظة خليص، ونصل بفرقنا الفنية فوراً إلى حي الدف، والصاعدية، والعزيزية، وحي البلاد، والمغاربة، والمخطط الشمالي والجنوبي، ومراكز غران والخوار ووادي خليص والبرزة وأم الجرم وستارة.'
+    ],
+    introParagraphsEn: [
+      'Residential properties, farms, and villas in Khulais depend fundamentally on underground and rooftop water storage tanks. Khulais valley climate and airborne dust necessitate regular sediment clearing and professional maintenance.',
+      'Mesk Clean delivers specialized tank cleaning and certified epoxy insulation across Khulais using modern suction pumps and food-grade waterproofing backed by a 10-year warranty.',
+      'We service all Khulais districts including Al-Daf, Al-Saaediyah, Al-Aziziyah, Al-Bilad, Al-Magharibah, Ghran, Al-Khowar, Wadi Khulais, and surrounding settlements.'
+    ],
+    neighborhoodsAnalysisTitle: 'صيانة وعزل الخزانات في أحياء ومراكز خليص',
+    neighborhoodsAnalysisTitleEn: 'Tank Maintenance Across Khulais Districts and Centers',
+    neighborhoodsAnalysisParagraphs: [
+      'نغطي كافة أحياء ومراكز خليص ومزارع وادي خليص بمعدات شفط متطورة ومواد عزل أصلية معتمدة لمياه الشرب لضمان أفضل معايير الجودة والسلامة.'
+    ],
+    neighborhoodsAnalysisParagraphsEn: [
+      'We cover all Khulais residential districts and rural centers with specialized cleaning and certified insulation equipment.'
+    ],
+    importanceTitle: 'أهمية تنظيف وعزل الخزانات في بيئة خليص',
+    importanceTitleEn: 'Importance of Tank Cleaning & Insulation in Khulais',
+    importanceContent: [
+      'إزالة الرواسب الطينية والأتربة الناتجة عن ركود المياه والغبار الزراعي.',
+      'حماية جدران الخزان الخرساني من التصدعات وتسرب المياه في التربة الطميية.',
+      'حفظ نقاء وصفاء المياه للاستخدام اليومي في الفلل والمنازل والاستراحات.',
+      'ضمان 10 سنوات على أعمال العزل المائي والإيبوكسي المنفذة.'
+    ],
+    importanceContentEn: [
+      'Removing sediment and dust deposits from bottom sumps.',
+      'Protecting concrete structures from seepage in alluvial soil.',
+      'Preserving pristine water purity for domestic and estate needs.',
+      '10-year warranty covering all certified insulation works.'
+    ],
+    equipmentTitle: 'معدات تنظيف الخزانات ومواد العزل المعتمدة بخليص',
+    equipmentTitleEn: 'Cleaning Equipment and Certified Insulation Materials in Khulais',
+    equipmentParagraphs: [
+      'نستخدم مضخات سحب غاطسة سريعة ومعدات جلي متطورة تزيل الرواسب الطينية بدقة دون إجهاد بنية الخزان.',
+      'نعتمد مواد عزل إيبوكسية وأسمنتية معتمدة ومخصصة لمياه الشرب ومطابقة للمواصفات القياسية.'
+    ],
+    equipmentParagraphsEn: [
+      'We use high-power submersible pumps and specialized scrubbing tools to evacuate sediments without stressing concrete structures.',
+      'We apply certified, solvent-free food-grade epoxy and cementitious waterproofing systems.'
+    ],
+    workflowTitle: 'خطوات تنظيف وعزل الخزانات في خليص',
+    workflowTitleEn: 'Tank Cleaning & Waterproofing Steps in Khulais',
+    workflowSteps: [
+      {
+        number: 1,
+        title: 'المعاينة والفحص الفني',
+        titleEn: 'Technical Inspection',
+        description: 'معاينة حالة الخزان وتحديد مستوى الرواسب والتشققات لتحديد خطة العمل المناسبة.',
+        descriptionEn: 'Assessing cistern conditions, sediment levels, and structural cracks.'
+      },
+      {
+        number: 2,
+        title: 'تفريغ المياه وسحب الرواسب',
+        titleEn: 'Evacuation & Silt Extraction',
+        description: 'سحب المياه الراكدة وضخ الرواسب والأتربة من القاع بمضخات متخصصة.',
+        descriptionEn: 'Pumping out stagnant water and vacuuming settled sediment.'
+      },
+      {
+        number: 3,
+        title: 'الجلي والغسيل الشامل',
+        titleEn: 'Deep Wall & Floor Scrubbing',
+        description: 'جلي الجدران والأرضيات وشطف الخزان بالكامل لضمان استعادة نظافته.',
+        descriptionEn: 'Scrubbing interior concrete walls and thorough rinsing.'
+      },
+      {
+        number: 4,
+        title: 'معالجة الشروخ وتطبيق العزل',
+        titleEn: 'Crack Treatment & Waterproofing',
+        description: 'تجهيز السطح وتطبيق طبقات العزل المعتمدة مع تقديم ضمان 10 سنوات على أعمال العزل.',
+        descriptionEn: 'Applying certified waterproofing layers with a 10-year warranty.'
+      }
+    ],
+    featuresTitle: 'مميزات خدمة تنظيف وعزل الخزانات بخليص',
+    featuresTitleEn: 'Features of Khulais Tank Cleaning & Insulation',
+    features: [
+      {
+        title: 'ضمان 10 سنوات على أعمال العزل',
+        titleEn: '10-Year Waterproofing Warranty',
+        description: 'ضمان كتابي معتمد يغطي ثبات وجودة العزل المائي والإيبوكسي المنفذ.',
+        descriptionEn: 'Official certified warranty covering epoxy and waterproofing stability.'
+      },
+      {
+        title: 'دراية ببيئة ومياه وادي خليص',
+        titleEn: 'Local Knowledge of Wadi Khulais Water Nature',
+        description: 'خبرة فنية في التعامل مع ترسبات الطمي والأتربة في الخزانات الأرضية والعلوية.',
+        descriptionEn: 'Technical mastery of silt sedimentation and valley ground cisterns.'
+      },
+      {
+        title: 'مواد عزل معتمدة لمياه الشرب',
+        titleEn: 'Certified Safe Waterproofing Materials',
+        description: 'مواد عزل إيبوكسية وأسمنتية معتمدة ومطابقة للاشتراطات القياسية لحفظ المياه.',
+        descriptionEn: 'Approved food-grade epoxy and flexible polymer waterproofing.'
+      }
+    ],
+    districtsTitle: 'الأحياء والمراكز المخدومة في خليص',
+    districtsTitleEn: 'Districts and Centers Serviced in Khulais',
+    districtsIntro: 'تصل فرق مسك كلين إلى كافة أحياء ومراكز محافظة خليص:',
+    districtsIntroEn: 'Mesk Clean teams service all Khulais neighborhoods and centers:',
+    districtsList: [
+      'حي الدف، حي الصاعدية، حي العزيزية، حي البلاد، حي المغاربة، حي الطلعة.',
+      'المخطط الشمالي والمخطط الجنوبي.',
+      'مراكز غران، الخوار، وادي خليص ومزارعه، البرزة، أم الجرم، ستارة.'
+    ],
+    districtsListEn: [
+      'Al-Daf, Al-Saaediyah, Al-Aziziyah, Al-Bilad, Al-Magharibah, Al-Talaah.',
+      'North & South Masterplans.',
+      'Ghran, Al-Khowar, Wadi Khulais, Al-Barzah, Umm Al-Jirm, Settarah.'
+    ],
+    tipsTitle: 'إرشادات للمحافظة على نظافة الخزان بخليص',
+    tipsTitleEn: 'Tips for Water Cistern Care in Khulais',
+    tipsIntro: 'نصائح مهمة للحفاظ على جودة المياه ونظافة الخزان:',
+    tipsIntroEn: 'Essential recommendations for maintaining clean cisterns in Khulais:',
+    tipsList: [
+      {
+        title: 'إحكام إغلاق غطاء الخزان',
+        titleEn: 'Secure Cistern Hatches',
+        description: 'التأكد من إغلاق فتحة الخزان بإحكام لمنع دخول ذرات الغبار والأتربة الزراعية.',
+        descriptionEn: 'Ensure airtight sealing of tank lids to prevent sand intrusion.'
+      },
+      {
+        title: 'فحص دوري لمنسوب المياه',
+        titleEn: 'Regular Level Monitoring',
+        description: 'متابعة منسوب المياه لاكتشاف أي تسرب مبكر ومعالجته بالعزل المائي المناسب.',
+        descriptionEn: 'Monitor water levels to detect any early structural leaks.'
+      }
+    ],
+    faqsTitle: 'أسئلة شائعة حول تنظيف وعزل الخزانات بخليص',
+    faqsTitleEn: 'Frequently Asked Questions in Khulais',
+    faqs: [
+      {
+        question: 'كم مرة ينبغي تنظيف خزان المياه في خليص؟',
+        questionEn: 'How often should water tanks be cleaned in Khulais?',
+        answer: 'نوصي بتنظيف الخزانات الأرضية والعلوية مرة كل 6 أشهر إلى سنة للتخلص من الرواسب والحفاظ على نقاء المياه.',
+        answerEn: 'We recommend cleaning every 6 months to a year to remove dust sediments and maintain water clarity.'
+      },
+      {
+        question: 'ما هي المواد المستخدمة في عزل الخزانات بخليص؟',
+        questionEn: 'What waterproofing materials are used in Khulais?',
+        answer: 'نستخدم مواد عزل إيبوكسية وأسمنتية معتمدة ومخصصة لمياه الشرب وخالية من أي مركبات ضارة.',
+        answerEn: 'We use certified, food-grade epoxy and cementitious polymers designed specifically for drinking water.'
+      },
+      {
+        question: 'ما مدة الضمان على أعمال العزل في خليص؟',
+        questionEn: 'What is the warranty period on tank insulation in Khulais?',
+        answer: 'نمنح ضماناً معتمداً لمدة 10 سنوات على أعمال العزل المائي والإيبوكسي المنفذة من قبلنا.',
+        answerEn: 'We provide an official 10-year warranty on all certified tank waterproofing works.'
       }
     ]
   }
