@@ -1,5 +1,6 @@
 import { CityId } from '../context/CityRouteContext';
 import { TANKS_CITIES_CONTENT } from '../data/tanksCleaningCitiesContent';
+import { HOME_CLEANING_CITIES_CONTENT } from '../data/homeCleaningCitiesContent';
 import {
   CENTRAL_CITIES,
   CENTRAL_SERVICES,
@@ -46,6 +47,21 @@ export function getServicePageMetadata(cityId: CityId, serviceId: string): Servi
     };
   }
 
+  if (serviceId === 'homes' && HOME_CLEANING_CITIES_CONTENT[cityId]) {
+    const home = HOME_CLEANING_CITIES_CONTENT[cityId];
+    return {
+      cityId,
+      serviceId,
+      urlPath: `/${cityId}/services/${serviceId}`,
+      canonical: home.canonicalPath,
+      title: home.metaTitle,
+      description: home.metaDescription,
+      ogTitle: home.metaTitle,
+      ogDescription: home.metaDescription,
+      ogUrl: home.canonicalPath
+    };
+  }
+
   // Use centralized automatic generation
   const title = generateServiceCityTitle(serviceId, cityId, 'ar');
   const description = generateServiceCityDescription(serviceId, cityId, 'ar');
@@ -86,6 +102,37 @@ export function injectServiceMetaIntoHtml(html: string, meta: ServicePageMetadat
     /<meta\s+name=["']description["']\s+content=["'][\s\S]*?["']\s*\/?>/i,
     `<meta name="description" content="${meta.description}" />`
   );
+
+  // 2.1 Service-specific Meta keywords (prevents mixing services)
+  if (meta.serviceId === 'homes') {
+    const homeKeywordsMap: Record<CityId, string> = {
+      jeddah: 'تنظيف منازل, شركة تنظيف منازل, تنظيف شقق, شركة تنظيف شقق, تنظيف بيوت, شركة تنظيف بيوت, شركة تنظيف, نظافة منازل, خدمة تنظيف المنازل, تنظيف منازل في جدة, شركة تنظيف منازل بجدة, تنظيف شقق بجدة, تنظيف بيوت بجدة',
+      makkah: 'شركة تنظيف منازل, تنظيف منازل, تنظيف شقق, شركة تنظيف شقق, تنظيف بيوت, شركة تنظيف بيوت, شركة تنظيف, خدمة تنظيف المنازل, شركة تنظيف منازل بمكة, تنظيف منازل في مكة, تنظيف شقق بمكة, تنظيف بيوت بمكة',
+      rabigh: 'تنظيف منازل, شركة تنظيف منازل, تنظيف بيوت, تنظيف شقق, شركة تنظيف, شركة نظافة, نظافة منازل, خدمة تنظيف المنازل, تنظيف منازل في رابغ, شركة تنظيف منازل برابغ, تنظيف شقق برابغ, تنظيف بيوت برابغ',
+      khulais: 'تنظيف منازل, شركة تنظيف منازل, تنظيف شقق, تنظيف بيوت, خدمة تنظيف المنازل, شركة تنظيف, تنظيف منازل في خليص, شركة تنظيف منازل بخليص, تنظيف شقق بخليص, تنظيف بيوت بخليص'
+    };
+    const kw = homeKeywordsMap[meta.cityId] || '';
+    if (kw) {
+      out = out.replace(
+        /<meta\s+name=["']keywords["']\s+content=["'][\s\S]*?["']\s*\/?>/i,
+        `<meta name="keywords" content="${kw}" />`
+      );
+    }
+  } else if (meta.serviceId === 'tanks') {
+    const tankKeywordsMap: Record<CityId, string> = {
+      jeddah: 'تنظيف خزانات, عزل خزانات, شركة تنظيف خزانات, تنظيف خزانات المياه, عزل خزانات المياه, غسيل خزانات, تنظيف الخزان الأرضي, تنظيف خزانات في جدة, شركة تنظيف خزانات بجدة, عزل خزانات بجدة',
+      makkah: 'تنظيف خزانات, عزل خزانات, شركة تنظيف خزانات, تنظيف خزانات المياه, عزل خزانات المياه, غسيل خزانات, تنظيف الخزان الأرضي, تنظيف خزانات في مكة, شركة تنظيف خزانات بمكة, عزل خزانات بمكة',
+      rabigh: 'تنظيف خزانات, عزل خزانات, شركة تنظيف خزانات, تنظيف خزانات المياه, عزل خزانات المياه, غسيل خزانات, تنظيف الخزان الأرضي, تنظيف خزانات في رابغ, شركة تنظيف خزانات برابغ, عزل خزانات برابغ',
+      khulais: 'تنظيف خزانات, عزل خزانات, شركة تنظيف خزانات, تنظيف خزانات المياه, عزل خزانات المياه, غسيل خزانات, تنظيف الخزان الأرضي, تنظيف خزانات في خليص, شركة تنظيف خزانات بخليص, عزل خزانات بخليص'
+    };
+    const kw = tankKeywordsMap[meta.cityId] || '';
+    if (kw) {
+      out = out.replace(
+        /<meta\s+name=["']keywords["']\s+content=["'][\s\S]*?["']\s*\/?>/i,
+        `<meta name="keywords" content="${kw}" />`
+      );
+    }
+  }
 
   // 3. Canonical link
   out = out.replace(
@@ -132,6 +179,9 @@ export function injectServiceMetaIntoHtml(html: string, meta: ServicePageMetadat
   // 10. Service & Breadcrumb JSON-LD Structured Data
   const isTanks = meta.serviceId === 'tanks' && Boolean(TANKS_CITIES_CONTENT[meta.cityId]);
   const tankData = isTanks ? TANKS_CITIES_CONTENT[meta.cityId] : null;
+
+  const isHomes = meta.serviceId === 'homes' && Boolean(HOME_CLEANING_CITIES_CONTENT[meta.cityId]);
+  const homeData = isHomes ? HOME_CLEANING_CITIES_CONTENT[meta.cityId] : null;
 
   let serviceJsonLd: any;
 
@@ -213,6 +263,76 @@ export function injectServiceMetaIntoHtml(html: string, meta: ServicePageMetadat
         {
           '@type': 'FAQPage',
           'mainEntity': tankData.faqs.map((faq) => ({
+            '@type': 'Question',
+            'name': faq.q,
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': faq.a
+            }
+          }))
+        }
+      ]
+    };
+  } else if (isHomes && homeData) {
+    const citySchema = {
+      '@type': 'City',
+      name: centralCity.nameAr,
+      alternateName: centralCity.nameEn
+    };
+
+    serviceJsonLd = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'WebSite',
+          '@id': `${BASE_URL}/#website`,
+          'url': `${BASE_URL}/`,
+          'name': BRAND_NAME_AR,
+          'alternateName': 'شركة مسك كلين'
+        },
+        {
+          '@type': 'Service',
+          '@id': `${meta.canonical}#service`,
+          'name': homeData.h1Title,
+          'serviceType': 'تنظيف منازل وشقق وبيوت',
+          'description': meta.description,
+          'url': meta.canonical,
+          'provider': {
+            '@type': 'LocalBusiness',
+            'name': BRAND_NAME_AR,
+            'telephone': '0547161157',
+            'url': `${BASE_URL}/`,
+            'image': `${BASE_URL}/assets/mesk-clean-official-logo.png`,
+            'areaServed': citySchema
+          },
+          'areaServed': citySchema
+        },
+        {
+          '@type': 'BreadcrumbList',
+          'itemListElement': [
+            {
+              '@type': 'ListItem',
+              'position': 1,
+              'name': 'الرئيسية',
+              'item': `${BASE_URL}/`
+            },
+            {
+              '@type': 'ListItem',
+              'position': 2,
+              'name': centralCity.nameAr,
+              'item': `${BASE_URL}/${meta.cityId}`
+            },
+            {
+              '@type': 'ListItem',
+              'position': 3,
+              'name': homeData.h1Title,
+              'item': meta.canonical
+            }
+          ]
+        },
+        {
+          '@type': 'FAQPage',
+          'mainEntity': homeData.faqs.map((faq) => ({
             '@type': 'Question',
             'name': faq.q,
             'acceptedAnswer': {

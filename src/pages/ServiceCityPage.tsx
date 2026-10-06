@@ -124,9 +124,13 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
   useEffect(() => {
     const pageTitle = (isTanks && tankData && language === 'ar')
       ? tankData.metaTitle
+      : (isHomeCleaning && homeData && language === 'ar')
+      ? homeData.metaTitle
       : generateServiceCityTitle(serviceId, currentCityId, language === 'ar' ? 'ar' : 'en');
     const pageDesc = (isTanks && tankData && language === 'ar')
       ? tankData.metaDescription
+      : (isHomeCleaning && homeData && language === 'ar')
+      ? homeData.metaDescription
       : generateServiceCityDescription(serviceId, currentCityId, language === 'ar' ? 'ar' : 'en');
 
     document.title = pageTitle;
@@ -293,6 +297,7 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
         }));
 
     const isTankService = isTanks && Boolean(tankData) && language === 'ar';
+    const isHomeService = isHomeCleaning && Boolean(homeData) && language === 'ar';
     const schemaData = isTankService
       ? {
           '@context': 'https://schema.org',
@@ -369,6 +374,69 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                   '@type': 'ListItem',
                   position: 3,
                   name: serviceName,
+                  item: fullCanonical
+                }
+              ]
+            },
+            {
+              '@type': 'FAQPage',
+              mainEntity: faqEntities
+            }
+          ]
+        }
+      : (isHomeService && homeData)
+      ? {
+          '@context': 'https://schema.org',
+          '@graph': [
+            {
+              '@type': 'WebSite',
+              '@id': 'https://www.meskclean.com/#website',
+              url: 'https://www.meskclean.com/',
+              name: BRAND_NAME_AR,
+              alternateName: 'شركة مسك كلين'
+            },
+            {
+              '@type': 'Service',
+              '@id': `${fullCanonical}#service`,
+              name: homeData.h1Title,
+              serviceType: 'تنظيف منازل وشقق وبيوت',
+              description: pageDesc,
+              url: fullCanonical,
+              provider: {
+                '@type': 'LocalBusiness',
+                name: BRAND_NAME_AR,
+                telephone: '0547161157',
+                url: 'https://www.meskclean.com/',
+                image: 'https://www.meskclean.com/assets/mesk-clean-official-logo.png',
+                areaServed: {
+                  '@type': 'City',
+                  name: cityName
+                }
+              },
+              areaServed: {
+                '@type': 'City',
+                name: cityName
+              }
+            },
+            {
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                {
+                  '@type': 'ListItem',
+                  position: 1,
+                  name: 'الرئيسية',
+                  item: 'https://www.meskclean.com/'
+                },
+                {
+                  '@type': 'ListItem',
+                  position: 2,
+                  name: cityName,
+                  item: `https://www.meskclean.com/${currentCityId}`
+                },
+                {
+                  '@type': 'ListItem',
+                  position: 3,
+                  name: homeData.h1Title,
                   item: fullCanonical
                 }
               ]
