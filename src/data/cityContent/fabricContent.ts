@@ -546,10 +546,10 @@ export const FABRIC_SERVICES_MAP: Record<'sofas' | 'carpets', Partial<Record<Cit
           descriptionEn: 'Evening and weekend booking slots coordinated around corporate and plant shift hours.'
         },
         {
-          title: 'ضمان الرضا الكامل وأسعار منافسة ومعلنة',
-          titleEn: '100% Satisfaction & Clear Upfront Pricing',
-          description: 'أسعار واضحة دون أي تكاليف إضافية مع ضمان مراجعة أي ملاحظة فوراً برضا تام.',
-          descriptionEn: 'Transparent upfront quotes with zero hidden extras, backed by our 100% satisfaction guarantee.'
+          title: 'ضمان الرضا الكامل وجودة الخدمة المعتمدة',
+          titleEn: '100% Satisfaction & Certified Quality',
+          description: 'التزام تام بأعلى معايير التنظيف دون أي رسوم غير معلنة مع ضمان مراجعة أي ملاحظة فوراً برضا تام.',
+          descriptionEn: 'Full commitment to quality standards with zero hidden fees, backed by our 100% satisfaction guarantee.'
         }
       ],
       districtsTitle: 'نطاق تغطيتنا لخدمة تنظيف الكنب في محافظة رابغ',
@@ -1020,8 +1020,8 @@ export const FABRIC_SERVICES_MAP: Record<'sofas' | 'carpets', Partial<Record<Cit
         {
           question: 'هل تقدمون خدمات غسيل وتعقيم سجاد المساجد والمصليات بمكة؟',
           questionEn: 'Do you clean and sanitize mosque carpets and prayer rooms in Makkah?',
-          answer: 'نعم، نوفر باقات متخصصة لغسيل سجاد المساجد وقاعات الصلاة بالبخار والتعقيم مع التعطير الفاخر بأسعار تفضيلية.',
-          answerEn: 'Yes, we provide specialized mosque carpet cleaning packages featuring steam sanitization and musk atomization at special rates.'
+          answer: 'نعم، نوفر باقات متخصصة لغسيل سجاد المساجد وقاعات الصلاة بالبخار والتعقيم مع التعطير الفاخر بأعلى معايير الإتقان.',
+          answerEn: 'Yes, we provide specialized mosque carpet cleaning packages featuring steam sanitization and musk atomization at high standards.'
         },
         {
           question: 'كم يستغرق السجاد ليجف بعد الغسيل بالبخار في مكة المكرمة؟',

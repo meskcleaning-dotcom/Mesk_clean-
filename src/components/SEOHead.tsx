@@ -20,14 +20,30 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   const { currentCity, currentCityId, isCityRoute } = useCityRoute();
 
   useEffect(() => {
-    // 1. Dynamic Page Title tailored to the city or general
-    const cityTitle = language === 'ar' ? currentCity.metaTitleAr : currentCity.metaTitleEn;
-    const baseTitle = customTitle || cityTitle;
+    // 1. Dynamic Page Title tailored to city or general homepage
+    let baseTitle = customTitle;
+    if (!baseTitle) {
+      if (isCityRoute) {
+        baseTitle = language === 'ar' ? currentCity.metaTitleAr : currentCity.metaTitleEn;
+      } else {
+        baseTitle = language === 'ar'
+          ? 'شركة تنظيف بجدة ومكة ورابغ وخليص | 0547161147 | مسك كلين'
+          : 'Cleaning Services in Jeddah, Makkah, Rabigh & Khulais | +966547161147 | Mesk Clean';
+      }
+    }
     document.title = baseTitle;
 
-    // 2. Dynamic Meta Description tailored to the city
-    const cityDesc = language === 'ar' ? currentCity.metaDescAr : currentCity.metaDescEn;
-    const baseDesc = customDescription || cityDesc;
+    // 2. Dynamic Meta Description tailored to city or general homepage
+    let baseDesc = customDescription;
+    if (!baseDesc) {
+      if (isCityRoute) {
+        baseDesc = language === 'ar' ? currentCity.metaDescAr : currentCity.metaDescEn;
+      } else {
+        baseDesc = language === 'ar'
+          ? 'مسك كلين: شركة تنظيف متكاملة تغطي جدة، مكة المكرمة، رابغ، وخليص. خدمات تنظيف المنازل، الفلل، عزل الخزانات، مكافحة الحشرات، غسيل المكيفات وتركيب شبك وطارد الحمام. اتصل الآن: 0547161147'
+          : 'Mesk Clean: Comprehensive cleaning company covering Jeddah, Makkah, Rabigh, and Khulais. Home cleaning, villas, tank insulation, pest control, AC washing, bird netting. Call now: +966547161147';
+      }
+    }
 
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
@@ -37,7 +53,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
     }
     metaDesc.setAttribute('content', baseDesc);
 
-    // 3. Dynamic Canonical Link
+    // 3. Dynamic Canonical Link (Homepage = https://www.meskclean.com/, City = https://www.meskclean.com/[city])
     const canonicalUrl = isCityRoute 
       ? `https://www.meskclean.com/${currentCity.slug}`
       : 'https://www.meskclean.com/';
@@ -71,7 +87,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
     setMeta('name', 'twitter:description', baseDesc);
     setMeta('name', 'twitter:image', 'https://www.meskclean.com/assets/mesk-hero.jpg');
 
-    // 5. Schema.org WebSite & LocalBusiness JSON-LD (Targeted to the active city)
+    // 5. Schema.org WebSite & LocalBusiness JSON-LD
     const services = getStoredServices();
     const faqs = getStoredFAQs();
 
@@ -88,18 +104,19 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       '@type': 'LocalBusiness',
       '@id': `${canonicalUrl}#business`,
       'name': BRAND_NAME_AR,
-      'alternateName': `Mesk Clean ${currentCity.nameEn}`,
-      'url': 'https://www.meskclean.com/',
+      'alternateName': isCityRoute ? `Mesk Clean ${currentCity.nameEn}` : 'Mesk Clean KSA',
+      'url': canonicalUrl,
       'logo': 'https://www.meskclean.com/assets/mesk-clean-official-logo-transparent.png',
       'image': 'https://www.meskclean.com/assets/mesk-hero.jpg',
       'description': baseDesc,
       'telephone': INTL_PHONE,
-      'priceRange': '$$',
-      'areaServed': CENTRAL_CITIES.map((c) => ({
-        '@type': 'City',
-        'name': c.nameAr,
-        'alternateName': c.nameEn
-      })),
+      'areaServed': isCityRoute
+        ? [{ '@type': 'City', 'name': currentCity.nameAr, 'alternateName': currentCity.nameEn }]
+        : CENTRAL_CITIES.map((c) => ({
+            '@type': 'City',
+            'name': c.nameAr,
+            'alternateName': c.nameEn
+          })),
       'address': {
         '@type': 'PostalAddress',
         'streetAddress': `${currentCity.nameAr} - كافة الأحياء والمناطق`,

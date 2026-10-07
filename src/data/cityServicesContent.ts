@@ -347,10 +347,10 @@ export const CITY_SERVICES_MAP: Record<string, Partial<Record<CityId, CityServic
           descriptionEn: 'Advanced European vacuum extraction and rotary scrubbing tools for pristine results.'
         },
         {
-          title: 'أسعار واضحة ومناسبة دون تكاليف خفية',
-          titleEn: 'Transparent Affordable Pricing',
-          description: 'تسعير عادل ومحدد مسبقاً يشمل كافة المنظفات والمعدات دون أي مبالغ إضافية غير معلنة.',
-          descriptionEn: 'Upfront, transparent pricing with all supplies included and zero hidden surcharges.'
+          title: 'وضوح ومصداقية تامة في كافة التفاصيل',
+          titleEn: 'Transparent and Honest Service',
+          description: 'التزام تام بكافة بنود الاتفاق المسبق وتوفير المنظفات والمعدات المعتمدة دون أي مفاجآت.',
+          descriptionEn: 'Full commitment to agreed scope with certified equipment and detergents without any surprises.'
         }
       ],
       districtsTitle: 'نطاق تغطيتنا في أحياء مكة المكرمة',
@@ -401,9 +401,9 @@ export const CITY_SERVICES_MAP: Record<string, Partial<Record<CityId, CityServic
           answerEn: 'Yes, our technicians work quietly, systematically room-by-room to respect your privacy and comfort.'
         },
         {
-          question: 'هل تقدمون عروض تنظيف خاصة بموسمي رمضان والحج؟',
+          question: 'هل تقدمون خدمات تنظيف خاصة بموسمي رمضان والحج؟',
           questionEn: 'Do you offer special packages during Ramadan and Hajj?',
-          answer: 'نعم، نوفر باقات موسمية متميزة تشمل التنظيف العميق قبل رمضان، وتجهيز المنازل لاستقبال المعتمرين والحجاج بأسعار تنافسية.',
+          answer: 'نعم، نوفر باقات موسمية متميزة تشمل التنظيف العميق قبل رمضان، وتجهيز المنازل لاستقبال المعتمرين والحجاج بأعلى معايير الإتقان.',
           answerEn: 'Yes, we provide specialized seasonal preparation and post-season deep cleaning packages.'
         },
         {
@@ -511,10 +511,10 @@ export const CITY_SERVICES_MAP: Record<string, Partial<Record<CityId, CityServic
           descriptionEn: 'Flexible weekend and evening appointment slots designed around industrial shifts.'
         },
         {
-          title: 'أسعار اقتصادية وعقود دورية',
-          titleEn: 'Affordable Rates & Recurring Plans',
-          description: 'نقدم خطط أسعار عادلة تناسب العائلات وسكن الموظفين مع إمكانية الاشتراكات الدورية.',
-          descriptionEn: 'Competitive pricing structures and periodic maintenance packages for homes and villas.'
+          title: 'مرونة عالية وعقود صيانة دورية',
+          titleEn: 'Flexible Timings & Recurring Plans',
+          description: 'نقدم خطط نظافة مرنة تناسب العائلات وسكن الموظفين مع إمكانية الاشتراكات والزيارات الدورية.',
+          descriptionEn: 'Flexible structures and periodic maintenance packages for homes and villas.'
         }
       ],
       districtsTitle: 'الأحياء والمناطق المغطاة برابغ',

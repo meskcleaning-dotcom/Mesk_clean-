@@ -45,7 +45,7 @@ interface ServicesSectionProps {
 
 export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookService }) => {
   const { language, t } = useLanguage();
-  const { currentCity, currentCityId, navigateToService } = useCityRoute();
+  const { currentCity, currentCityId, navigateToService, isCityRoute } = useCityRoute();
   const [services, setServices] = useState<ServiceItem[]>([]);
 
   const loadServices = () => {
@@ -93,15 +93,21 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookService 
             <span>{t('services.badge')}</span>
           </div>
 
-          {/* Dynamic Title Tailored to Current City */}
+          {/* Dynamic Title Tailored to Current City or General Homepage */}
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight mb-4">
-            {language === 'ar' ? `خدماتنا في ${currentCity.nameAr}` : `Our Services in ${currentCity.nameEn}`}
+            {!isCityRoute
+              ? (language === 'ar' ? 'خدماتنا الشاملة في جدة ومكة ورابغ وخليص' : 'Our Comprehensive Services in Jeddah, Makkah, Rabigh & Khulais')
+              : (language === 'ar' ? `خدمات شركة مسك كلين في ${currentCity.nameAr}` : `Mesk Clean Services in ${currentCity.nameEn}`)}
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 dark:text-cyan-200/80 max-w-2xl mx-auto">
-            {language === 'ar'
-              ? `اختر الخدمة المناسبة لمنزلك أو منشأتك في ${currentCity.nameAr}، واطلع على التفاصيل واحجز موعدك بسهولة.`
-              : `Choose the ideal cleaning service for your property in ${currentCity.nameEn}, view details, and book easily.`}
+            {!isCityRoute
+              ? (language === 'ar'
+                  ? 'نقدم باقة متكاملة من خدمات التنظيف المعتمدة التي تلبي احتياجات المنازل والمنشآت في مدن ومحافظات المنطقة الغربية بأعلى معايير الإتقان.'
+                  : 'We offer an integrated suite of certified cleaning services tailored for homes and businesses across the Western Region.')
+              : (language === 'ar'
+                  ? `اختر الخدمة المناسبة لمنزلك أو منشأتك في ${currentCity.nameAr}، واطلع على التفاصيل واحجز موعدك بسهولة.`
+                  : `Choose the ideal cleaning service for your property in ${currentCity.nameEn}, view details, and book easily.`)}
           </p>
         </div>
 

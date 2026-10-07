@@ -128,8 +128,8 @@ export const PEST_CONTROL_SERVICES_MAP: Partial<Record<CityId, CityServicePageDa
       {
         title: 'ضمان كتابي رسمي معتمد من 3 إلى 10 سنوات',
         titleEn: 'Official Written Warranty Up to 10 Years',
-        description: 'عقود ضمان واضحة تشمل الزيارات المجانية وإعادة الرش الفوري دون أي تكلفة إضافية.',
-        descriptionEn: 'Legally certified warranties covering complimentary re-spraying and routine monitoring visits with zero hidden fees.'
+        description: 'عقود ضمان واضحة تشمل الزيارات والمتابعة وإعادة الرش الفوري دون أي مصاريف إضافية.',
+        descriptionEn: 'Legally certified warranties covering complimentary re-spraying and routine monitoring visits with zero extra fees.'
       },
       {
         title: 'فنيون متخصصون ومرخصون من وزارة البيئة',
@@ -550,10 +550,10 @@ export const PEST_CONTROL_SERVICES_MAP: Partial<Record<CityId, CityServicePageDa
         descriptionEn: 'Advanced technology wiping out resilient sand-dwelling pests and guaranteeing lasting relief throughout the warranty.'
       },
       {
-        title: 'ضمان كتابي رسمي معتمد ومتابعة مجانية',
-        titleEn: 'Certified Written Warranty & Free Follow-Ups',
-        description: 'ضمان رسمي يشمل الزيارات الدورية وإعادة الرش الفوري دون أي تكلفة إضافية في حال ظهور أي حشرة.',
-        descriptionEn: 'Comprehensive written warranty including periodic follow-up inspections and free re-treatments whenever required.'
+        title: 'ضمان كتابي رسمي معتمد ومتابعة دورية',
+        titleEn: 'Certified Written Warranty & Regular Follow-Ups',
+        description: 'ضمان رسمي يشمل الزيارات الدورية وإعادة الرش الفوري دون أي مصاريف إضافية في حال ظهور أي حشرة.',
+        descriptionEn: 'Comprehensive written warranty including periodic follow-up inspections and re-treatments whenever required.'
       }
     ],
     districtsTitle: 'نطاق تغطية مكافحة الحشرات في رابغ',

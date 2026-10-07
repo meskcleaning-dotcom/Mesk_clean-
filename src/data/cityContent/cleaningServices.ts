@@ -339,10 +339,10 @@ export const CLEANING_SERVICES_MAP: Record<string, Partial<Record<CityId, CitySe
           descriptionEn: 'Advanced whisper-quiet equipment delivering rapid, spotless results without neighborhood disturbance.'
         },
         {
-          title: 'أسعار واضحة ومحددة دون تكاليف خفية',
-          titleEn: 'Transparent Pricing Guarantee',
-          description: 'تسعير عادل يشمل كافة المعدات ومواد التنظيف دون أي مبالغ مفاجئة بعد الانتهاء.',
-          descriptionEn: 'Upfront, transparent quotes including all industrial tools and detergents with zero hidden extras.'
+          title: 'وضوح تام ومصداقية في خطة العمل',
+          titleEn: 'Transparent Plan & Integrity Guarantee',
+          description: 'التزام كامل بكافة بنود الاتفاق المسبق وتوفير المعدات ومواد التنظيف دون أي مفاجآت.',
+          descriptionEn: 'Full commitment to agreed scope including all industrial tools and detergents with zero surprises.'
         }
       ],
       districtsTitle: 'نطاق تغطيتنا الميدانية في أحياء مكة المكرمة',
@@ -401,8 +401,8 @@ export const CLEANING_SERVICES_MAP: Record<string, Partial<Record<CityId, CitySe
         {
           question: 'هل تقدمون باقات تنظيف مسبقة قبل مواسم رمضان والحج؟',
           questionEn: 'Do you offer special packages prior to Ramadan and Hajj?',
-          answer: 'نعم، نوفر باقات موسمية شاملة لتجهيز المنازل واستقبال الضيوف، وباقات تنظيف لاحقة بعد انقضاء المواسم بأسعار تفضيلية.',
-          answerEn: 'Yes, we provide pre-season preparation packages and post-season deep restoration plans at preferred rates.'
+          answer: 'نعم، نوفر باقات موسمية شاملة لتجهيز المنازل واستقبال الضيوف، وباقات تنظيف لاحقة بعد انقضاء المواسم بأعلى معايير الإتقان.',
+          answerEn: 'Yes, we provide pre-season preparation packages and post-season deep restoration plans at high standards.'
         },
         {
           question: 'هل يشمل تنظيف المنزل غسيل الأحواش والأسطح الخارجية؟',
@@ -411,10 +411,10 @@ export const CLEANING_SERVICES_MAP: Record<string, Partial<Record<CityId, CitySe
           answerEn: 'Yes, we pressure-wash outdoor entrance courtyards, terraces, and car garages to eliminate caked rock dust.'
         },
         {
-          question: 'كيف يتم تسعير خدمة تنظيف المنازل في مكة؟',
-          questionEn: 'How are home cleaning services priced in Makkah?',
-          answer: 'يعتمد التسعير على مساحة المنزل وعدد الغرف ومستوى الأعمال المطلوبة، مع تقديم عرض سعر واضح ومحدد مسبقاً قبل البدء.',
-          answerEn: 'Pricing is based on property square footage and room count, with upfront confirmed estimates before work begins.'
+          question: 'كيف يتم تحديد خطة تنظيف المنازل في مكة؟',
+          questionEn: 'How are home cleaning plans tailored in Makkah?',
+          answer: 'تعتمد خطة العمل على مساحة المنزل وعدد الغرف ومستوى الأعمال المطلوبة، مع توضيح كافة التفاصيل مسبقاً قبل البدء.',
+          answerEn: 'The plan is based on property square footage and room count, with clear confirmed arrangements before work begins.'
         }
       ]
     },
@@ -546,10 +546,10 @@ export const CLEANING_SERVICES_MAP: Record<string, Partial<Record<CityId, CitySe
           descriptionEn: 'Evening and weekend booking slots coordinated around corporate and plant shift hours.'
         },
         {
-          title: 'ضمان الجودة وأسعار منافسة ومعلنة',
-          titleEn: 'Transparent Pricing & Satisfaction Guarantee',
-          description: 'أسعار واضحة دون أي مصاريف إضافية وضمان مراجعة أي ملاحظة فوراً برضا تام.',
-          descriptionEn: 'Clear upfront pricing with no hidden charges, backed by our 100% satisfaction commitment.'
+          title: 'ضمان الجودة ومتابعة ما بعد التنفيذ',
+          titleEn: 'Quality & Satisfaction Guarantee',
+          description: 'التزام تام بكافة بنود العمل دون أي مصاريف إضافية وضمان مراجعة أي ملاحظة فوراً برضا تام.',
+          descriptionEn: 'Full commitment to work standards with no extra charges, backed by our 100% satisfaction commitment.'
         }
       ],
       districtsTitle: 'الأحياء والمناطق المغطاة بخدماتنا في محافظة رابغ',

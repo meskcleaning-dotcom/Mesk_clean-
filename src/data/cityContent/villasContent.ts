@@ -544,10 +544,10 @@ export const VILLAS_SERVICES_MAP: Partial<Record<CityId, CityServicePageData>> =
         descriptionEn: 'Flexible weekend booking slots coordinated around corporate and plant shift hours.'
       },
       {
-        title: 'ضمان الرضا التام وأسعار شفافة ومعلنة',
-        titleEn: '100% Satisfaction & Upfront Pricing',
-        description: 'تسعير واضح محدد مسبقاً دون أي مبالغ إضافية مع ضمان مراجعة أي ملاحظة فوراً.',
-        descriptionEn: 'Transparent upfront quotes with zero hidden fees, backed by our 100% satisfaction commitment.'
+        title: 'ضمان الرضا التام وشفافية التعامل',
+        titleEn: '100% Satisfaction & Clear Commitment',
+        description: 'وضوح كامل في بنود الخدمة محدد مسبقاً دون أي مبالغ إضافية مع ضمان مراجعة أي ملاحظة فوراً.',
+        descriptionEn: 'Transparent terms with zero hidden fees, backed by our 100% satisfaction commitment.'
       }
     ],
     districtsTitle: 'أحياء الفلل والمجمعات المغطاة برابغ',

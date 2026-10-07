@@ -319,7 +319,7 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
               provider: {
                 '@type': 'LocalBusiness',
                 name: BRAND_NAME_AR,
-                telephone: '0547161157',
+                telephone: INTL_PHONE,
                 url: 'https://www.meskclean.com/',
                 image: 'https://www.meskclean.com/assets/mesk-clean-official-logo.png',
                 areaServed: {
@@ -342,7 +342,7 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
               provider: {
                 '@type': 'LocalBusiness',
                 name: BRAND_NAME_AR,
-                telephone: '0547161157',
+                telephone: INTL_PHONE,
                 url: 'https://www.meskclean.com/',
                 image: 'https://www.meskclean.com/assets/mesk-clean-official-logo.png',
                 areaServed: {
@@ -405,7 +405,7 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
               provider: {
                 '@type': 'LocalBusiness',
                 name: BRAND_NAME_AR,
-                telephone: '0547161157',
+                telephone: INTL_PHONE,
                 url: 'https://www.meskclean.com/',
                 image: 'https://www.meskclean.com/assets/mesk-clean-official-logo.png',
                 areaServed: {
@@ -461,7 +461,6 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                 telephone: INTL_PHONE,
                 url: 'https://www.meskclean.com/',
                 image: 'https://www.meskclean.com/assets/mesk-clean-official-logo.png',
-                priceRange: '$$',
                 areaServed: CENTRAL_CITIES.map((c) => ({
                   '@type': 'City',
                   name: c.nameAr,

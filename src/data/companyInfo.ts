@@ -4,8 +4,8 @@ export const COMPANY_INFO = {
   subtitle: 'خدمة احترافية... لبيئة أنظف',
   description: 'مسك كلين لخدمات التنظيف الشامل، عزل الخزانات، مكافحة القوارض وتركيب شبك وطارد الحمام في جدة، مكة المكرمة، رابغ، وخليص، بفريق محترف ومعدات حديثة.',
   city: 'جدة - مكة المكرمة - رابغ - خليص، المملكة العربية السعودية',
-  workingHours: 'على مدار الساعة: 24/7 طوال أيام الأسبوع',
-  workingHoursEn: 'Available 24/7 Round the Clock (All Days)',
+  workingHours: 'طوال أيام الأسبوع لخدمتكم',
+  workingHoursEn: 'Available All Days to Serve You',
   phone1: {
     display: '0547161147',
     tel: 'tel:+966547161147',
@@ -13,10 +13,10 @@ export const COMPANY_INFO = {
     waUrl: 'https://wa.me/966547161147'
   },
   phone2: {
-    display: '0510649490',
-    tel: 'tel:+966510649490',
-    waNumber: '966510649490',
-    waUrl: 'https://wa.me/966510649490'
+    display: '0547161147',
+    tel: 'tel:+966547161147',
+    waNumber: '966547161147',
+    waUrl: 'https://wa.me/966547161147'
   },
   social: {
     instagram: 'https://www.instagram.com/mesk_cleaning_services_ksa/',

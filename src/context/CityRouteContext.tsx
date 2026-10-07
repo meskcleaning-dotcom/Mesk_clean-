@@ -51,6 +51,7 @@ interface CityRouteContextType {
   currentCity: CityData;
   pathname: string;
   navigateToCity: (cityId: CityId, sectionId?: string) => void;
+  navigateToHome: () => void;
   isCityRoute: boolean;
   currentServiceId: string | null;
   navigateToService: (cityId: CityId, serviceId: string) => void;
@@ -66,22 +67,22 @@ export const extractCityFromLocation = (): { cityId: CityId; isCityRoute: boolea
   const rawPath = window.location.pathname || '';
   const rawHash = window.location.hash || '';
   const rawSearch = window.location.search || '';
-  const rawHref = window.location.href || '';
 
   let decodedPath = '';
   let decodedHash = '';
+  let decodedSearch = '';
 
   try {
     decodedPath = decodeURIComponent(rawPath).toLowerCase();
     decodedHash = decodeURIComponent(rawHash).toLowerCase();
+    decodedSearch = decodeURIComponent(rawSearch).toLowerCase();
   } catch {
     decodedPath = rawPath.toLowerCase();
     decodedHash = rawHash.toLowerCase();
+    decodedSearch = rawSearch.toLowerCase();
   }
 
-  const combined = `${decodedPath} ${decodedHash} ${decodeURIComponent(rawSearch).toLowerCase()} ${decodeURIComponent(rawHref).toLowerCase()}`;
-
-  // 0. If route is /m or /m/*, immediately redirect to /jeddah
+  // 0. If route is /m or /m/*, redirect to /jeddah
   if (decodedPath === '/m' || decodedPath === '/m/' || decodedPath.startsWith('/m/')) {
     try {
       window.location.replace('/jeddah');
@@ -91,12 +92,12 @@ export const extractCityFromLocation = (): { cityId: CityId; isCityRoute: boolea
 
   // 1. Check for service subpage route e.g. /(city)/services/(slug)
   const cityIdsPattern = CENTRAL_CITIES.map((c) => c.id).join('|');
-  const serviceRegex = new RegExp(`(${cityIdsPattern})\\/services\\/([a-z0-9\\u0600-\\u06FF\\-_]+)`, 'i');
-  const match = combined.match(serviceRegex);
+  const serviceRegex = new RegExp(`^\\/(${cityIdsPattern})\\/services\\/([a-z0-9\\u0600-\\u06FF\\-_]+)`, 'i');
+  const serviceMatch = decodedPath.match(serviceRegex);
 
-  if (match) {
-    const rawCity = match[1].toLowerCase() as CityId;
-    const rawSlug = match[2].toLowerCase();
+  if (serviceMatch) {
+    const rawCity = serviceMatch[1].toLowerCase() as CityId;
+    const rawSlug = serviceMatch[2].toLowerCase();
     const resolvedServiceId = SERVICE_SLUG_MAP[rawSlug] || rawSlug;
 
     try {
@@ -110,29 +111,28 @@ export const extractCityFromLocation = (): { cityId: CityId; isCityRoute: boolea
     };
   }
 
-  // 2. Check for city roots from centralized cities
+  // 2. Check for exact city routes: /jeddah, /makkah, /rabigh, /khulais
+  const cityRouteRegex = new RegExp(`^\\/(${cityIdsPattern})\\/?$`, 'i');
+  const cityMatch = decodedPath.match(cityRouteRegex);
+  if (cityMatch) {
+    const rawCity = cityMatch[1].toLowerCase() as CityId;
+    try {
+      localStorage.setItem('mesk_selected_city', rawCity);
+    } catch {}
+    return { cityId: rawCity, isCityRoute: true, serviceId: null };
+  }
+
+  // 3. Exact Root homepage '/' or empty path
+  if (decodedPath === '' || decodedPath === '/' || decodedPath === '/index.html') {
+    return { cityId: 'jeddah', isCityRoute: false, serviceId: null };
+  }
+
+  // 4. Query or hash fallback if user provided city parameter
   for (const city of CENTRAL_CITIES) {
-    if (
-      combined.includes(city.id) ||
-      combined.includes(city.nameAr) ||
-      (city.shortNameAr && combined.includes(city.shortNameAr)) ||
-      combined.includes(city.nameEn.toLowerCase())
-    ) {
-      try {
-        localStorage.setItem('mesk_selected_city', city.id);
-      } catch {}
+    if (decodedSearch.includes(city.id) || decodedHash.includes(city.id)) {
       return { cityId: city.id as CityId, isCityRoute: true, serviceId: null };
     }
   }
-
-  // 3. Check if saved previously in localStorage
-  try {
-    const saved = localStorage.getItem('mesk_selected_city') as CityId;
-    const validCityIds = CENTRAL_CITIES.map((c) => c.id);
-    if (saved && validCityIds.includes(saved as any)) {
-      return { cityId: saved, isCityRoute: false, serviceId: null };
-    }
-  } catch {}
 
   return { cityId: 'jeddah', isCityRoute: false, serviceId: null };
 };
@@ -213,6 +213,19 @@ export const CityRouteProvider: React.FC<{ children: ReactNode }> = ({ children 
     }
   }, []);
 
+  const navigateToHome = useCallback(() => {
+    if (typeof window !== 'undefined') {
+      window.history.pushState({ cityId: 'jeddah', serviceId: null, isCityRoute: false }, '', '/');
+      setPathname('/');
+      setCurrentCityId('jeddah');
+      setCurrentServiceId(null);
+      setIsCityRoute(false);
+
+      window.dispatchEvent(new CustomEvent('mesk_city_change', { detail: { cityId: 'jeddah', serviceId: null, isCityRoute: false } }));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, []);
+
   const navigateToService = useCallback((cityId: CityId, serviceId: string) => {
     const targetPath = `/${cityId}/services/${serviceId}`;
 
@@ -241,6 +254,7 @@ export const CityRouteProvider: React.FC<{ children: ReactNode }> = ({ children 
         currentCity,
         pathname,
         navigateToCity,
+        navigateToHome,
         isCityRoute,
         currentServiceId,
         navigateToService,

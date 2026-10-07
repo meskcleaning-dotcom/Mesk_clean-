@@ -126,8 +126,8 @@ function MainWebsite() {
         {/* Blog / Cleaning Guide Section */}
         <BlogSection onBookService={() => handleOpenBooking()} />
 
-        {/* Jeddah Comprehensive Cleaning Guide Section */}
-        {currentCityId === 'jeddah' && <JeddahGuideSection />}
+        {/* Jeddah Comprehensive Cleaning Guide Section - Shown exclusively on /jeddah */}
+        {isCityRoute && currentCityId === 'jeddah' && <JeddahGuideSection />}
       </main>
 
       {/* Footer with quick links and Admin portal link */}

@@ -234,7 +234,7 @@ export function generateServiceCityTitle(
 /**
  * 2. META DESCRIPTION
  * Automatically generate:
- * مسك كلين، {الخدمة} ب{المدينة} بأيدي فريق محترف وأسعار مناسبة. اتصل الآن 0547161147
+ * مسك كلين، {الخدمة} ب{المدينة} بأيدي فريق محترف ومعدات حديثة. اتصل الآن 0547161147
  * Do not add discounts or temporary promotions.
  */
 export function generateServiceCityDescription(
@@ -246,10 +246,10 @@ export function generateServiceCityDescription(
   const service = getCentralService(serviceId);
 
   if (lang === 'en') {
-    return `${BRAND_NAME_EN}, ${service.seoNameEn} ${city.inCityEn} by a professional team at competitive prices. Call now ${INTL_PHONE}`;
+    return `${BRAND_NAME_EN}, ${service.seoNameEn} ${city.inCityEn} by a professional team with modern equipment. Call now ${INTL_PHONE}`;
   }
 
-  return `مسك كلين، ${service.seoNameAr} ${city.inCityAr} بأيدي فريق محترف وأسعار مناسبة. اتصل الآن ${MAIN_PHONE}`;
+  return `مسك كلين، ${service.seoNameAr} ${city.inCityAr} بأيدي فريق محترف ومعدات حديثة. اتصل الآن ${MAIN_PHONE}`;
 }
 
 /**
@@ -280,7 +280,6 @@ export function getLocalBusinessSchema(activeCityId?: string) {
     telephone: INTL_PHONE,
     url: `${BASE_URL}/`,
     image: `${BASE_URL}/assets/mesk-clean-official-logo.png`,
-    priceRange: '$$',
     address: {
       '@type': 'PostalAddress',
       addressLocality: currentCity.nameAr,

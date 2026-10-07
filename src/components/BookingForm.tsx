@@ -74,7 +74,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
     address: '',
     date: '',
     preferredTime: 'صباحاً (8:00 ص - 12:00 م)',
-    targetWhatsApp: company.whatsapp || '966547161157',
+    targetWhatsApp: company.whatsapp || '966547161147',
     notes: '',
   });
 
@@ -241,7 +241,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
       address: cleanAddress,
       date: formData.date || 'أقرب موعد متاح',
       preferredTime: formData.preferredTime,
-      targetWhatsApp: company.whatsapp || '966547161157',
+      targetWhatsApp: company.whatsapp || '966547161147',
       notes: cleanNotes,
       status: 'new'
     };

@@ -13,7 +13,7 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
   const { language } = useLanguage();
   const { theme } = useTheme();
-  const { currentCity, currentCityId, navigateToCity } = useCityRoute();
+  const { currentCity, currentCityId, navigateToCity, isCityRoute } = useCityRoute();
 
   const isDark = theme === 'dark';
 
@@ -24,6 +24,20 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
     { id: 'khulais', path: '/khulais', nameAr: 'خليص', nameEn: 'Khulais' },
   ];
 
+  const mainHeadline = !isCityRoute
+    ? (language === 'ar' ? 'شركة مسك كلين لخدمات التنظيف الشاملة' : 'Mesk Clean Professional Cleaning Services')
+    : (language === 'ar' ? currentCity.heroHeadlineAr : currentCity.heroHeadlineEn);
+
+  const mainDesc = !isCityRoute
+    ? (language === 'ar'
+        ? 'خدمات تنظيف احترافية متكاملة للمنازل والفلل والمكاتب، عزل الخزانات، مكافحة الحشرات، غسيل المكيفات وتركيب شبك وطارد الحمام في جدة، مكة المكرمة، رابغ، وخليص.'
+        : 'Comprehensive professional cleaning, tank insulation, pest control, AC washing, and bird netting services across Jeddah, Makkah, Rabigh, and Khulais.')
+    : (language === 'ar' ? currentCity.heroDescAr : currentCity.heroDescEn);
+
+  const buttonOrderText = !isCityRoute
+    ? (language === 'ar' ? 'اطلب الخدمة الآن عبر الواتساب' : 'Order Service Now via WhatsApp')
+    : (language === 'ar' ? `اطلب خدمة في ${currentCity.nameAr} الآن` : `Order Service in ${currentCity.nameEn}`);
+
   return (
     <section
       id="home"
@@ -31,10 +45,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
         isDark ? 'bg-slate-950' : 'bg-slate-50'
       }`}
     >
-      {/* Background Image - Exact same worker image centered for both Light & Dark modes */}
+      {/* Background Image */}
       <img
         src="/assets/mesk-hero-light.webp"
-        alt={language === 'ar' ? `شركة تنظيف في ${currentCity.nameAr} - مسك كلين` : `Mesk Clean - Cleaning Company in ${currentCity.nameEn}`}
+        alt={language === 'ar' ? (!isCityRoute ? 'شركة مسك كلين لخدمات التنظيف بجدة ومكة ورابغ وخليص' : `شركة تنظيف في ${currentCity.nameAr} - مسك كلين`) : `Mesk Clean - Cleaning Company in ${currentCity.nameEn}`}
         className={`absolute inset-0 w-full h-full object-cover object-center pointer-events-none transition-all duration-500 ${
           isDark ? 'brightness-[0.45] contrast-[1.1] saturate-[0.85]' : 'brightness-100'
         }`}
@@ -43,20 +57,20 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
         decoding="async"
       />
 
-      {/* Balanced Overlays for optimal contrast and readability */}
+      {/* Balanced Overlays */}
       {isDark ? (
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/65 via-slate-950/40 to-slate-950/85 pointer-events-none transition-all duration-500"></div>
       ) : (
         <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/25 to-white/55 pointer-events-none transition-all duration-500"></div>
       )}
 
-      {/* Hero Content matching exact typography and structure with dynamic City Routing */}
+      {/* Hero Content */}
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 py-14 sm:py-20 flex flex-col items-center text-center">
         
         {/* City Route Selection Pills in Hero */}
         <div className="inline-flex items-center p-1.5 rounded-2xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-cyan-500/30 shadow-lg mb-6 gap-1 sm:gap-2">
           {cities.map((city) => {
-            const isActive = currentCityId === city.id;
+            const isActive = isCityRoute && currentCityId === city.id;
             return (
               <a
                 key={city.id}
@@ -78,7 +92,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           })}
         </div>
 
-        {/* Dynamic Main Headline (Line 1 tailored to the active city) */}
+        {/* Dynamic Main Headline */}
         <h1
           className={`text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-2 sm:mb-3 transition-colors duration-300 ${
             isDark
@@ -86,7 +100,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
               : 'text-slate-950 drop-shadow-[0_2px_8px_rgba(255,255,255,0.95)]'
           }`}
         >
-          {language === 'ar' ? currentCity.heroHeadlineAr : currentCity.heroHeadlineEn}
+          {mainHeadline}
         </h1>
 
         <div
@@ -99,7 +113,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           {language === 'ar' ? 'خدمة احترافية...' : 'Professional Service...'}
         </div>
 
-        {/* Highlighted Cyan Headline (Line 3) */}
+        {/* Highlighted Cyan Headline */}
         <div
           className={`text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-5 sm:mb-6 transition-colors duration-300 ${
             isDark
@@ -110,7 +124,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           {language === 'ar' ? 'لبيئة أنظف' : 'For a Cleaner Environment'}
         </div>
 
-        {/* Clean Description Text tailored to city */}
+        {/* Description Text */}
         <p
           className={`text-sm sm:text-base lg:text-lg font-bold leading-relaxed max-w-xl mx-auto mb-8 sm:mb-10 text-center transition-colors duration-300 ${
             isDark
@@ -118,12 +132,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
               : 'text-slate-900 drop-shadow-[0_1px_4px_rgba(255,255,255,0.9)]'
           }`}
         >
-          {language === 'ar' ? currentCity.heroDescAr : currentCity.heroDescEn}
+          {mainDesc}
         </p>
 
-        {/* Action Buttons Stack matching screenshot */}
+        {/* Action Buttons Stack */}
         <div className="w-full max-w-md mx-auto space-y-3.5 sm:space-y-4">
-          {/* Button 1: Solid Cyan Button with WhatsApp icon & subtle pulse effect */}
           <a
             id="hero-order-whatsapp"
             href={COMPANY_INFO.phone1.waUrl}
@@ -131,11 +144,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
             rel="noreferrer"
             className="w-full py-3.5 sm:py-4 px-6 rounded-2xl font-bold text-base sm:text-lg text-white bg-[#00a8cc] hover:bg-[#0095b6] active:scale-[0.98] transition-all flex items-center justify-center gap-3 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 cursor-pointer animate-[pulse_3s_cubic-bezier(0.4,0,0.6,1)_infinite] hover:animate-none hover:scale-[1.02]"
           >
-            <span>{language === 'ar' ? `اطلب خدمة في ${currentCity.nameAr} الآن` : `Order Service in ${currentCity.nameEn}`}</span>
+            <span>{buttonOrderText}</span>
             <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
           </a>
 
-          {/* Button 2: Contact Button (Dark card with cyan border in night mode, White with cyan border & dark text in day mode) */}
           <a
             id="hero-contact-phone"
             href={COMPANY_INFO.phone1.tel}

@@ -213,7 +213,7 @@ export function injectServiceMetaIntoHtml(html: string, meta: ServicePageMetadat
           'provider': {
             '@type': 'LocalBusiness',
             'name': BRAND_NAME_AR,
-            'telephone': '0547161157',
+            'telephone': INTL_PHONE,
             'url': `${BASE_URL}/`,
             'image': `${BASE_URL}/assets/mesk-clean-official-logo.png`,
             'areaServed': citySchema
@@ -230,7 +230,7 @@ export function injectServiceMetaIntoHtml(html: string, meta: ServicePageMetadat
           'provider': {
             '@type': 'LocalBusiness',
             'name': BRAND_NAME_AR,
-            'telephone': '0547161157',
+            'telephone': INTL_PHONE,
             'url': `${BASE_URL}/`,
             'image': `${BASE_URL}/assets/mesk-clean-official-logo.png`,
             'areaServed': citySchema
@@ -300,7 +300,7 @@ export function injectServiceMetaIntoHtml(html: string, meta: ServicePageMetadat
           'provider': {
             '@type': 'LocalBusiness',
             'name': BRAND_NAME_AR,
-            'telephone': '0547161157',
+            'telephone': INTL_PHONE,
             'url': `${BASE_URL}/`,
             'image': `${BASE_URL}/assets/mesk-clean-official-logo.png`,
             'areaServed': citySchema
@@ -366,7 +366,6 @@ export function injectServiceMetaIntoHtml(html: string, meta: ServicePageMetadat
             'telephone': INTL_PHONE,
             'url': `${BASE_URL}/`,
             'image': `${BASE_URL}/assets/mesk-clean-official-logo.png`,
-            'priceRange': '$$',
             'areaServed': CENTRAL_CITIES.map((c) => ({
               '@type': 'City',
               'name': c.nameAr,

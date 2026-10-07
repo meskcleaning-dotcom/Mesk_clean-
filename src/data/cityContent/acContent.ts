@@ -202,9 +202,9 @@ export const AC_SERVICES_MAP: Partial<Record<CityId, CityServicePageData>> = {
         answerEn: 'Yes, we carry genuine American R410A and R22 refrigerants, topping up systems to exact factory pressure standards.'
       },
       {
-        question: 'هل يشمل السعر غسيل الوحدة الخارجية المعلقة بالخارج؟',
+        question: 'هل يشمل العمل غسيل الوحدة الخارجية المعلقة بالخارج؟',
         questionEn: 'Does the service include washing the outdoor compressor unit?',
-        answer: 'نعم، يشمل العرض غسيل الوحدة الداخلية والوحدة الخارجية بالضغط العالي لإزالة الأتربة ورذاذ الملح البحري.',
+        answer: 'نعم، تشمل الخدمة غسيل الوحدة الداخلية والوحدة الخارجية بالضغط العالي لإزالة الأتربة ورذاذ الملح البحري.',
         answerEn: 'Yes, our comprehensive service covers high-pressure washing for both indoor and accessible outdoor units.'
       }
     ]
@@ -403,10 +403,10 @@ export const AC_SERVICES_MAP: Partial<Record<CityId, CityServicePageData>> = {
         answerEn: 'Yes, we flush condensate drain pans and tubes under pressure, clearing blockages that cause indoor water overflow.'
       },
       {
-        question: 'هل تقدمون أسعاراً مخفضة لغسيل أعداد كبيرة من المكيفات بمكة؟',
-        questionEn: 'Do you offer discounted rates for multi-unit AC cleaning in Makkah?',
-        answer: 'نعم، نوفر باقات خصم تصاعدية مميزة للفلل الكبيرة والمباني السكنية والفنادق تبدأ من 3 مكيفات فأكثر.',
-        answerEn: 'Yes, we provide tiered corporate and residential discount packages starting from 3 units and above.'
+        question: 'هل تقدمون خططاً مخصصة لغسيل أعداد كبيرة من المكيفات بمكة؟',
+        questionEn: 'Do you offer custom plans for multi-unit AC cleaning in Makkah?',
+        answer: 'نعم، نوفر ترتيبات مخصصة للفلل الكبيرة والمباني السكنية والفنادق عند طلب غسيل 3 مكيفات فأكثر.',
+        answerEn: 'Yes, we provide tailored corporate and residential service arrangements starting from 3 units and above.'
       },
       {
         question: 'هل تتوفر لديكم خدمة تعبئة غاز الفريون الأمريكي الأصلي؟',

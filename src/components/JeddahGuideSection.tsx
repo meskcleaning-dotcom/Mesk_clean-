@@ -131,7 +131,7 @@ export const JeddahGuideSection: React.FC = () => {
               <strong className="font-bold text-slate-900 dark:text-white">التواصل:</strong> سرعة الرد ووضوح الإجابات منذ أول اتصال يدلان على أسلوب العمل لاحقًا.
             </li>
             <li>
-              <strong className="font-bold text-slate-900 dark:text-white">السعر المعقول:</strong> احذر من الأسعار المنخفضة جدًا التي قد تخفي نتيجة ضعيفة، وقارن عروض أكثر من شركة.
+              <strong className="font-bold text-slate-900 dark:text-white">الوضوح والمصداقية:</strong> التأكد من جودة المواد المعتمدة وخبرة الكوادر الفنية قبل بدء الخدمة.
             </li>
           </ol>
           <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-normal pt-1">
@@ -142,10 +142,10 @@ export const JeddahGuideSection: React.FC = () => {
         {/* Section 8 */}
         <div className="space-y-4 pt-2">
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 dark:text-white leading-snug">
-            ما الذي يحدد سعر خدمة التنظيف؟
+            ما الذي يحدد نطاق ومتطلبات خدمة التنظيف؟
           </h2>
           <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-normal">
-            لا يوجد سعر ثابت يناسب كل المنازل، لأن التكلفة تتأثر بعدة عوامل:
+            تختلف خطة التنظيف المتبعة باختلاف احتياجات كل منزل، وتتأثر بعدة عوامل:
           </p>
           <ul className="space-y-2.5 list-disc list-inside text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed pr-2">
             <li>مساحة المنزل أو الشقة وعدد الغرف والحمامات.</li>
@@ -154,7 +154,7 @@ export const JeddahGuideSection: React.FC = () => {
             <li>الخدمات الإضافية كتنظيف الكنب والسجاد.</li>
           </ul>
           <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-normal pt-1">
-            للحصول على تسعيرة دقيقة، أخبرنا بمساحة المكان وحالته وسنوضح لك التكلفة قبل البدء.
+            لتنسيق تفاصيل الخدمة بدقة، أخبرنا بمساحة المكان وحالته وسنوضح لك كافة الترتيبات قبل البدء.
           </p>
         </div>
 
@@ -168,7 +168,7 @@ export const JeddahGuideSection: React.FC = () => {
               <strong className="font-bold text-slate-900 dark:text-white">الحجز:</strong> عبر الموقع أو بالاتصال، مع تحديد الحي والموعد المناسب.
             </li>
             <li>
-              <strong className="font-bold text-slate-900 dark:text-white">الاتفاق:</strong> نحدد معك نطاق العمل والتكلفة قبل البدء.
+              <strong className="font-bold text-slate-900 dark:text-white">الاتفاق:</strong> نحدد معك نطاق العمل وتفاصيل الزيارة بالكامل قبل البدء.
             </li>
             <li>
               <strong className="font-bold text-slate-900 dark:text-white">التنفيذ:</strong> يصل الفريق بأدواته ومواده ويعمل حسب الاتفاق.

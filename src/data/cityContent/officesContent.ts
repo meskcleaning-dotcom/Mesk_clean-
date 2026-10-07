@@ -204,7 +204,7 @@ export const OFFICES_SERVICES_MAP: Partial<Record<CityId, CityServicePageData>> 
       {
         question: 'هل توفرون عمالة نظافة مقيمة بعقود شهرية وسنوية للمقرات الكبرى؟',
         questionEn: 'Do you provide full-time stationed janitorial staff for large facilities?',
-        answer: 'نعم، نوفر كوادر نظافة وضيافة مدربة بدوام كامل تحت إشراف مباشر منا، مع توفير كافة المعدات ومواد التنظيف الاستهلاكية بأسعار تنافسية.',
+        answer: 'نعم، نوفر كوادر نظافة وضيافة مدربة بدوام كامل تحت إشراف مباشر منا، مع توفير كافة المعدات ومواد التنظيف الاستهلاكية بأعلى معايير الجودة.',
         answerEn: 'Yes, we supply full-time professional janitorial and hospitality staff with on-site supervision, inclusive of all machinery and consumables.'
       }
     ]

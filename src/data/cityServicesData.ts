@@ -210,9 +210,9 @@ export const getCityServiceData = (serviceId: string, cityId: CityId): CityServi
       ],
       faqsAr: [
         { q: `كم يستغرق تنظيف الشقة أو المنزل بالكامل ${city.titleSuffixAr}؟`, a: `تستغرق الشقة المتوسطة من 3 إلى 5 ساعات بفريق فني متكامل يضم 3 إلى 5 عمال مجهزين بكامل الماكينات.` },
-        { q: `هل توفرون أدوات ومواد التنظيف أم يحتاج العميل لتأمينها؟`, a: `نوفر كافة المعدات والماكينات الصناعية والمكانس والمنظفات والمعقمات المعتمدة دون أي تكلفة إضافية.` },
+        { q: `هل توفرون أدوات ومواد التنظيف أم يحتاج العميل لتأمينها؟`, a: `نوفر كافة المعدات والماكينات الصناعية والمكانس والمنظفات والمعقمات المعتمدة بالكامل ضمن تجهيزات فريقنا.` },
         { q: `هل يمكن حجز موعد لنفس اليوم أو في الفترة المسائية؟`, a: `نعم، نوفر مواعيد فورية في نفس اليوم وفترات عمل مسائية لتناسب أوقات راحتكم وجداولكم.` },
-        { q: `هل تقدمون عروضاً دورية للتنظيف الشهري أو الأسبوعي؟`, a: `نعم، نقدم باقات اشتراك دورية مخفضة وعقود زيارات منتظمة تضمن بقاء منزلك نقياً طوال العام.` }
+        { q: `هل تقدمون اشتراكات دورية للتنظيف الشهري أو الأسبوعي؟`, a: `نعم، نقدم خطط اشتراك دورية مرنة وعقود زيارات منتظمة تضمن بقاء منزلك نقياً طوال العام.` }
       ],
       faqsEn: [
         { q: `How long does full home cleaning take ${city.titleSuffixEn}?`, a: `A standard apartment takes 3 to 5 hours with a dedicated crew of 3 to 5 technicians fully equipped with machinery.` },
@@ -365,7 +365,7 @@ export const getCityServiceData = (serviceId: string, cityId: CityId): CityServi
       featuresAr: [
         'كوادر عمل مدربة بزي موحد مع الالتزام التام بسرية الوثائق والمقتنيات المكتبية.',
         'فواتير ضريبية إلكترونية معتمدة مناسبة للشركات والجهات الحكومية والخاصة.',
-        'عقود دورية مرنة (يومية - أسبوعية - شهرية - سنوية) بأسعار تفضيلية.',
+        'عقود دورية مرنة (يومية - أسبوعية - شهرية - سنوية) تناسب مختلف المنشآت.',
         'استخدام مواد تنظيف صديقة للبيئة خالية من الروائح المزعجة للموظفين.'
       ],
       featuresEn: [
@@ -810,15 +810,15 @@ export const getCityServiceData = (serviceId: string, cityId: CityId): CityServi
     cityId,
     slug: serviceId,
     canonicalPath: `/${cityId}/services/${serviceId}`,
-    metaTitle: `${sCfg.nameAr} ${city.titleSuffixAr} | مسك كلين - أفضل ${sCfg.coreKeywordAr}`,
-    metaTitleEn: `${sCfg.nameEn} ${city.titleSuffixEn} | Mesk Clean Professional Services`,
+    metaTitle: `${sCfg.nameAr} ${city.titleSuffixAr} | 0547161147 | مسك كلين`,
+    metaTitleEn: `${sCfg.nameEn} ${city.titleSuffixEn} | +966547161147 | Mesk Clean`,
     metaDescription: `أفضل ${sCfg.coreKeywordAr} معتمدة تقدم ${sCfg.actionVerbAr} في كافة أحياء ${city.nameAr} بأحدث المعدات وضمان رسمي على الجودة.`,
     metaDescriptionEn: `Premier ${sCfg.nameEn} in ${city.nameEn} by Mesk Clean. Expert solutions covering all districts with modern equipment and certified quality guarantees.`,
     keywords: [
       sCfg.coreKeywordAr,
       `${sCfg.nameAr} ${city.titleSuffixAr}`,
       `أفضل ${sCfg.coreKeywordAr}`,
-      `أسعار ${sCfg.nameAr} ${city.titleSuffixAr}`,
+      `خدمة ${sCfg.nameAr} ${city.titleSuffixAr}`,
       `${sCfg.nameAr} أحياء ${city.nameAr}`
     ],
     heroBadge: `خدمة معتمدة بـ${city.nameAr}`,

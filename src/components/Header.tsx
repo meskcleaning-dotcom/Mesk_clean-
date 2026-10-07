@@ -13,7 +13,7 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
   const { theme, toggleTheme } = useTheme();
   const { language, toggleLanguage, t } = useLanguage();
-  const { currentCityId, navigateToCity, currentServiceId } = useCityRoute();
+  const { currentCityId, navigateToCity, navigateToHome, currentServiceId, isCityRoute } = useCityRoute();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -66,10 +66,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Desktop Layout (hidden on mobile) */}
         <div className="hidden lg:flex items-center justify-between h-20">
-          {/* Logo on Right (in RTL) */}
+          {/* Logo on Right (in RTL) - links to root homepage */}
           <a
-            href={`/${currentCityId}`}
-            onClick={(e) => handleCityClick(e, currentCityId)}
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              navigateToHome();
+            }}
             id="brand-logo-link"
             className="flex items-center group focus:outline-none py-1"
             aria-label="مسك كلين - الصفحة الرئيسية"
@@ -102,7 +105,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
           {/* City Routes Selector */}
           <div className="hidden xl:flex items-center bg-slate-100 dark:bg-[#041a33] p-1 rounded-xl border border-slate-200 dark:border-cyan-900/50">
             {cityOptions.map((c) => {
-              const isActive = currentCityId === c.id;
+              const isActive = isCityRoute && currentCityId === c.id;
               return (
                 <a
                   key={c.id}
@@ -167,8 +170,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
         <div className="flex lg:hidden items-center justify-between h-20">
           {/* Logo on the Right (in RTL) */}
           <a
-            href={`/${currentCityId}`}
-            onClick={(e) => handleCityClick(e, currentCityId)}
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              navigateToHome();
+            }}
             id="brand-logo-link-mobile"
             className="flex items-center py-1"
             aria-label="مسك كلين - الصفحة الرئيسية"
@@ -239,7 +245,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
             </span>
             <div className="grid grid-cols-3 gap-1.5">
               {cityOptions.map((c) => {
-                const isActive = currentCityId === c.id;
+                const isActive = isCityRoute && currentCityId === c.id;
                 return (
                   <a
                     key={c.id}
