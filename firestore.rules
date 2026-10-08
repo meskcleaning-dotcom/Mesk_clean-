@@ -8,10 +8,46 @@ service cloud.firestore {
 
     // Orders: Anyone can create a new booking order, authorized admin (meskcleaning@gmail.com) can read/update/delete
     match /orders/{orderId} {
-      allow create: if request.resource.data.fullName is string
+      allow create: if request.resource.data.keys().hasOnly([
+                        'id', 'createdAt', 'fullName', 'phone',
+                        'serviceId', 'serviceName', 'customerType', 'propertyType',
+                        'city', 'district', 'address', 'date',
+                        'preferredTime', 'targetWhatsApp', 'notes', 'status'
+                      ])
+                    && request.resource.data.id == orderId
+                    && request.resource.data.status == 'new'
+                    && request.resource.data.fullName is string
                     && request.resource.data.fullName.size() > 0
+                    && request.resource.data.fullName.size() <= 80
                     && request.resource.data.phone is string
-                    && request.resource.data.phone.size() > 0;
+                    && request.resource.data.phone.size() > 0
+                    && request.resource.data.phone.size() <= 15
+                    && request.resource.data.address is string
+                    && request.resource.data.address.size() <= 150
+                    && request.resource.data.notes is string
+                    && request.resource.data.notes.size() <= 300
+                    && request.resource.data.id is string
+                    && request.resource.data.id.size() <= 30
+                    && request.resource.data.createdAt is string
+                    && request.resource.data.createdAt.size() <= 40
+                    && request.resource.data.serviceId is string
+                    && request.resource.data.serviceId.size() <= 60
+                    && request.resource.data.serviceName is string
+                    && request.resource.data.serviceName.size() <= 120
+                    && request.resource.data.customerType is string
+                    && request.resource.data.customerType.size() <= 60
+                    && request.resource.data.propertyType is string
+                    && request.resource.data.propertyType.size() <= 60
+                    && request.resource.data.city is string
+                    && request.resource.data.city.size() <= 60
+                    && request.resource.data.district is string
+                    && request.resource.data.district.size() <= 60
+                    && request.resource.data.date is string
+                    && request.resource.data.date.size() <= 60
+                    && request.resource.data.preferredTime is string
+                    && request.resource.data.preferredTime.size() <= 60
+                    && request.resource.data.targetWhatsApp is string
+                    && request.resource.data.targetWhatsApp.size() <= 20;
       allow read, update, delete: if isAuthorizedAdmin();
     }
 
