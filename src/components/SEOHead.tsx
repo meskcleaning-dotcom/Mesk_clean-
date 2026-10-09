@@ -4,6 +4,7 @@ import { useCityRoute } from '../context/CityRouteContext';
 import { COMPANY_INFO } from '../data/companyInfo';
 import { getStoredFAQs, getStoredServices } from '../data/store';
 import { BRAND_NAME_AR, BRAND_ALT_NAME_AR, INTL_PHONE, CENTRAL_CITIES } from '../data/centralDirectory';
+import { trackPageView } from '../utils/analytics';
 
 interface SEOHeadProps {
   customTitle?: string;
@@ -65,6 +66,9 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       document.head.appendChild(canonicalLink);
     }
     canonicalLink.setAttribute('href', canonicalUrl);
+
+    // Track SPA Page View in GA4
+    trackPageView(window.location.pathname || '/', baseTitle);
 
     // 4. OpenGraph and Twitter tags
     const setMeta = (attr: string, key: string, content: string) => {
