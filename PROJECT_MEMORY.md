@@ -80,8 +80,9 @@
   - مُحدث بتاريخ `2026-10-09` وتردد أسبوعي `weekly` وأولويات مدروسة (`1.0` للرئيسية، `0.9` للمدن، `0.8` للخدمات).
 * **ملف الروبوت (`/public/robots.txt`):**
   - يسمح بكافة عناكب البحث (`Allow: /`).
-  - يحجب صفحات الإدارة (`Disallow: /admin` و `Disallow: /*#admin`).
+  - يحجب صفحات الإدارة فقط (`Disallow: /admin`).
   - يشير بوضوح لرابط الخريطة: `Sitemap: https://www.meskclean.com/sitemap.xml`.
+  - ملاحظة هامة: تم إزالة `Disallow: /*#admin` لأن رمز `#` في ملفات robots.txt يُعتبر بداية تعليق (Comment)، مما جعل روبوت جوجل يقرأ السطر كـ `Disallow: /*` ويحظر كامل الموقع بالخطأ. تم تصحيحه الآن بشكل جذري.
 * **أكواد التحقق من ملكية النطاق في Google Search Console:**
   - الكود 1: `<meta name="google-site-verification" content="XPWZO6I_QLNWM9PNjy-vxajPCfPPwkWajenbIykETZk" />`
   - الكود 2: `<meta name="google-site-verification" content="H3TCGIvi2WaLLnoJHAIkDSPYFzmhAbfS3YfxZiuobdg" />`
