@@ -23,6 +23,7 @@ import { useCityRoute } from '../context/CityRouteContext';
 import { getStoredServices, saveStoredOrder, getStoredCompanySettings } from '../data/store';
 import { trackBookingSubmit, trackWhatsAppClick } from '../utils/analytics';
 import { CITIES_DATA } from '../data/citiesDistricts';
+import { COMPANY_INFO } from '../data/companyInfo';
 import { BookingFormData, BookingRequestRecord, CustomerType } from '../types';
 import {
   generateMathChallenge,
@@ -74,7 +75,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
     address: '',
     date: '',
     preferredTime: 'صباحاً (8:00 ص - 12:00 م)',
-    targetWhatsApp: company.whatsapp || '966547161147',
+    targetWhatsApp: company.whatsapp || COMPANY_INFO.phone1.waNumber,
     notes: '',
   });
 
@@ -241,7 +242,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
       address: cleanAddress,
       date: formData.date || 'أقرب موعد متاح',
       preferredTime: formData.preferredTime,
-      targetWhatsApp: company.whatsapp || '966547161147',
+      targetWhatsApp: company.whatsapp || COMPANY_INFO.phone1.waNumber,
       notes: cleanNotes,
       status: 'new'
     };

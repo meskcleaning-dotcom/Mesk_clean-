@@ -183,60 +183,7 @@ export const INITIAL_FAQS: FAQItem[] = [
 ];
 
 // Initial Testimonials
-export const INITIAL_TESTIMONIALS: TestimonialItem[] = [
-  {
-    id: 'test-1',
-    name: 'المهندس عادل الغامدي',
-    nameEn: 'Eng. Adel Al-Ghamdi',
-    customerType: 'individual',
-    rating: 5,
-    service: 'تنظيف فلل وتركيب طارد الحمام',
-    serviceEn: 'Villa Cleaning & Bird Spikes',
-    comment: 'خدمة راقية جداً والتزام تام بالوقت. تم تركيب أشواك طارد الحمام على الشبابيك والمكيفات باحترافية عالية وانتهت مشكلة الطيور تماماً، وتنظيف الفلة كان مبهراً.',
-    commentEn: 'Outstanding service and punctual arrival. The stainless steel bird spikes on windows and AC units completely solved the bird issue, and the villa cleaning was immaculate.',
-    date: 'منذ يومين',
-    district: 'حي الشاطئ'
-  },
-  {
-    id: 'test-2',
-    name: 'الأستاذة سارة الحربي',
-    nameEn: 'Sarah Al-Harbi',
-    customerType: 'individual',
-    rating: 5,
-    service: 'تنظيف الكنب والمجالس بالبخار',
-    serviceEn: 'Steam Sofa & Majlis Cleaning',
-    comment: 'فريق عمل محترم وأجهزة بخار حديثة جداً. الكنب رجع كأنه جديد واختفت بقع القهوة والعصير بالكامل مع رائحة تعقيم جميلة.',
-    commentEn: 'Courteous crew and state-of-the-art steam equipment. Our sofa looks brand new and all stubborn stains were removed completely.',
-    date: 'منذ أسبوع',
-    district: 'حي الروضة'
-  },
-  {
-    id: 'test-3',
-    name: 'شركة الأفق للتطوير والاستثمار',
-    nameEn: 'Al-Ofuq Development Co.',
-    customerType: 'corporate',
-    rating: 5,
-    service: 'تنظيف المكاتب والواجهات',
-    serviceEn: 'Corporate Office Cleaning',
-    comment: 'تعاملنا مع مسك كلين في تنظيف مقر شركتنا بجدة. دقة وسرعة وجودة لا غبار عليها وفريق عمل منظم، ونعتمد عليهم في عقودنا الدورية.',
-    commentEn: 'We partnered with Mesk Clean for our Jeddah corporate headquarters. Exceptional quality, organized workforce, and reliable recurring service.',
-    date: 'منذ أسبوعين',
-    district: 'حي الزهراء'
-  },
-  {
-    id: 'test-4',
-    name: 'الدكتور طارق الشهري',
-    nameEn: 'Dr. Tariq Al-Shehri',
-    customerType: 'individual',
-    rating: 5,
-    service: 'غسيل مكيفات وتنظيف خزانات',
-    serviceEn: 'AC Wash & Tank Sterilization',
-    comment: 'غسيل المكيفات كان باحترافية بدون نقطة ماء على الجدران، وتنظيف الخزان الأرضي والعلوي تم بشفافية وصوروا لي مراحل التنظيف قبل وبعد.',
-    commentEn: 'AC cleaning was flawless with complete wall protection. Water tank sterilization was verified with transparent before-and-after photos.',
-    date: 'منذ 3 أسابيع',
-    district: 'حي المرجان'
-  }
-];
+export const INITIAL_TESTIMONIALS: TestimonialItem[] = [];
 
 // Initial Company Settings
 export const INITIAL_COMPANY_SETTINGS: CompanySettings = {

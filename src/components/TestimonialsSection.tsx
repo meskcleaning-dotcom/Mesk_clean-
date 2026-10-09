@@ -26,6 +26,10 @@ export const TestimonialsSection: React.FC = () => {
     return () => window.removeEventListener('mesk_store_updated', handleUpdate);
   }, []);
 
+  if (!testimonials || testimonials.length === 0) {
+    return null;
+  }
+
   return (
     <section id="testimonials" className="py-16 sm:py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

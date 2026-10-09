@@ -3,7 +3,9 @@ service cloud.firestore {
   match /databases/{database}/documents {
     // Helper function to check if user is the authorized admin email
     function isAuthorizedAdmin() {
-      return request.auth != null && request.auth.token.email == "meskcleaning@gmail.com";
+      return request.auth != null
+             && request.auth.token.email == "meskcleaning@gmail.com"
+             && request.auth.token.email_verified == true;
     }
 
     // Orders: Anyone can create a new booking order, authorized admin (meskcleaning@gmail.com) can read/update/delete

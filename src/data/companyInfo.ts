@@ -13,10 +13,10 @@ export const COMPANY_INFO = {
     waUrl: 'https://wa.me/966547161147'
   },
   phone2: {
-    display: '0547161147',
-    tel: 'tel:+966547161147',
-    waNumber: '966547161147',
-    waUrl: 'https://wa.me/966547161147'
+    display: '0510649490',
+    tel: 'tel:+966510649490',
+    waNumber: '966510649490',
+    waUrl: 'https://wa.me/966510649490'
   },
   social: {
     instagram: 'https://www.instagram.com/mesk_cleaning_services_ksa/',
