@@ -709,14 +709,14 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                         : language === 'ar' && birdData
                         ? 'خامات متينة ومقاومة للعوامل الجوية'
                         : language === 'ar' && sofasData
-                        ? 'أجهزة بخار وتقنيات استخلاص إيطالية'
+                        ? 'أجهزة بخار وتقنيات استخلاص حراري متطورة'
                         : language === 'ar' && carpetData
                         ? 'ماكينات غسيل واستخلاص عميق متطورة'
                         : language === 'ar' && rodentsData
                         ? 'محطات طعوم ومصائد آمنة ومقفلة'
                         : language === 'ar' && acData
                         ? 'تنظيف الفلاتر والملفات وإزالة الأوساخ'
-                        : (language === 'ar' && pestData ? 'مبيدات آمنة ومصرحة من الغذاء والدواء' : (language === 'ar' ? 'أحدث المعدات والتقنيات' : 'Advanced Equipment'))}
+                        : (language === 'ar' && pestData ? 'مبيدات آمنة عديمة الرائحة' : (language === 'ar' ? 'أحدث المعدات والتقنيات' : 'Advanced Equipment'))}
                     </span>
                   </span>
                 </div>
@@ -840,7 +840,7 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                     </p>
                     <div className="pt-2 flex flex-wrap gap-2 text-xs font-semibold text-cyan-600 dark:text-cyan-400">
                       <span className="px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20">معاينة فنية شاملة</span>
-                      <span className="px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20">مبيدات ألمانية بدون رائحة</span>
+                      <span className="px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20">مبيدات آمنة بدون رائحة</span>
                       <span className="px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20">حقن ورش موضعي بدون مغادرة</span>
                       <span className="px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20">كرت ضمان معتمد 6 شهور</span>
                     </div>

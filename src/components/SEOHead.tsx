@@ -54,6 +54,18 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
     }
     metaDesc.setAttribute('content', baseDesc);
 
+    // Meta Keywords for Local SEO and Google Search targeting
+    let metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (!metaKeywords) {
+      metaKeywords = document.createElement('meta');
+      metaKeywords.setAttribute('name', 'keywords');
+      document.head.appendChild(metaKeywords);
+    }
+    const localKeywords = isCityRoute
+      ? `شركة تنظيف في ${currentCity.nameAr}, تنظيف منازل في ${currentCity.nameAr}, تنظيف فلل في ${currentCity.nameAr}, غسيل خزانات في ${currentCity.nameAr}, عزل خزانات في ${currentCity.nameAr}, مكافحة حشرات في ${currentCity.nameAr}, تنظيف كنب بالبخار في ${currentCity.nameAr}, مسك كلين, ${currentCity.districtsAr.slice(0, 10).join(', ')}`
+      : 'شركة تنظيف بجدة, شركة تنظيف بمكة, شركة تنظيف برابغ, شركة تنظيف بخليص, غسيل خزانات بجدة, تنظيف منازل بالحمدانية, شركة تنظيف بابحر الشمالية, مكافحة حشرات بجدة, تنظيف كنب بالبخار, مسك كلين';
+    metaKeywords.setAttribute('content', localKeywords);
+
     // 3. Dynamic Canonical Link (Homepage = https://www.meskclean.com/, City = https://www.meskclean.com/[city])
     const canonicalUrl = isCityRoute 
       ? `https://www.meskclean.com/${currentCity.slug}`
@@ -115,12 +127,24 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       'description': baseDesc,
       'telephone': INTL_PHONE,
       'areaServed': isCityRoute
-        ? [{ '@type': 'City', 'name': currentCity.nameAr, 'alternateName': currentCity.nameEn }]
-        : CENTRAL_CITIES.map((c) => ({
-            '@type': 'City',
-            'name': c.nameAr,
-            'alternateName': c.nameEn
-          })),
+        ? [
+            { '@type': 'City', 'name': currentCity.nameAr, 'alternateName': currentCity.nameEn },
+            ...currentCity.districtsAr.slice(0, 20).map((d) => ({
+              '@type': 'AdministrativeArea',
+              'name': `${d} - ${currentCity.nameAr}`
+            }))
+          ]
+        : [
+            ...CENTRAL_CITIES.map((c) => ({
+              '@type': 'City',
+              'name': c.nameAr,
+              'alternateName': c.nameEn
+            })),
+            { '@type': 'AdministrativeArea', 'name': 'أحياء شمال ووسط وجنوب جدة' },
+            { '@type': 'AdministrativeArea', 'name': 'أحياء مكة المكرمة' },
+            { '@type': 'AdministrativeArea', 'name': 'أحياء ومراكز رابغ' },
+            { '@type': 'AdministrativeArea', 'name': 'أحياء ومراكز خليص' }
+          ],
       'address': {
         '@type': 'PostalAddress',
         'streetAddress': `${currentCity.nameAr} - كافة الأحياء والمناطق`,
