@@ -1,6 +1,7 @@
 import { CityId } from '../context/CityRouteContext';
 import { TANKS_CITIES_CONTENT } from '../data/tanksCleaningCitiesContent';
 import { HOME_CLEANING_CITIES_CONTENT } from '../data/homeCleaningCitiesContent';
+import { PEST_CITIES_CONTENT } from '../data/pestControlCitiesContent';
 import {
   CENTRAL_CITIES,
   CENTRAL_SERVICES,
@@ -59,6 +60,21 @@ export function getServicePageMetadata(cityId: CityId, serviceId: string): Servi
       ogTitle: home.metaTitle,
       ogDescription: home.metaDescription,
       ogUrl: home.canonicalPath
+    };
+  }
+
+  if ((serviceId === 'pest' || serviceId === 'pest-control') && PEST_CITIES_CONTENT[cityId]) {
+    const pest = PEST_CITIES_CONTENT[cityId];
+    return {
+      cityId,
+      serviceId,
+      urlPath: `/${cityId}/services/${serviceId}`,
+      canonical: pest.canonicalPath,
+      title: pest.metaTitle,
+      description: pest.metaDescription,
+      ogTitle: pest.metaTitle,
+      ogDescription: pest.metaDescription,
+      ogUrl: pest.canonicalPath
     };
   }
 

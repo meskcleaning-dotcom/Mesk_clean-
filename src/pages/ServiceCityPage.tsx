@@ -126,11 +126,15 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
       ? tankData.metaTitle
       : (isHomeCleaning && homeData && language === 'ar')
       ? homeData.metaTitle
+      : (isPestControl && pestData && language === 'ar')
+      ? pestData.metaTitle
       : generateServiceCityTitle(serviceId, currentCityId, language === 'ar' ? 'ar' : 'en');
     const pageDesc = (isTanks && tankData && language === 'ar')
       ? tankData.metaDescription
       : (isHomeCleaning && homeData && language === 'ar')
       ? homeData.metaDescription
+      : (isPestControl && pestData && language === 'ar')
+      ? pestData.metaDescription
       : generateServiceCityDescription(serviceId, currentCityId, language === 'ar' ? 'ar' : 'en');
 
     document.title = pageTitle;
