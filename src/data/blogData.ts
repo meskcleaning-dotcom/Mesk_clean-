@@ -180,7 +180,7 @@ export const BLOG_DATA: BlogPost[] = [
     slug: 'makkah-cleaning-and-tank-insulation',
     title: 'خدمات تنظيف الفلل وعزل الخزانات بمكة المكرمة',
     titleEn: 'Comprehensive Villa Cleaning & Water Tank Insulation in Makkah',
-    excerpt: 'دليل متكامل لسكان مكة المكرمة لاختيار خدمات تنظيف المنازل، تطهير الخزانات، ومكافحة الحشرات والقوارض مع الضمان.',
+    excerpt: 'دليل متكامل لسكان مكة المكرمة لاختيار خدمات تنظيف المنازل، تطهير الخزانات، ومكافحة الحشرات والقوارض.',
     excerptEn: 'Complete guide for Makkah residents on villa deep cleaning, reservoir sanitization, and certified pest control.',
     intro: 'تشهد مكة المكرمة طلباً متزايداً على خدمات تنظيف الفلل والشقق والخزانات الأرضية والعلوية. تقدم شركة مسك كلين حلولاً متكاملة تشمل جلي الرخام، تنظيف الواجهات، وتطهير وتعقيم مياه الخزانات بأحدث المواد المعتمدة صحياً.',
     introEn: 'Makkah properties require rigorous cleaning and hygienic water tank maintenance. Mesk Clean delivers complete villa sanitation, tile polishing, and certified reservoir coatings across all Makkah districts.',
@@ -221,9 +221,9 @@ export const BLOG_DATA: BlogPost[] = [
     readTimeEn: '3 min read',
     sections: [
       {
-        title: 'مكافحة القوارض والزواحف مع الضمان برابغ',
+        title: 'مكافحة القوارض والزواحف برابغ',
         titleEn: 'Certified Rodent & Pest Control in Rabigh',
-        body: 'نوفر أحدث الطعوم والمصائد الآمنة والمبيدات الصديقة للبيئة لمكافحة الفئران والحشرات في المنازل والاستراحات والمستودعات مع سد الشقوق والمتابعة الدورية بضمان معتمد.',
+        body: 'نوفر أحدث الطعوم والمصائد الآمنة والمبيدات الصديقة للبيئة لمكافحة الفئران والحشرات في المنازل والاستراحات والمستودعات مع سد الشقوق والمتابعة الدورية.',
         bodyEn: 'We deploy eco-safe bait stations and mechanical traps to eradicate rodents and pests in homes and warehouses across Rabigh and surrounding sectors.'
       },
       {

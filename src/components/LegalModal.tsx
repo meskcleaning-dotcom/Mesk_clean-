@@ -48,12 +48,12 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
             body: 'يتم تأكيد الموعد النهائي للخدمة بعد التنسيق المباشر بين منسق خدمة العملاء والعميل بناءً على التوقيت المفضل والموقع المطلوب.',
           },
           {
-            title: '٢. ضمان جودة الخدمة',
+            title: '٢. معايير جودة الخدمة',
             body: 'تلتزم شركة مسك كلين بتقديم أعلى معايير النظافة واستخدام مواد معتمدة وآمنة. في حال وجود أي ملاحظة يحق للعميل إبلاغ المشرف فوراً لإعادة المعالجة.',
           },
           {
             title: '٣. تركيب شبك وطوارد الحمام',
-            body: 'نقدم ضماناً معتمداً على جودة وثبات أشواك الستانلس ستيل والشبك المقاوم للعوامل الجوية وأشعة الشمس والحرارة.',
+            body: 'نعتمد أعلى معايير الجودة والتثبيت المتين لأشواك الستانلس ستيل والشبك المقاوم للعوامل الجوية وأشعة الشمس والحرارة.',
           },
           {
             title: '٤. الإلغاء وإعادة الجدولة',
@@ -73,7 +73,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
           },
           {
             title: '2. Confidentiality & Security',
-            body: 'We strictly guarantee that customer data is never sold, shared, or leased to any external third party. Data is solely used by our verified operations and support staff.',
+            body: 'We strictly ensure that customer data is never sold, shared, or leased to any external third party. Data is solely used by our verified operations and support staff.',
           },
           {
             title: '3. Secure Communication',
@@ -94,12 +94,12 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
             body: 'Final service time is confirmed after direct coordination between our support representative and the customer based on chosen time and location.',
           },
           {
-            title: '2. Quality Guarantee',
+            title: '2. Quality Standards',
             body: 'Mesk Clean commits to top-tier cleaning standards using certified, safe detergents. Any concerns raised during or immediately following service will be promptly addressed.',
           },
           {
-            title: '3. Bird Netting & Spikes Warranty',
-            body: 'We provide guaranteed durability on all stainless steel anti-bird spikes and UV-treated netting against harsh coastal weather in Jeddah.',
+            title: '3. Bird Netting & Spikes Installation',
+            body: 'We install premium stainless steel anti-bird spikes and UV-treated netting built to endure harsh coastal weather in Jeddah.',
           },
           {
             title: '4. Rescheduling & Cancellations',

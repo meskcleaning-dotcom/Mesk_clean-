@@ -24,7 +24,7 @@ export const KhulaisGuideSection: React.FC = () => {
         {/* Introduction Block */}
         <div className="p-6 sm:p-8 rounded-3xl bg-slate-50 dark:bg-[#061e38] border border-slate-200 dark:border-cyan-900/40 shadow-sm space-y-4">
           <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-normal">
-            تتميز محافظة خليص ومراكزها التابعة كغران، البرزة، والظبية ببيئة زراعية ووديان خضراء وطبيعة هادئة تضم العديد من الفلل الحديثة، الاستراحات العائلية، والمزارع الخاصة. هذه الطبيعة الفريدة تفرض تحديات بيئية مختلفة، مثل وفرة الأتربة والغبار الزراعي، نشاط الحشرات الموسمية كالأرضة (النمل الأبيض) والعقارب والزواحف، بالإضافة إلى اعتماد العقارات بشكل كبير على الخزانات الأرضية الكبيرة. إذا كنت تبحث عن <strong className="font-bold text-slate-900 dark:text-white">شركة تنظيف بخليص</strong> توفر حلولاً شاملة ومضمونة، فهذا الدليل يضع بين يديك كل ما تحتاج معرفته لاختيار <strong className="font-bold text-slate-900 dark:text-white">أفضل شركة تنظيف بخليص</strong>.
+            تتميز محافظة خليص ومراكزها التابعة كغران، البرزة، والظبية ببيئة زراعية ووديان خضراء وطبيعة هادئة تضم العديد من الفلل الحديثة، الاستراحات العائلية، والمزارع الخاصة. هذه الطبيعة الفريدة تفرض تحديات بيئية مختلفة، مثل وفرة الأتربة والغبار الزراعي، نشاط الحشرات الموسمية كالأرضة (النمل الأبيض) والعقارب والزواحف، بالإضافة إلى اعتماد العقارات بشكل كبير على الخزانات الأرضية الكبيرة. إذا كنت تبحث عن <strong className="font-bold text-slate-900 dark:text-white">شركة تنظيف بخليص</strong> توفر حلولاً شاملة واحترافية، فهذا الدليل يضع بين يديك كل ما تحتاج معرفته لاختيار <strong className="font-bold text-slate-900 dark:text-white">أفضل شركة تنظيف بخليص</strong>.
           </p>
         </div>
 
@@ -123,7 +123,7 @@ export const KhulaisGuideSection: React.FC = () => {
               <strong className="font-bold text-slate-900 dark:text-white">الشمولية والجاهزية:</strong> إنجاز أعمال تنظيف المنزل، تعقيم الخزان، صيانة المكيف، ومكافحة الآفات في موعد واحد منظم.
             </li>
             <li>
-              <strong className="font-bold text-slate-900 dark:text-white">الضمان الحقيقي:</strong> التزام واضح بالضمان على أعمال مكافحة الحشرات وعزل الخزانات وتركيب طوارد الحمام.
+              <strong className="font-bold text-slate-900 dark:text-white">الضمان الحقيقي:</strong> التزام واضح بتقديم ضمان رسمي 10 سنوات على أعمال عزل الخزانات.
             </li>
           </ol>
         </div>
@@ -162,15 +162,6 @@ export const KhulaisGuideSection: React.FC = () => {
               </p>
               <p className="text-base text-slate-700 dark:text-slate-300 leading-relaxed">
                 نعم، لدينا معدات مخصصة للاستراحات والشاليهات تشمل جلي الأحواش، غسيل المجالس بالبخار، وتنظيف وتطهير المطابخ ودورات المياه.
-              </p>
-            </div>
-
-            <div className="rounded-2xl bg-slate-50 dark:bg-[#061e38] border border-slate-200 dark:border-cyan-900/40 p-5 space-y-2 shadow-sm">
-              <p className="font-bold text-base sm:text-lg text-slate-900 dark:text-white">
-                هل توفرون ضمانًا على مكافحة النمل الأبيض (الأرضة) والزواحف؟
-              </p>
-              <p className="text-base text-slate-700 dark:text-slate-300 leading-relaxed">
-                نعم، نوفر ضمانًا معتمدًا على مكافحة الأرضة والنمل الأبيض بالمبيدات المخصصة، مع متابعة دورية للتأكد من القضاء التام عليها.
               </p>
             </div>
           </div>

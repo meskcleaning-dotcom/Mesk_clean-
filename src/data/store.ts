@@ -80,12 +80,12 @@ const SERVICES_EN_MAP: Record<string, { nameEn: string; descEn: string; detailsE
   },
   'rodents-reptiles': {
     nameEn: 'Rodents & Reptiles Control',
-    descEn: 'Specialized and safe extermination for mice, rats, and reptiles with advanced baiting and certified warranty.',
+    descEn: 'Specialized and safe extermination for mice, rats, and reptiles with advanced baiting and certified methods.',
     detailsEn: [
       'Comprehensive inspection for rodent burrows and entry points',
       'Child and pet-safe baits and modern mechanical traps',
       'Sealing fissures and entry crevices to prevent re-infestation',
-      'Routine follow-up visits and certified warranty for complete safety'
+      'Routine follow-up visits and preventive measures for complete safety'
     ]
   },
   'kitchens': {
@@ -120,12 +120,12 @@ const SERVICES_EN_MAP: Record<string, { nameEn: string; descEn: string; detailsE
   },
   'pest': {
     nameEn: 'Pest Control & Extermination',
-    descEn: 'Safe, certified pest control targeting cockroaches, bedbugs, termites and rodents with warranty.',
+    descEn: 'Safe, certified pest control targeting cockroaches, bedbugs, termites and rodents.',
     detailsEn: [
       'Odorless, pet-safe and child-safe Ministry-approved insecticides',
       'Targeted gels and crack treatments for long-lasting prevention',
       'Comprehensive termite, bedbug and rodent extermination',
-      'Guaranteed follow-up visits for total peace of mind'
+      'Targeted follow-up visits for total peace of mind'
     ]
   }
 };
@@ -152,9 +152,9 @@ export const INITIAL_FAQS: FAQItem[] = [
     id: 'faq-3',
     question: 'هل توفرون خدمة تنظيف الكنب والسجاد بالبخار ومكافحة القوارض والزواحف؟',
     questionEn: 'Do you provide on-site steam cleaning and rodent & pest control?',
-    answer: 'نعم، نوفر غسيل الكنب والسجاد بالبخار بأحدث ماكينات الحقن والشفط، كما نقدم خدمات مكافحة متخصصة للقوارض والزواحف والحشرات باستخدام طعوم ومبيدات آمنة ومعتمدة مع الضمان.',
+    answer: 'نعم، نوفر غسيل الكنب والسجاد بالبخار بأحدث ماكينات الحقن والشفط، كما نقدم خدمات مكافحة متخصصة للقوارض والزواحف والحشرات باستخدام طعوم ومبيدات آمنة ومعتمدة.',
     answerEn: 'Yes! We provide on-site steam cleaning for sofas and carpets with rapid extraction, as well as specialized extermination for rodents, reptiles, and pests using certified safe methods.',
-    category: 'الخدمات والضمان'
+    category: 'الخدمات العامة'
   },
   {
     id: 'faq-4',

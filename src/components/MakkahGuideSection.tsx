@@ -60,7 +60,7 @@ export const MakkahGuideSection: React.FC = () => {
               <strong className="font-bold text-slate-900 dark:text-white">غسيل وتنظيف المكيفات سبليت وشباك:</strong> تنظيف الفلاتر والمبخرات بمضخات الضغط العالي لتحسين التبريد وتوفير استهلاك الكهرباء.
             </li>
             <li>
-              <strong className="font-bold text-slate-900 dark:text-white">مكافحة الحشرات والعتة وبق الفراش:</strong> رش مبيدات آمنة ومرخصة للقضاء على الصراصير، النمل الأبيض، العتة، وبق الفراش مع الضمان.
+              <strong className="font-bold text-slate-900 dark:text-white">مكافحة الحشرات والعتة وبق الفراش:</strong> رش مبيدات آمنة ومرخصة للقضاء على الصراصير، النمل الأبيض، العتة، وبق الفراش.
             </li>
             <li>
               <strong className="font-bold text-slate-900 dark:text-white">مكافحة القوارض والزواحف:</strong> مكافحة الفئران والجرذان والزواحف في الأحواش والمناطق الجبلية المحيطة بالعقارات.
@@ -121,7 +121,7 @@ export const MakkahGuideSection: React.FC = () => {
             معايير اختيار أفضل شركة تنظيف بمكة المكرمة
           </h2>
           <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-normal">
-            عند المقارنة بين شركات التنظيف بمكة، تأكد من المعايير التالية لضمان الحصول على خدمة مضمونة:
+            عند المقارنة بين شركات التنظيف بمكة، تأكد من المعايير التالية لضمان الحصول على خدمة احترافية متميزة:
           </p>
           <ol className="space-y-3 list-decimal list-inside text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed pr-2">
             <li>
@@ -134,7 +134,7 @@ export const MakkahGuideSection: React.FC = () => {
               <strong className="font-bold text-slate-900 dark:text-white">سرعة الوصول وتغطية الأحياء:</strong> وصول الفرق سريعًا لأحياء مكة (العزيزية، العوالي، الشوقية، الشرائع، النوارية وغيرها).
             </li>
             <li>
-              <strong className="font-bold text-slate-900 dark:text-white">الالتزام بالمواعيد والضمان:</strong> تقديم ضمان حقيقي على مكافحة الحشرات وعزل الخزانات وتركيب طوارد الحمام.
+              <strong className="font-bold text-slate-900 dark:text-white">الالتزام بالمواعيد والضمان:</strong> تقديم ضمان رسمي 10 سنوات على أعمال عزل الخزانات.
             </li>
             <li>
               <strong className="font-bold text-slate-900 dark:text-white">الأسعار الواضحة:</strong> تسعير شفاف دون تكاليف خفية أو مفاجآت بعد إتمام العمل.
@@ -174,7 +174,7 @@ export const MakkahGuideSection: React.FC = () => {
               <strong className="font-bold text-slate-900 dark:text-white">تنفيذ العمل بدقة:</strong> تقسيم المهام بين الفنيين (الأرضيات، الحمامات، الخزانات، المكيفات، المفروشات) لإنجاز العمل بأعلى معايير الإتقان.
             </li>
             <li>
-              <strong className="font-bold text-slate-900 dark:text-white">المعاينة والتسليم:</strong> تسليم الموقع للعميل ومراجعة كافة التفاصيل والتأكد من رضاه التام مع تقديم شهادة الضمان للخدمات المشمولة.
+              <strong className="font-bold text-slate-900 dark:text-white">المعاينة والتسليم:</strong> تسليم الموقع للعميل ومراجعة كافة التفاصيل والتأكد من رضاه التام مع تسليم شهادة ضمان 10 سنوات لأعمال عزل الخزانات.
             </li>
           </ol>
         </div>
@@ -228,10 +228,10 @@ export const MakkahGuideSection: React.FC = () => {
 
             <div className="rounded-2xl bg-slate-50 dark:bg-[#061e38] border border-slate-200 dark:border-cyan-900/40 p-5 space-y-2 shadow-sm">
               <p className="font-bold text-base sm:text-lg text-slate-900 dark:text-white">
-                هل يتوفر ضمان على خدمات مكافحة الحشرات وعزل الخزانات؟
+                هل يتوفر ضمان على خدمات عزل الخزانات بمكة؟
               </p>
               <p className="text-base text-slate-700 dark:text-slate-300 leading-relaxed">
-                نعم، نقدم ضمانات رسمية معتمدة على أعمال مكافحة الحشرات وعزل الخزانات وتركيب شبك وطارد الحمام.
+                نعم، نقدم ضماناً رسمياً معتمداً لمدة 10 سنوات على كافة أعمال عزل الخزانات المائية والإيبوكسية المنفذة من قبلنا.
               </p>
             </div>
           </div>
@@ -243,7 +243,7 @@ export const MakkahGuideSection: React.FC = () => {
             احجز الآن مع شركة تنظيف بمكة المكرمة
           </h2>
           <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-normal">
-            إذا كنت تبحث عن شركة تنظيف بمكة المكرمة تقدم خدمة شاملة ومضمونة لمنازلك، شققك، خزاناتك أو مكافحة الآفات، فإن فريق <strong className="font-bold text-slate-900 dark:text-white">مسك كلين</strong> في خدمتك على مدار الساعة. احجز موعدك مباشرة عبر الموقع أو تواصل معنا هاتفيًا أو عبر الواتساب على <a href="tel:0547161147" className="text-cyan-600 dark:text-cyan-400 font-semibold underline underline-offset-4 hover:text-cyan-500" dir="ltr">0547161147</a>.
+            إذا كنت تبحث عن شركة تنظيف بمكة المكرمة تقدم خدمة شاملة واحترافية لمنازلك، شققك، خزاناتك أو مكافحة الآفات، فإن فريق <strong className="font-bold text-slate-900 dark:text-white">مسك كلين</strong> في خدمتك على مدار الساعة. احجز موعدك مباشرة عبر الموقع أو تواصل معنا هاتفيًا أو عبر الواتساب على <a href="tel:0547161147" className="text-cyan-600 dark:text-cyan-400 font-semibold underline underline-offset-4 hover:text-cyan-500" dir="ltr">0547161147</a>.
           </p>
         </div>
 

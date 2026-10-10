@@ -63,7 +63,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       'Heavy-duty UV-stabilized polymer netting resistant to high heat and humidity',
       'Rust-proof 304 stainless steel spikes secured on window sills and air conditioners',
       'Full protection for facades, light shafts, and balconies from droppings and nesting',
-      'Humane, aesthetic, and permanent bird deterrence with multi-year warranty'
+      'Humane, aesthetic, and durable bird deterrence designed for long-lasting protection'
     ],
     image: '/assets/srv-bird-netting.webp',
     imagePosition: 'center',
@@ -143,19 +143,19 @@ export const SERVICES_DATA: ServiceItem[] = [
     id: 'rodents-reptiles',
     name: 'مكافحة الزواحف والقوارض',
     nameEn: 'Rodents & Reptiles Control',
-    description: 'إبادة ومكافحة شاملة للفئران والجرذان والزواحف بأحدث الطعوم والمصائد مع الضمان بجدة.',
-    descriptionEn: 'Comprehensive extermination for mice, rats, and reptiles using modern safety bait stations and certified guarantees.',
+    description: 'إبادة ومكافحة شاملة للفئران والجرذان والزواحف بأحدث الطعوم والمصائد بجدة.',
+    descriptionEn: 'Comprehensive extermination for mice, rats, and reptiles using modern safety bait stations and certified methods.',
     details: [
       'فحص ومعاينة دقيقة لمداخل ومخابئ القوارض والزواحف',
       'استخدام طعوم ومصائد آمنة وفعالة مصرحة بيئياً وصحياً',
       'إغلاق وسد الثغرات والفتحات لمنع دخول القوارض نهائياً',
-      'متابعة دورية وضمان معتمد لحماية منزلك وممتلكاتك'
+      'متابعة دورية وتدابير وقائية لحماية منزلك وممتلكاتك'
     ],
     detailsEn: [
       'Rigorous property inspection mapping burrows, gnaw marks, and entry pathways',
       'Deployment of child and pet-safe tamper-resistant bait stations and traps',
       'Physical exclusion sealing structural gaps, weep holes, and conduit penetrations',
-      'Scheduled follow-up inspections with an official warranty certificate'
+      'Scheduled follow-up inspections and preventive measures'
     ],
     image: '/assets/srv-pest.webp',
     imagePosition: 'center',
@@ -236,7 +236,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     name: 'مكافحة الحشرات',
     nameEn: 'Pest Control & Extermination',
     description: 'معالجة مدروسة وفعالة لمشكلات الحشرات والقوارض في المنازل والمباني بجدة.',
-    descriptionEn: 'Targeted eradication of crawling and flying pests using odorless, ministry-approved insecticides with guaranteed results.',
+    descriptionEn: 'Targeted eradication of crawling and flying pests using odorless, ministry-approved insecticides.',
     details: [
       'معاينة دقيقة لتحديد بؤر ومسارات نشاط الحشرات',
       'استخدام مبيدات آمنة ومعتمدة تضمن القضاء التام',
@@ -247,7 +247,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       'In-depth entomological assessment identifying nesting harborages and entry paths',
       'Application of odorless, child-safe, and pet-friendly Ministry of Health certified formulas',
       'Targeted gel baiting for German cockroaches and perimeter micro-barrier spraying',
-      'Certified long-term prevention guarantee with free booster visits if pests reappear'
+      'Comprehensive prevention and barrier protection against pest infestations'
     ],
     image: '/assets/srv-pest.webp',
     imagePosition: 'center',

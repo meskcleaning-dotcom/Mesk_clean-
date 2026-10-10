@@ -308,13 +308,13 @@ export const getCityServiceData = (serviceId: string, cityId: CityId): CityServi
         'أشواك ستانلس ستيل غير قابلة للصدأ ذات قواعد بولي كربونايت شفافة غير مرئية.',
         'شبك بولي إيثيلين مقوى مقاوم للحرارة والرطوبة الشديدة وأشعة الشمس الفوق بنفسجية.',
         'طريقة آمنة وإنسانية تطرد الطيور وتمنع هبوطها دون أن تؤذيها إطلاقاً.',
-        'ضمان معتمد على متانة التثبيت وعدم سقوط الطارد أو انفصاله لسنوات.'
+        'تثبيت متين ومحكم يمنع سقوط الطارد أو انفصاله لسنوات.'
       ],
       featuresEn: [
         'Marine-grade 304 stainless steel needles on transparent UV-stable polycarbonate bases.',
         'Heavy-duty knotted polyethylene netting engineered for high UV resistance and wind permeability.',
         '100% humane and safe physical deterrence complying with animal welfare guidelines.',
-        'Multi-year written installation warranty against detachment or rust.'
+        'Durable long-lasting installation designed against detachment or rust.'
       ],
       tipsAr: [
         { title: 'التدخل السريع عند ملاحظة بناء الأعشاش', desc: 'إزالة قش الأعشاش فوراً تمنع الطيور من التعود على المكان وجلب المزيد من أفراد السرب.' },
@@ -516,37 +516,37 @@ export const getCityServiceData = (serviceId: string, cityId: CityId): CityServi
       nameEn: 'Rodents & Reptiles Control',
       coreKeywordAr: `شركة مكافحة قوارض وزواحف ${city.titleSuffixAr}`,
       coreKeywordEn: `Rodents and Reptiles Control Company ${city.titleSuffixEn}`,
-      actionVerbAr: 'إبادة ومكافحة الفئران والجرذان والزواحف وتأمين المداخل مع الضمان',
-      actionVerbEn: 'Exterminating mice, rats, and reptiles, sealing entry points with certified warranty',
-      introOverviewAr: `تشكل القوارض (الفئران والجرذان) والزواحف تهديداً صحياً وبيئياً كبيراً على المنازل والمنشآت في ${city.nameAr}. تتسلل هذه الآفات عبر قنوات الصرف والفتحات الجدارية والمناطق المفتوحة، ناقلة أخطر الأمراض البكتيرية ومتسببة في قرض الأسلاك الكهربائية وخراطيم المياه وأثاث المنزل. تقدم مسك كلين في ${city.nameAr} خطة متكاملة لمكافحة القوارض والزواحف تعتمد على طعوم جاذبة آمنة ومصائد متطورة، مع سد محكم للمنافذ وتقديم ضمان معتمد يضمن عدم عودتها.`,
-      introOverviewEn: `Rodents (rats, mice) and crawl reptiles present severe health hazards and property destruction in ${city.nameEn}. Infiltrating through sewer lines, perimeter crevices, and open desert or rocky borders, they chew electrical wiring, contaminate food stores, and transmit pathogens. Mesk Clean deploys certified integrated pest management (IPM) utilizing tamper-proof bait stations, mechanical barriers, and certified warranties.`,
-      whyImportantAr: `حماية منزلك في ${city.nameAr} من القوارض والزواحف تمنع حوادث التماس الكهربائي، وتوفر حماية تامة لصحة أطفالك من التلوث الغذائي والأمراض، مع راحة بال دائمة بفضل الضمان والمتابعة الدورية.`,
+      actionVerbAr: 'إبادة ومكافحة الفئران والجرذان والزواحف وتأمين المداخل',
+      actionVerbEn: 'Exterminating mice, rats, and reptiles, sealing entry points',
+      introOverviewAr: `تشكل القوارض (الفئران والجرذان) والزواحف تهديداً صحياً وبيئياً كبيراً على المنازل والمنشآت في ${city.nameAr}. تتسلل هذه الآفات عبر قنوات الصرف والفتحات الجدارية والمناطق المفتوحة، ناقلة أخطر الأمراض البكتيرية ومتسببة في قرض الأسلاك الكهربائية وخراطيم المياه وأثاث المنزل. تقدم مسك كلين في ${city.nameAr} خطة متكاملة لمكافحة القوارض والزواحف تعتمد على طعوم جاذبة آمنة ومصائد متطورة، مع سد محكم للمنافذ لمنع عودتها.`,
+      introOverviewEn: `Rodents (rats, mice) and crawl reptiles present severe health hazards and property destruction in ${city.nameEn}. Infiltrating through sewer lines, perimeter crevices, and open desert or rocky borders, they chew electrical wiring, contaminate food stores, and transmit pathogens. Mesk Clean deploys certified integrated pest management (IPM) utilizing tamper-proof bait stations and mechanical barriers.`,
+      whyImportantAr: `حماية منزلك في ${city.nameAr} من القوارض والزواحف تمنع حوادث التماس الكهربائي، وتوفر حماية تامة لصحة أطفالك من التلوث الغذائي والأمراض، مع راحة بال دائمة بفضل المتابعة الدورية.`,
       whyImportantEn: `Professional rodent and reptile exclusion in ${city.nameEn} averts electrical fire hazards from gnawed cables, prevents food contamination, and restores total household peace of mind.`,
       methodPointsAr: [
         'معاينة دقيقة للمبنى لتحديد نقاط الدخول وآثار القوارض ومسارات حركتها وجحورها.',
         'توزيع محطات طعوم آمنة ومحكمة الإغلاق في أماكن مدروسة بعيداً عن متناول الأطفال والحيوانات.',
         'استخدام طعوم إيطالية وأمريكية معتمدة تسبب جفاف القوارض دون انبعاث روائح كريهة في المكان.',
         'سد وإغلاق جميع الثغرات والفتحات وأنابيب الصرف بمواد صلبة مقاومة للقرض.',
-        'متابعة دورية وفحص مصائد المراقبة لضمان القضاء التام على المستعمرة ومنح الضمان.'
+        'متابعة دورية وفحص مصائد المراقبة للتأكد من القضاء التام على المستعمرة.'
       ],
       methodPointsEn: [
         'Rigorous property inspection mapping burrows, droppings, gnaw marks, and sewer entry tracks.',
         'Strategic placement of tamper-resistant child- and pet-safe bait stations around perimeters.',
         'Deployment of anticoagulant rodenticides designed to dehydrate rodents without foul interior odors.',
         'Physical exclusion sealing structural weep holes, pipe penetrations, and door gaps with stainless steel mesh.',
-        'Scheduled warranty follow-up visits monitoring active bait takes and certifying complete eradication.'
+        'Scheduled follow-up inspections monitoring active bait takes and verifying complete eradication.'
       ],
       featuresAr: [
         'طعوم آمنة ومصرحة من وزارة البيئة والمياه والزراعة وهيئة الغذاء والدواء.',
         'تقنيات تجفيف تمنع تعفن القوارض وخروج الروائح الكريهة داخل الجدران.',
         'حلول سد وعزل ميكانيكية متقدمة تمنع دخول القوارض من مصارف الصرف والفتحات.',
-        'شهادة ضمان معتمدة ومتابعات مجانية في حال ظهور أي نشاط خلال فترة الضمان.'
+        'تدابير وقائية دقيقة ومتابعة ميدانية تضمن حماية منزلك وممتلكاتك.'
       ],
       featuresEn: [
         'Ministry of Environment and SFDA certified rodenticides meeting strict health standards.',
         'Dehydrating formulations preventing foul decomposition odors inside wall cavities.',
         'Heavy-duty physical exclusion sealing entry routes against re-infestation.',
-        'Official written warranty certificate with free call-back inspections.'
+        'Comprehensive property protection with systematic follow-up inspections.'
       ],
       tipsAr: [
         { title: 'تركيب ردادات مانعة على مصارف الصرف', desc: 'تمنع ردادات الصرف غير القابلة للرجوع خروج الجرذان من غرف التفتيش إلى دورات المياه.' },
@@ -560,13 +560,11 @@ export const getCityServiceData = (serviceId: string, cityId: CityId): CityServi
       ],
       faqsAr: [
         { q: `هل تسبب طعوم القوارض روائح كريهة في حال موتها؟`, a: `نستخدم طعوم حديثة متخصصة تجعل القارض يبحث عن الماء في الخارج ويجف تدريجياً دون ترك أي روائح كريهة داخل المبنى.` },
-        { q: `هل المبيدات والطعوم آمنة للأطفال والحيوانات الأليفة؟`, a: `نضع جميع الطعوم داخل محطات وصناديق بلاستيكية سميكة مقفلة بمفاتيح خاصة لا يمكن للأطفال أو الحيوانات فتحها.` },
-        { q: `ما هي مدة الضمان المقدم لمكافحة القوارض ${city.titleSuffixAr}؟`, a: `نقدم ضماناً رسمياً يمتد من 3 إلى 6 أشهر يشمل زيارات المتابعة المجانية لمعاينة المصائد والتأكد من انتهاء المشكلة.` }
+        { q: `هل المبيدات والطعوم آمنة للأطفال والحيوانات الأليفة؟`, a: `نضع جميع الطعوم داخل محطات وصناديق بلاستيكية سميكة مقفلة بمفاتيح خاصة لا يمكن للأطفال أو الحيوانات فتحها.` }
       ],
       faqsEn: [
         { q: `Do the rodent baits produce bad decomposition odors?`, a: `We use modern dehydrating baits that cause rodents to seek outdoor water, desiccating them without foul odors indoors.` },
-        { q: `Are the bait stations safe for small children and house pets?`, a: `All baits are secured inside heavy-gauge tamper-proof key-locked stations accessible only to target pests.` },
-        { q: `What is the warranty period for rodent control ${city.titleSuffixEn}?`, a: `We provide a 3- to 6-month written warranty covering free inspections and re-baiting if activity is detected.` }
+        { q: `Are the bait stations safe for small children and house pets?`, a: `All baits are secured inside heavy-gauge tamper-proof key-locked stations accessible only to target pests.` }
       ]
     },
     'kitchens': {
@@ -749,36 +747,36 @@ export const getCityServiceData = (serviceId: string, cityId: CityId): CityServi
       coreKeywordAr: `شركة مكافحة حشرات ${city.titleSuffixAr}`,
       coreKeywordEn: `Pest Control Company ${city.titleSuffixEn}`,
       actionVerbAr: 'رش مبيدات ومكافحة الصراصير وبق الفراش والنمل الأبيض والآفات',
-      actionVerbEn: 'Pest extermination, odorless residual spraying, and termite eradication with warranty',
+      actionVerbEn: 'Pest extermination, odorless residual spraying, and termite eradication',
       introOverviewAr: `تعتبر مشكلات الحشرات المنزلية من أكثر التحديات إزعاجاً لراحة وصحة الأسر في ${city.nameAr}. توفر عوامل ${city.climateContextAr} بيئة تكاثر مثالية للصراصير الألمانية والأمريكية، وبق الفراش العنيد، والنمل الأبيض (الدفان) الذي ينخر في الأخشاب وأساسات الأبواب. تعتمد مسك كلين في ${city.nameAr} استراتيجية المكافحة المتكاملة للآفات (IPM) باستخدام مبيدات ألمانية وأمريكية عديمة الرائحة وآمنة كلياً، تضمن القضاء التام على الحشرات من جذورها دون مغادرة المنزل.`,
-      introOverviewEn: `Household insect infestations cause major hygiene distress and sleep disruption for families in ${city.nameEn}. Driven by ${city.climateContextEn}, warm indoor spaces foster rapid reproduction of German cockroaches, bedbugs, termites (الدفان), and crawling pests. Mesk Clean deploys integrated pest management (IPM) utilizing odorless, health-certified German and American insecticides with multi-month warranties.`,
+      introOverviewEn: `Household insect infestations cause major hygiene distress and sleep disruption for families in ${city.nameEn}. Driven by ${city.climateContextEn}, warm indoor spaces foster rapid reproduction of German cockroaches, bedbugs, termites (الدفان), and crawling pests. Mesk Clean deploys integrated pest management (IPM) utilizing odorless, health-certified German and American insecticides with preventative barrier protocols.`,
       whyImportantAr: `مكافحة الحشرات الاحترافية في ${city.nameAr} تقضي على بؤر نقل الأمراض المعوية كالسالمونيلا والديدان الطفيلية، وتمنع تلف الأثاث الخشبي والأبواب بسبب النمل الأبيض، وتوفر لك ولأولادك نوماً هادئاً وبيئة معقمة.`,
-      whyImportantEn: `Targeted pest control in ${city.nameEn} protects your family from disease vectors, stops destructive termite colonies from hollowing wooden doors, and guarantees a pest-free, hygienic sanctuary.`,
+      whyImportantEn: `Targeted pest control in ${city.nameEn} protects your family from disease vectors, stops destructive termite colonies from hollowing wooden doors, and provides a pest-free, hygienic sanctuary.`,
       methodPointsAr: [
         'معاينة دقيقة وشاملة لتحديد أنواع الحشرات المتواجدة وتتبع بؤر التعشيش والتكاثر.',
         'حقن الجل الألماني في مفاصل المطابخ وخلف الأجهزة لاصطياد وإبادة الصراصير الألمانية.',
         'رش المبيدات السائلة الميكروية عديمة الرائحة في الزوايا والمجاري والمصارف لقطع مسارات الحشرات.',
         'معالجة حرارية ورش تخصصي لمكافحة بق الفراش وبيضه في ثنايا المراتب والأسرة.',
-        'إغلاق الفجوات وتقديم تقرير وقائي مع منح شهادة الضمان المعتمدة ومتابعات دورية.'
+        'إغلاق الفجوات وتقديم تقرير وقائي شامل مع إرشادات مدروسة لمنع عودة الآفات.'
       ],
       methodPointsEn: [
         'Microscopic inspection tracing insect harborages, moisture leaks, and egg casings.',
         'Precision application of German cockroach bait gel into cabinet hinges and appliance recesses.',
         'Odorless micro-encapsulated barrier spraying along floor perimeters, baseboards, and drains.',
         'Thermal steam treatment and targeted residual spraying for bedbug nymphs and deep egg clusters.',
-        'Sealing vulnerable crevices and issuing an official warranty with scheduled follow-up inspections.'
+        'Sealing vulnerable crevices and providing detailed preventive guidelines against re-infestation.'
       ],
       featuresAr: [
         'مبيدات معتمدة من وزارة الصحة وهيئة الغذاء والدواء خالية تماماً من الروائح السامة.',
         'إمكانية الرش والمكافحة التامة دون الحاجة لمغادرة المنزل أو تفريغ أواني المطبخ.',
         'جل ألماني فائق الفعالية ينقل العدوى إلى كامل المستعمرة ويقضي على اليرقات والبيوض.',
-        'ضمان حقيقي يصل إلى 6 أشهر يشمل إعادة الرش مجاناً في حال ظهور أي حشرة.'
+        'مبيدات متقدمة عديمة الرائحة ممتدة المفعول تقضي على بؤر الحشرات وتمنع تكاثرها.'
       ],
       featuresEn: [
         'SFDA and Ministry of Health approved odorless formulations safe around children and seniors.',
         'Treatment performed seamlessly without requiring family evacuation or kitchen dish emptying.',
         'Cascade-effect German bait gels eradicating entire cockroach colonies through horizontal transfer.',
-        'Comprehensive warranty up to 6 months with free return visits if pests reappear.'
+        'Long-lasting odorless formulations eliminating pest harborages and preventing re-infestation.'
       ],
       tipsAr: [
         { title: 'إغلاق بالوعات ومصارف الحمامات والمطابخ ليلاً', desc: 'تعتبر المصارف المفتوحة المدخل الرئيسي لصراصير المجاري الأمريكية الكبيرة.' },
@@ -792,13 +790,11 @@ export const getCityServiceData = (serviceId: string, cityId: CityId): CityServi
       ],
       faqsAr: [
         { q: `هل يلزم مغادرة المنزل أثناء رش المبيدات الحشرية؟`, a: `لا داعي للخروج إطلاقاً، نستخدم مبيدات عديمة الرائحة مصرحة صحياً وآمنة تماماً للأطفال والنساء الحوامل وكبار السن.` },
-        { q: `هل يشترط إفراغ أواني وأدوات المطبخ قبل الرش؟`, a: `في معظم الحالات نستخدم الجل الموضعي المتقدم الذي لا يتطلب تفريغ الدواليب أو إخراج الأواني، مما يوفر راحتكم.` },
-        { q: `ماذا لو ظهرت الحشرات مجدداً خلال فترة الضمان؟`, a: `يشمل الضمان زيارة مجانية فورية وإعادة رش المكان دون أي رسوم إضافية حتى القضاء التام على الحشرات.` }
+        { q: `هل يشترط إفراغ أواني وأدوات المطبخ قبل الرش؟`, a: `في معظم الحالات نستخدم الجل الموضعي المتقدم الذي لا يتطلب تفريغ الدواليب أو إخراج الأواني، مما يوفر راحتكم.` }
       ],
       faqsEn: [
         { q: `Do we need to vacate our home during pest spraying?`, a: `No evacuation needed. Our low-toxicity odorless formulations are 100% safe for children and pregnant women.` },
-        { q: `Must we empty all kitchen cabinets and cooking pots?`, a: `Not with our targeted gel treatments. We apply micro-dots behind hinges without disturbing your kitchenware.` },
-        { q: `What happens if pests reappear during the warranty period?`, a: `Our warranty includes prompt, free booster re-sprays until the infestation is completely eliminated.` }
+        { q: `Must we empty all kitchen cabinets and cooking pots?`, a: `Not with our targeted gel treatments. We apply micro-dots behind hinges without disturbing your kitchenware.` }
       ]
     }
   };
@@ -812,8 +808,8 @@ export const getCityServiceData = (serviceId: string, cityId: CityId): CityServi
     canonicalPath: `/${cityId}/services/${serviceId}`,
     metaTitle: `${sCfg.nameAr} ${city.titleSuffixAr} | 0547161147 | مسك كلين`,
     metaTitleEn: `${sCfg.nameEn} ${city.titleSuffixEn} | +966547161147 | Mesk Clean`,
-    metaDescription: `أفضل ${sCfg.coreKeywordAr} معتمدة تقدم ${sCfg.actionVerbAr} في كافة أحياء ${city.nameAr} بأحدث المعدات وضمان رسمي على الجودة.`,
-    metaDescriptionEn: `Premier ${sCfg.nameEn} in ${city.nameEn} by Mesk Clean. Expert solutions covering all districts with modern equipment and certified quality guarantees.`,
+    metaDescription: `أفضل ${sCfg.coreKeywordAr} معتمدة تقدم ${sCfg.actionVerbAr} في كافة أحياء ${city.nameAr} بأحدث المعدات وأعلى معايير الجودة.`,
+    metaDescriptionEn: `Premier ${sCfg.nameEn} in ${city.nameEn} by Mesk Clean. Expert solutions covering all districts with modern equipment and certified quality standards.`,
     keywords: [
       sCfg.coreKeywordAr,
       `${sCfg.nameAr} ${city.titleSuffixAr}`,
@@ -823,18 +819,18 @@ export const getCityServiceData = (serviceId: string, cityId: CityId): CityServi
     ],
     heroBadge: `خدمة معتمدة بـ${city.nameAr}`,
     heroBadgeEn: `Certified Service in ${city.nameEn}`,
-    heroHeading: `${sCfg.nameAr} ${city.titleSuffixAr} - احترافية وضمان معتمد`,
+    heroHeading: `${sCfg.nameAr} ${city.titleSuffixAr} - احترافية وإتقان معتمد`,
     heroHeadingEn: `${sCfg.nameEn} ${city.titleSuffixEn} - Certified Excellence`,
     heroSubtitle: sCfg.introOverviewAr,
     heroSubtitleEn: sCfg.introOverviewEn,
     introParagraphs: [
       `تعد خدمة ${sCfg.nameAr} ${city.titleSuffixAr} من الخدمات الأساسية التي تضمن الحفاظ على سلامة ونظافة العقارات السكنية والتجارية. تتميز مدينة ${city.nameAr} ببيئة جغرافية ومناخية تتطلب دراية عميقة، حيث يؤثر ${city.climateContextAr} على سلامة المنشآت ومستوى نقاء الهواء الداخلي. ولهذا السبب، حرصت شركة مسك كلين على توفير حلول تنظيف وصيانة متكاملة تم تطويرها خصيصاً لتناسب خصوصية وأحياء ${city.nameAr}.`,
-      `إذا كنت تبحث عن أفضل ${sCfg.coreKeywordAr}، فإننا نضمن لك نتائج تفوق التوقعات بفضل خبرتنا الطويلة في الميدان. نعتمد في مسك كلين على أحدث الأجهزة والمعدات الألمانية والإيطالية المتطورة، وفريق عمل نظامي مدرب على أعلى درجات الدقة والأمانة واحترام خصوصية العائلة والمبنى. نحرص دائماً على تطبيق ${sCfg.actionVerbAr} بأعلى معايير الجودة والسلامة الصحية المعتمدة، مع تقديم ضمان رسمي يضمن رضاكم التام.`,
+      `إذا كنت تبحث عن أفضل ${sCfg.coreKeywordAr}، فإننا نضمن لك نتائج تفوق التوقعات بفضل خبرتنا الطويلة في الميدان. نعتمد في مسك كلين على أحدث الأجهزة والمعدات الألمانية والإيطالية المتطورة، وفريق عمل نظامي مدرب على أعلى درجات الدقة والأمانة واحترام خصوصية العائلة والمبنى. نحرص دائماً على تطبيق ${sCfg.actionVerbAr} بأعلى معايير الجودة والسلامة الصحية المعتمدة، لتحقيق رضاكم التام.`,
       `يغطي فريقنا الميداني كافة أحياء ومخططات ${city.nameAr} بسيارات مجهزة بكامل التقنيات لضمان الاستجابة السريعة، سواء كان طلبكم لخدمة عاجلة في نفس اليوم أو وفق جدول دوري منتظم يلائم راحتكم وأوقات عملكم.`
     ],
     introParagraphsEn: [
       `Professional ${sCfg.nameEn} ${city.titleSuffixEn} is an essential service ensuring the hygiene, beauty, and longevity of residential and commercial properties. ${city.nameEn} features distinctive geographical and meteorological conditions where ${city.climateContextEn} demands specialized engineering and cleaning approaches tailored specifically to local residential neighborhoods.`,
-      `If you are searching for the premier ${sCfg.coreKeywordEn}, Mesk Clean provides industry-leading results backed by certified quality guarantees. We deploy state-of-the-art European machinery and background-checked technicians committed to precision, privacy, and thoroughness. We execute ${sCfg.actionVerbEn} in strict compliance with Saudi health and safety regulations.`,
+      `If you are searching for the premier ${sCfg.coreKeywordEn}, Mesk Clean provides industry-leading results backed by certified quality standards. We deploy state-of-the-art European machinery and background-checked technicians committed to precision, privacy, and thoroughness. We execute ${sCfg.actionVerbEn} in strict compliance with Saudi health and safety regulations.`,
       `Our mobile rapid-response units cover all sectors and modern residential schemes across ${city.nameEn} around the clock, providing punctual same-day appointments or scheduled recurring visits tailored to your family convenience.`
     ],
     neighborhoodsAnalysisTitle: `الخصوصية البيئية وتغطية أحياء ${city.nameAr} لخدمة ${sCfg.nameAr}`,

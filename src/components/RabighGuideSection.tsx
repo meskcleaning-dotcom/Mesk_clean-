@@ -60,7 +60,7 @@ export const RabighGuideSection: React.FC = () => {
               <strong className="font-bold text-slate-900 dark:text-white">غسيل وصيانة المكيفات:</strong> تنظيف مكيفات سبليت وشباك بمضخات الماء والأكياس العازلة لحماية الأثاث وتحسين كفاءة التبريد في حر الصيف.
             </li>
             <li>
-              <strong className="font-bold text-slate-900 dark:text-white">مكافحة الحشرات والآفات:</strong> إبادة الصراصير، النمل الأبيض (الأرضة)، وبق الفراش بمبيدات آمنة ومرخصة ومعتمدة مع الضمان.
+              <strong className="font-bold text-slate-900 dark:text-white">مكافحة الحشرات والآفات:</strong> إبادة الصراصير، النمل الأبيض (الأرضة)، وبق الفراش بمبيدات آمنة ومرخصة ومعتمدة.
             </li>
             <li>
               <strong className="font-bold text-slate-900 dark:text-white">مكافحة القوارض والزواحف:</strong> حماية متقدمة للمنازل والمستودعات والمزارع من الفئران والجرذان والزواحف الصحراوية والساحلية.
@@ -133,7 +133,7 @@ export const RabighGuideSection: React.FC = () => {
               <strong className="font-bold text-slate-900 dark:text-white">سلامة المواد المستخدمة:</strong> استخدام معقمات ومبيدات صحية غير ضارة ومعتمدة رسميًا.
             </li>
             <li>
-              <strong className="font-bold text-slate-900 dark:text-white">الضمان والمصداقية:</strong> التزام كامل بالمواعيد المتفق عليها مع تقديم ضمانات على أعمال العزل والمكافحة.
+              <strong className="font-bold text-slate-900 dark:text-white">الضمان والمصداقية:</strong> التزام كامل بالمواعيد المتفق عليها مع تقديم ضمان 10 سنوات على أعمال عزل الخزانات.
             </li>
           </ol>
         </div>

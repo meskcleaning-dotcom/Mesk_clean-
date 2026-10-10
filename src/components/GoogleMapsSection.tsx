@@ -155,7 +155,7 @@ export const GoogleMapsSection: React.FC = () => {
                       <div className="text-xs">
                         <span className="font-bold text-slate-900 dark:text-white">{selectedDistrict}: </span>
                         <span className="text-slate-600 dark:text-cyan-200">
-                          {language === 'ar' ? 'جاهزون لخدمتكم مع ضمان معتمد' : 'Ready for service with guarantee'}
+                          {language === 'ar' ? 'جاهزون لخدمتكم بأعلى معايير الجودة' : 'Ready to serve you with highest quality'}
                         </span>
                       </div>
                     </div>

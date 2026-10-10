@@ -113,8 +113,8 @@ const translations: Record<string, { ar: string; en: string }> = {
   'faq.badge': { ar: 'إجابات مباشرة', en: 'FAQ' },
   'faq.title': { ar: 'الأسئلة الشائعة حول خدماتنا', en: 'Frequently Asked Questions' },
   'faq.subtitle': {
-    ar: 'كل ما ترغب بمعرفته حول آليات التنظيف، شبك وطارد الحمام، الضمان، وطرق الحجز.',
-    en: 'Everything you need to know about our cleaning methods, bird spikes, warranty, and bookings.'
+    ar: 'كل ما ترغب بمعرفته حول آليات التنظيف، شبك وطارد الحمام، عزل الخزانات، وطرق الحجز.',
+    en: 'Everything you need to know about our cleaning methods, bird netting, tank insulation, and bookings.'
   },
 
   // Testimonials

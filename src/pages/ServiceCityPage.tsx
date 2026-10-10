@@ -670,25 +670,7 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-[#072448] border border-slate-200 dark:border-cyan-800/40 text-xs font-bold text-slate-700 dark:text-cyan-200 shadow-sm">
                     <ShieldCheck className="w-4 h-4 text-cyan-500" />
                     <span>
-                      {language === 'ar' && tankData
-                        ? 'ضمان 10 سنوات على أعمال العزل'
-                        : language === 'ar' && homeData
-                        ? 'عناية شاملة بالمنازل والشقق'
-                        : language === 'ar' && villaData
-                        ? 'عناية متكاملة بالفلل والدوبلكس'
-                        : language === 'ar' && officeData
-                        ? 'عناية دقيقة ببيئات الأعمال والمكاتب'
-                        : language === 'ar' && birdData
-                        ? 'حماية وقائية للشرفات والأسطح'
-                        : language === 'ar' && sofasData
-                        ? 'عناية فائقة بأقمشة الكنب الفاخرة'
-                        : language === 'ar' && carpetData
-                        ? 'عناية لطيفة بأنسجة وخيوط السجاد'
-                        : language === 'ar' && rodentsData
-                        ? 'تدابير وقائية لسد منافذ التسلل'
-                        : language === 'ar' && acData
-                        ? 'حماية تامة للأثاث وتحسين كفاءة التبريد'
-                        : (language === 'ar' && pestData ? 'ضمان معتمد 6 شهور' : (language === 'ar' ? 'خدمة احترافية معتمدة' : 'Certified Service'))}
+                      {language === 'ar' && tankData ? 'ضمان 10 سنوات على أعمال العزل' : (language === 'ar' ? 'خدمة احترافية معتمدة' : 'Certified Service')}
                     </span>
                   </span>
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-[#072448] border border-slate-200 dark:border-cyan-800/40 text-xs font-bold text-slate-700 dark:text-cyan-200 shadow-sm">
@@ -766,7 +748,7 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
 
                   <div className="absolute bottom-5 start-5 end-5 text-start">
                     <span className="inline-block px-3 py-1 rounded-lg bg-cyan-500 text-slate-950 text-xs font-black mb-2 shadow-md">
-                      {cityName} • {language === 'ar' && tankData ? 'ضمان 10 سنوات على أعمال العزل' : (language === 'ar' && pestData ? 'خدمة متميزة بضمان 6 شهور' : (language === 'ar' && homeData ? 'عناية متكاملة بالمنازل والشقق' : (language === 'ar' && villaData ? 'عناية متكاملة بالفلل والدوبلكس' : (language === 'ar' && officeData ? 'عناية فائقة بالمكاتب وبيئات العمل' : (language === 'ar' && birdData ? 'حلول وقائية لتركيب شبك وطارد الحمام' : (language === 'ar' && sofasData ? 'تنظيف عميق وتعقيم شامل للكنب بالبخار' : (language === 'ar' && carpetData ? 'غسيل سجاد وموكيت بمعدات متطورة' : (language === 'ar' && rodentsData ? 'مكافحة ورصد آمن للزواحف والقوارض' : (language === 'ar' && acData ? 'غسيل وتنظيف متكامل للوحدات الداخلية والخارجية' : (language === 'ar' ? 'خدمة متميزة ومعتمدة' : 'Top Tier Service'))))))))))}
+                      {cityName} • {language === 'ar' && tankData ? 'ضمان 10 سنوات على أعمال العزل' : (language === 'ar' ? 'خدمة متميزة ومعتمدة' : 'Top Tier Service')}
                     </span>
                     <h3 className="text-xl sm:text-2xl font-black text-white drop-shadow-md">
                       {serviceName}
@@ -842,7 +824,6 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                       <span className="px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20">معاينة فنية شاملة</span>
                       <span className="px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20">مبيدات آمنة بدون رائحة</span>
                       <span className="px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20">حقن ورش موضعي بدون مغادرة</span>
-                      <span className="px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20">كرت ضمان معتمد 6 شهور</span>
                     </div>
                   </div>
                 </div>
@@ -2761,7 +2742,7 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                 <div className="text-center max-w-2xl mx-auto">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-3">
                     <Award className="w-3.5 h-3.5" />
-                    <span>{language === 'ar' ? 'الجودة والضمان' : 'Quality & Guarantees'}</span>
+                    <span>{isTanks ? (language === 'ar' ? 'الجودة والضمان' : 'Quality & Guarantees') : (language === 'ar' ? 'الجودة' : 'Quality')}</span>
                   </div>
                   <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white">
                     {language === 'ar' ? data.featuresTitle : data.featuresTitleEn}

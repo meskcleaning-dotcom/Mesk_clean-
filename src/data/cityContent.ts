@@ -256,9 +256,9 @@ export const CITY_CONTENT: Record<'jeddah' | 'rabigh' | 'makkah' | 'khulais', Ci
         id: 'faq-jeddah-3',
         question: 'هل توفرون خدمة تنظيف الكنب والسجاد بالبخار ومكافحة القوارض والزواحف بجدة؟',
         questionEn: 'Do you provide on-site steam cleaning and rodent control in Jeddah?',
-        answer: 'نعم، نوفر غسيل الكنب والسجاد بالبخار بأحدث ماكينات الحقن والشفط، كما نقدم خدمات مكافحة متخصصة للقوارض والزواحف والحشرات باستخدام طعوم ومبيدات آمنة ومعتمدة مع الضمان.',
+        answer: 'نعم، نوفر غسيل الكنب والسجاد بالبخار بأحدث ماكينات الحقن والشفط، كما نقدم خدمات مكافحة متخصصة للقوارض والزواحف والحشرات باستخدام طعوم ومبيدات آمنة ومعتمدة.',
         answerEn: 'Yes! We provide on-site steam cleaning for sofas and carpets with rapid extraction, as well as specialized extermination for rodents, reptiles, and pests.',
-        category: 'الخدمات والضمان'
+        category: 'الخدمات العامة'
       },
       {
         id: 'faq-jeddah-4',
@@ -448,7 +448,7 @@ export const CITY_CONTENT: Record<'jeddah' | 'rabigh' | 'makkah' | 'khulais', Ci
         questionEn: 'Do you provide post-construction and post-renovation cleaning in Makkah?',
         answer: 'نعم، نمتلك فرقاً مجهزة بمعدات جلي السيراميك والرخام، إزالة بقايا البوية والترويبة، وتنظيف النوافذ والأبواب والمطابخ لتسليم العقار جاهزاً تماماً للسكن.',
         answerEn: 'Yes, our crews are equipped with heavy floor scrubbers to remove plaster and paint residues, polish tiles, and sanitize kitchens and bathrooms for immediate move-in readiness.',
-        category: 'الخدمات والضمان'
+        category: 'الخدمات العامة'
       },
       {
         id: 'faq-makkah-5',
@@ -611,7 +611,7 @@ export const CITY_CONTENT: Record<'jeddah' | 'rabigh' | 'makkah' | 'khulais', Ci
         id: 'faq-rabigh-4',
         question: 'هل تتوفر لديكم خدمات مكافحة القوارض والآفات في رابغ ومستورة؟',
         questionEn: 'Do you provide pest and rodent control in Rabigh and Masturah?',
-        answer: 'نعم، نقدم حلول مكافحة متقدمة للقوارض، الصراصير، والنمل الأبيض باستخدام طعوم ومبيدات آمنة ومرخصة، مع فحص فتحات الدخول وتأمين الموقع بالكامل مع الضمان.',
+        answer: 'نعم، نقدم حلول مكافحة متقدمة للقوارض، الصراصير، والنمل الأبيض باستخدام طعوم ومبيدات آمنة ومرخصة، مع فحص فتحات الدخول وتأمين الموقع بالكامل.',
         answerEn: 'Yes, we deliver targeted rodent and crawling pest extermination for residences, warehouses, and compounds in Rabigh and Masturah using certified safe materials.',
         category: 'مكافحة الآفات'
       },
@@ -763,7 +763,7 @@ export const CITY_CONTENT: Record<'jeddah' | 'rabigh' | 'makkah' | 'khulais', Ci
         questionEn: 'Do you offer cleaning services for resthouses, chalets, and farmsteads in Khulais?',
         answer: 'نعم، لدينا فرق متخصصة لتجهيز الاستراحات والفلل تشمل جلي وغسيل الأحواش، تنظيف المجالس والكنب بالبخار، وتعقيم المطابخ ودورات المياه قبل المناسبات العائلية وعطلات الأسبوع.',
         answerEn: 'Yes, we have mobile units equipped for resthouses and chalets, providing courtyard washing, steam majlis cleaning, and kitchen/bathroom sanitization for weekend readiness.',
-        category: 'الخدمات والضمان'
+        category: 'الخدمات العامة'
       },
       {
         id: 'faq-khulais-3',
@@ -777,8 +777,8 @@ export const CITY_CONTENT: Record<'jeddah' | 'rabigh' | 'makkah' | 'khulais', Ci
         id: 'faq-khulais-4',
         question: 'كيف تكافحون النمل الأبيض (الأرضة) والآفات في منازل ومزارع خليص؟',
         questionEn: 'How do you treat subterranean termites and pests in Khulais properties?',
-        answer: 'نستخدم محاليل حقن ورش مخصصة ومعتمدة من الهيئات الصحية لمكافحة الأرضة والنمل الأبيض قبل وبعد البناء، مع توفير طعوم آمنة للزواحف والقوارض وضمان معتمد.',
-        answerEn: 'We deploy certified soil-barrier and injection treatments against termites, along with safe rodent deterrence stations backed by official warranty.',
+        answer: 'نستخدم محاليل حقن ورش مخصصة ومعتمدة من الهيئات الصحية لمكافحة الأرضة والنمل الأبيض قبل وبعد البناء، مع توفير طعوم آمنة للزواحف والقوارض.',
+        answerEn: 'We deploy certified soil-barrier and injection treatments against termites, along with safe rodent deterrence stations.',
         category: 'مكافحة الآفات'
       },
       {
