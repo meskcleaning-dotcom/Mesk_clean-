@@ -126,15 +126,11 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
       ? tankData.metaTitle
       : (isHomeCleaning && homeData && language === 'ar')
       ? homeData.metaTitle
-      : (isPestControl && pestData && language === 'ar')
-      ? pestData.metaTitle
       : generateServiceCityTitle(serviceId, currentCityId, language === 'ar' ? 'ar' : 'en');
     const pageDesc = (isTanks && tankData && language === 'ar')
       ? tankData.metaDescription
       : (isHomeCleaning && homeData && language === 'ar')
       ? homeData.metaDescription
-      : (isPestControl && pestData && language === 'ar')
-      ? pestData.metaDescription
       : generateServiceCityDescription(serviceId, currentCityId, language === 'ar' ? 'ar' : 'en');
 
     document.title = pageTitle;
@@ -2941,8 +2937,8 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                 <MapPin className="w-5 h-5 text-cyan-500" />
                 <span>
                   {language === 'ar' 
-                    ? `خدمة ${serviceName} في مدن أخرى:` 
-                    : `${serviceName} in Other Cities:`}
+                    ? `${baseService?.name || serviceName} في مدن أخرى:` 
+                    : `${baseService?.nameEn || 'Services'} in Other Cities:`}
                 </span>
               </h3>
 
