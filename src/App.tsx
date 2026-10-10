@@ -18,6 +18,9 @@ import { MobileBottomNav } from './components/MobileBottomNav';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { LegalDocType } from './components/LegalModal';
 import { JeddahGuideSection } from './components/JeddahGuideSection';
+import { MakkahGuideSection } from './components/MakkahGuideSection';
+import { RabighGuideSection } from './components/RabighGuideSection';
+import { KhulaisGuideSection } from './components/KhulaisGuideSection';
 
 const AdminDashboard = lazy(() =>
   import('./components/AdminDashboard').then(m => ({ default: m.AdminDashboard }))
@@ -126,8 +129,11 @@ function MainWebsite() {
         {/* Blog / Cleaning Guide Section */}
         <BlogSection onBookService={() => handleOpenBooking()} />
 
-        {/* Jeddah Comprehensive Cleaning Guide Section - Shown exclusively on /jeddah */}
+        {/* Comprehensive City Guides - Shown exclusively on each respective city route */}
         {isCityRoute && currentCityId === 'jeddah' && <JeddahGuideSection />}
+        {isCityRoute && currentCityId === 'makkah' && <MakkahGuideSection />}
+        {isCityRoute && currentCityId === 'rabigh' && <RabighGuideSection />}
+        {isCityRoute && currentCityId === 'khulais' && <KhulaisGuideSection />}
       </main>
 
       {/* Footer with quick links and Admin portal link */}
