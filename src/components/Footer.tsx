@@ -53,7 +53,9 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService, onOpenAdmin, on
             </div>
 
             <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-sm">
-              {language === 'ar' ? company.description : company.descriptionEn}
+              {language === 'ar'
+                ? 'مسك كلين لخدمات التنظيف الشامل، عزل الخزانات، مكافحة القوارض وتركيب شبك وطارد الحمام في جدة ومكة المكرمة ورابغ وخليص، بفريق محترف ومعدات حديثة.'
+                : (company.descriptionEn || 'Mesk Clean provides professional cleaning services, tank insulation, pest control, and anti-pigeon netting installation across Jeddah, Makkah, Rabigh, and Khulais.')}
             </p>
 
             <div className="pt-2 flex items-center gap-3">

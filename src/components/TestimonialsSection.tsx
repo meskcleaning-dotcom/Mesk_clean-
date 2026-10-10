@@ -7,15 +7,49 @@ import { TestimonialItem } from '../types';
 
 export const TestimonialsSection: React.FC = () => {
   const { language, t } = useLanguage();
-  const { currentCity } = useCityRoute();
+  const { currentCity, currentCityId } = useCityRoute();
   const [testimonials, setTestimonials] = useState<TestimonialItem[]>([]);
 
   const loadTestimonials = () => {
-    setTestimonials(getStoredTestimonials());
+    const all = getStoredTestimonials();
+    if (!all || all.length === 0) {
+      setTestimonials([]);
+      return;
+    }
+
+    // Filter testimonials strictly matching the active city
+    const filtered = all.filter((item) => {
+      if (!item) return false;
+      const district = item.district?.trim().toLowerCase() || '';
+      const comment = (item.comment || '').toLowerCase() + ' ' + (item.commentEn || '').toLowerCase();
+
+      // Check if item's district is in the current city's Arabic or English districts list
+      const matchesDistrict = currentCity.districtsAr.some((d) => {
+        const cleanD = d.replace(/^حي\s+/, '').trim().toLowerCase();
+        return cleanD && (district.includes(cleanD) || district === d.toLowerCase());
+      }) || currentCity.districtsEn.some((d) => {
+        const cleanD = d.replace(/^al\s+/i, '').trim().toLowerCase();
+        return cleanD && (district.includes(cleanD) || district === d.toLowerCase());
+      });
+
+      // Check if city name is mentioned in district or comment
+      const matchesCityName =
+        district.includes(currentCity.nameAr.toLowerCase()) ||
+        district.includes(currentCity.nameEn.toLowerCase()) ||
+        comment.includes(currentCity.nameAr.toLowerCase()) ||
+        comment.includes(currentCity.nameEn.toLowerCase());
+
+      return matchesDistrict || matchesCityName;
+    });
+
+    setTestimonials(filtered);
   };
 
   useEffect(() => {
     loadTestimonials();
+  }, [currentCityId, currentCity]);
+
+  useEffect(() => {
     const handleUpdate = (e: Event) => {
       const customEvent = e as CustomEvent;
       if (customEvent.detail?.type === 'testimonials') {
@@ -24,8 +58,9 @@ export const TestimonialsSection: React.FC = () => {
     };
     window.addEventListener('mesk_store_updated', handleUpdate);
     return () => window.removeEventListener('mesk_store_updated', handleUpdate);
-  }, []);
+  }, [currentCityId, currentCity]);
 
+  // If no testimonials exist for the current city, hide the section completely
   if (!testimonials || testimonials.length === 0) {
     return null;
   }
