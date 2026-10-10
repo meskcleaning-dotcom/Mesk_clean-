@@ -14,26 +14,33 @@ declare global {
   }
 }
 
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-
-if (typeof window !== 'undefined' && !window.__firebaseAppCheckInitialized) {
-  window.__firebaseAppCheckInitialized = true;
-  try {
-    if (location.hostname === 'localhost') {
-      self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
-    }
-
-    initializeAppCheck(app, {
-      provider: new ReCaptchaV3Provider(RECAPTCHA_SITE_KEY),
-      isTokenAutoRefreshEnabled: true,
-    });
-  } catch (error) {
-    console.error('Firebase App Check initialization failed:', error);
-  }
-}
+export const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 
 export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
-export const auth = getAuth(app);
+
+// Lazy initialization for App Check / reCAPTCHA (deferred from initial page load)
+export const ensureAppCheck = () => {
+  if (typeof window !== 'undefined' && !window.__firebaseAppCheckInitialized) {
+    window.__firebaseAppCheckInitialized = true;
+    try {
+      if (location.hostname === 'localhost') {
+        (window as any).FIREBASE_APPCHECK_DEBUG_TOKEN = true;
+      }
+
+      initializeAppCheck(app, {
+        provider: new ReCaptchaV3Provider(RECAPTCHA_SITE_KEY),
+        isTokenAutoRefreshEnabled: true,
+      });
+    } catch (error) {
+      console.error('Firebase App Check initialization failed:', error);
+    }
+  }
+};
+
+// Lazy Auth getter so firebase/auth is only loaded for admin/login pages
+export const getAuthInstance = () => {
+  return getAuth(app);
+};
 
 export enum OperationType {
   CREATE = 'create',
@@ -56,12 +63,17 @@ export interface FirestoreErrorInfo {
 }
 
 export function handleFirestoreError(error: unknown, operationType: OperationType, path: string | null) {
+  let authUser = null;
+  try {
+    authUser = getAuthInstance().currentUser;
+  } catch {}
+
   const errInfo: FirestoreErrorInfo = {
     error: error instanceof Error ? error.message : String(error),
     authInfo: {
-      userId: auth.currentUser?.uid,
-      email: auth.currentUser?.email,
-      emailVerified: auth.currentUser?.emailVerified,
+      userId: authUser?.uid,
+      email: authUser?.email,
+      emailVerified: authUser?.emailVerified,
     },
     operationType,
     path,

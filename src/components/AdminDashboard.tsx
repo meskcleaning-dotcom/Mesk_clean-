@@ -8,7 +8,8 @@ import {
 } from 'firebase/auth';
 import type { User } from 'firebase/auth';
 import { collection, onSnapshot } from 'firebase/firestore';
-import { auth, db } from '../lib/firebase';
+import { db, getAuthInstance } from '../lib/firebase';
+const auth = getAuthInstance();
 import {
   Lock,
   LogOut,

@@ -49,6 +49,26 @@ function MainWebsite() {
     return () => window.removeEventListener('hashchange', checkHash);
   }, []);
 
+  // Lazy initialize App Check / reCAPTCHA on first user interaction
+  useEffect(() => {
+    const handleFirstInteraction = () => {
+      import('./lib/firebase').then(({ ensureAppCheck }) => {
+        ensureAppCheck();
+      });
+      window.removeEventListener('pointerdown', handleFirstInteraction);
+      window.removeEventListener('keydown', handleFirstInteraction);
+      window.removeEventListener('touchstart', handleFirstInteraction);
+    };
+    window.addEventListener('pointerdown', handleFirstInteraction, { passive: true });
+    window.addEventListener('keydown', handleFirstInteraction, { passive: true });
+    window.addEventListener('touchstart', handleFirstInteraction, { passive: true });
+    return () => {
+      window.removeEventListener('pointerdown', handleFirstInteraction);
+      window.removeEventListener('keydown', handleFirstInteraction);
+      window.removeEventListener('touchstart', handleFirstInteraction);
+    };
+  }, []);
+
   const handleOpenBooking = (serviceId?: string, district?: string) => {
     if (serviceId) setSelectedServiceForBooking(serviceId);
     if (district) setSelectedDistrictForBooking(district);

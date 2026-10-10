@@ -2,7 +2,7 @@ import { ServiceItem, BlogPost, BookingRequestRecord, FAQItem, TestimonialItem, 
 import { SERVICES_DATA } from './servicesData';
 import { BLOG_DATA } from './blogData';
 import { COMPANY_INFO } from './companyInfo';
-import { db } from '../lib/firebase';
+import { db, ensureAppCheck } from '../lib/firebase';
 import { doc, setDoc, updateDoc, deleteDoc } from 'firebase/firestore';
 
 // Storage keys
@@ -321,6 +321,7 @@ export const saveStoredOrder = (order: BookingRequestRecord): void => {
     window.dispatchEvent(new CustomEvent('mesk_store_updated', { detail: { type: 'orders' } }));
     
     // Sync to Firestore cloud database
+    ensureAppCheck();
     setDoc(doc(db, 'orders', order.id), order).catch(err => {
       console.warn('Firestore sync order error:', err);
     });
@@ -335,6 +336,7 @@ export const updateStoredOrderStatus = (orderId: string, status: BookingRequestR
     window.dispatchEvent(new CustomEvent('mesk_store_updated', { detail: { type: 'orders' } }));
     
     // Sync to Firestore
+    ensureAppCheck();
     updateDoc(doc(db, 'orders', orderId), { status }).catch(err => {
       console.warn('Firestore update order status error:', err);
     });
@@ -349,6 +351,7 @@ export const deleteStoredOrder = (orderId: string): void => {
     window.dispatchEvent(new CustomEvent('mesk_store_updated', { detail: { type: 'orders' } }));
     
     // Sync to Firestore
+    ensureAppCheck();
     deleteDoc(doc(db, 'orders', orderId)).catch(err => {
       console.warn('Firestore delete order error:', err);
     });
