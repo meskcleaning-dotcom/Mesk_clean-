@@ -124,30 +124,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           {language === 'ar' ? 'لبيئة أنظف' : 'For a Cleaner Environment'}
         </div>
 
-        {/* Description Text */}
-        <p
-          className={`text-sm sm:text-base lg:text-lg font-bold leading-relaxed max-w-xl mx-auto mb-5 sm:mb-6 text-center transition-colors duration-300 ${
-            isDark
-              ? 'text-white/95 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]'
-              : 'text-slate-900 drop-shadow-[0_1px_4px_rgba(255,255,255,0.9)]'
-          }`}
-        >
-          {mainDesc}
-        </p>
 
-        {/* District Coverage Micro-Bar for Local SEO & Trust */}
-        <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-cyan-500/30 text-xs font-semibold text-slate-800 dark:text-cyan-200 mb-6 sm:mb-8 shadow-sm">
-          <MapPin className="w-3.5 h-3.5 text-cyan-500 shrink-0" />
-          <span>
-            {language === 'ar'
-              ? (isCityRoute 
-                  ? `تغطية فورية لكافة أحياء ${currentCity.nameAr}: ${currentCity.districtsAr.slice(0, 4).join('، ')} وكافة الأحياء`
-                  : 'تغطية فورية: أبحر، الحمدانية، الصفا، الروضة، العوالي، رابغ، خليص وكافة الأحياء')
-              : (isCityRoute
-                  ? `Fast coverage across all ${currentCity.nameEn} districts`
-                  : 'Fast coverage across Jeddah, Makkah, Rabigh & Khulais')}
-          </span>
-        </div>
 
         {/* Action Buttons Stack */}
         <div className="w-full max-w-md mx-auto space-y-3.5 sm:space-y-4">
