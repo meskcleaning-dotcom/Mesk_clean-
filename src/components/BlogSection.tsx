@@ -4,6 +4,8 @@ import { getStoredBlog } from '../data/store';
 import { BlogPost } from '../types';
 import { BlogDetailModal } from './BlogDetailModal';
 import { useLanguage } from '../context/LanguageContext';
+import { useCityRoute } from '../context/CityRouteContext';
+import { CITY_CONTENT } from '../data/cityContent';
 
 interface BlogSectionProps {
   onBookService: () => void;
@@ -11,15 +13,26 @@ interface BlogSectionProps {
 
 export const BlogSection: React.FC<BlogSectionProps> = ({ onBookService }) => {
   const { language, t } = useLanguage();
+  const { currentCityId, currentCity } = useCityRoute();
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
 
+  const cityData = CITY_CONTENT[currentCityId] || CITY_CONTENT.jeddah;
+
   const loadPosts = () => {
-    setPosts(getStoredBlog());
+    // If on a specific city route, prioritize the curated city-specific blog posts
+    if (cityData && cityData.blogPosts && cityData.blogPosts.length > 0) {
+      setPosts(cityData.blogPosts);
+    } else {
+      setPosts(getStoredBlog());
+    }
   };
 
   useEffect(() => {
     loadPosts();
+  }, [currentCityId]);
+
+  useEffect(() => {
     const handleUpdate = (e: Event) => {
       const customEvent = e as CustomEvent;
       if (customEvent.detail?.type === 'blog') {
@@ -28,7 +41,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onBookService }) => {
     };
     window.addEventListener('mesk_store_updated', handleUpdate);
     return () => window.removeEventListener('mesk_store_updated', handleUpdate);
-  }, []);
+  }, [currentCityId]);
 
   return (
     <section id="blog" className="py-16 sm:py-24 relative overflow-hidden bg-slate-50/60 dark:bg-[#011427]/70">
@@ -76,7 +89,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onBookService }) => {
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
 
                     <span className="absolute bottom-3 start-3 px-2.5 py-1 rounded-md bg-cyan-500 text-slate-950 text-xs font-black">
-                      {language === 'ar' ? 'دليل جدة' : 'Jeddah Guide'}
+                      {language === 'ar' ? `دليل ${cityData.nameAr}` : `${cityData.nameEn} Guide`}
                     </span>
                   </div>
 

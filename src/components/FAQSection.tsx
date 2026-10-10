@@ -4,18 +4,30 @@ import { useLanguage } from '../context/LanguageContext';
 import { getStoredFAQs } from '../data/store';
 import { FAQItem } from '../types';
 import { COMPANY_INFO } from '../data/companyInfo';
+import { useCityRoute } from '../context/CityRouteContext';
+import { CITY_CONTENT } from '../data/cityContent';
 
 export const FAQSection: React.FC = () => {
   const { language, t } = useLanguage();
+  const { currentCityId } = useCityRoute();
   const [faqs, setFaqs] = useState<FAQItem[]>([]);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
+  const cityData = CITY_CONTENT[currentCityId] || CITY_CONTENT.jeddah;
+
   const loadFaqs = () => {
-    setFaqs(getStoredFAQs());
+    if (cityData && cityData.faqs && cityData.faqs.length > 0) {
+      setFaqs(cityData.faqs);
+    } else {
+      setFaqs(getStoredFAQs());
+    }
   };
 
   useEffect(() => {
     loadFaqs();
+  }, [currentCityId]);
+
+  useEffect(() => {
     const handleUpdate = (e: Event) => {
       const customEvent = e as CustomEvent;
       if (customEvent.detail?.type === 'faqs') {
@@ -24,7 +36,7 @@ export const FAQSection: React.FC = () => {
     };
     window.addEventListener('mesk_store_updated', handleUpdate);
     return () => window.removeEventListener('mesk_store_updated', handleUpdate);
-  }, []);
+  }, [currentCityId]);
 
   const toggleAccordion = (idx: number) => {
     setOpenIndex(openIndex === idx ? null : idx);
