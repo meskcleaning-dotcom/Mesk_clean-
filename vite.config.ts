@@ -120,6 +120,7 @@ export default defineConfig(() => {
       servicePagesPrerenderPlugin(),
       VitePWA({
         registerType: 'autoUpdate',
+        injectRegister: false,
         includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'icon.svg'],
         manifest: {
           id: '/',
