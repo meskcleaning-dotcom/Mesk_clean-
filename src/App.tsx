@@ -6,18 +6,18 @@ import { SEOHead } from './components/SEOHead';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { ServicesSection } from './components/ServicesSection';
-import { WhyMeskClean } from './components/WhyMeskClean';
-import { HowItWorks } from './components/HowItWorks';
 import { BookingForm } from './components/BookingForm';
-import { TestimonialsSection } from './components/TestimonialsSection';
-import { FAQSection } from './components/FAQSection';
-import { GoogleMapsSection } from './components/GoogleMapsSection';
-import { BlogSection } from './components/BlogSection';
 import { Footer } from './components/Footer';
 import { MobileBottomNav } from './components/MobileBottomNav';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { LegalDocType } from './components/LegalModal';
-import { CityGuideSection } from './components/CityGuideSection';
+const TestimonialsSection = lazy(() => import('./components/TestimonialsSection').then(m => ({ default: m.TestimonialsSection })));
+const FAQSection = lazy(() => import('./components/FAQSection').then(m => ({ default: m.FAQSection })));
+const GoogleMapsSection = lazy(() => import('./components/GoogleMapsSection').then(m => ({ default: m.GoogleMapsSection })));
+const BlogSection = lazy(() => import('./components/BlogSection').then(m => ({ default: m.BlogSection })));
+const CityGuideSection = lazy(() => import('./components/CityGuideSection').then(m => ({ default: m.CityGuideSection })));
+const WhyMeskClean = lazy(() => import('./components/WhyMeskClean').then(m => ({ default: m.WhyMeskClean })));
+const HowItWorks = lazy(() => import('./components/HowItWorks').then(m => ({ default: m.HowItWorks })));
 
 const AdminDashboard = lazy(() =>
   import('./components/AdminDashboard').then(m => ({ default: m.AdminDashboard }))
@@ -102,11 +102,13 @@ function MainWebsite() {
         {/* Services Section (Dynamic Title per City) */}
         <ServicesSection onBookService={(serviceId) => handleOpenBooking(serviceId)} />
 
-        {/* Why Mesk Clean Section (6 Approved Reasons) */}
-        <WhyMeskClean />
+        <Suspense fallback={<div className="py-20 min-h-[300px]" />}>
+          <WhyMeskClean />
+        </Suspense>
 
-        {/* How It Works (3 Steps) */}
-        <HowItWorks onStartBooking={() => handleOpenBooking()} />
+        <Suspense fallback={<div className="py-20 min-h-[350px]" />}>
+          <HowItWorks onStartBooking={() => handleOpenBooking()} />
+        </Suspense>
 
         {/* Booking Form with City Pre-selection & Security & Spam Protection */}
         <BookingForm
@@ -114,27 +116,32 @@ function MainWebsite() {
           initialDistrict={selectedDistrictForBooking}
         />
 
-        {/* Customer Reviews & Testimonials */}
-        <TestimonialsSection />
+        <Suspense fallback={<div className="py-20 min-h-[300px]" />}>
+          <TestimonialsSection />
+        </Suspense>
 
-        {/* Frequently Asked Questions (FAQ) with Schema */}
-        <FAQSection />
+        <Suspense fallback={<div className="py-20 min-h-[400px]" />}>
+          <FAQSection />
+        </Suspense>
 
-        {/* Google Maps and Service Coverage Area with City Routes */}
-        <GoogleMapsSection />
+        <Suspense fallback={<div className="py-20 min-h-[450px]" />}>
+          <GoogleMapsSection />
+        </Suspense>
 
-        {/* Blog / Cleaning Guide Section */}
-        <BlogSection onBookService={() => handleOpenBooking()} />
+        <Suspense fallback={<div className="py-20 min-h-[400px]" />}>
+          <BlogSection onBookService={() => handleOpenBooking()} />
+        </Suspense>
 
-        {/* Unified Comprehensive City Guide - Reads active city automatically */}
-        <CityGuideSection />
+        <Suspense fallback={<div className="py-20 min-h-[500px]" />}>
+          <CityGuideSection />
+        </Suspense>
       </main>
 
       {/* Footer with quick links and Admin portal link */}
       <Footer
-        onSelectService={(serviceId) => navigateToService(currentCityId, serviceId)}
+        onSelectService={(serviceId: string) => navigateToService(currentCityId, serviceId)}
         onOpenAdmin={() => setShowAdmin(true)}
-        onOpenLegal={(type) => setLegalModalType(type)}
+        onOpenLegal={(type: LegalDocType) => setLegalModalType(type)}
       />
 
       {/* Native Mobile Bottom Navigation */}

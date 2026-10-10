@@ -739,9 +739,12 @@ export const ServiceCityPage: React.FC<ServiceCityPageProps> = ({ serviceId }) =
                   <img
                     src={baseService?.image || '/assets/mesk-hero.webp'}
                     alt={serviceName}
+                    width="600"
+                    height="400"
                     style={{ objectPosition: baseService?.imagePosition || 'center' }}
                     className="w-full h-72 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-700"
-                    loading="lazy"
+                    loading="eager"
+                    fetchPriority="high"
                     decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>

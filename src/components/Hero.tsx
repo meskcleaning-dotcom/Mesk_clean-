@@ -49,10 +49,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
       <img
         src="/assets/mesk-hero-light.webp"
         alt={language === 'ar' ? (!isCityRoute ? 'شركة مسك كلين لخدمات التنظيف بجدة ومكة ورابغ وخليص' : `شركة تنظيف في ${currentCity.nameAr} - مسك كلين`) : `Mesk Clean - Cleaning Company in ${currentCity.nameEn}`}
+        width="1200"
+        height="800"
         className={`absolute inset-0 w-full h-full object-cover object-center pointer-events-none transition-all duration-500 ${
           isDark ? 'brightness-[0.45] contrast-[1.1] saturate-[0.85]' : 'brightness-100'
         }`}
         referrerPolicy="no-referrer"
+        loading="eager"
         fetchPriority="high"
         decoding="async"
       />
