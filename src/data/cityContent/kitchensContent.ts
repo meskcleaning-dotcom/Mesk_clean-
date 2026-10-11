@@ -10,59 +10,59 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
     metaTitle: 'شركة تنظيف مطابخ بجدة | مسك كلين - إزالة دهون الرطوبة وتلميع دواليب الألمنيوم والخشب',
     metaTitleEn: 'Kitchen Deep Cleaning & Degreasing Company in Jeddah | Mesk Clean',
     metaDescription: 'أفضل شركة تنظيف مطابخ بجدة لإزالة دهون الطهي المستعصية المتفاعلة مع الرطوبة، تنظيف الشفاطات والأفران وتلميع دواليب الخشب والكلادينج بالروضة والشاطئ والصفا.',
-    metaDescriptionEn: 'Premier residential and commercial kitchen deep cleaning in Jeddah by Mesk Clean. Powerful degreasing of range hoods, ovens, and stainless steel in high coastal humidity across all districts.',
+    metaDescriptionEn: 'Premier residential and commercial kitchen deep cleaning in Jeddah by Mesk Clean. Powerful degreasing of range hoods, ovens, and kitchen appliances in high coastal humidity across all districts.',
     keywords: ['شركة تنظيف مطابخ بجدة', 'تنظيف مطابخ بجدة', 'غسيل مطابخ بجدة', 'إزالة دهون المطابخ جدة', 'شركة تنظيف دهون الشفاطات جدة'],
-    heroBadge: 'خدمة معتمدة للمطابخ بجدة',
+    heroBadge: 'خدمة متخصصة لتنظيف المطابخ بجدة',
     heroBadgeEn: 'Certified Kitchen Hygiene in Jeddah',
     heroHeading: 'شركة تنظيف مطابخ بجدة - إذابة أصعب الدهون المتفاعلة مع الرطوبة واستعادة لمعان مطبخك',
     heroHeadingEn: 'Kitchen Deep Cleaning & Degreasing in Jeddah - Dissolving Coastal Grease Layers',
-    heroSubtitle: 'نقدم لسكان جدة خدمات تنظيف وتطهير مطابخ استثنائية تشمل إذابة الزيوت والدهون المتكلسة من الشفاطات، جلي ترويبة السيراميك، وتلميع دواليب الكلادينج والخشب بمواد عضوية آمنة 100%.',
+    heroSubtitle: 'نقدم لسكان جدة خدمات تنظيف وتطهير مطابخ استثنائية تشمل إذابة الزيوت والدهون المتكلسة من الشفاطات، تنظيف وتلميع جدران وأرضيات السيراميك، وتلميع دواليب الكلادينج والخشب بمواد متخصصة فعالة.',
     heroSubtitleEn: 'Mesk Clean delivers intensive kitchen restoration in Jeddah, targeting polymerized oils bonded with Red Sea coastal humidity across range hoods, ovens, and luxury cabinetry.',
     introParagraphs: [
-      'يمثل المطبخ قلب المنزل النابض في مدينة جدة، إلا أن البيئة الساحلية لعروس البحر الأحمر تفرض تحديات نظافة بالغة التعقيد على أسطح وتجهيزات المطابخ؛ حيث تتصاعد أبخرة الزيوت ودهون الطهي أثناء إعداد الوجبات لتلتقي مع نسب الرطوبة الجوية المرتفعة المحملة برذاذ الملح البحري. هذا التفاعل الكيميائي الفريد يؤدي إلى تحول جزيئات الزيوت المتطايرة إلى طبقة صمغية لزجة وصفراء تُعرف بـ "الدهون المتكلسة بالرطوبة"، والتي تلتصق بقوة فوق مداخن الشفاطات، وأسطح دواليب المطبخ (الألمنيوم، الخشب، والكلادينج)، وفواصل السيراميك، مما يجعل إزالتها بطرق المسح المنزلي العادية أمراً شبه مستحيل، فضلاً عن جذبها للحشرات وانبعاث روائح دهنية غير مستحبة.',
-      'تقدم شركة مسك كلين بجدة بروتوكولاً هندسياً متقدماً للتنظيف والتعقيم العميق للمطابخ السكنية ومطابخ المطاعم؛ حيث نستخدم أجهزة البخار الجاف فائق الحرارة (140 درجة مئوية) المصحوب بمذيبات دهون عضوية إيطالية معتمدة تفكك الروابط الكيميائية للزيوت المحترقة على الشفاطات وشعلات الأفران وأحواض الستانلس ستيل دون التسبب في خدش الأسطح أو تجيير الألمنيوم. يحرص فريقنا المتخصص على فك فلاتر الشفاط ومراوح التهوية ونقعها في أحواض إذابة الشحوم الحرارية، لتعود تعمل بكامل طاقتها في سحب الروائح والأبخرة.',
+      'يمثل المطبخ قلب المنزل النابض في مدينة جدة، إلا أن البيئة الساحلية لعروس البحر الأحمر تفرض تحديات نظافة بالغة التعقيد على أسطح وتجهيزات المطابخ؛ حيث تتصاعد أبخرة الزيوت ودهون الطهي أثناء إعداد الوجبات لتلتقي مع نسب الرطوبة الجوية المرتفعة المحملة برذاذ الملح البحري. هذا التفاعل الكيميائي الفريد يؤدي إلى تحول جزيئات الزيوت المتطايرة إلى طبقة صمغية لزجة وصفراء تُعرف بـ "الدهون المتكلسة بالرطوبة"، والتي تلتصق بقوة فوق فلاتر وشفاطات المطبخ، وأسطح الدواليب (الألمنيوم، الخشب، والكلادينج)، وفواصل السيراميك، مما يجعل إزالتها بطرق المسح المنزلي العادية أمراً شبه مستحيل، فضلاً عن جذبها للحشرات وانبعاث روائح دهنية غير مستحبة.',
+      'تقدم شركة مسك كلين بجدة بروتوكولاً هندسياً متقدماً للتنظيف والتعقيم العميق للمطابخ السكنية ومطابخ المطاعم؛ حيث نستخدم أحدث أجهزة إذابة الدهون المتقدمة المصحوبة بمذيبات دهون عضوية إيطالية متخصصة تفكك الروابط الكيميائية للزيوت المحترقة على الشفاطات والأسطح المحيطة بالأفران وأحواض المطابخ دون التسبب في خدش الأسطح أو تجيير الألمنيوم. يحرص فريقنا المتخصص على فك فلاتر الشفاط ومراوح التهوية ونقعها في أحواض إذابة الشحوم الحرارية، لتعود تعمل بكامل طاقتها في سحب الروائح والأبخرة.',
       'نخدم كافة أحياء محافظة جدة بفرق مدربة ومجهزة بمعدات تلميع الرخام الصناعي والجرانيت الطبيعي وأجهزة التعقيم بالأوزون؛ فنحن نصل سريعاً إلى فلل وشقق أحياء شمال جدة (الروضة، الشاطئ، أبحر، المرجان، البساتين، المحمدية) حيث المطابخ المودرن الفاخرة المفتوحة، وإلى أحياء وسط وشرق جدة (الصفا، المروة، السلامة، الزهراء، السامر) لنعيد لمطبخك بهاءه الأصلي ونوفر لأسرتك بيئة طهي صحية ومعقمة تليق بأرقى المعايير الفندقية.'
     ],
     introParagraphsEn: [
-      'The kitchen serves as the culinary heart of every Jeddah home. However, the coastal environment of the Red Sea creates acute sanitization obstacles: aerosolized cooking oils combine with intense ambient humidity carrying airborne marine salts. This unique chemical synergy converts airborne lipids into a stubborn, gummy amber glaze known as "humidity-caked grease." This sticky coating tenaciously bonds to range hood impellers, luxury kitchen cabinetry (acrylic, cladding, natural wood), and ceramic tile grout, defying regular household detergents while attracting pests and trapping rancid odors.',
-      'Mesk Clean in Jeddah provides an engineered deep-cleaning and thermal degreasing protocol for residential and commercial kitchens. We deploy industrial dry steam generators operating at 140°C alongside certified Italian bio-enzymatic degreasers that disintegrate polymerized fats across range hood canopies, heavy oven burners, and stainless steel backsplashes without etching aluminum or dulling protective finishes. Our technicians disassemble exhaust baffles and blower wheels, submerging them in thermal degreasing baths to restore peak air extraction efficiency.',
+      'The kitchen serves as the culinary heart of every Jeddah home. However, the coastal environment of the Red Sea creates acute sanitization obstacles: aerosolized cooking oils combine with intense ambient humidity carrying airborne marine salts. This unique chemical synergy converts airborne lipids into a stubborn, gummy amber glaze known as "humidity-caked grease." This sticky coating tenaciously bonds to range hood impellers, luxury kitchen cabinetry (acrylic, cladding, natural wood), and ceramic tile surfaces and joints, defying regular household detergents while attracting pests and trapping rancid odors.',
+      'Mesk Clean in Jeddah provides an engineered deep-cleaning and thermal degreasing protocol for residential and commercial kitchens. We deploy advanced industrial thermal degreasing equipment alongside specialized Italian bio-enzymatic degreasers that disintegrate polymerized fats across range hood canopies, oven cooking surfaces, and kitchen backsplashes without etching aluminum or dulling protective finishes. Our technicians disassemble exhaust baffles and blower wheels, submerging them in thermal degreasing baths to restore peak air extraction efficiency.',
       'We service all residential sectors across Jeddah with mobile units equipped with quartz/granite restoration buffers and ozone sanitizers, arriving promptly across North Jeddah (Al-Rawdah, Al-Shati, Obhur, Al-Murjan, Al-Basateen) and central/eastern corridors (Al-Safa, Al-Marwah, Al-Salamah, Al-Zahra, Al-Samer), delivering hospital-grade food preparation hygiene.'
     ],
     neighborhoodsAnalysisTitle: 'التحليل الميداني لتنظيف المطابخ وأنواع الدواليب بجدة',
     neighborhoodsAnalysisTitleEn: 'District Kitchen Architecture & Cabinetry Care in Jeddah',
     neighborhoodsAnalysisParagraphs: [
-      'في أحياء شمال جدة الساحلية كأبحر وحي الشاطئ والروضة، تتسم المطابخ بتصاميمها المفتوحة (Open American Kitchens) ودواليب الألماني والإيطالي الفاخرة المصنوعة من الأكريليك والرخام الصناعي؛ لذا نعتمد مواد تلميع خاصة خالية من المبيضات تحمي طبقات اللمعان العاكس وتزيل آثار رذاذ الملح عن شفاطات الجزيرة المركزية. أما في أحياء وسط وشرق جدة كالصفا والمروة والسلامة، ينصب التركيز على تنظيف المطابخ العائلية المغلقة، وإزالة شحوم الأفران الثقيلة، وتسليك مجاري الصرف من الدهون المتجمدة بالبخار.',
+      'في أحياء شمال جدة الساحلية كأبحر وحي الشاطئ والروضة، تتسم المطابخ بتصاميمها المفتوحة (Open American Kitchens) ودواليب الألماني والإيطالي الفاخرة المصنوعة من الأكريليك والرخام الصناعي؛ لذا نعتمد مواد تلميع خاصة خالية من المبيضات تحمي طبقات اللمعان العاكس وتزيل آثار رذاذ الملح عن شفاطات الجزيرة المركزية. أما في أحياء وسط وشرق جدة كالصفا والمروة والسلامة، ينصب التركيز على تنظيف المطابخ العائلية المغلقة، وإزالة شحوم الأفران الثقيلة، وتنظيف وتطهير مجاري الصرف من الدهون المتراكمة بعناية.',
       'تصل فرق مسك كلين إلى منزلك بجدة مع كامل مواد الحماية لتغطية الأجهزة الكهربائية وتأمين رخام المطبخ أثناء أعمال إذابة الشحوم.'
     ],
     neighborhoodsAnalysisParagraphsEn: [
-      'In luxury North Jeddah districts such as Obhur, Al-Shati, and Al-Rawdah, open-concept kitchens feature imported German and Italian acrylic, lacquered wood, and engineered quartz; our technicians utilize non-abrasive pH-balanced polishers that protect high-gloss finishes and dissolve salt-grease films on island range hoods. In central and eastern sectors like Al-Safa, Al-Marwah, and Al-Salamah, focus shifts to closed family kitchens, industrial range deep cleaning, and steam-clearing grease buildup in under-sink drain pipes.',
+      'In luxury North Jeddah districts such as Obhur, Al-Shati, and Al-Rawdah, open-concept kitchens feature imported German and Italian acrylic, lacquered wood, and engineered quartz; our technicians utilize non-abrasive pH-balanced polishers that protect high-gloss finishes and dissolve salt-grease films on island range hoods. In central and eastern sectors like Al-Safa, Al-Marwah, and Al-Salamah, focus shifts to closed family kitchens, industrial range deep cleaning, and thoroughly clearing grease buildup in under-sink drain pipes.',
       'Mesk Clean mobile crews arrive fully equipped with protective masking barriers to safeguard appliances and delicate stone countertops throughout the degreasing process.'
     ],
     importanceTitle: 'أهمية التنظيف العميق لمطابخ جدة الساحلية',
     importanceTitleEn: 'Why Professional Kitchen Cleaning is Vital in Coastal Jeddah',
     importanceContent: [
       'إذابة دهون الرطوبة المتصلبة: التخلص من الطبقات الصمغية اللزجة التي تتلف دهانات الدواليب وتجذب الغبار الساحلي.',
-      'رفع كفاءة شفاطات الهواء ومداخن الطهي: فك الفلاتر وتنظيف محركات الشفط يمنع تراكم الدخان والحرارة داخل المنزل.',
+      'رفع كفاءة شفاطات الهواء ومراوح الشفط: فك الفلاتر وتنظيف محركات الشفط يمنع تراكم الدخان والحرارة داخل المنزل.',
       'مكافحة الصراصير وحشرات المطابخ: إزالة بقايا الزيوت خلف الأفران والثلاجات يقضي على بيئة الغذاء المفضلة لصراصير المطبخ.',
-      'حماية أجهزة الستانلس ستيل من الصدأ الملحي: تلميع الأجهزة بمواد واقية يعزل الستانلس ستيل عن رطوبة البحر وأملاحه.',
-      'توفير بيئة طهي صحية خالية من البكتيريا: التعقيم بالبخار الحراري يقضي على 99.9% من مسببات التسمم الغذائي والسالمونيلا.'
+      'حماية الأجهزة والأسطح المعدنية من الصدأ الملحي: تلميع الأجهزة بمواد واقية يعزل أسطح المطبخ عن رطوبة البحر وأملاحه.',
+      'توفير بيئة طهي صحية خالية من البكتيريا: التعقيم والتطهير الحراري المركز يقضي على مسببات التلوث الغذائي والبكتيريا.'
     ],
     importanceContentEn: [
       'Dissolving Polymerized Humidity Grease: Eliminating gummy films that ruin cabinet laminate finishes and trap coastal airborne dust.',
-      'Restoring Range Hood & Blower Velocity: Clearing greasy buildup from fan blades prevents heat, smoke, and moisture retention.',
+      'Restoring Range Hood & Exhaust Velocity: Clearing greasy buildup from fan blades prevents heat, smoke, and moisture retention.',
       'Preventing Cockroach & Pest Invasions: Removing concealed grease deposits behind stoves eliminates prime food sources for German roaches.',
-      'Shielding Stainless Steel from Saline Rust: Specialized conditioning shields appliances from ambient Red Sea salt-induced tarnishing.',
-      'Securing a Pathogen-Free Cooking Environment: Thermal steam sanitization eradicates 99.9% of foodborne bacteria and Salmonella.'
+      'Shielding Metal Surfaces from Saline Rust: Specialized conditioning shields appliances from ambient Red Sea salt-induced tarnishing.',
+      'Securing a Pathogen-Free Cooking Environment: Thermal sanitization eliminates foodborne bacteria and contamination.'
     ],
-    equipmentTitle: 'ماكينات البخار ومذيبات الدهون الإيطالية بجدة',
-    equipmentTitleEn: 'Industrial Steam Boilers & Bio-Safe Degreasers in Jeddah',
+    equipmentTitle: 'أجهزة إذابة الدهون ومذيبات الزيوت الإيطالية بجدة',
+    equipmentTitleEn: 'Industrial Degreasing Equipment & Bio-Safe Degreasers in Jeddah',
     equipmentParagraphs: [
-      'نستخدم في مسك كلين بجدة أجهزة توليد البخار الحراري الجاف الإيطالية بقوة ضغط تصل إلى 8 بار ودرجة حرارة 140 مئوية لتسييل الشحوم فور ملامستها دون إغراق المطبخ بالماء.',
-      'كافة مذيبات الدهون والشامبوهات المستخدمة خالية تماماً من الأحماض الكاوية ورائحة الخنق، ومصرحة للاستخدام في المنشآت الغذائية من SASO وهيئة الغذاء والدواء.'
+      'نستخدم في مسك كلين بجدة أجهزة إذابة الدهون المتطورة المزودة برؤوس دقيقة ومحاليل إذابة حرارية لتسييل الشحوم وتفكيكها دون إغراق المطبخ بالماء.',
+      'كافة مذيبات الدهون والشامبوهات المستخدمة خالية تماماً من الأحماض الكاوية ورائحة الخنق، وملائمة للاستخدام في المنشآت الغذائية ومطابقة لمواصفات SASO القياسية.'
     ],
     equipmentParagraphsEn: [
-      'Mesk Clean in Jeddah operates Italian dry steam generators producing calibrated 8-bar pressure at 140°C, instantly liquefying stubborn grease without water saturation.',
-      'All degreasing formulas are non-caustic, low-odor, and 100% food-safe, certified by SASO and the Saudi Food & Drug Authority for domestic food prep zones.'
+      'Mesk Clean in Jeddah operates advanced thermal degreasing equipment engineered to dissolve lipids, instantly liquefying stubborn grease without water saturation.',
+      'All degreasing formulas are non-caustic, low-odor, and food-safe and compliant with SASO health and hygiene guidelines for domestic food prep zones.'
     ],
     workflowTitle: 'خطوات تنظيف وتعقيم المطابخ بجدة',
     workflowTitleEn: 'Our Jeddah Kitchen Deep Cleaning Workflow',
@@ -83,10 +83,10 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
       },
       {
         number: 3,
-        title: 'الإذابة بالبخار النفاث لجدران وسقف المطبخ',
-        titleEn: 'High-Temperature Steam Wall & Ceiling Jetting',
-        description: 'ضخ البخار الجاف بدرجة 140 مئوية مع مذيب عضوي على الجدران القيشاني والسيراميك لإسقاط طبقات الزيوت الصمغية.',
-        descriptionEn: 'Applying 140°C dry steam and bio-degreasers across tiled backsplashes and ceilings, melting away polymerized oil glaze.'
+        title: 'إذابة الدهون العميقة لجدران وأسقف المطبخ',
+        titleEn: 'Deep Thermal Wall & Ceiling Degreasing',
+        description: 'استخدام مذيبات عضوية فعالة مع تقنيات التنظيف الحراري على الجدران والسيراميك لإزالة طبقات الزيوت الصمغية.',
+        descriptionEn: 'Applying specialized bio-degreasers and thermal treatment across tiled backsplashes and ceilings, melting away polymerized oil glaze.'
       },
       {
         number: 4,
@@ -97,17 +97,17 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
       },
       {
         number: 5,
-        title: 'جلي الترويبة وتطهير الأحواض والبالوعات',
-        titleEn: 'Grout Scrubbing & Sink / Drain Sanitization',
-        description: 'فرك فواصل سيراميك الأرضيات بماكينات التفتيح الدوارة، وتسليك بالوعات المطبخ بالبخار الساخن لإذابة الشحوم.',
-        descriptionEn: 'Scrubbing floor grout lines with rotary nylon brushes and steam-clearing sink drains to dissolve coagulated fats.'
+        title: 'تنظيف فواصل الأرضيات وتطهير الأحواض والبالوعات',
+        titleEn: 'Tile Joints Scrubbing & Sink / Drain Sanitization',
+        description: 'فرك فواصل سيراميك الأرضيات بماكينات التنظيف الدوارة، وتسليك بالوعات المطبخ بمذيبات الشحوم لإزالة التراكمات الدهنية.',
+        descriptionEn: 'Scrubbing floor tile joints with rotary nylon brushes and clearing sink drains to dissolve coagulated fats.'
       },
       {
         number: 6,
         title: 'تلميع الستانلس ستيل والتعطير بالمسك',
-        titleEn: 'Stainless Steel Conditioning & Final Perfuming',
+        titleEn: 'Metal Fixture Conditioning & Final Perfuming',
         description: 'تلميع الثلاجة والفرن والميكروويف بمواد واقية ضد بصمات الأصابع وتعطير المطبخ بعبير منعش يدوم طويلاً.',
-        descriptionEn: 'Conditioning exterior stainless appliances with protective anti-smudge shields, finishing with refreshing natural misting.'
+        descriptionEn: 'Conditioning exterior kitchen appliances with protective anti-smudge shields, finishing with refreshing natural misting.'
       }
     ],
     featuresTitle: 'مميزات خدمة تنظيف المطابخ مع مسك كلين بجدة',
@@ -126,10 +126,10 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
         descriptionEn: 'pH-neutral formulas that preserve lacquered wood, high-gloss acrylic, and melamine finishes without peeling.'
       },
       {
-        title: 'تعقيم طبي شامل بالبخار بدرجة 140 مئوية',
-        titleEn: '140°C Thermal Microbial Eradication',
-        description: 'حرارة بخار فائقة تقتل البكتيريا المعوية وعفن الرطوبة المتراكم في الزوايا الرطبة دون استخدام الفلاش الكاوي.',
-        descriptionEn: 'Superheated steam eradicating enteric bacteria and hidden damp mold in deep corners without toxic caustic acids.'
+        title: 'تعقيم وتطهير شامل لكافة أركان المطبخ',
+        titleEn: 'Comprehensive Thermal Microbial Decontamination',
+        description: 'معالجة حرارية متقدمة تقضي على البكتيريا وعفن الرطوبة المتراكم في الزوايا دون استخدام المنظفات الكاوية.',
+        descriptionEn: 'Thermal decontamination eradicating enteric bacteria and hidden damp mold in deep corners without toxic caustic acids.'
       },
       {
         title: 'فريق متخصص يعمل بسرعة ونظام ونظافة',
@@ -172,8 +172,8 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
       {
         title: 'تجنب استخدام منظفات الفلاش أو الأحماض الكاوية على الرخام',
         titleEn: 'Never Use Caustic Acid Cleaners on Stone or Tile',
-        text: 'تتسبب الأحماض الكاوية في حرق لمعة الرخام الطبيعي وتآكل ترويبة السيراميك وتغيير لون الستانلس ستيل.',
-        textEn: 'Caustic acids etch natural marble sheen, dissolve tile grout lines, and permanently tarnish stainless steel appliances.'
+        text: 'تتسبب الأحماض الكاوية في حرق لمعة الرخام الطبيعي وتلف فواصل السيراميك وتغيير لون الأسطح المعدنية.',
+        textEn: 'Caustic acids etch natural marble sheen, damage tile joints, and permanently tarnish metal kitchen appliances.'
       },
       {
         title: 'تطهير مجرى حوض المطبخ بالماء المغلي والخل أسبوعياً',
@@ -188,14 +188,14 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
       {
         question: 'كيف تتخلصون من دهون الشفاط المتصلبة الناتجة عن رطوبة جدة؟',
         questionEn: 'How do you dissolve rock-hard range hood grease caused by Jeddah humidity?',
-        answer: 'نقوم بفك فلاتر الشفاط ومروحة السحب ونقعها في أحواض إذابة دهون كيميائية حرارية خاصة، ثم ضخ البخار الجاف بدرجة 140 مئوية لإسقاط كافة الرواسب المتكلسة دون الإضرار بالمعدن.',
-        answerEn: 'We dismantle exhaust filters and impellers, soaking them in thermal bio-degreasing baths, followed by 140°C dry steam injection that melts all deposits without metal damage.'
+        answer: 'نقوم بفك فلاتر الشفاط ومروحة السحب ونقعها في أحواض إذابة دهون حرارية متخصصة لإسقاط كافة الرواسب المتكلسة وتنظيفها بالكامل دون الإضرار بالمعدن.',
+        answerEn: 'We dismantle exhaust filters and impellers, soaking them in thermal bio-degreasing baths to remove all hardened deposits thoroughly without metal damage.'
       },
       {
         question: 'هل المواد المستخدمة آمنة على دواليب الخشب الطبيعي والألمنيوم؟',
         questionEn: 'Are your degreasers safe for natural wood and aluminum cabinetry?',
-        answer: 'نعم تماماً، نستخدم محاليل تنظيف إيطالية معتدلة الحموضة ومصرحة من SASO مخصصة للأخشاب والكلادينج تحمي الطلاء واللمعان من التقشر أو التجيير.',
-        answerEn: 'Absolutely. We utilize pH-balanced Italian cleaning agents approved by SASO specifically formulated for wood and aluminum, preventing peeling or hazing.'
+        answer: 'نعم تماماً، نستخدم محاليل تنظيف إيطالية معتدلة الحموضة مطابقة للمواصفات القياسية مخصصة للأخشاب والكلادينج تحمي الطلاء واللمعان من التقشر أو التجيير.',
+        answerEn: 'Absolutely. We utilize pH-balanced Italian cleaning agents formulated specifically for wood and aluminum in accordance with safety standards, preventing peeling or hazing.'
       },
       {
         question: 'كم يستغرق تنظيف المطبخ بالكامل في جدة؟',
@@ -206,8 +206,8 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
       {
         question: 'هل يشمل تنظيف المطبخ إزالة الدهون من داخل الفرن والميكروويف؟',
         questionEn: 'Does the service include internal degreasing for ovens and microwaves?',
-        answer: 'نعم، يشمل العرض تنظيف وتفكيك شعلات الفرن، إذابة الدهون المحترقة من الداخل بالبخار، وتلميع زجاج الباب الداخلي والخارجي بالكامل.',
-        answerEn: 'Yes, our service includes degreasing internal oven racks, melting baked-on fats with dry steam, and polishing glass door assemblies inside and out.'
+        answer: 'نعم، تشمل الخدمة تنظيف أسطح الفرن من الداخل وإذابة الدهون المحترقة بالمذيبات المتخصصة، وتلميع زجاج الباب الداخلي والخارجي بالكامل.',
+        answerEn: 'Yes, our service includes degreasing internal oven racks, dissolving baked-on fats with specialized cleaners, and polishing glass door assemblies inside and out.'
       }
     ]
   },
@@ -221,26 +221,26 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
     metaDescription: 'شركة تنظيف مطابخ بمكة المكرمة متخصصة في تنظيف مطابخ الولائم الكبيرة والفنادق وإزالة دهون الطهي الثقيلة بالعوالي والشوقية والزايدي وتجهيزها لمواسم الحج والعمرة.',
     metaDescriptionEn: 'Premier kitchen cleaning in Holy Makkah by Mesk Clean. Deep degreasing for large family banquet kitchens, hotel catering facilities, and residential villas across Al-Awali.',
     keywords: ['شركة تنظيف مطابخ بمكة المكرمة', 'تنظيف مطابخ بمكة', 'غسيل مطابخ بمكة', 'تنظيف مطابخ العوالي مكة', 'إزالة دهون الأفران مكة'],
-    heroBadge: 'خدمة معتمدة بمكة المكرمة',
+    heroBadge: 'خدمة متخصصة لتنظيف المطابخ بمكة',
     heroBadgeEn: 'Certified Service in Holy Makkah',
     heroHeading: 'شركة تنظيف مطابخ بمكة المكرمة - طهارة ونظافة استثنائية لمطابخ الكرم والضيافة',
     heroHeadingEn: 'Kitchen Deep Cleaning in Holy Makkah - Pure Food Hygiene for Holy Hospitality',
     heroSubtitle: 'نقدم لأهالي مكة المكرمة والفنادق تنظيفاً وتطهيراً فائق الدقة للمطابخ ومطابخ الولائم الكبيرة، لإزالة دهون الطبخ الكثيفة ورواسب السمن، والتعقيم الشامل لمواسم الخير والبركة.',
     heroSubtitleEn: 'Mesk Clean delivers intensive kitchen sanitization in Makkah, tailored for expansive family banquet suites and catering kitchens operating through Ramadan and Hajj.',
     introParagraphs: [
-      'تتميز المطابخ في منازل وفلل مكة المكرمة بطابعها العائلي الواسع وتجهيزاتها المهيأة لخدمة الضيافة الكريمة؛ حيث تشهد العاصمة المقدسة إعداد ولائم ضخمة وموائد عامرة على مدار السنة، لا سيما في مواسم رمضان المبارك وموسم الحج لاستقبال ضيوف الرحمن وأفراد العائلة الممتدة. ينتج عن هذا النشاط الكثيف واستخدام القدور الكبيرة والذبائح والسمن البري تصاعد كميات هائلة من الدهون الحيوانية والشحوم الثقيلة التي تترسب على جدران السيراميك، ومداخن الشفاطات المركزية، ومفاتيح الأفران، والأرضيات، مسببة روائح حارقة وطبقات دهنية عنيدة تتأثر بحرارة صيف مكة المرتفعة.',
-      'تقدم شركة مسك كلين بمكة المكرمة منظومة تنظيف متطورة للمطابخ المنزلية ومطابخ الإعاشة الفندقية؛ حيث نعتمد على ماكينات ضغط البخار الحراري ومذيبات الشحوم المركزة المعتمدة من هيئة الغذاء والدواء لتفتيت أصعب بقع الزيوت المحترقة على عيون الغاز الكبيرة وشوايات الأفران وجدران القيشاني. يقوم فريقنا المتمرس بتفكيك فلاتر الشفاط ومجاري الطرد بالكامل لتنظيفها من الداخل ومنع انسدادها، مع تطهير البالوعات ومجاري الصرف لمنع ارتداد الروائح أو تكاثر صراصير المطابخ.',
-      'نخدم كافة أحياء ومخططات العاصمة المقدسة كحي العوالي، بطحاء قريش، الشوقية، الكعكية، الزايدي (الحمراء)، الرصيفة، والشرائع. ونوفر عروضاً خاصة لتجهيز المطابخ المنزلية ومطابخ الفنادق والشقق المفروشة قبل مواسم العمرة والحج، لضمان تسليم مطبخ طاهر ونظيف ومرتب يشيع الراحة والطمأنينة ويشرفك أمام ضيوفك الكرام.'
+      'تتميز المطابخ في منازل وفلل مكة المكرمة بطابعها العائلي الواسع وتجهيزاتها المهيأة لخدمة الضيافة الكريمة؛ حيث تشهد العاصمة المقدسة إعداد ولائم ضخمة وموائد عامرة على مدار السنة، لا سيما في مواسم رمضان المبارك وموسم الحج لاستقبال ضيوف الرحمن وأفراد العائلة الممتدة. ينتج عن هذا النشاط الكثيف واستخدام القدور الكبيرة والذبائح والسمن البري تصاعد كميات هائلة من الدهون الحيوانية والشحوم الثقيلة التي تترسب على جدران السيراميك، وشفاطات ومراوح المطبخ المركزية، ومفاتيح الأفران، والأرضيات، مسببة روائح حارقة وطبقات دهنية عنيدة تتأثر بحرارة صيف مكة المرتفعة.',
+      'تقدم شركة مسك كلين بمكة المكرمة منظومة تنظيف متطورة للمطابخ المنزلية ومطابخ الإعاشة الفندقية؛ حيث نعتمد على أحدث معدات إذابة الدهون المركزة والمذيبات المتخصصة الفعالة لتفتيت أصعب بقع الزيوت المحترقة على عيون الغاز الكبيرة وشوايات الأفران وجدران القيشاني. يقوم فريقنا المتمرس بتفكيك فلاتر الشفاط ومجاري الطرد بالكامل لتنظيفها من الداخل ومنع انسدادها، مع تطهير البالوعات ومجاري الصرف لمنع ارتداد الروائح أو تكاثر صراصير المطابخ.',
+      'نخدم كافة أحياء ومخططات العاصمة المقدسة كحي العوالي، بطحاء قريش، الشوقية، الكعكية، الزايدي (الحمراء)، الرصيفة، والشرائع. ونوفر عروضاً خاصة لتجهيز المطابخ المنزلية ومطابخ الفنادق والشقق المفروشة قبل مواسم العمرة والحج، لتسليم مطبخ طاهر ونظيف ومرتب يشيع الراحة والطمأنينة ويشرفك أمام ضيوفك الكرام.'
     ],
     introParagraphsEn: [
-      'Kitchen facilities across residential villas and hotel accommodations in Holy Makkah are engineered for generous hospitality. The Holy City witnesses massive culinary preparations year-round, peaking during Ramadan and the annual Hajj pilgrimage when extended family gatherings and pilgrim hospitality meals are crafted. This intensive cooking with traditional clarified ghee and high-heat roasting generates heavy animal fat vapors that condense onto ceramic tiles, industrial range hoods, oven burner assemblies, and floor grout, creating baked-on grease layers aggravated by scorching summer ambient heat.',
-      'Mesk Clean in Holy Makkah provides an engineered commercial and residential kitchen sanitation methodology. We operate high-output dry steam generators and SFDA-approved enzyme degreasers that dissolve polymerized animal fats across high-capacity gas burners, commercial baking ovens, and wall tiles. Our technicians unmount exhaust filters and duct inlets, thoroughly decontaminating internal fan blades to restore unrestricted airflow and steam-clearing floor drains to prevent greasy backups and cockroach harborage.',
+      'Kitchen facilities across residential villas and hotel accommodations in Holy Makkah are engineered for generous hospitality. The Holy City witnesses massive culinary preparations year-round, peaking during Ramadan and the annual Hajj pilgrimage when extended family gatherings and pilgrim hospitality meals are crafted. This intensive cooking with traditional clarified ghee and high-heat roasting generates heavy animal fat vapors that condense onto ceramic tiles, industrial range hoods, oven cooking assemblies, and floor tile joints, creating baked-on grease layers aggravated by scorching summer ambient heat.',
+      'Mesk Clean in Holy Makkah provides an engineered commercial and residential kitchen sanitation methodology. We operate high-output thermal degreasers and enzyme degreasers that dissolve polymerized animal fats across high-capacity range surfaces, commercial baking ovens, and wall tiles. Our technicians unmount exhaust filters and duct inlets, thoroughly decontaminating internal fan blades to restore unrestricted airflow and thoroughly clearing floor drains to prevent greasy backups and cockroach harborage.',
       'We service all Makkah residential sectors, including Al-Awali, Batha Quraish, Al-Shawqiyyah, Al-Kakiyyah, Al-Zaydi, Al-Rusaifah, and Al-Sharaye, offering specialized pre-season turnaround packages for family kitchens, furnished holiday apartments, and hotel catering facilities, guaranteeing pristine culinary hygiene.'
     ],
     neighborhoodsAnalysisTitle: 'خصوصية مطابخ الولائم ومطابخ الفنادق عبر أحياء مكة',
     neighborhoodsAnalysisTitleEn: 'District Kitchen Dimensions & Hospitality Demands in Makkah',
     neighborhoodsAnalysisParagraphs: [
-      'في أحياء الفلل الفسيحة كالعوالي والشوقية والزايدي وبطحاء قريش، تضم المنازل عادة مطبخين (مطبخ تحضيري داخلي مفتوح ومطبخ قلي خارجي ثقيل Dirty Kitchen)؛ لذا نوفر فريقين للتعامل مع تلميع الأكريليك والرخام في المطبخ الداخلي، وإزالة الشحوم الثقيلة من جدران ومداخن المطبخ الخارجي. أما في أحياء العزيزية والنسيم والرصيفة، ينصب التركيز على تنظيف مطابخ الشقق المفروشة والمطابخ المركزية قبل مواسم الحج بمطهرات طبية معتمدة.',
+      'في أحياء الفلل الفسيحة كالعوالي والشوقية والزايدي وبطحاء قريش، تضم المنازل عادة مطبخين (مطبخ تحضيري داخلي مفتوح ومطبخ قلي خارجي ثقيل Dirty Kitchen)؛ لذا نوفر فريقين للتعامل مع تلميع الأكريليك والرخام في المطبخ الداخلي، وإزالة الشحوم الثقيلة من جدران وشفاطات المطبخ الخارجي. أما في أحياء العزيزية والنسيم والرصيفة، ينصب التركيز على تنظيف مطابخ الشقق المفروشة والمطابخ المركزية قبل مواسم الحج بمنظفات ومطهرات فعالة مخصصة.',
       'تلتزم مسك كلين بمكة المكرمة بالانضباط التام ومراعاة أوقات الصلوات والراحة، وتوفير مواد تعقيم خالية تماماً من الروائح الكيماوية المزعجة.'
     ],
     neighborhoodsAnalysisParagraphsEn: [
@@ -250,28 +250,28 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
     importanceTitle: 'أهمية تنظيف المطابخ الدورية بمكة المكرمة',
     importanceTitleEn: 'Why Routine Kitchen Cleaning is Vital in Holy Makkah',
     importanceContent: [
-      'الجاهزية لإعداد ولائم الضيوف والمعتمرين: ضمان مطبخ نظيف ومعقم بالكامل لاستقبال مناسبات العائلة ومواسم الخير والبركة.',
+      'الجاهزية لإعداد ولائم الضيوف والمعتمرين: تجهيز مطبخ نظيف ومرتب بالكامل لاستقبال مناسبات العائلة ومواسم الخير والبركة.',
       'الوقاية من حرائق الزيوت المتراكمة في الشفاطات: إزالة الشحوم من مجاري الشفاط يمنع اشتعالها عند ارتفاع درجات حرارة الأفران.',
-      'القضاء التام على الصراصير وحشرات المطابخ: إزالة بيئات التغذية الدهنية خلف الأفران وتحت الأحواض يمنع تكاثر الحشرات نهائياً.',
-      'التخلص من الروائح الدهنية المتخمرة: التعقيم بالبخار والمسك يزيل الروائح الكتمة ويبعث على الانتعاش والراحة.',
-      'حماية كفاءة الأفران وشعلات الغاز: تسليك وتنظيف عيون الغاز يعيد قوة اللهب الأزرق النقي ويسرع من عملية الطهي.'
+      'القضاء التام على الصراصير وحشرات المطابخ: إزالة بيئات التغذية الدهنية خلف الأفران وتحت الأحواض يحد من تكاثر الحشرات بشكل ملحوظ.',
+      'التخلص من الروائح الدهنية المتخمرة: التطهير المتكامل والتعطير يزيل الروائح الكتمة ويبعث على الانتعاش والراحة.',
+      'حماية كفاءة الأفران ومواقد الطهي: تنظيف عيون ومفاتيح الغاز يعيد انتظام الشعلة ويسرع من عملية الطهي.'
     ],
     importanceContentEn: [
       'Flawless Readiness for Hospitality & Pilgrim Feasts: Ensuring an immaculate culinary workspace ready for festive family banquets.',
       'Eliminating Fire Hazards in Exhaust Ducts: Removing combustible fat buildup from range hood ducts prevents grease fire ignition.',
       'Eradicating German Cockroach Harborage: Scrubbing concealed grease films behind ranges eliminates essential insect feeding grounds.',
-      'Purging Trapped Fermented Cooking Odors: Thermal steam and natural fragrance misting replace stale oil smells with crisp freshness.',
-      'Restoring Range Burner Performance: Clearing carbon deposits from gas orifices restores clean, high-efficiency blue flame output.'
+      'Purging Trapped Fermented Cooking Odors: Deep degreasing and natural fragrance misting replace stale oil smells with crisp freshness.',
+      'Restoring Range Cooktop Performance: Clearing deposits from cooking surfaces restores clean, high-efficiency blue flame output.'
     ],
-    equipmentTitle: 'معدات إذابة الشحوم بالبخار والمنظفات المعتمدة بمكة',
-    equipmentTitleEn: 'High-Temperature Steam Cleaners & Certified Bio-Degreasers in Makkah',
+    equipmentTitle: 'معدات إذابة الشحوم ومحاليل التنظيف المتخصصة بمكة',
+    equipmentTitleEn: 'Advanced Degreasing Equipment & Bio-Degreasers in Makkah',
     equipmentParagraphs: [
-      'نستخدم في مسك كلين بمكة المكرمة ماكينات ضغط البخار الجاف الإيطالية بقوة 140 مئوية لتفتيت الدهون المتكلسة فورياً، بالإضافة إلى ماكينات جلي وتلميع أرضيات السيراميك والجرانيت.',
-      'كافة المنظفات ومزيلات الدهون خالية من الأحماض الكاوية وتتمتع باعتماد هيئة الغذاء والدواء السعودية (SFDA) والمواصفات القياسية (SASO)، لتوفير أمان مطلق لأواني وأسطح إعداد الطعام.'
+      'نستخدم في مسك كلين بمكة المكرمة معدات إذابة الدهون المتطورة لتفتيت الشحوم المتراكمة فورياً، بالإضافة إلى ماكينات جلي وتلميع أرضيات السيراميك والجرانيت.',
+      'كافة المنظفات ومزيلات الدهون خالية من الأحماض الكاوية ومتوافقة مع معايير ومواصفات السلامة القياسية (SASO)، لتوفير أعلى مستويات الأمان لأواني وأسطح إعداد الطعام.'
     ],
     equipmentParagraphsEn: [
-      'Mesk Clean in Holy Makkah utilizes Italian-engineered dry steam generators operating at 140°C that liquefy stubborn caramelized fats, alongside rotary scrubbers for ceramic and granite floor restoration.',
-      'All chemical formulations are 100% acid-free and certified food-contact safe by the SFDA and SASO, guaranteeing absolute safety for cookware and meal prep areas.'
+      'Mesk Clean in Holy Makkah utilizes advanced thermal degreasing equipment that liquefies stubborn caramelized fats, alongside rotary scrubbers for ceramic and granite floor restoration.',
+      'All chemical formulations are acid-free, food-contact safe, and compliant with SASO guidelines, ensuring complete care for cookware and meal prep areas.'
     ],
     workflowTitle: 'مراحل تنظيف وتعقيم المطابخ بمكة المكرمة',
     workflowTitleEn: 'Step-by-Step Kitchen Deep Cleaning Workflow in Makkah',
@@ -279,20 +279,20 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
       {
         number: 1,
         title: 'المعاينة وفصل فلاتر الشفاط وعيون الأفران',
-        titleEn: 'Kitchen Survey & Burner Disassembly',
-        description: 'فحص المطبخ وفك فلاتر الشفاط وشعلات الغاز ونقعها في محاليل تفتيت الدهون المركزة.',
-        descriptionEn: 'Assessing cooking appliances, dismantling hood filters and burner caps, and submerging them in concentrated degreaser baths.'
+        titleEn: 'Kitchen Survey & Cooktop Preparation',
+        description: 'فحص المطبخ وفك فلاتر الشفاط وأجزاء الموقد ونقعها في محاليل تفتيت الدهون المركزة.',
+        descriptionEn: 'Assessing cooking appliances, dismantling hood filters and range parts, and submerging them in concentrated degreaser baths.'
       },
       {
         number: 2,
-        title: 'الإذابة الحرارية بالبخار لجدران القيشاني والأسقف',
-        titleEn: 'Thermal Steam Scouring of Tiled Walls & Ceilings',
-        description: 'ضخ البخار الجاف بضغط عالٍ على جدران السيراميك لإسقاط رواسب الزيوت المتكلسة بالحرارة.',
-        descriptionEn: 'Injecting high-temperature dry steam across wall tiles to melt away heat-baked lipid residue.'
+        title: 'إذابة الدهون الحرارية لجدران وسقف المطبخ',
+        titleEn: 'Thermal Degreasing of Tiled Walls & Ceilings',
+        description: 'استخدام تقنيات إذابة الدهون المركزة على جدران السيراميك لإزالة رواسب الزيوت المتراكمة.',
+        descriptionEn: 'Applying high-efficiency degreasers across wall tiles to melt away heat-baked lipid residue.'
       },
       {
         number: 3,
-        title: 'تنظيف الأفران والشوايات ومداخن الطهي',
+        title: 'تنظيف الأفران والشوايات وشفاطات المطبخ',
         titleEn: 'Oven Cavity & Exhaust Canopy Cleansing',
         description: 'كشط الدهون المحترقة من داخل الأفران وشوايات الذبائح وتلميع زجاج الفرن الداخلي والخارجي.',
         descriptionEn: 'Scraping carbonized fats from oven cavities and rotisseries, polishing interior and exterior glass panels.'
@@ -301,19 +301,19 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
         number: 4,
         title: 'تلميع دواليب المطبخ من الداخل والخارج',
         titleEn: 'Cabinet Disinfection & Surface Buffing',
-        description: 'غسيل الرفوف وتطهير مساحات التخزين وتلميع واجهات الدواليب بمواد معتمدة تحمي الطلاء.',
+        description: 'غسيل الرفوف وتطهير مساحات التخزين وتلميع واجهات الدواليب بمواد مخصصة تحمي الطلاء.',
         descriptionEn: 'Washing internal shelves, sanitizing pantry zones, and polishing exterior cabinet surfaces with protective formulas.'
       },
       {
         number: 5,
-        title: 'جلي الترويبة وتسليك مجاري الصرف بالبخار',
-        titleEn: 'Floor Grout Scrubbing & Drain Line De-Greasing',
-        description: 'فرك فواصل البلاط بالماكينات الدوارة وضخ البخار في مواسير الصرف لتسييل الشحوم العالقة.',
-        descriptionEn: 'Mechanical rotary scrubbing of floor grout lines and thermal steam-jetting of under-sink drains to clear fat plugs.'
+        title: 'تنظيف فواصل الأرضيات وتسليك مجاري الصرف',
+        titleEn: 'Floor Joints Scrubbing & Drain Line De-Greasing',
+        description: 'فرك فواصل البلاط بالماكينات الدوارة وتنظيف مواسير الصرف بمذيبات الشحوم لإزالة التراكمات العالقة.',
+        descriptionEn: 'Mechanical rotary scrubbing of floor tile joints and thorough clearing of under-sink drains to clear fat plugs.'
       },
       {
         number: 6,
-        title: 'التعقيم بالمسك الطبيعي والتسليم النهائي',
+        title: 'التعقيم الشامل والتسليم المتقن',
         titleEn: 'Natural Musk Sanitization & Inspection Sign-Off',
         description: 'تعطير المطبخ برذاذ المسك المنعش وفحص كافة التركيبات برفقة العميل للتأكد من الرضا التام.',
         descriptionEn: 'Infusing refreshing natural musk mist and conducting a final item-by-item inspection with the homeowner.'
@@ -335,10 +335,10 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
         descriptionEn: 'High-speed pre-season turnaround packages tailored for furnished holiday apartments and hotel suites.'
       },
       {
-        title: 'منظفات عضوية آمنة 100% على أواني الطهي',
-        titleEn: '100% Food-Safe Non-Toxic Cleaning Chemistry',
-        description: 'مواد تنظيف غير كاوية ومصرحة من الغذاء والدواء لا تترك أي روائح أو آثار كيميائية في مساحات إعداد الطعام.',
-        descriptionEn: 'Non-caustic bio-detergents certified by SFDA leaving zero harmful chemical traces or noxious fumes in food areas.'
+        title: 'منظفات عضوية آمنة على أواني الطهي ومناطق الطعام',
+        titleEn: 'Food-Safe Non-Toxic Cleaning Chemistry',
+        description: 'مواد تنظيف غير كاوية متوافقة مع اشتراطات السلامة لا تترك أي روائح أو آثار كيميائية في مساحات إعداد الطعام.',
+        descriptionEn: 'Non-caustic bio-detergents leaving zero harmful chemical traces or noxious fumes in food areas.'
       },
       {
         title: 'كوادر نظامية تراعي حرمة البيوت وقدسية المكان',
@@ -363,7 +363,7 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
     ],
     tipsTitle: 'إرشادات هامة للحفاظ على نظافة مطابخ مكة المكرمة',
     tipsTitleEn: 'Kitchen Maintenance Guidelines for Makkah Residents',
-    tipsIntro: 'يقدم لكم خبراء مسك كلين أهم النصائح للحفاظ على مطبخك نظيفاً وطاهراً طوال العام:',
+    tipsIntro: 'يقدم لكم خبراء مسك كلين أهم النصائح للحفاظ على مطبخك نظيفاً ومرتباً باستمرار:',
     tipsIntroEn: 'Practical guidance from Mesk Clean culinary sanitation directors in Makkah:',
     tipsList: [
       {
@@ -382,7 +382,7 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
         title: 'استخدام سدادات شبكية على بالوعات المطبخ لمنع الصراصير',
         titleEn: 'Fit Fine Wire Traps on Kitchen Floor Drains',
         text: 'يمنع الشبك المعدني الدقيق تسلل الصراصير القادمة من مواسير الصرف الجبلية إلى داخل دواليب المطبخ.',
-        textEn: 'Installing stainless mesh strainers over floor drains bars crawling pests from ascending into pantry cabinets.'
+        textEn: 'Installing fine mesh strainers over floor drains bars crawling pests from ascending into pantry cabinets.'
       },
       {
         title: 'تجنب ترك أواني الطهي غير المغسولة طوال الليل',
@@ -397,13 +397,13 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
       {
         question: 'هل تقدمون خدمات تنظيف المطابخ الخارجية ومطابخ الولائم الكبيرة (Dirty Kitchen)؟',
         questionEn: 'Do you clean heavy external prep kitchens and banquet cooking suites?',
-        answer: 'نعم بالتأكيد، لدينا فرق متخصصة وماكينات بخار صناعية قادرة على إذابة أثقل الشحوم الحيوانية ودهون الذبائح المتكلسة في المطابخ الخارجية.',
-        answerEn: 'Yes, absolutely. We deploy heavy-duty industrial steam extractors specifically capable of dissolving heavy animal tallow and fats in prep kitchens.'
+        answer: 'نعم بالتأكيد، لدينا فرق متخصصة ومعدات تنظيف حرارية متطورة قادرة على إذابة أثقل الشحوم الحيوانية ودهون الذبائح المتراكمة في المطابخ الخارجية.',
+        answerEn: 'Yes, absolutely. We deploy heavy-duty industrial thermal extractors specifically capable of dissolving heavy animal tallow and fats in prep kitchens.'
       },
       {
         question: 'هل يمكن حجز موعد لتنظيف المطبخ قبل بداية شهر رمضان المبارك؟',
         questionEn: 'Can I book a kitchen deep clean prior to the start of Ramadan?',
-        answer: 'نعم، نوفر جدول حجوزات مسبقة قبل موسم رمضان بوقت كافٍ، وننصح دائماً بالحجز المبكر لضمان الموعد الأنسب لأسرتك.',
+        answer: 'نعم، نوفر جدول حجوزات مسبقة قبل موسم رمضان بوقت كافٍ، وننصح دائماً بالحجز المبكر لاختيار الموعد الأنسب لأسرتك.',
         answerEn: 'Yes, we provide pre-season scheduling before Ramadan; we strongly recommend early booking to secure your preferred service date.'
       },
       {
@@ -430,7 +430,7 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
     metaDescription: 'أفضل شركة تنظيف مطابخ برابغ لإزالة الدهون المتفاعلة مع الرمال الساحلية، تنظيف الشفاطات والأفران لمنازل المرجانية وسكن موظفي بترورابغ و(KAEC).',
     metaDescriptionEn: 'Premier kitchen cleaning in Rabigh by Mesk Clean. Eliminating coastal sand-bonded grease on range hoods, ovens, and cabinets across Petro Rabigh and KAEC housing.',
     keywords: ['شركة تنظيف مطابخ برابغ', 'تنظيف مطابخ برابغ', 'غسيل مطابخ برابغ', 'إزالة دهون المطابخ رابغ', 'تنظيف مطابخ بترورابغ'],
-    heroBadge: 'خدمة معتمدة بمحافظة رابغ',
+    heroBadge: 'خدمة متخصصة لتنظيف المطابخ برابغ',
     heroBadgeEn: 'Certified Service in Rabigh Province',
     heroHeading: 'شركة تنظيف مطابخ برابغ - تفتيت دهون الطهي الممتزجة بالرمال الساحلية والغبار',
     heroHeadingEn: 'Kitchen Deep Cleaning & Degreasing in Rabigh - Conquering Sand-Bonded Grease',
@@ -438,23 +438,23 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
     heroSubtitleEn: 'Mesk Clean provides specialized kitchen degreasing in Rabigh engineered to dissolve abrasive sand-grease crusts across corporate staff housing, villas, and apartments.',
     introParagraphs: [
       'تواجه المطابخ في محافظة رابغ ظاهرة مناخية وبيئية فريدة وشديدة الصعوبة؛ حيث تتسلل حبيبات الرمال الناعمة التي تحملها الرياح البحرية القوية لتلتقي مع أبخرة زيوت الطهي المتصاعدة أثناء إعداد الوجبات. هذا المزيج الهوائي يشكل طبقة خشنة ومتصلبة تُعرف محلياً بـ "خلطة الرمال والدهون"، والتي تلتصق بريش مراوح الشفط، وفلاتر الألومنيوم، وأعلى دواليب المطبخ، وفواصل السيراميك. ومع مرور الوقت، تتحول هذه الطبقة إلى قشرة كلسية رملية عنيدة يصعب على المنظفات المنزلية العادية تفكيكها، مما يؤدي إلى تعطل الشفاطات وتراكم الروائح الكتمة وانبعاث الغبار الدهني داخل المنزل.',
-      'تقدم شركة مسك كلين برابغ حلاً تقنياً متطوراً لتنظيف المطابخ السكنية ومطابخ مجمعات الشركات الصناعية؛ فنحن نستخدم أجهزة البخار المضغوط عالي الحرارة (140 مئوية) المقترنة بمذيبات دهون عضوية صناعية قادرة على تفكيك الروابط الرملية الزيتية دون خدش الأسطح المعدنية أو بهتان طلاء الدواليب. نقوم بفك مراوح وفلاتر الشفاط ونقعها في أحواض إذابة شحوم خاصة لإخلاء كافة ذرات الرمال المتحجرة، ثم نعقم دواليب المطبخ من الداخل والخارج بمطهرات طبية معتمدة من هيئة الغذاء والدواء السعودية (SFDA).',
+      'تقدم شركة مسك كلين برابغ حلاً تقنياً متطوراً لتنظيف المطابخ السكنية ومطابخ مجمعات الشركات الصناعية؛ فنحن نستخدم أحدث أجهزة إذابة الدهون الحرارية المتطورة المقترنة بمذيبات دهون عضوية متخصصة قادرة على تفكيك الروابط الرملية الزيتية دون خدش الأسطح المعدنية أو بهتان طلاء الدواليب. نقوم بفك مراوح وفلاتر الشفاط ونقعها في أحواض إذابة شحوم خاصة لإخلاء كافة ذرات الرمال المتحجرة، ثم نعقم دواليب المطبخ من الداخل والخارج بمنظفات ومطهرات متوافقة مع الاشتراطات والمعايير الصحية.',
       'تغطي خدماتنا كافة أحياء محافظة رابغ ومخططاتها الحديثة كحي المرجانية، النزيلة، الصفا، النعيم، وحي النخيل، إلى جانب عقود تنظيف متخصصة لمجمعات سكن موظفي بترورابغ ومحيط مدينة الملك عبدالله الاقتصادية (KAEC) وميناء الملك عبدالله. نحرص على تقديم خدمة سريعة ومرنة تتماشى مع مواعيد عمل المهندسين والموظفين لنمنحك مطبخاً فائق النظافة واللمعان يبعث على الراحة التامة.'
     ],
     introParagraphsEn: [
-      'Residential kitchens across Rabigh province confront an environmental dilemma: fine coastal sand granules carried by open maritime wind corridors merge directly with aerosolized cooking fats. This atmospheric interaction forms an abrasive composite known as "sand-bonded grease." This crust coats exhaust hood blades, aluminum baffle filters, upper cabinet ledges, and ceramic grout lines. Over time, heat cures this mixture into an impenetrable abrasive paste that jams exhaust motors, restricts airflow, and spreads gritty oily residue throughout the home.',
-      'Mesk Clean in Rabigh deploys an engineered thermal degreasing methodology optimized for sand-heavy coastal settings. We utilize 140°C pressurized dry steam equipment paired with bio-enzymatic industrial degreasers that disintegrate the lipid-mineral matrix without scratching delicate stainless steel or dulling cabinet finishes. We dismount exhaust fans and soak them in specialized liquefying baths to evacuate all petrified sand grit, followed by comprehensive internal and external cabinetry sanitization using SFDA-approved biocides.',
+      'Residential kitchens across Rabigh province confront an environmental dilemma: fine coastal sand granules carried by open maritime wind corridors merge directly with aerosolized cooking fats. This atmospheric interaction forms an abrasive composite known as "sand-bonded grease." This crust coats exhaust hood blades, aluminum baffle filters, upper cabinet ledges, and ceramic tile joints. Over time, heat cures this mixture into an impenetrable abrasive paste that jams exhaust motors, restricts airflow, and spreads gritty oily residue throughout the home.',
+      'Mesk Clean in Rabigh deploys an engineered thermal degreasing methodology optimized for sand-heavy coastal settings. We utilize advanced thermal degreasing equipment paired with bio-enzymatic degreasers that disintegrate the lipid-mineral matrix without scratching delicate metal appliances or dulling cabinet finishes. We dismount exhaust fans and soak them in specialized liquefying baths to evacuate all petrified sand grit, followed by comprehensive internal and external cabinetry sanitization using food-safe sanitizers.',
       'We proudly service all Rabigh communities (Al-Merghaniya, Al-Nazilah, Al-Safa, Al-Naeem, Al-Nakheel) alongside dedicated turnaround contracts for corporate employee housing in Petro Rabigh, King Abdullah Economic City (KAEC), and King Abdullah Port. We deliver swift, dependable kitchen restoration coordinated around demanding shift work hours.'
     ],
     neighborhoodsAnalysisTitle: 'التحليل الميداني لتنظيف المطابخ عبر قطاعات رابغ',
     neighborhoodsAnalysisTitleEn: 'District Kitchen Dynamics & Housing Estates in Rabigh',
     neighborhoodsAnalysisParagraphs: [
-      'في مجمعات سكن موظفي بترورابغ ومدينة الملك عبدالله الاقتصادية (KAEC)، تتسم المطابخ بنمطها الحديث المغلق والمفتوح المجهز بأجهزة مدمجة (Built-in Appliances)؛ لذا نركز على تلميع واجهات الستانلس ستيل، وتنظيف الأفران البلت-إن بالبخار، وإزالة الرمال من مسارات الأدراج. أما في أحياء وسط رابغ كالمرجانية والنزيلة والنعيم، ينصب التركيز على تنظيف الشفاطات القديمة، وإزالة كتل الشحوم والرمل المتكلسة من الجدران وفواصل السيراميك.',
-      'تصل فرق مسك كلين إلى أي موقع برابغ بكامل ماكينات البخار ومذيبات الدهون المعتمدة، مع التزام تام بالسرعة والنظافة دون إحداث فوضى.'
+      'في مجمعات سكن موظفي بترورابغ ومدينة الملك عبدالله الاقتصادية (KAEC)، تتسم المطابخ بنمطها الحديث المغلق والمفتوح المجهز بأجهزة مدمجة (Built-in Appliances)؛ لذا نركز على تلميع واجهات الأجهزة والأسطح المعدنية، وتنظيف الأفران البلت-إن بالمعدات المتخصصة، وإزالة الرمال من مسارات الأدراج. أما في أحياء وسط رابغ كالمرجانية والنزيلة والنعيم، ينصب التركيز على تنظيف الشفاطات القديمة، وإزالة كتل الشحوم والرمل المتكلسة من الجدران وفواصل السيراميك.',
+      'تصل فرق مسك كلين إلى أي موقع برابغ بكامل معدات إذابة الدهون والمذيبات المتخصصة، مع التزام تام بالسرعة والنظافة دون إحداث فوضى.'
     ],
     neighborhoodsAnalysisParagraphsEn: [
-      'In corporate employee housing at Petro Rabigh and modern apartments in King Abdullah Economic City (KAEC), kitchens feature built-in appliances and modular cabinetry; our crews emphasize streak-free stainless steel conditioning, steam oven cleaning, and vacuuming fine sand grit from concealed drawer runner tracks. In central Rabigh neighborhoods like Al-Merghaniya and Al-Nazilah, focus centers on restoring heavily caked range hoods and scouring sand-grease grout lines.',
-      'Mesk Clean mobile teams arrive fully equipped with self-contained steam units and industrial degreasers, completing restorations cleanly and rapidly.'
+      'In corporate employee housing at Petro Rabigh and modern apartments in King Abdullah Economic City (KAEC), kitchens feature built-in appliances and modular cabinetry; our crews emphasize streak-free appliance conditioning, thorough oven cleaning, and vacuuming fine sand grit from concealed drawer runner tracks. In central Rabigh neighborhoods like Al-Merghaniya and Al-Nazilah, focus centers on restoring heavily caked range hoods and scouring sand-grease tile joints.',
+      'Mesk Clean mobile teams arrive fully equipped with advanced degreasing units and industrial degreasers, completing restorations cleanly and rapidly.'
     ],
     importanceTitle: 'أهمية تنظيف المطابخ المتخصصة برابغ',
     importanceTitleEn: 'Why Professional Kitchen Cleaning is Vital in Rabigh',
@@ -463,24 +463,24 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
       'حماية محركات الشفاطات من الاحتراق: إخلاء الرمال والشحوم العالقة بريش المروحة يحمي المحرك من التوقف والتلف.',
       'القضاء على صراصير المطابخ والنمل: إزالة بيئات التغذية الدهنية المتخفية خلف الثلاجات والأفران يمنع انتشار الآفات.',
       'الحفاظ على لمعان الدواليب والأجهزة: المنظفات العضوية تعيد للدواليب بهاءها دون التسبب في خدشها بحبيبات الرمال.',
-      'توفير بيئة طهي صحية لموظفي الشركات والعائلات: تعقيم الأسطح بالبخار يضمن إعداد وجبات صحية في بيئة آمنة تماماً.'
+      'توفير بيئة طهي صحية لموظفي الشركات والعائلات: تطهير وتعقيم الأسطح يتيح إعداد وجبات صحية في بيئة نظيفة ومريحة.'
     ],
     importanceContentEn: [
       'Dissolving Abrasive Sand-Grease Crusts: Breaking down stubborn grit-fat compounds that resist conventional household scouring.',
       'Preventing Exhaust Blower Burnouts: Evacuating petrified sand and oil sludge from motor bearings preserves air extraction units.',
       'Eliminating German Cockroach & Ant Harborage: Scrubbing hidden grease deposits behind appliances removes pest sustenance.',
       'Restoring Cabinet & Appliance Luster: Non-abrasive bio-cleaners restore brilliant shine without scratching finishes with sand grit.',
-      'Securing a Hygienic Culinary Environment: Superheated steam sanitization guarantees safe meal preparation for families and corporate staff.'
+      'Securing a Hygienic Culinary Environment: Comprehensive sanitization guarantees safe meal preparation for families and corporate staff.'
     ],
-    equipmentTitle: 'ماكينات البخار ومذيبات الدهون الصناعية برابغ',
-    equipmentTitleEn: 'Pressurized Steam Cleaners & Industrial Degreasers in Rabigh',
+    equipmentTitle: 'معدات إذابة الدهون ومذيبات الشحوم الصناعية برابغ',
+    equipmentTitleEn: 'Industrial Degreasing Equipment & Solvents in Rabigh',
     equipmentParagraphs: [
-      'نستخدم في مسك كلين برابغ أجهزة ضغط البخار الجاف الإيطالية بقوة 8 بار ودرجة حرارة 140 مئوية لتسييل الشحوم الممتزجة بالرمال فورياً دون الحاجة لكشط الأسطح يدوياً.',
-      'كافة المنظفات المستخدمة غير كاوية ومصرحة من هيئة الغذاء والدواء السعودية (SFDA) والمواصفات القياسية (SASO)، لضمان أمان تام على أواني وأسطح إعداد الطعام.'
+      'نستخدم في مسك كلين برابغ أحدث أجهزة إذابة الدهون الحرارية المتطورة لتسييل الشحوم الممتزجة بالرمال فورياً دون الحاجة لكشط الأسطح يدوياً.',
+      'كافة المنظفات المستخدمة غير كاوية ومطابقة للمواصفات القياسية (SASO)، لتوفير أمان تام على أواني وأسطح إعداد الطعام.'
     ],
     equipmentParagraphsEn: [
-      'Mesk Clean in Rabigh deploys Italian pressurized dry steam generators delivering 8-bar output at 140°C, instantly liquefying gritty fats without abrasive mechanical scraping.',
-      'All chemical agents are non-caustic, food-safe, and certified by the SFDA and SASO, guaranteeing zero chemical residues on culinary preparation surfaces.'
+      'Mesk Clean in Rabigh deploys advanced thermal degreasing equipment, instantly liquefying gritty fats without abrasive mechanical scraping.',
+      'All chemical agents are non-caustic, food-safe, and compliant with SASO hygiene standards, leaving zero harmful chemical residues on culinary preparation surfaces.'
     ],
     workflowTitle: 'خطوات تنظيف وتعقيم المطابخ برابغ',
     workflowTitleEn: 'Rabigh Step-by-Step Kitchen Deep Cleaning Workflow',
@@ -501,10 +501,10 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
       },
       {
         number: 3,
-        title: 'الإذابة بالبخار النفاث لدهون الجدران والأفران',
-        titleEn: 'High-Pressure Steam Jetting of Walls & Ovens',
-        description: 'ضخ البخار الجاف بدرجة 140 مئوية على السيراميك والأفران لإسقاط كتل الشحوم والرمال المتكلسة.',
-        descriptionEn: 'Applying 140°C dry steam across wall tiles and oven cavities, dislodging baked-on sand-grease deposits.'
+        title: 'إذابة دهون الجدران والأفران بالمعدات الحرارية',
+        titleEn: 'Thermal Degreasing of Walls & Ovens',
+        description: 'استخدام تقنيات إذابة الدهون المركزة على السيراميك والأفران لإسقاط كتل الشحوم والرمال المتراكمة.',
+        descriptionEn: 'Applying thermal degreasing across wall tiles and oven cavities, dislodging baked-on sand-grease deposits.'
       },
       {
         number: 4,
@@ -515,17 +515,17 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
       },
       {
         number: 5,
-        title: 'جلي الترويبة وتطهير مواسير الصرف بالحرارة',
-        titleEn: 'Tile Grout Scrubbing & Drain Thermal Flush',
-        description: 'فرك فواصل البلاط بالماكينات الدوارة وضخ البخار الساخن في أحواض المطبخ لتسييل الدهون المتجمدة.',
-        descriptionEn: 'Mechanical rotary scrubbing of floor grout lines and thermal flushing of sink drain traps to liquefy solidified grease.'
+        title: 'تنظيف فواصل البلاط وتطهير مواسير الصرف',
+        titleEn: 'Tile Joint Scrubbing & Drain Thermal Flush',
+        description: 'فرك فواصل البلاط بالماكينات الدوارة وضخ محاليل إذابة الشحوم في أحواض المطبخ لإزالة الدهون المتجمدة.',
+        descriptionEn: 'Mechanical rotary scrubbing of floor tile joints and thorough flushing of sink drain traps to liquefy solidified grease.'
       },
       {
         number: 6,
         title: 'تلميع الستانلس ستيل والتعطير المنعش',
-        titleEn: 'Stainless Steel Polishing & Natural Perfuming',
+        titleEn: 'Appliance Surface Polishing & Natural Perfuming',
         description: 'تلميع الأجهزة بمواد واقية مضادة للبصمات وتعطير المطبخ بعبير منعش يزيل روائح الزيوت القديمة.',
-        descriptionEn: 'Treating stainless appliances with protective anti-smudge barrier shields and misting refreshing natural fragrances.'
+        descriptionEn: 'Treating kitchen appliances with protective anti-smudge barrier shields and misting refreshing natural fragrances.'
       }
     ],
     featuresTitle: 'مميزات تنظيف المطابخ مع مسك كلين برابغ',
@@ -534,8 +534,8 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
       {
         title: 'تكنولوجيا متطورة لإذابة خلطة الرمال والزيوت',
         titleEn: 'Engineered Sand-Grease Dissolution Technology',
-        description: 'ماكينات بخار حرارية ومذيبات عضوية تفكك كتل الرمال والشحوم دون التسبب في خدش الأجهزة.',
-        descriptionEn: 'Superheated steam equipment and bio-enzymes that break down gritty lipid crusts with zero surface scratching.'
+        description: 'تقنيات إذابة حرارية ومذيبات عضوية تفكك كتل الرمال والشحوم دون التسبب في خدش الأجهزة.',
+        descriptionEn: 'Advanced degreasing equipment and bio-enzymes that break down gritty lipid crusts with zero surface scratching.'
       },
       {
         title: 'خدمة سريعة لفلل ومجمعات موظفي بترورابغ و(KAEC)',
@@ -544,10 +544,10 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
         descriptionEn: 'Flexible scheduling planned around corporate shift rotations, delivering deep cleaning during off-duty hours.'
       },
       {
-        title: 'منظفات مصرحة للشرب وآمنة على الأواني 100%',
-        titleEn: '100% SFDA & SASO Food-Contact Safe Cleaners',
-        description: 'مواد تنظيف غير كاوية خالية من الروائح الخانقة ومصرحة للاستخدام في مناطق إعداد وتجهيز الأطعمة.',
-        descriptionEn: 'Non-toxic, low-VOC cleaning agents approved by SFDA and SASO, safe for culinary food preparation environments.'
+        title: 'منظفات آمنة على الأواني ومناطق تحضير الأطعمة',
+        titleEn: 'Food-Contact Safe Cleaning Agents',
+        description: 'مواد تنظيف غير كاوية خالية من الروائح الخانقة ومناسبة للاستخدام في مناطق إعداد وتجهيز الأطعمة.',
+        descriptionEn: 'Non-toxic, low-VOC cleaning agents compliant with SASO standards, safe for culinary food preparation environments.'
       },
       {
         title: 'فريق عمل متمرس يضمن تسليم المطبخ كأنه جديد',
@@ -595,7 +595,7 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
       },
       {
         title: 'استخدام منظفات معتدلة خالية من الفلاش لحماية الستانلس ستيل',
-        titleEn: 'Use pH-Neutral Cleaners to Protect Stainless Steel',
+        titleEn: 'Use pH-Neutral Cleaners to Protect Appliances',
         text: 'يحمي المنظف المعتدل أسطح الأفران والثلاجات من الصدأ وتغير اللون الناتج عن التفاعل مع رطوبة البحر.',
         textEn: 'pH-neutral cleaning solutions protect appliance surfaces from corrosion accelerated by marine humidity.'
       }
@@ -606,8 +606,8 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
       {
         question: 'كيف تزيلون خلطة الرمال والدهون المتصلبة من دواليب وشباك المطبخ برابغ؟',
         questionEn: 'How do you remove petrified sand-grease crusts from cabinets and windows in Rabigh?',
-        answer: 'نبدأ بشفط ذرات الرمال الجافة أولاً بمكانس HEPA لمنع تشكل الطين، ثم نضخ البخار الجاف بدرجة 140 مئوية مع مذيبات دهون عضوية تذيب الزيوت العميقة دون خدش الدواليب.',
-        answerEn: 'We first dry-vacuum sand with HEPA extractors to prevent mud formation, followed by 140°C dry steam and bio-degreasers that dissolve grease without scratching finishes.'
+        answer: 'نبدأ بشفط ذرات الرمال الجافة أولاً بمكانس HEPA لمنع تشكل الطين، ثم نستخدم تقنيات الإذابة الحرارية مع مذيبات دهون عضوية تذيب الزيوت العميقة دون خدش الدواليب.',
+        answerEn: 'We first dry-vacuum sand with HEPA extractors to prevent mud formation, followed by advanced thermal degreasing and bio-degreasers that dissolve grease without scratching finishes.'
       },
       {
         question: 'هل تقدمون خدمات تنظيف المطابخ في مجمعات سكن موظفي بترورابغ و(KAEC)؟',
@@ -616,16 +616,16 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
         answerEn: 'Yes, we service residential villas and apartments across Petro Rabigh and King Abdullah Economic City with schedules matching employee shift rotations.'
       },
       {
-        question: 'هل يؤثر تنظيف الشفاط بالبخار على سلامة المروحة الكهربائية؟',
-        questionEn: 'Does steam cleaning damage the range hood electrical blower motor?',
-        answer: 'لا إطلاقاً، يقوم فنيونا بفصل التيار الكهربائي وتغطية المحرك بعوازل محكمة، وننقع فقط الفلاتر والأجزاء الميكانيكية لضمان أمان تام للأجهزة.',
-        answerEn: 'Not at all. Our technicians disconnect power and seal motors with protective barriers, exclusively soaking filters and mechanical parts for 100% safety.'
+        question: 'هل يؤثر تنظيف الشفاط على سلامة المروحة الكهربائية ومحرك السحب؟',
+        questionEn: 'Does deep cleaning damage the range hood electrical blower motor?',
+        answer: 'لا إطلاقاً، يقوم فنيونا بفصل التيار الكهربائي وتغطية المحرك بعوازل محكمة، وننقع فقط الفلاتر والأجزاء الميكانيكية لسلامة أجهزتكم.',
+        answerEn: 'Not at all. Our technicians disconnect power and seal motors with protective barriers, exclusively soaking filters and mechanical parts to ensure complete appliance safety.'
       },
       {
         question: 'كم يستغرق تنظيف المطبخ بالكامل في رابغ؟',
         questionEn: 'How long does a complete kitchen deep clean take in Rabigh?',
-        answer: 'يستغرق تنظيف المطبخ المتوسط من 3 إلى 5 ساعات بفريق متخصص مجهز بماكينات البخار والشفط، ويتم تسليمه جاهزاً للطهي والاستخدام فوراً.',
-        answerEn: 'A standard kitchen clean takes 3 to 5 hours with an expert crew equipped with steam generators, handed over ready for immediate cooking.'
+        answer: 'يستغرق تنظيف المطبخ المتوسط من 3 إلى 5 ساعات بفريق متخصص مجهز بأحدث معدات الشفط وإذابة الدهون، ويتم تسليمه جاهزاً للاستخدام فوراً.',
+        answerEn: 'A standard kitchen clean takes 3 to 5 hours with an expert crew equipped with advanced degreasing systems, handed over ready for immediate cooking.'
       }
     ]
   },
@@ -648,60 +648,60 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
       'تنظيف شفاطات المطابخ خليص',
       'شركة تنظيف بخليص'
     ],
-    heroBadge: 'خدمة معتمدة للمطابخ بخليص',
+    heroBadge: 'خدمة متخصصة لتنظيف المطابخ بخليص',
     heroBadgeEn: 'Certified Kitchen Hygiene in Khulais',
-    heroHeading: 'شركة تنظيف مطابخ بخليص - إذابة أصعب الدهون والزيوت وتطهير المطبخ بالبخار',
-    heroHeadingEn: 'Kitchen Deep Cleaning & Thermal Degreasing in Khulais',
-    heroSubtitle: 'نقدم لأهالي خليص خدمات تنظيف وتعقيم مطابخ احترافية تشمل فك وتنظيف فلاتر ومداخن الشفاطات، جلي ترويبة وبلاط المطبخ، وتلميع دواليب الكلادينج والخشب بمواد آمنة غذائياً 100%.',
+    heroHeading: 'شركة تنظيف مطابخ بخليص - إذابة أصعب الدهون والزيوت وتطهير المطبخ بالكامل',
+    heroHeadingEn: 'Kitchen Deep Cleaning & Advanced Degreasing in Khulais',
+    heroSubtitle: 'نقدم لأهالي خليص خدمات تنظيف وتطهير مطابخ متكاملة تشمل فك وتنظيف فلاتر وشفاطات المطبخ، تنظيف وتلميع جدران وأرضيات المطبخ، وتلميع دواليب الكلادينج والخشب بمواد متخصصة وفعالة.',
     heroSubtitleEn: 'Mesk Clean delivers intensive kitchen sanitization in Khulais, eliminating burnt cooking oils and fine agricultural dust from ovens, range hoods, and cabinetry.',
     introParagraphs: [
-      'يعد المطبخ ركيزة البيت اليومية ومصدر إعداد الوجبات لجميع أفراد الأسرة في محافظة خليص، إلا أن مطابخ البيوت والفلل والاستراحات في خليص تواجه معادلة نظافة معقدة؛ حيث تتصاعد أبخرة الزيوت ودهون الطهي اليومية لتلتقي مع ذرات الغبار والرمال الناعمة المتطايرة من أودية ومزارع خليص. يؤدي هذا التمازج بين الزيوت الحارة والأتربة الدقيقة إلى تشكل طبقة لزجة متصلبة تُعرف بـ "الدهون الرملية المتكلسة"، والتي تغلف أسطح مداخن الشفاطات، ومراوح التهوية، ودواليب المطبخ سواء كانت من الألمنيوم، أو الخشب المعالج، أو الكلادينج، وتستقر بقوة داخل فواصل السيراميك والرخام.',
-      'إن محاولات تنظيف هذه الترسبات الدهنية بالطرق المنزلية العادية أو بالمساحيق الكيميائية القاسية غالباً ما تنتهي بخدش أسطح الرخام الطبيعي وتجيير الألمنيوم أو تلف طبقات دهان الدواليب، فضلاً عن بقاء مخابئ الدهون خلف الأفران والثلاجات والتي تصبح بيئة جاذبة لصراصير المطبخ وحشرات الأفران الدقيقة. تقدم شركة مسك كلين بخليص أسلوباً هندسياً وتقنياً متقدماً للتنظيف والتعقيم العميق للمطابخ السكنية ومطابخ الولائم والاستراحات؛ حيث نعتمد على ماكينات البخار الحار الجاف المتدفق بقوة ضغط عالية (8 بار ودرجة حرارة 140 مئوية) لتسييل الشحوم المحترقة وتفكيكها فورياً دون إتلاف الأسطح أو إغراق المطبخ بالماء الزائد.',
+      'يعد المطبخ ركيزة البيت اليومية ومصدر إعداد الوجبات لجميع أفراد الأسرة في محافظة خليص، إلا أن مطابخ البيوت والفلل والاستراحات في خليص تواجه معادلة نظافة معقدة؛ حيث تتصاعد أبخرة الزيوت ودهون الطهي اليومية لتلتقي مع ذرات الغبار والرمال الناعمة المتطايرة من أودية ومزارع خليص. يؤدي هذا التمازج بين الزيوت الحارة والأتربة الدقيقة إلى تشكل طبقة لزجة متصلبة تُعرف بـ "الدهون الرملية المتكلسة"، والتي تغلف أسطح شفاطات المطبخ، ومراوح التهوية، ودواليب المطبخ سواء كانت من الألمنيوم، أو الخشب المعالج، أو الكلادينج، وتستقر بقوة داخل فواصل السيراميك والرخام.',
+      'إن محاولات تنظيف هذه الترسبات الدهنية بالطرق المنزلية العادية أو بالمساحيق الكيميائية القاسية غالباً ما تنتهي بخدش أسطح الرخام الطبيعي وتجيير الألمنيوم أو تلف طبقات دهان الدواليب، فضلاً عن بقاء مخابئ الدهون خلف الأفران والثلاجات والتي تصبح بيئة جاذبة لصراصير المطبخ وحشرات الأفران الدقيقة. تقدم شركة مسك كلين بخليص أسلوباً هندسياً وتقنياً متقدماً للتنظيف والتعقيم العميق للمطابخ السكنية ومطابخ الولائم والاستراحات؛ حيث نعتمد على أحدث معدات إذابة الدهون الحرارية المتطورة لتسييل الشحوم وتفكيكها فورياً دون إتلاف الأسطح أو إغراق المطبخ بالماء الزائد.',
       'تغطي خدماتنا كافة أحياء محافظة خليص ومراكزها؛ حيث تصل فرقنا المجهزة بالكامل إلى فلل ومنازل حي الدف، وحي المغاربة، والصاعدية، والطلعة، والعزيزية، والنزهة، وغران، والبرزة، محملة بأحدث مذيبات الشحوم الإيطالية العضوية الآمنة غذائياً، وأجهزة جلي وتلميع الرخام والسيراميك، لنعيد لمطبخك بهاءه ونظافته الفندقية الكاملة ونوفر بيئة طهي نقية وصحية تسر كل ربة منزل.',
       'كما نولي اهتماماً خاصاً بمطابخ الاستراحات والمزارع في وادي خليص التي تُستخدم في المناسبات وتتعرض للإغلاق لفترات؛ حيث نقوم بتفكيك الشفاطات وتنظيف مجاري تصريف الدهون، وغسيل وتعقيم الدواليب من الداخل والخارج، ورش مبيدات وقائية ضد الحشرات الزاحفة، ليكون المطبخ جاهزاً تماماً للولائم والطبخ العائلي بأعلى معايير النظافة.'
     ],
     introParagraphsEn: [
-      'The kitchen stands as the bustling culinary centerpiece in every Khulais household. However, residences across the governorate encounter persistent sanitization challenges where aerosolized cooking oils merge with fine agricultural sand particulates blown from Wadi Khulais. This synergy forms a resilient, sticky amber film that bonds tenaciously to range hood impellers, kitchen cabinetry, and ceramic tile grout.',
-      'Mesk Clean in Khulais implements an advanced industrial thermal degreasing methodology utilizing dry steam boilers operating at 140°C alongside certified food-safe bio-enzymatic degreasers. This technology breaks down carbonized grease deposits on stoves, exhaust baffles, and backsplashes without scratching luxury acrylic, wood, or aluminum finishes.',
+      'The kitchen stands as the bustling culinary centerpiece in every Khulais household. However, residences across the governorate encounter persistent sanitization challenges where aerosolized cooking oils merge with fine agricultural sand particulates blown from Wadi Khulais. This synergy forms a resilient, sticky amber film that bonds tenaciously to range hood impellers, kitchen cabinetry, and ceramic tile surfaces and joints.',
+      'Mesk Clean in Khulais implements an advanced industrial thermal degreasing methodology utilizing advanced thermal degreasing equipment alongside food-safe bio-enzymatic degreasers. This technology breaks down carbonized grease deposits on stoves, exhaust baffles, and backsplashes without scratching luxury acrylic, wood, or aluminum finishes.',
       'Our mobile teams service all Khulais districts including Al-Duff, Al-Magharibah, Al-Saadiyah, Al-Talaah, Ghran, and surrounding agricultural areas, providing hospital-standard hygiene for family residences, private villas, and estate kitchens.',
       'We also specialize in seasonal deep cleaning for rest-house and farm kitchens throughout Wadi Khulais, clearing greasy residues, disassembling exhaust fans, and sanitizing storage cabinets to provide an immaculate culinary setting.'
     ],
     neighborhoodsAnalysisTitle: 'التحليل الميداني لتنظيف المطابخ وأنواع الدواليب في خليص',
     neighborhoodsAnalysisTitleEn: 'District Kitchen Architecture & Cabinetry Care in Khulais',
     neighborhoodsAnalysisParagraphs: [
-      'تتميز الفلل الحديثة في أحياء خليص الراقية كحي الدف ومخطط الطلعة وحي العزيزية بتصاميم المطابخ المفتوحة (American Concept) ودواليب الكلادينج والرخام الصناعي والجرانيت، مما يتطلب استخدام محاليل تنظيف ميكروية غير كاشطة تحمي أسطح الكوارتز ولمعان الدواليب الأكريليك العاكسة. أما في بيوت ومجالس أحياء المغاربة والصاعدية وخليص القديمة والمزارع، فتكثر المطابخ المغلقة ومطابخ الطهي الثقيل (Heavy Cooking) التي تتطلب إذابة الشحوم المحترقة حول عيون الأفران ومداخن الشفاطات وتسليك مجاري الدهون المتجمدة بالبخار.',
-      'تصل فرق مسك كلين إلى موقعك في خليص مزودة بأغطية واقية لعزل الأجهزة الكهربائية وتغطية الرخام لضمان إنجاز كافة مراحل إذابة الدهون وتلميع الدواليب بأمان تام ودقة متناهية.'
+      'تتميز الفلل الحديثة في أحياء خليص الراقية كحي الدف ومخطط الطلعة وحي العزيزية بتصاميم المطابخ المفتوحة (American Concept) ودواليب الكلادينج والرخام الصناعي والجرانيت، مما يتطلب استخدام محاليل تنظيف ميكروية غير كاشطة تحمي أسطح الكوارتز ولمعان الدواليب الأكريليك العاكسة. أما في بيوت ومجالس أحياء المغاربة والصاعدية وخليص القديمة والمزارع، فتكثر المطابخ المغلقة ومطابخ الطهي الثقيل (Heavy Cooking) التي تتطلب إذابة الشحوم المتراكمة حول عيون الأفران والشفاطات وتنظيف مجاري الدهون المتجمدة بعناية.',
+      'تصل فرق مسك كلين إلى موقعك في خليص مزودة بأغطية واقية لعزل الأجهزة الكهربائية وتغطية الرخام بهدف إنجاز كافة مراحل إذابة الدهون وتلميع الدواليب بأمان تام ودقة متناهية.'
     ],
     neighborhoodsAnalysisParagraphsEn: [
-      'Modern villas in Khulais districts like Al-Duff, Al-Talaah, and Al-Aziziyah frequently feature open-concept kitchens with reflective acrylic cabinets and quartz countertops. Our technicians utilize non-abrasive, pH-balanced polishers that preserve reflective coatings while dissolving dust-bonded grease films. In older residential areas and farm estates, focus shifts to heavy-duty range hoods, deep oven cleaning, and steam-clearing drain pipes.',
+      'Modern villas in Khulais districts like Al-Duff, Al-Talaah, and Al-Aziziyah frequently feature open-concept kitchens with reflective acrylic cabinets and quartz countertops. Our technicians utilize non-abrasive, pH-balanced polishers that preserve reflective coatings while dissolving dust-bonded grease films. In older residential areas and farm estates, focus shifts to heavy-duty range hoods, deep oven cleaning, and clearing grease buildup in drain pipes.',
       'Mesk Clean crews arrive equipped with specialized protective masking barriers to safeguard electrical appliances and fine countertops throughout the degreasing workflow.'
     ],
     importanceTitle: 'أهمية التنظيف والتعقيم العميق لمطابخ خليص',
     importanceTitleEn: 'Why Professional Kitchen Cleaning is Vital in Khulais',
     importanceContent: [
       'إذابة الدهون الرملية المتصلبة: التخلص من الطبقات الصمغية اللزجة التي تتلف دهانات الدواليب وتجذب أتربة وادي خليص.',
-      'رفع كفاءة شفاطات الهواء ومداخن الطهي: فك الفلاتر وتنظيف محركات الشفط يمنع تراكم الدخان والحرارة داخل المنزل.',
+      'رفع كفاءة شفاطات الهواء ومراوح الشفط: فك الفلاتر وتنظيف محركات الشفط يمنع تراكم الدخان والحرارة داخل المنزل.',
       'مكافحة صراصير المطابخ والنمل: إزالة بقايا الزيوت خلف الأفران والثلاجات يقضي على بيئة الغذاء المفضلة لصراصير المطبخ.',
-      'تطهير فواصل السيراميك والترويبة: جلي الفواصل بالبخار يزيل السواد والتكلسات ويعيد للأرضيات لونها الأصلي.',
+      'تطهير وتنظيف فواصل السيراميك: جلي وتنظيف الفواصل والأرضيات يزيل التراكمات والتكلسات ويعيد للبلاط مظهره الأصلي.',
       'حماية الأجهزة والستانلس ستيل: تلميع الموقد وحوض الغسيل بمواد عازلة تحميه من التبقع والأكسدة والصدأ.',
-      'توفير بيئة طهي صحية خالية من البكتيريا: التعقيم بالبخار الحراري يقضي على 99.9% من مسببات التسمم الغذائي والسالمونيلا.'
+      'توفير بيئة طهي صحية خالية من البكتيريا: التعقيم والتطهير الحراري المركز يقضي على مسببات التلوث الغذائي والبكتيريا.'
     ],
     importanceContentEn: [
       'Eliminating Dust-Bonded Grease Crusts: Dissolving stubborn sticky deposits that erode cabinet laminates and trap airborne valley dust.',
       'Restoring Range Hood Airflow Velocity: Clearing grease from impellers and filters prevents indoor heat and smoke accumulation.',
       'Eradicating Cockroaches & Pests: Removing concealed food grease behind stoves eliminates vital nourishment for kitchen roaches.',
-      'Restoring Grout & Ceramic Brightness: High-pressure steam clears dark grease residues from floor tile grout lines.',
-      'Protecting Stainless Steel Appliances: Conditioning stainless cooktops shields metal surfaces from tarnishing and grease oxidation.',
-      'Ensuring a Pathogen-Free Cooking Haven: Thermal steam sanitization eradicates 99.9% of bacteria, Salmonella, and mold.'
+      'Restoring Tile & Ceramic Brightness: Specialized rotary scrubbing clears dark grease residues from floor tile surfaces and joints.',
+      'Protecting Metal Cookware & Appliances: Conditioning kitchen cooktops shields surfaces from tarnishing and grease oxidation.',
+      'Ensuring a Pathogen-Free Cooking Haven: Deep sanitization eliminates foodborne bacteria, Salmonella, and mold.'
     ],
-    equipmentTitle: 'ماكينات البخار ومذيبات الدهون الإيطالية المعتمدة بخليص',
-    equipmentTitleEn: 'Industrial Steam Boilers & Bio-Degreasers in Khulais',
+    equipmentTitle: 'معدات إذابة الدهون والمذيبات الإيطالية المتخصصة بخليص',
+    equipmentTitleEn: 'Advanced Degreasing Equipment & Bio-Degreasers in Khulais',
     equipmentParagraphs: [
-      'نعتمد في مسك كلين بخليص على مولدات البخار الجاف الإيطالية المصممة للاستخدام المنزلي والغذائي الفاخر، بقوة ضغط تصل إلى 8 بار ودرجة حرارة تفوق 140 درجة مئوية، مما يتيح تسييل الدهون المتصلبة على فلاتر الشفاط وعيون الأفران وجدران السيراميك فورياً دون الحاجة لكشط ميكانيكي عنيف قد يخدش الأسطح.',
-      'نستخدم محاليل إذابة دهون عضوية معتمدة من هيئة المواصفات والمقاييس (SASO)، تتميز بأنها خالية من الروائح الكيماوية النفاذة ومصرحة للاستخدام في أماكن إعداد وتخزين الأغذية، وتترك طبقة حماية ميكروية تمنع إعادة التصاق الغبار بالدواليب لأسابيع طويلة.'
+      'نعتمد في مسك كلين بخليص على أحدث معدات إذابة الدهون المتطورة المصممة للاستخدام المنزلي والغذائي، مما يتيح تسييل وتفكيك الشحوم المتصلبة على فلاتر الشفاط ومحيط الأفران وجدران السيراميك فورياً دون الحاجة لكشط عنيف قد يخدش الأسطح.',
+      'نستخدم محاليل إذابة دهون عضوية مطابقة للمواصفات القياسية (SASO)، تتميز بأنها خالية من الروائح الكيماوية النفاذة ومناسبة للاستخدام في أماكن إعداد وتخزين الأغذية، مع الحفاظ على نظافة ولمعان الدواليب.'
     ],
     equipmentParagraphsEn: [
-      'We deploy Italian dry steam generators engineered for food-contact hygiene, operating at 8-bar pressure and 140°C, liquefying baked grease on range hood baffles and cooktops instantaneously without abrasive scraping.',
+      'We deploy advanced thermal degreasing equipment engineered for food-contact hygiene, liquefying baked grease on range hood baffles and cooktops instantaneously without abrasive scraping.',
       'Our bio-enzymatic degreasers are SASO-certified and eco-friendly, completely free of volatile toxins, leaving a micro-protective barrier that repels airborne dust settlement on cabinetry for weeks.'
     ],
     workflowTitle: 'خطوات بروتوكول تنظيف المطابخ الميداني بخليص',
@@ -723,10 +723,10 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
       },
       {
         number: 3,
-        title: 'الضخ بالبخار الساخن وإذابة دهون الجدران',
-        titleEn: 'Thermal Steam Jetting on Walls & Cooktops',
-        description: 'تسليط فوهات البخار بدرجة 140 مئوية على جدران السيراميك ومحيط الموقد والشفاط لتسييل الدهون المتراكمة ومسحها بفوط مايكروفايبر.',
-        descriptionEn: 'Jetting 140°C steam across ceramic backsplashes and cooktops to liquefy hardened grease, wiping it away with microfiber extractors.'
+        title: 'إذابة دهون الجدران بالمعدات الحرارية',
+        titleEn: 'Thermal Degreasing Jetting on Walls & Cooktops',
+        description: 'استخدام فوهات إذابة الدهون المركزة على جدران السيراميك ومحيط الموقد والشفاط لتسييل الشحوم المتراكمة ومسحها بفوط مايكروفايبر.',
+        descriptionEn: 'Applying thermal degreasing across ceramic backsplashes and cooktops to liquefy hardened grease, wiping it away with microfiber extractors.'
       },
       {
         number: 4,
@@ -737,17 +737,17 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
       },
       {
         number: 5,
-        title: 'جلي ترويبة الأرضيات وتطهير الأحواض والصفايات',
-        titleEn: 'Floor Grout Scrubbing & Drain Sanitization',
-        description: 'فرك أرضيات السيراميك وتفتيح خطوط الترويبة بماكينات الجلي، وتسليك صفاية المطبخ بالبخار لإذابة الدهون المتجمدة في المواسير.',
-        descriptionEn: 'Mechanically scrubbing floor tiles, whitening grout joints, and steam-clearing sink traps to dissolve congealed drain grease.'
+        title: 'تنظيف أرضيات المطبخ وتطهير الأحواض والصفايات',
+        titleEn: 'Floor Scrubbing & Drain Sanitization',
+        description: 'فرك أرضيات وجدران السيراميك بماكينات الجلي، وتنظيف صفاية المطبخ بمذيبات الشحوم لإزالة الدهون المتراكمة في المواسير.',
+        descriptionEn: 'Mechanically scrubbing floor tiles, deep cleaning tile joints, and clearing sink traps to dissolve congealed drain grease.'
       },
       {
         number: 6,
         title: 'التعقيم بالأوزون وتلميع الستانلس ستيل',
-        titleEn: 'Ozone Sanitization & Stainless Steel Conditioning',
+        titleEn: 'Ozone Sanitization & Metal Fixture Conditioning',
         description: 'تلميع الأجهزة وأحواض الستانلس ستيل بمواد عازلة، وإجراء تعقيم شامل يقضي على الروائح الكريهة ويسلم المطبخ في أبهى حلة.',
-        descriptionEn: 'Conditioning stainless steel sinks and appliances with protective films, followed by total deodorization for a pristine finish.'
+        descriptionEn: 'Conditioning kitchen sinks and appliances with protective films, followed by total deodorization for a pristine finish.'
       }
     ],
     featuresTitle: 'مميزات خدمة تنظيف المطابخ بخليص من مسك كلين',
@@ -756,12 +756,12 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
       {
         title: 'إزالة كاملة للدهون دون خدوش',
         titleEn: 'Zero-Scratch Thermal Degreasing',
-        description: 'نعتمد على قوة البخار الحار والمذيبات العضوية لتفتيت الشحوم دون استخدام أسلاك خشنة قد تخدش الرخام والدواليب.',
-        descriptionEn: 'Relying on pressurized steam and enzymatic agents to liquefy fats without abrasive scourers that scratch delicate stone.'
+        description: 'نعتمد على تقنيات الإذابة الحرارية والمذيبات العضوية لتفتيت الشحوم دون استخدام أسلاك خشنة قد تخدش الرخام والدواليب.',
+        descriptionEn: 'Relying on thermal degreasing systems and enzymatic agents to liquefy fats without abrasive scourers that scratch delicate stone.'
       },
       {
-        title: 'مواد تنظيف آمنة غذائياً 100%',
-        titleEn: '100% Food-Contact Safe Formulations',
+        title: 'مواد تنظيف آمنة على أسطح ومناطق الطعام',
+        titleEn: 'Food-Contact Safe Formulations',
         description: 'جميع المحاليل المستخدمة مطابقة لمعايير الصحة والغذاء السعودية، ولا تترك أي بقايا كيميائية سامة في أماكن الطهي.',
         descriptionEn: 'All detergents comply with Saudi food sanitation regulations, leaving zero toxic chemical residues in meal preparation areas.'
       },
@@ -820,8 +820,8 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
       {
         question: 'كيف تزيلون خلطة الرمال والدهون المتصلبة من دواليب وشباك المطبخ بخليص؟',
         questionEn: 'How do you remove petrified sand-grease crusts from cabinets and windows in Khulais?',
-        answer: 'نبدأ بشفط ذرات الرمال الجافة أولاً بمكانس HEPA لمنع تشكل الطين، ثم نضخ البخار الجاف بدرجة 140 مئوية مع مذيبات دهون عضوية تذيب الزيوت العميقة دون خدش الدواليب أو تجيير الألمنيوم.',
-        answerEn: 'We first dry-vacuum sand with HEPA extractors to prevent mud formation, followed by 140°C dry steam and bio-degreasers that dissolve grease without scratching finishes.'
+        answer: 'نبدأ بشفط ذرات الرمال الجافة أولاً بمكانس HEPA لمنع تشكل الطين، ثم نستخدم تقنيات الإذابة الحرارية مع مذيبات دهون عضوية تذيب الزيوت العميقة دون خدش الدواليب أو تجيير الألمنيوم.',
+        answerEn: 'We first dry-vacuum sand with HEPA extractors to prevent mud formation, followed by advanced thermal degreasing and bio-degreasers that dissolve grease without scratching finishes.'
       },
       {
         question: 'هل تقدمون خدمات تنظيف المطابخ في استراحات ومزارع وادي خليص وغران؟',
@@ -830,16 +830,16 @@ export const KITCHENS_SERVICES_MAP: Record<CityId, CityServicePageData> = {
         answerEn: 'Yes, we service residential villas, farmhouses, and rest-houses across Wadi Khulais, Ghran, and Al-Barzah with fully equipped mobile units.'
       },
       {
-        question: 'هل يؤثر تنظيف الشفاط بالبخار على سلامة المروحة الكهربائية؟',
-        questionEn: 'Does steam cleaning damage the range hood electrical blower motor?',
-        answer: 'لا إطلاقاً، يقوم فنيونا بفصل التيار الكهربائي وتغطية المحرك بعوازل محكمة، وننقع فقط الفلاتر والأجزاء الميكانيكية لضمان أمان تام للأجهزة.',
-        answerEn: 'Not at all. Our technicians disconnect power and seal motors with protective barriers, exclusively soaking filters and mechanical parts for 100% safety.'
+        question: 'هل يؤثر تنظيف الشفاط على سلامة المروحة الكهربائية ومحرك السحب؟',
+        questionEn: 'Does deep cleaning damage the range hood electrical blower motor?',
+        answer: 'لا إطلاقاً، يقوم فنيونا بفصل التيار الكهربائي وتغطية المحرك بعوازل محكمة، وننقع فقط الفلاتر والأجزاء الميكانيكية لسلامة أجهزتكم.',
+        answerEn: 'Not at all. Our technicians disconnect power and seal motors with protective barriers, exclusively soaking filters and mechanical parts to ensure complete appliance safety.'
       },
       {
         question: 'كم يستغرق تنظيف المطبخ بالكامل في خليص؟',
         questionEn: 'How long does a complete kitchen deep clean take in Khulais?',
-        answer: 'يستغرق تنظيف المطبخ المتوسط من 3 إلى 5 ساعات بفريق متخصص مجهز بماكينات البخار والشفط، ويتم تسليمه جاهزاً للطهي والاستخدام فوراً.',
-        answerEn: 'A standard kitchen clean takes 3 to 5 hours with an expert crew equipped with steam generators, handed over ready for immediate cooking.'
+        answer: 'يستغرق تنظيف المطبخ المتوسط من 3 إلى 5 ساعات بفريق متخصص مجهز بأحدث معدات الشفط وإذابة الدهون، ويتم تسليمه جاهزاً للاستخدام فوراً.',
+        answerEn: 'A standard kitchen clean takes 3 to 5 hours with an expert crew equipped with advanced degreasing systems, handed over ready for immediate cooking.'
       },
       {
         question: 'هل المواد المستخدمة في إذابة الدهون آمنة على أسطح الرخام الطبيعي؟',

@@ -574,33 +574,33 @@ export const getCityServiceData = (serviceId: string, cityId: CityId): CityServi
       coreKeywordEn: `Kitchen Cleaning Company ${city.titleSuffixEn}`,
       actionVerbAr: 'إزالة الدهون المستعصية وتنظيف وتطهير المطابخ والشفاطات والخزائن',
       actionVerbEn: 'Heavy degreasing, sanitization, and deep cleaning for kitchens, range hoods, and cabinetry',
-      introOverviewAr: `يعد المطبخ قلب البيت ومصدر الغذاء للأسرة، إلا أنه يتعرض لتراكمات يومية من بخار الزيوت والشحوم على الجدران والدواليب وشفاطات الهواء. في ${city.nameAr}، تزيد عوامل ${city.climateContextAr} من تماسك طبقات الدهون وتحولها إلى طبقة لزجة يصعب تنظيفها بالوسائل المنزلية العادية، مما يجلب الحشرات ويسبب الروائح غير المحببة. تقدم مسك كلين في ${city.nameAr} خدمة التنظيف العميق وإذابة الشحوم بأقوى المذيبات الغذائية الآمنة وأجهزة البخار الحرارية.`,
-      introOverviewEn: `The kitchen is the culinary center of the home, but continuous cooking produces aerosolized grease and oil films that coat range hoods, tile walls, and cabinetry. In ${city.nameEn}, ${city.climateContextEn} cures grease into a stubborn, sticky film that attracts pests and harbors bacteria. Mesk Clean delivers industrial food-safe degreasing and high-temperature steam decontamination.`,
-      whyImportantAr: `التنظيف الاحترافي للمطابخ في ${city.nameAr} يقضي على بيئات تكاثر بكتيريا السالمونيلا والصراصير، ويعيد اللمعان لأسطح الرخام والستانلس ستيل، ويحمي الشفاطات من خطر الاشتعال نتيجة تراكم الزيوت المحترقة.`,
-      whyImportantEn: `Professional kitchen degreasing in ${city.nameEn} eliminates breeding zones for foodborne pathogens, restores stainless steel and granite luster, and mitigates grease-fire hazards inside range hoods.`,
+      introOverviewAr: `يعد المطبخ قلب البيت ومصدر الغذاء للأسرة، إلا أنه يتعرض لتراكمات يومية من أبخرة الزيوت والشحوم على الجدران والدواليب وشفاطات الهواء. في ${city.nameAr}، تزيد عوامل ${city.climateContextAr} من تماسك طبقات الدهون وتحولها إلى طبقة لزجة يصعب تنظيفها بالوسائل المنزلية العادية، مما يجلب الحشرات ويسبب الروائح غير المحببة. تقدم مسك كلين في ${city.nameAr} خدمة التنظيف العميق وإذابة الشحوم بأقوى المذيبات الغذائية الآمنة وأحدث أجهزة إذابة الدهون وتطهير الأسطح.`,
+      introOverviewEn: `The kitchen is the culinary center of the home, but continuous cooking produces aerosolized grease and oil films that coat range hoods, tile walls, and cabinetry. In ${city.nameEn}, ${city.climateContextEn} cures grease into a stubborn, sticky film that attracts pests and harbors bacteria. Mesk Clean delivers industrial food-safe degreasing and high-temperature thermal decontamination.`,
+      whyImportantAr: `التنظيف الاحترافي للمطابخ في ${city.nameAr} يقضي على بيئات تكاثر بكتيريا السالمونيلا والصراصير، ويعيد اللمعان لأسطح الرخام والأحواض المعدنية، ويحمي الشفاطات من خطر الاشتعال نتيجة تراكم الزيوت المحترقة.`,
+      whyImportantEn: `Professional kitchen degreasing in ${city.nameEn} eliminates breeding zones for foodborne pathogens, restores countertops and sink luster, and mitigates grease-fire hazards inside range hoods.`,
       methodPointsAr: [
         'فك فلاتر الشفاط ومراوح التهوية ونقعها في أحواض مذيبة للدهون والزيوت المتصلبة.',
         'تنظيف خزائن المطبخ من الداخل والخارج وإزالة البقع الدهنية ومسح الأرفف بمطهر غذائي.',
-        'إذابة الدهون المستعصية على جدران السيراميك والفرن والبوتاجاز بالبخار المركز.',
-        'جلي وتلميع أحواض الجرانيت والستانلس ستيل وإزالة التكلسات من الخلاطات.',
+        'إذابة الدهون المستعصية على جدران السيراميك ووالأفران وأسطح الطهي بالمذيبات المتخصصة.',
+        'جلي وتلميع أحواض الجرانيت والأحواض المعدنية وإزالة التكلسات من الخلاطات.',
         'غسيل الأرضيات بماكينة الفرك وتطهير المصارف وتعطير المطبخ برائحة منعشة.'
       ],
       methodPointsEn: [
         'Dismantling range hood filters and fan blades, submerging them in thermal degreasing baths.',
         'Wiping and sanitizing all kitchen cabinetry inside and out with food-contact safe solutions.',
-        'High-pressure steam dissolution of baked-on grease across backsplashes, ovens, and cooktops.',
-        'Descaling and high-gloss polishing of stainless steel sinks, faucets, and composite countertops.',
+        'Deep thermal dissolution of baked-on grease across backsplashes, ovens, and cooktops.',
+        'Descaling and high-gloss polishing of kitchen sinks, faucets, and composite countertops.',
         'Mechanical floor scrubbing, grease trap decontamination, and fresh citrus deodorization.'
       ],
       featuresAr: [
-        'مذيبات دهون عضوية معتمدة لا تترك أي أثر كيميائي على مناطق إعداد الطعام.',
-        'أجهزة بخار ذات حرارة فائقة تفتت الشحوم المتكلسة في الزوايا الصعبة دون خدش الأسطح.',
+        'مذيبات دهون عضوية فعالة لا تترك أي أثر كيميائي على مناطق إعداد الطعام.',
+        'تقنيات إذابة حرارية فعالة تفتت الشحوم المتكلسة في الزوايا الصعبة دون خدش الأسطح.',
         'عناية دقيقة بأسطح الرخام الطبيعي وخشب الدواليب دون التسبب في تقشر الدهان.',
         'إبادة فورية وتعقيم شامل لأوكار الصراصير الدقيقة التي تتغذى على بقايا الزيوت.'
       ],
       featuresEn: [
-        'Certified food-safe organic degreasers leaving zero toxic residue on prep counters.',
-        'High-temperature thermal steam blasting away polymerized grease without scratching surfaces.',
+        'Eco-safe organic degreasers leaving zero toxic residue on prep counters.',
+        'High-temperature thermal action blasting away polymerized grease without scratching surfaces.',
         'Gentle, non-corrosive formulas engineered specifically for solid wood and natural marble.',
         'Targeted sanitization eliminating German cockroach harborage zones behind appliances.'
       ],
@@ -615,14 +615,14 @@ export const getCityServiceData = (serviceId: string, cityId: CityId): CityServi
         { title: 'Keep Sink Edges Dry', desc: 'Drying water splashes around sinks stops hard water limescale rings and black mold along silicone seals.' }
       ],
       faqsAr: [
-        { q: `هل المنظفات المستخدمة في المطبخ آمنة على الأطعمة؟`, a: `نستخدم منظفات مخصصة للمطابخ ومصرحة غذائياً من هيئة الغذاء والدواء خالية تماماً من السموم والروائح الكيميائية الضارة.` },
+        { q: `هل المنظفات المستخدمة في المطبخ آمنة على الأطعمة؟`, a: `نستخدم منظفات مخصصة للمطابخ مناسبة لبيئات إعداد الطعام وخالية تماماً من السموم والروائح الكيميائية الضارة.` },
         { q: `هل يشمل التنظيف الأجهزة الكهربائية مثل الفرن والمايكروويف والثلاجة؟`, a: `نعم، نقوم بتنظيف الفرن من الداخل وإزالة الدهون المحترقة، وتنظيف المايكروويف والثلاجة خارجياً وداخلياً حسب رغبتكم.` },
-        { q: `هل تزيلون طبقات الدهون الصفراء القديمة على الجدران؟`, a: `نمتلك ماكينات بخار حار ومذيبات قوية تزيل أصعب الدهون المتراكمة منذ سنوات وتعيد للسيراميك لمعانه الأصلي.` }
+        { q: `هل تزيلون طبقات الدهون الصفراء القديمة على الجدران؟`, a: `نمتلك مذيبات متخصصة ومعدات جلي متطورة تزيل أصعب الدهون المتراكمة منذ سنوات وتعيد للسيراميك لمعانه الأصلي.` }
       ],
       faqsEn: [
-        { q: `Are the cleaning products safe for food contact surfaces?`, a: `We exclusively utilize SFDA-approved, food-safe biodegradable formulas leaving zero harmful chemical residue.` },
-        { q: `Does the service include cleaning the oven and microwave?`, a: `Yes, we perform deep internal and external degreasing of ovens, stove burners, and microwave interiors.` },
-        { q: `Can you remove old yellow grease caked onto wall tiles?`, a: `Our high-pressure steam and professional emulsifiers melt away years of heavy grease, restoring glossy tile finishes.` }
+        { q: `Are the cleaning products safe for food contact surfaces?`, a: `We exclusively utilize food-safe biodegradable formulas leaving zero harmful chemical residue.` },
+        { q: `Does the service include cleaning the oven and microwave?`, a: `Yes, we perform deep internal and external degreasing of ovens, cooktop surfaces, and microwave interiors.` },
+        { q: `Can you remove old yellow grease caked onto wall tiles?`, a: `Our professional emulsifiers and specialized scrubbing equipment melt away years of heavy grease, restoring glossy tile finishes.` }
       ]
     },
     'ac': {
