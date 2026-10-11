@@ -184,16 +184,16 @@ export const getCityServiceData = (serviceId: string, cityId: CityId): CityServi
       ],
       featuresAr: [
         'عمالة نظامية متمرسة ومدربة على بروتوكولات الأمانة وحرمة المنازل.',
-        'ماكينات ومعدات حديثة تضمن إنجاز العمل دون إحداث فوضى أو إزعاج.',
-        'منظفات ومطهرات صديقة للبيئة معتمدة من SASO وآمنة تماماً للأطفال.',
-        'ضمان الرضا الكامل 100% وإمكانية مراجعة أي ملاحظة فوراً.',
+        'ماكينات ومعدات حديثة تنجز العمل بكفاءة عالية.',
+        'منظفات ومطهرات صديقة للبيئة وآمنة للأطفال.',
+        'نسعى لرضا العميل وتنفيذ كافة الملاحظات.',
         'تغطية ميدانية سريعة على مدار 24/7 في كافة أحياء ومخططات المدينة.'
       ],
       featuresEn: [
         'Vetted, background-checked crew trained in household privacy and luxury care standards.',
         'Low-noise European equipment delivering rapid results without disrupting household tranquility.',
         'Eco-certified, hypoallergenic detergents meeting Saudi SASO standards, safe for kids and pets.',
-        '100% Satisfaction guarantee with immediate rectification of any customer requests.',
+        'Customer satisfaction is our priority and we address all customer requests.',
         '24/7 rapid response van dispatch covering all residential neighborhoods without delay.'
       ],
       tipsAr: [
@@ -210,9 +210,9 @@ export const getCityServiceData = (serviceId: string, cityId: CityId): CityServi
       ],
       faqsAr: [
         { q: `كم يستغرق تنظيف الشقة أو المنزل بالكامل ${city.titleSuffixAr}؟`, a: `تستغرق الشقة المتوسطة من 3 إلى 5 ساعات بفريق فني متكامل يضم 3 إلى 5 عمال مجهزين بكامل الماكينات.` },
-        { q: `هل توفرون أدوات ومواد التنظيف أم يحتاج العميل لتأمينها؟`, a: `نوفر كافة المعدات والماكينات الصناعية والمكانس والمنظفات والمعقمات المعتمدة بالكامل ضمن تجهيزات فريقنا.` },
+        { q: `هل توفرون أدوات ومواد التنظيف أم يحتاج العميل لتأمينها؟`, a: `نوفر كافة المعدات والماكينات الصناعية والمكانس والمنظفات والمعقمات المتخصصة ضمن تجهيزات فريقنا.` },
         { q: `هل يمكن حجز موعد لنفس اليوم أو في الفترة المسائية؟`, a: `نعم، نوفر مواعيد فورية في نفس اليوم وفترات عمل مسائية لتناسب أوقات راحتكم وجداولكم.` },
-        { q: `هل تقدمون اشتراكات دورية للتنظيف الشهري أو الأسبوعي؟`, a: `نعم، نقدم خطط اشتراك دورية مرنة وعقود زيارات منتظمة تضمن بقاء منزلك نقياً طوال العام.` }
+        { q: `هل تقدمون اشتراكات دورية للتنظيف الشهري أو الأسبوعي؟`, a: `نعم، نقدم خطط اشتراك دورية مرنة وعقود زيارات منتظمة تضمن بقاء منزلك نقياً.` }
       ],
       faqsEn: [
         { q: `How long does full home cleaning take ${city.titleSuffixEn}?`, a: `A standard apartment takes 3 to 5 hours with a dedicated crew of 3 to 5 technicians fully equipped with machinery.` },

@@ -807,7 +807,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToSite }) 
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="text-xl sm:text-2xl font-black text-white">إدارة الخدمات الـ 11 المعتمدة</h2>
+                  <h2 className="text-xl sm:text-2xl font-black text-white">إدارة الخدمات</h2>
                   <p className="text-xs text-slate-400">تعديل نصوص ووصف وتفاصيل الخدمات المعروضة</p>
                 </div>
               </div>

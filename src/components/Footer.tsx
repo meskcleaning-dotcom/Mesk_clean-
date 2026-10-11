@@ -37,6 +37,8 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService, onOpenAdmin, on
               <img
                 src={COMPANY_INFO.logo.transparent}
                 alt={COMPANY_INFO.arabicName}
+                width="160"
+                height="64"
                 className="h-16 w-auto object-contain drop-shadow-[0_2px_10px_rgba(6,182,212,0.3)]"
                 referrerPolicy="no-referrer"
                 loading="lazy"

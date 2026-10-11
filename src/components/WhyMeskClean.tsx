@@ -23,7 +23,7 @@ export const WhyMeskClean: React.FC = () => {
       icon: Wrench,
     },
     {
-      title: language === 'ar' ? 'مواد تنظيف آمنة ومعتمدة' : 'Safe & Certified Chemicals',
+      title: language === 'ar' ? 'مواد تنظيف آمنة' : 'Safe & Certified Chemicals',
       desc: language === 'ar'
         ? 'نعتمد منظفات ومطهرات صديقة للبيئة وصحية لجميع أفراد الأسرة، خالية من الروائح المزعجة ومصرح بها.'
         : 'Eco-friendly and family-safe disinfectants approved for residential hygiene.',
@@ -37,7 +37,7 @@ export const WhyMeskClean: React.FC = () => {
       icon: Clock,
     },
     {
-      title: language === 'ar' ? 'ضمان رضا العميل' : '100% Satisfaction Guarantee',
+      title: language === 'ar' ? 'حرصنا على رضاك' : '100% Satisfaction Guarantee',
       desc: language === 'ar'
         ? 'معاييرنا تضع رضاك التام في المقام الأول؛ نراجع كل تفصيلة حتى نضمن حصولك على النتيجة المرجوة تماماً.'
         : 'Customer delight is our core standard; we inspect every detail before handoff.',
