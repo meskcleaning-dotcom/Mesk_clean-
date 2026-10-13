@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Star, Quote, CheckCircle2, Building, User, Award } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { useCityRoute } from '../context/CityRouteContext';
-import { getStoredTestimonials } from '../data/store';
+import { getStoredTestimonialsForCity } from '../data/store';
 import { TestimonialItem } from '../types';
 
 export const TestimonialsSection: React.FC = () => {
@@ -11,37 +11,7 @@ export const TestimonialsSection: React.FC = () => {
   const [testimonials, setTestimonials] = useState<TestimonialItem[]>([]);
 
   const loadTestimonials = () => {
-    const all = getStoredTestimonials();
-    if (!all || all.length === 0) {
-      setTestimonials([]);
-      return;
-    }
-
-    // Filter testimonials strictly matching the active city
-    const filtered = all.filter((item) => {
-      if (!item) return false;
-      const district = item.district?.trim().toLowerCase() || '';
-      const comment = (item.comment || '').toLowerCase() + ' ' + (item.commentEn || '').toLowerCase();
-
-      // Check if item's district is in the current city's Arabic or English districts list
-      const matchesDistrict = currentCity.districtsAr.some((d) => {
-        const cleanD = d.replace(/^حي\s+/, '').trim().toLowerCase();
-        return cleanD && (district.includes(cleanD) || district === d.toLowerCase());
-      }) || currentCity.districtsEn.some((d) => {
-        const cleanD = d.replace(/^al\s+/i, '').trim().toLowerCase();
-        return cleanD && (district.includes(cleanD) || district === d.toLowerCase());
-      });
-
-      // Check if city name is mentioned in district or comment
-      const matchesCityName =
-        district.includes(currentCity.nameAr.toLowerCase()) ||
-        district.includes(currentCity.nameEn.toLowerCase()) ||
-        comment.includes(currentCity.nameAr.toLowerCase()) ||
-        comment.includes(currentCity.nameEn.toLowerCase());
-
-      return matchesDistrict || matchesCityName;
-    });
-
+    const filtered = getStoredTestimonialsForCity(currentCity);
     setTestimonials(filtered);
   };
 

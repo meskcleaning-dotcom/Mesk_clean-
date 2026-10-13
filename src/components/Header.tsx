@@ -5,6 +5,7 @@ import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { useCityRoute, CityId } from '../context/CityRouteContext';
 import { CITIES_DATA } from '../data/citiesDistricts';
+import { hasTestimonialsForCity } from '../data/store';
 
 interface HeaderProps {
   onOpenBooking: (serviceId?: string) => void;
@@ -13,9 +14,25 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
   const { theme, toggleTheme } = useTheme();
   const { language, toggleLanguage, t } = useLanguage();
-  const { currentCityId, navigateToCity, navigateToHome, currentServiceId, isCityRoute } = useCityRoute();
+  const { currentCity, currentCityId, navigateToCity, navigateToHome, currentServiceId, isCityRoute } = useCityRoute();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hasTestimonials, setHasTestimonials] = useState<boolean>(() => hasTestimonialsForCity(currentCity));
+
+  useEffect(() => {
+    setHasTestimonials(hasTestimonialsForCity(currentCity));
+  }, [currentCity]);
+
+  useEffect(() => {
+    const handleUpdate = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      if (customEvent.detail?.type === 'testimonials') {
+        setHasTestimonials(hasTestimonialsForCity(currentCity));
+      }
+    };
+    window.addEventListener('mesk_store_updated', handleUpdate);
+    return () => window.removeEventListener('mesk_store_updated', handleUpdate);
+  }, [currentCity]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,7 +53,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking }) => {
     { label: t('nav.home'), href: '#home' },
     { label: t('nav.services'), href: '#services' },
     { label: t('nav.whyUs'), href: '#why-us' },
-    { label: t('nav.testimonials'), href: '#testimonials' },
+    ...(hasTestimonials ? [{ label: t('nav.testimonials'), href: '#testimonials' }] : []),
     { label: t('nav.faq'), href: '#faq' },
     { label: t('nav.blog'), href: '#blog' },
     { label: language === 'ar' ? 'فروعنا وتغطيتنا' : 'Coverage & Map', href: '#location' },

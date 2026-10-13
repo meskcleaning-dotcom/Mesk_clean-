@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, MessageCircle, MapPin, Instagram, Facebook, Share2, Lock } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyInfo';
 import { SERVICES_DATA } from '../data/servicesData';
 import { useLanguage } from '../context/LanguageContext';
 import { useCityRoute, CityId } from '../context/CityRouteContext';
-import { getStoredCompanySettings } from '../data/store';
+import { getStoredCompanySettings, hasTestimonialsForCity } from '../data/store';
 import { CITIES_DATA } from '../data/citiesDistricts';
 
 interface FooterProps {
@@ -17,6 +17,22 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService, onOpenAdmin, on
   const { language, t } = useLanguage();
   const { currentCity, currentCityId, navigateToCity } = useCityRoute();
   const company = getStoredCompanySettings();
+  const [hasTestimonials, setHasTestimonials] = useState<boolean>(() => hasTestimonialsForCity(currentCity));
+
+  useEffect(() => {
+    setHasTestimonials(hasTestimonialsForCity(currentCity));
+  }, [currentCity]);
+
+  useEffect(() => {
+    const handleUpdate = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      if (customEvent.detail?.type === 'testimonials') {
+        setHasTestimonials(hasTestimonialsForCity(currentCity));
+      }
+    };
+    window.addEventListener('mesk_store_updated', handleUpdate);
+    return () => window.removeEventListener('mesk_store_updated', handleUpdate);
+  }, [currentCity]);
 
   const handleCityClick = (e: React.MouseEvent, cityId: CityId) => {
     e.preventDefault();
@@ -144,11 +160,13 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService, onOpenAdmin, on
                     {t('nav.whyUs')}
                   </a>
                 </li>
-                <li>
-                  <a href="#testimonials" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
-                    {t('nav.testimonials')}
-                  </a>
-                </li>
+                {hasTestimonials && (
+                  <li>
+                    <a href="#testimonials" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+                      {t('nav.testimonials')}
+                    </a>
+                  </li>
+                )}
                 <li>
                   <a href="#faq" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
                     {t('nav.faq')}

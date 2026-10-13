@@ -283,6 +283,35 @@ export const getStoredTestimonials = (): TestimonialItem[] => {
   return INITIAL_TESTIMONIALS;
 };
 
+export const getStoredTestimonialsForCity = (city: { districtsAr?: string[]; districtsEn?: string[]; nameAr: string; nameEn: string }): TestimonialItem[] => {
+  const all = getStoredTestimonials();
+  if (!all || all.length === 0) return [];
+  const districtsAr = city.districtsAr || [];
+  const districtsEn = city.districtsEn || [];
+  return all.filter((item) => {
+    if (!item) return false;
+    const district = item.district?.trim().toLowerCase() || '';
+    const comment = (item.comment || '').toLowerCase() + ' ' + (item.commentEn || '').toLowerCase();
+    const matchesDistrict = districtsAr.some((d) => {
+      const cleanD = d.replace(/^حي\s+/, '').trim().toLowerCase();
+      return cleanD && (district.includes(cleanD) || district === d.toLowerCase());
+    }) || districtsEn.some((d) => {
+      const cleanD = d.replace(/^al\s+/i, '').trim().toLowerCase();
+      return cleanD && (district.includes(cleanD) || district === d.toLowerCase());
+    });
+    const matchesCityName =
+      district.includes(city.nameAr.toLowerCase()) ||
+      district.includes(city.nameEn.toLowerCase()) ||
+      comment.includes(city.nameAr.toLowerCase()) ||
+      comment.includes(city.nameEn.toLowerCase());
+    return matchesDistrict || matchesCityName;
+  });
+};
+
+export const hasTestimonialsForCity = (city: { districtsAr?: string[]; districtsEn?: string[]; nameAr: string; nameEn: string }): boolean => {
+  return getStoredTestimonialsForCity(city).length > 0;
+};
+
 export const saveStoredTestimonials = (testimonials: TestimonialItem[]): void => {
   try {
     localStorage.setItem(STORAGE_KEYS.TESTIMONIALS, JSON.stringify(testimonials));
