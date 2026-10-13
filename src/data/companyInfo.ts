@@ -26,6 +26,6 @@ export const COMPANY_INFO = {
   },
   logo: {
     dark: '/assets/mesk-clean-official-logo.webp',
-    transparent: '/assets/mesk-clean-official-logo-transparent.webp'
+    transparent: '/assets/mesk-logo-header.webp'
   }
 };

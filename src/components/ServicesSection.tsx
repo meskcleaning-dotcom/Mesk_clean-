@@ -137,6 +137,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookService 
                     <img
                       src={service.image}
                       alt={name}
+                      width="768"
+                      height="512"
                       style={{ objectPosition: service.imagePosition }}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       referrerPolicy="no-referrer"
